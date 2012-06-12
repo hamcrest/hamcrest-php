@@ -28,7 +28,7 @@ class Hamcrest_Type_IsCallable extends Hamcrest_BaseMatcher
    *
    * @factory
    */
-  public static function callable()
+  public static function callback()
   {
     return new self;
   }
