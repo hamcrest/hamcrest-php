@@ -1,0 +1,13 @@
+{
+    "name": "davedevelopment/hamcrest-php",
+    "type": "library",
+    "description": "This is the PHP port of Hamcrest Matchers",
+    "keywords": ["test"],
+    "license": "BSD",
+    "authors": [
+    ],
+
+    "require": {
+        "php":          ">=5.3.2",
+    }
+}
