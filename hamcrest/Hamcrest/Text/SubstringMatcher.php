@@ -4,8 +4,8 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-require_once 'Hamcrest/TypeSafeMatcher.php';
-require_once 'Hamcrest/Description.php';
+// require_once 'Hamcrest/TypeSafeMatcher.php';
+// require_once 'Hamcrest/Description.php';
 
 abstract class Hamcrest_Text_SubstringMatcher extends Hamcrest_TypeSafeMatcher
 {

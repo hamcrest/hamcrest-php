@@ -4,7 +4,7 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-require_once 'Hamcrest/Text/SubstringMatcher.php';
+// require_once 'Hamcrest/Text/SubstringMatcher.php';
 
 /**
  * Tests if the argument is a string that ends with a substring.

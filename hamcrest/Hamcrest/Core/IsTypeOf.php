@@ -4,8 +4,8 @@
  Copyright (c) 2010 hamcrest.org
  */
 
-require_once 'Hamcrest/BaseMatcher.php';
-require_once 'Hamcrest/Description.php';
+// require_once 'Hamcrest/BaseMatcher.php';
+// require_once 'Hamcrest/Description.php';
 
 /**
  * Tests whether the value has a built-in type.

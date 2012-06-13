@@ -7,6 +7,12 @@
     "authors": [
     ],
 
+    "autoload": {
+        "psr-0": {
+            "Hamcrest": "hamcrest"
+        }
+    },
+
     "require": {
         "php":          ">=5.3.2"
     }

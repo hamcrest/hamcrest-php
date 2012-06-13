@@ -4,10 +4,10 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-require_once 'Hamcrest/BaseMatcher.php';
-require_once 'Hamcrest/Description.php';
-require_once 'Hamcrest/Core/AnyOf.php';
-require_once 'Hamcrest/Core/IsNull.php';
+// require_once 'Hamcrest/BaseMatcher.php';
+// require_once 'Hamcrest/Description.php';
+// require_once 'Hamcrest/Core/AnyOf.php';
+// require_once 'Hamcrest/Core/IsNull.php';
 
 /**
  * Matches empty Strings (and null).

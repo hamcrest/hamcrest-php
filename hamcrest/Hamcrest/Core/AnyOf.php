@@ -4,8 +4,8 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-require_once 'Hamcrest/Core/ShortcutCombination.php';
-require_once 'Hamcrest/Description.php';
+// require_once 'Hamcrest/Core/ShortcutCombination.php';
+// require_once 'Hamcrest/Description.php';
 
 /**
  * Calculates the logical disjunction of multiple matchers. Evaluation is

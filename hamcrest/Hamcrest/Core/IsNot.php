@@ -4,10 +4,10 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-require_once 'Hamcrest/BaseMatcher.php';
-require_once 'Hamcrest/Matcher.php';
-require_once 'Hamcrest/Description.php';
-require_once 'Hamcrest/Core/IsEqual.php';
+// require_once 'Hamcrest/BaseMatcher.php';
+// require_once 'Hamcrest/Matcher.php';
+// require_once 'Hamcrest/Description.php';
+// require_once 'Hamcrest/Core/IsEqual.php';
 
 /**
  * Calculates the logical negation of a matcher.

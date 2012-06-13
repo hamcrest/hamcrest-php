@@ -4,9 +4,9 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-require_once 'Hamcrest/FeatureMatcher.php';
-require_once 'Hamcrest/Matcher.php';
-require_once 'Hamcrest/Core/IsEqual.php';
+// require_once 'Hamcrest/FeatureMatcher.php';
+// require_once 'Hamcrest/Matcher.php';
+// require_once 'Hamcrest/Core/IsEqual.php';
 
 /**
  * Matches if array size satisfies a nested matcher.

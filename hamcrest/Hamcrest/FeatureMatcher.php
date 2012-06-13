@@ -4,9 +4,9 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-require_once 'Hamcrest/TypeSafeDiagnosingMatcher.php';
-require_once 'Hamcrest/Matcher.php';
-require_once 'Hamcrest/Description.php';
+// require_once 'Hamcrest/TypeSafeDiagnosingMatcher.php';
+// require_once 'Hamcrest/Matcher.php';
+// require_once 'Hamcrest/Description.php';
 
 /**
  * Supporting class for matching a feature of an object. Implement

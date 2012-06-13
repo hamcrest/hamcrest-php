@@ -4,8 +4,8 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-require_once 'Hamcrest/TypeSafeMatcher.php';
-require_once 'Hamcrest/Description.php';
+// require_once 'Hamcrest/TypeSafeMatcher.php';
+// require_once 'Hamcrest/Description.php';
 
 /**
  * Is the value a number equal to a value within some range of

@@ -4,7 +4,7 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-require_once 'Hamcrest/SelfDescribing.php';
+// require_once 'Hamcrest/SelfDescribing.php';
 
 /**
  * A description of a Matcher. A Matcher will describe itself to a description
