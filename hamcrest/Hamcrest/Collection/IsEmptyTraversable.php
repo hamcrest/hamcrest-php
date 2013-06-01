@@ -12,7 +12,7 @@
  */
 class Hamcrest_Collection_IsEmptyTraversable extends Hamcrest_BaseMatcher
 {
-  
+
   private static $_INSTANCE;
   private static $_NOT_INSTANCE;
 
@@ -22,7 +22,7 @@ class Hamcrest_Collection_IsEmptyTraversable extends Hamcrest_BaseMatcher
   {
     $this->_empty = $empty;
   }
-  
+
   public function matches($item)
   {
     if (!$item instanceof Traversable)
@@ -46,10 +46,10 @@ class Hamcrest_Collection_IsEmptyTraversable extends Hamcrest_BaseMatcher
         : 'a non-empty traversable'
       );
   }
-  
+
   /**
    * Returns true if traversable is empty.
-   * 
+   *
    * @factory
    */
   public static function emptyTraversable()
@@ -74,5 +74,5 @@ class Hamcrest_Collection_IsEmptyTraversable extends Hamcrest_BaseMatcher
 
     return self::$_NOT_INSTANCE;
   }
-  
+
 }

@@ -13,19 +13,19 @@
  */
 class Hamcrest_Core_IsEqual extends Hamcrest_BaseMatcher
 {
-  
+
   private $_item;
-  
+
   public function __construct($item)
   {
     $this->_item = $item;
   }
-  
+
   public function matches($arg)
   {
     return (($arg == $this->_item) && ($this->_item == $arg));
   }
-  
+
   public function describeTo(Hamcrest_Description $description)
   {
     $description->appendValue($this->_item);
@@ -41,5 +41,5 @@ class Hamcrest_Core_IsEqual extends Hamcrest_BaseMatcher
   {
     return new self($item);
   }
-  
+
 }

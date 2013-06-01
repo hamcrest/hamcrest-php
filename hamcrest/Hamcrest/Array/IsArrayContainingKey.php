@@ -14,16 +14,16 @@
  */
 class Hamcrest_Array_IsArrayContainingKey extends Hamcrest_TypeSafeMatcher
 {
-  
+
   private $_keyMatcher;
-  
+
   public function __construct(Hamcrest_Matcher $keyMatcher)
   {
     parent::__construct(self::TYPE_ARRAY);
-    
+
     $this->_keyMatcher = $keyMatcher;
   }
-  
+
   protected function matchesSafely($array)
   {
     foreach ($array as $key => $element)
@@ -33,10 +33,10 @@ class Hamcrest_Array_IsArrayContainingKey extends Hamcrest_TypeSafeMatcher
         return true;
       }
     }
-    
+
     return false;
   }
-  
+
   protected function describeMismatchSafely($array,
     Hamcrest_Description $mismatchDescription)
   {
@@ -56,7 +56,7 @@ class Hamcrest_Array_IsArrayContainingKey extends Hamcrest_TypeSafeMatcher
     }
     $mismatchDescription->appendText(']');
   }
-  
+
   public function describeTo(Hamcrest_Description $description)
   {
     $description
@@ -64,10 +64,10 @@ class Hamcrest_Array_IsArrayContainingKey extends Hamcrest_TypeSafeMatcher
          ->appendDescriptionOf($this->_keyMatcher)
          ;
   }
-  
+
   /**
    * Evaluates to true if any key in an array matches the given matcher.
-   * 
+   *
    * @param mixed $key as a {@link Hamcrest_Matcher} or a value.
    *
    * @factory hasKey
@@ -76,5 +76,5 @@ class Hamcrest_Array_IsArrayContainingKey extends Hamcrest_TypeSafeMatcher
   {
     return new self(Hamcrest_Util::wrapValueWithIsEqual($key));
   }
-  
+
 }

@@ -13,23 +13,23 @@
  */
 class Hamcrest_Number_IsCloseTo extends Hamcrest_TypeSafeMatcher
 {
-  
+
   private $_value;
   private $_delta;
-  
+
   public function __construct($value, $delta)
   {
     parent::__construct(self::TYPE_NUMERIC);
-    
+
     $this->_value = $value;
     $this->_delta = $delta;
   }
-  
+
   protected function matchesSafely($item)
   {
     return $this->_actualDelta($item) <= 0.0;
   }
-  
+
   protected function describeMismatchSafely($item,
     Hamcrest_Description $mismatchDescription)
   {
@@ -38,7 +38,7 @@ class Hamcrest_Number_IsCloseTo extends Hamcrest_TypeSafeMatcher
                         ->appendValue($this->_actualDelta($item))
                         ;
   }
-  
+
   public function describeTo(Hamcrest_Description $description)
   {
     $description->appendText('a numeric value within ')
@@ -58,12 +58,12 @@ class Hamcrest_Number_IsCloseTo extends Hamcrest_TypeSafeMatcher
   {
     return new self($value, $delta);
   }
-  
+
   // -- Private Methods
-  
+
   private function _actualDelta($item)
   {
     return (abs(($item - $this->_value)) - $this->_delta);
   }
-  
+
 }

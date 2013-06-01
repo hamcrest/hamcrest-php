@@ -10,16 +10,16 @@
 
 class Hamcrest_Core_Every extends Hamcrest_TypeSafeDiagnosingMatcher
 {
-  
+
   private $_matcher;
-  
+
   public function __construct(Hamcrest_Matcher $matcher)
   {
     parent::__construct(self::TYPE_ARRAY);
-    
+
     $this->_matcher = $matcher;
   }
-  
+
   protected function matchesSafelyWithDiagnosticDescription($items,
     Hamcrest_Description $mismatchDescription)
   {
@@ -29,23 +29,23 @@ class Hamcrest_Core_Every extends Hamcrest_TypeSafeDiagnosingMatcher
       {
         $mismatchDescription->appendText('an item ');
         $this->_matcher->describeMismatch($item, $mismatchDescription);
-        
+
         return false;
       }
     }
-    
+
     return true;
   }
-  
+
   public function describeTo(Hamcrest_Description $description)
   {
     $description->appendText('every item is ')->appendDescriptionOf($this->_matcher);
   }
-  
+
   /**
    * @param Hamcrest_Matcher $itemMatcher
    *   A matcher to apply to every element in an array.
-   * 
+   *
    * @return Hamcrest_Core_Every
    *   Evaluates to TRUE for a collection in which every item matches $itemMatcher
    *
@@ -55,5 +55,5 @@ class Hamcrest_Core_Every extends Hamcrest_TypeSafeDiagnosingMatcher
   {
     return new self($itemMatcher);
   }
-  
+
 }

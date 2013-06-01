@@ -16,7 +16,7 @@ class Hamcrest_Core_HasToString extends Hamcrest_FeatureMatcher
 
   public function __construct(Hamcrest_Matcher $toStringMatcher)
   {
-    parent::__construct(self::TYPE_OBJECT, null, $toStringMatcher, 
+    parent::__construct(self::TYPE_OBJECT, null, $toStringMatcher,
         'an object with toString()', 'toString()'
     );
   }

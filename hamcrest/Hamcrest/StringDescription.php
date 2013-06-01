@@ -12,26 +12,26 @@
  */
 class Hamcrest_StringDescription extends Hamcrest_BaseDescription
 {
-  
+
   private $_out;
-  
+
   public function __construct($out = '')
   {
     $this->_out = (string) $out;
   }
-  
+
   public function __toString()
   {
     return $this->_out;
   }
-  
+
   /**
    * Return the description of a {@link Hamcrest_SelfDescribing} object as a
    * String.
-   * 
+   *
    * @param Hamcrest_SelfDescribing $selfDescribing
    *   The object to be described.
-   * 
+   *
    * @return string
    *   The description of the object.
    */
@@ -40,7 +40,7 @@ class Hamcrest_StringDescription extends Hamcrest_BaseDescription
     $self = new self();
     return (string) $self->appendDescriptionOf($selfDescribing);
   }
-  
+
   /**
    * Alias for {@link toString()}.
    */
@@ -48,12 +48,12 @@ class Hamcrest_StringDescription extends Hamcrest_BaseDescription
   {
     return self::toString($selfDescribing);
   }
-  
+
   // -- Protected Methods
-  
+
   protected function append($str)
   {
     $this->_out .= $str;
   }
-  
+
 }

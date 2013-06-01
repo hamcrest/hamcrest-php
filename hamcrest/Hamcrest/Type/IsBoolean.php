@@ -11,7 +11,7 @@
  */
 class Hamcrest_Type_IsBoolean extends Hamcrest_Core_IsTypeOf
 {
-  
+
   /**
    * Creates a new instance of IsBoolean
    */
@@ -19,7 +19,7 @@ class Hamcrest_Type_IsBoolean extends Hamcrest_Core_IsTypeOf
   {
     parent::__construct('boolean');
   }
-  
+
   /**
    * Is the value a boolean?
    *
@@ -29,5 +29,5 @@ class Hamcrest_Type_IsBoolean extends Hamcrest_Core_IsTypeOf
   {
     return new self;
   }
-  
+
 }

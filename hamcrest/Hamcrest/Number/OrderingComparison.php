@@ -9,26 +9,26 @@
 
 class Hamcrest_Number_OrderingComparison extends Hamcrest_TypeSafeMatcher
 {
-  
+
   private $_value;
   private $_minCompare;
   private $_maxCompare;
-  
+
   public function __construct($value, $minCompare, $maxCompare)
   {
     parent::__construct(self::TYPE_NUMERIC);
-    
+
     $this->_value = $value;
     $this->_minCompare = $minCompare;
     $this->_maxCompare = $maxCompare;
   }
-  
+
   protected function matchesSafely($other)
   {
     $compare = $this->_compare($this->_value, $other);
     return ($this->_minCompare <= $compare) && ($compare <= $this->_maxCompare);
   }
-  
+
   protected function describeMismatchSafely($item,
     Hamcrest_Description $mismatchDescription)
   {
@@ -38,7 +38,7 @@ class Hamcrest_Number_OrderingComparison extends Hamcrest_TypeSafeMatcher
       ->appendText(' ')->appendValue($this->_value)
       ;
   }
-  
+
   public function describeTo(Hamcrest_Description $description)
   {
     $description->appendText('a value ')
@@ -52,7 +52,7 @@ class Hamcrest_Number_OrderingComparison extends Hamcrest_TypeSafeMatcher
     }
     $description->appendText(' ')->appendValue($this->_value);
   }
-  
+
   /**
    * The value is not > $value, nor < $value.
    *
@@ -62,7 +62,7 @@ class Hamcrest_Number_OrderingComparison extends Hamcrest_TypeSafeMatcher
   {
     return new self($value, 0, 0);
   }
-  
+
   /**
    * The value is > $value.
    *
@@ -72,7 +72,7 @@ class Hamcrest_Number_OrderingComparison extends Hamcrest_TypeSafeMatcher
   {
     return new self($value, -1, -1);
   }
-  
+
   /**
    * The value is >= $value.
    *
@@ -82,7 +82,7 @@ class Hamcrest_Number_OrderingComparison extends Hamcrest_TypeSafeMatcher
   {
     return new self($value, -1, 0);
   }
-  
+
   /**
    * The value is < $value.
    *
@@ -92,7 +92,7 @@ class Hamcrest_Number_OrderingComparison extends Hamcrest_TypeSafeMatcher
   {
     return new self($value, 1, 1);
   }
-  
+
   /**
    * The value is <= $value.
    *
@@ -102,14 +102,14 @@ class Hamcrest_Number_OrderingComparison extends Hamcrest_TypeSafeMatcher
   {
     return new self($value, 0, 1);
   }
-  
+
   // -- Private Methods
-  
+
   private function _compare($left, $right)
   {
     $a = $left;
     $b = $right;
-    
+
     if ($a < $b)
     {
       return -1;
@@ -123,7 +123,7 @@ class Hamcrest_Number_OrderingComparison extends Hamcrest_TypeSafeMatcher
       return 1;
     }
   }
-  
+
   private function _comparison($compare)
   {
     if ($compare > 0)
@@ -139,5 +139,5 @@ class Hamcrest_Number_OrderingComparison extends Hamcrest_TypeSafeMatcher
       return 'greater than';
     }
   }
-  
+
 }

@@ -11,7 +11,7 @@
  */
 class Hamcrest_Type_IsInteger extends Hamcrest_Core_IsTypeOf
 {
-  
+
   /**
    * Creates a new instance of IsInteger
    */
@@ -19,7 +19,7 @@ class Hamcrest_Type_IsInteger extends Hamcrest_Core_IsTypeOf
   {
     parent::__construct('integer');
   }
-  
+
   /**
    * Is the value an integer?
    *
@@ -29,5 +29,5 @@ class Hamcrest_Type_IsInteger extends Hamcrest_Core_IsTypeOf
   {
     return new self;
   }
-  
+
 }

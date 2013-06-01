@@ -11,7 +11,7 @@
  */
 class Hamcrest_Type_IsString extends Hamcrest_Core_IsTypeOf
 {
-  
+
   /**
    * Creates a new instance of IsString
    */
@@ -19,7 +19,7 @@ class Hamcrest_Type_IsString extends Hamcrest_Core_IsTypeOf
   {
     parent::__construct('string');
   }
-  
+
   /**
    * Is the value a string?
    *
@@ -29,5 +29,5 @@ class Hamcrest_Type_IsString extends Hamcrest_Core_IsTypeOf
   {
     return new self;
   }
-  
+
 }

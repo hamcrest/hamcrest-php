@@ -12,9 +12,9 @@
  */
 class Hamcrest_Core_IsTypeOf extends Hamcrest_BaseMatcher
 {
-  
+
   private $_theType;
-  
+
   /**
    * Creates a new instance of IsTypeOf
    *
@@ -25,12 +25,12 @@ class Hamcrest_Core_IsTypeOf extends Hamcrest_BaseMatcher
   {
     $this->_theType = strtolower($theType);
   }
-  
+
   public function matches($item)
   {
     return strtolower(gettype($item)) == $this->_theType;
   }
-  
+
   public function describeTo(Hamcrest_Description $description)
   {
     $description->appendText(self::getTypeDescription($this->_theType));
@@ -62,7 +62,7 @@ class Hamcrest_Core_IsTypeOf extends Hamcrest_BaseMatcher
     return (strpos('aeiou', substr($type, 0, 1)) === false ? 'a ' : 'an ')
         . $type;
   }
-  
+
   /**
    * Is the value a particular built-in type?
    *
@@ -72,5 +72,5 @@ class Hamcrest_Core_IsTypeOf extends Hamcrest_BaseMatcher
   {
     return new self($theType);
   }
-  
+
 }

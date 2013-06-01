@@ -12,9 +12,9 @@
  */
 class Hamcrest_Core_IsInstanceOf extends Hamcrest_DiagnosingMatcher
 {
-  
+
   private $_theClass;
-  
+
   /**
    * Creates a new instance of IsInstanceOf
    *
@@ -26,7 +26,7 @@ class Hamcrest_Core_IsInstanceOf extends Hamcrest_DiagnosingMatcher
   {
     $this->_theClass = $theClass;
   }
-  
+
   protected function matchesWithDiagnosticDescription($item,
     Hamcrest_Description $mismatchDescription)
   {
@@ -35,24 +35,24 @@ class Hamcrest_Core_IsInstanceOf extends Hamcrest_DiagnosingMatcher
       $mismatchDescription->appendText('was ')->appendValue($item);
       return false;
     }
-    
+
     if (!($item instanceof $this->_theClass))
     {
       $mismatchDescription->appendText('[' . get_class($item) . '] ')
                           ->appendValue($item);
       return false;
     }
-    
+
     return true;
   }
-  
+
   public function describeTo(Hamcrest_Description $description)
   {
     $description->appendText('an instance of ')
                 ->appendText($this->_theClass)
                 ;
   }
-  
+
   /**
    * Is the value an instance of a particular type?
    * This version assumes no relationship between the required type and
@@ -65,5 +65,5 @@ class Hamcrest_Core_IsInstanceOf extends Hamcrest_DiagnosingMatcher
   {
     return new self($theClass);
   }
-  
+
 }

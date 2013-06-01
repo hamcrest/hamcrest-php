@@ -23,30 +23,30 @@
  */
 interface Hamcrest_Matcher extends Hamcrest_SelfDescribing
 {
-  
+
   /**
    * Evaluates the matcher for argument <var>$item</var>.
-   * 
+   *
    * @param mixed $item the object against which the matcher is evaluated.
-   * 
+   *
    * @return boolean <code>true</code> if <var>$item</var> matches,
    *   otherwise <code>false</code>.
-   * 
+   *
    * @see Hamcrest_BaseMatcher
    */
   public function matches($item);
-  
+
   /**
    * Generate a description of why the matcher has not accepted the item.
    * The description will be part of a larger description of why a matching
-   * failed, so it should be concise. 
-   * This method assumes that <code>matches($item)</code> is false, but 
+   * failed, so it should be concise.
+   * This method assumes that <code>matches($item)</code> is false, but
    * will not check this.
-   * 
+   *
    * @param mixed $item The item that the Matcher has rejected.
    * @param Hamcrest_Description $mismatchDescription
    *   The description to be built or appended to.
    */
   public function describeMismatch($item, Hamcrest_Description $description);
-  
+
 }
