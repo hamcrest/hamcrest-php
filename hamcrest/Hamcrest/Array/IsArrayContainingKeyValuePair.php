@@ -2,7 +2,7 @@
 
 require_once 'Hamcrest/TypeSafeMatcher.php';
 require_once 'Hamcrest/Description.php';
-require_once 'Hamcrest/Core/IsEqual.php';
+require_once 'Hamcrest/Util.php';
 
 /**
  * Tests for the presence of both a key and value inside an array.
@@ -74,17 +74,10 @@ class Hamcrest_Array_IsArrayContainingKeyValuePair
    */
   public static function hasKeyValuePair($key, $value)
   {
-    $keyMatcher = ($key instanceof Hamcrest_Matcher)
-      ? $key
-      : Hamcrest_Core_IsEqual::equalTo($key)
-      ;
-    
-    $valueMatcher = ($value instanceof Hamcrest_Matcher)
-      ? $value
-      : Hamcrest_Core_IsEqual::equalTo($value)
-      ;
-    
-    return new self($keyMatcher, $valueMatcher);
+    return new self(
+      Hamcrest_Util::wrapValueWithIsEqual($key),
+      Hamcrest_Util::wrapValueWithIsEqual($value)
+    );
   }
   
 }

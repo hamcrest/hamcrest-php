@@ -1,9 +1,35 @@
-== Version 1.0.0: Not Released ==
+== Version 1.1.0: Released Feb 2 2012 ==
 
-Issues Fixed: 119, 136, 139, 141
+Issues Fixed: 121, 138, 147
 
-* Moved hamcrest.php into hamcrest folder and renamed to Hamcrest.php.
+* Added non-empty matchers to complement the emptiness-matching forms.
+
+  - nonEmptyString()
+  - nonEmptyArray()
+  - nonEmptyTraversable()
+
+* Added ability to pass variable arguments to several array-based matcher
+  factory methods so they work like allOf() et al.
+
+  - anArray()
+  - arrayContainingInAnyOrder(), containsInAnyOrder()
+  - arrayContaining(), contains()
+  - stringContainsInOrder()
+
+* Matchers that accept an array of matchers now also accept variable arguments.
+  Any non-matcher arguments are wrapped by IsEqual.
+
+* Added noneOf() as a shortcut for not(anyOf()).
+
+
+== Version 1.0.0: Released Jan 20 2012 ==
+
+Issues Fixed: 119, 136, 139, 141, 148, 149, 172
+
+* Moved hamcrest.php into Hamcrest folder and renamed to Hamcrest.php.
   This is more in line with PEAR packaging standards.
+
+* Renamed callable() to callableValue() for compatibility with PHP 5.4.
 
 * Added Hamcrest_Text_StringContainsIgnoringCase to assert using stripos().
 
@@ -118,6 +144,7 @@ Issues Fixed: 109, 111, 114, 115
     assertThat(array('SomeClass', 'SomeMethod'), callable());
     assertThat(array($object, 'SomeMethod'), callable());
     assertThat($object, callable());
+    assertThat(function ($x, $y) { return $x + $y; }, callable());
 
 * Added Hamcrest_Text_MatchesPattern for regex matching with preg_match().
 

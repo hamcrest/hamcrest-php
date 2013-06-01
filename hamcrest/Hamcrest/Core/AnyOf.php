@@ -6,6 +6,7 @@
 
 require_once 'Hamcrest/Core/ShortcutCombination.php';
 require_once 'Hamcrest/Description.php';
+require_once 'Hamcrest/Util.php';
 
 /**
  * Calculates the logical disjunction of multiple matchers. Evaluation is
@@ -35,19 +36,23 @@ class Hamcrest_Core_AnyOf extends Hamcrest_Core_ShortcutCombination
    *
    * @factory ...
    */
-  public static function anyOf()
+  public static function anyOf(/* args... */)
   {
     $args = func_get_args();
+    return new self(Hamcrest_Util::createMatcherArray($args));
+  }
     
-    //If array of matchers passed
-    if (isset($args[0]) && is_array($args[0]))
+  /**
+   * Evaluates to false if ANY of the passed in matchers evaluate to true.
+   *
+   * @factory ...
+   */
+  public static function noneOf(/* args... */)
     {
-      return new self($args[0]);
-    }
-    else //variable number of matcher args passed
-    {
-      return new self($args);
-    }
+    $args = func_get_args();
+    return Hamcrest_Core_IsNot::not(
+      new self(Hamcrest_Util::createMatcherArray($args))
+    );
   }
   
 }

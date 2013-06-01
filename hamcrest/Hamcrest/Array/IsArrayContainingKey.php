@@ -7,7 +7,7 @@
 require_once 'Hamcrest/TypeSafeMatcher.php';
 require_once 'Hamcrest/Description.php';
 require_once 'Hamcrest/Matcher.php';
-require_once 'Hamcrest/Core/IsEqual.php';
+require_once 'Hamcrest/Util.php';
 
 /**
  * Matches if an array contains the specified key.
@@ -74,12 +74,7 @@ class Hamcrest_Array_IsArrayContainingKey extends Hamcrest_TypeSafeMatcher
    */
   public static function hasKeyInArray($key)
   {
-    $matcher = ($key instanceof Hamcrest_Matcher)
-      ? $key
-      : Hamcrest_Core_IsEqual::equalTo($key)
-      ;
-    
-    return new self($matcher);
+    return new self(Hamcrest_Util::wrapValueWithIsEqual($key));
   }
   
 }

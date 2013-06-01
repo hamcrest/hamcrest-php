@@ -9,22 +9,22 @@ class Hamcrest_Core_AllOfTest extends Hamcrest_AbstractMatcherTest
   
   protected function createMatcher()
   {
-    return Hamcrest_Core_AllOf::allOf(equalTo('irrelevant'));
+    return Hamcrest_Core_AllOf::allOf('irrelevant');
   }
   
-  public function testEvaluatesToTheTheLogicalConjunctionOfTwoOtherMatchers()
+  public function testEvaluatesToTheLogicalConjunctionOfTwoOtherMatchers()
   {
-    assertThat('good', allOf(equalTo('good'), equalTo('good')));
+    assertThat('good', allOf('good', 'good'));
 
-    assertThat('good', not(allOf(equalTo('bad'), equalTo('good'))));
-    assertThat('good', not(allOf(equalTo('good'), equalTo('bad'))));
-    assertThat('good', not(allOf(equalTo('bad'), equalTo('bad'))));
+    assertThat('good', not(allOf('bad', 'good')));
+    assertThat('good', not(allOf('good', 'bad')));
+    assertThat('good', not(allOf('bad', 'bad')));
   }
   
-  public function testEvaluatesToTheTheLogicalConjunctionOfManyOtherMatchers()
+  public function testEvaluatesToTheLogicalConjunctionOfManyOtherMatchers()
   {
-    assertThat('good', allOf(equalTo('good'), equalTo('good'), equalTo('good'), equalTo('good'), equalTo('good')));
-    assertThat('good', not(allOf(equalTo('good'), equalTo('good'), equalTo('bad'), equalTo('good'), equalTo('good'))));
+    assertThat('good', allOf('good', 'good', 'good', 'good', 'good'));
+    assertThat('good', not(allOf('good', endsWith('d'), 'bad', 'good', 'good')));
   }
   
   public function testSupportsMixedTypes()
@@ -43,14 +43,14 @@ class Hamcrest_Core_AllOfTest extends Hamcrest_AbstractMatcherTest
   public function testHasAReadableDescription()
   {
     $this->assertDescription('("good" and "bad" and "ugly")',
-      allOf(equalTo('good'), equalTo('bad'), equalTo('ugly'))
+      allOf('good', 'bad', 'ugly')
     );
   }
   
   public function testMismatchDescriptionDescribesFirstFailingMatch()
   {
     $this->assertMismatchDescription('"good" was "bad"',
-      allOf(equalTo('bad'), equalTo('good')), 'bad'
+      allOf('bad', 'good'), 'bad'
     );
   }
   

@@ -54,11 +54,17 @@ class Hamcrest_Text_StringContainsInOrder extends Hamcrest_TypeSafeMatcher
   /**
    * Matches if value contains $substrings in a constrained order.
    *
-   * @factory
+   * @factory ...
    */
-  public static function stringContainsInOrder(array $substrings)
+  public static function stringContainsInOrder(/* args... */)
   {
-    return new self($substrings);
+    $args = func_get_args();
+
+    if (isset($args[0]) && is_array($args[0])) {
+      $args = $args[0];
+    }
+
+    return new self($args);
   }
   
 }

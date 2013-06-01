@@ -8,12 +8,11 @@ class Hamcrest_Array_IsArrayContainingInAnyOrderTest
   
   protected function createMatcher()
   {
-    return Hamcrest_Array_IsArrayContainingInAnyOrder::arrayContainingInAnyOrder(array(equalTo(1), equalTo(2)));
+    return Hamcrest_Array_IsArrayContainingInAnyOrder::arrayContainingInAnyOrder(array(1, 2));
   }
   
   public function testHasAReadableDescription()
   {
-    $this->assertDescription('[<1>, <2>] in any order', containsInAnyOrder(array(equalTo(1), equalTo(2))));
     $this->assertDescription('[<1>, <2>] in any order', containsInAnyOrder(array(1, 2)));
   }
   
@@ -27,17 +26,17 @@ class Hamcrest_Array_IsArrayContainingInAnyOrderTest
   public function testAppliesMatchersInAnyOrder()
   {
     $this->assertMatches(
-      containsInAnyOrder(array(equalTo(1), equalTo(2), equalTo(3))),
+      containsInAnyOrder(array(1, 2, 3)),
       array(1, 2, 3),
       'in order'
     );
     $this->assertMatches(
-      containsInAnyOrder(array(equalTo(1), equalTo(2), equalTo(3))),
+      containsInAnyOrder(array(1, 2, 3)),
       array(3, 2, 1),
       'out of order'
     );
     $this->assertMatches(
-      containsInAnyOrder(array(equalTo(1))),
+      containsInAnyOrder(array(1)),
       array(1),
       'single'
     );

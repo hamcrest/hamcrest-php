@@ -6,6 +6,7 @@
 
 require_once 'Hamcrest/BaseMatcher.php';
 require_once 'Hamcrest/Description.php';
+require_once 'Hamcrest/Util.php';
 
 abstract class Hamcrest_Core_ShortcutCombination extends Hamcrest_BaseMatcher
 {
@@ -14,13 +15,7 @@ abstract class Hamcrest_Core_ShortcutCombination extends Hamcrest_BaseMatcher
   
   public function __construct(array $matchers)
   {
-    foreach ($matchers as $m)
-    {
-      if (!($m instanceof Hamcrest_Matcher))
-      {
-        throw new InvalidArgumentException();
-      }
-    }
+    Hamcrest_Util::checkAllAreMatchers($matchers);
     
     $this->_matchers = $matchers;
   }

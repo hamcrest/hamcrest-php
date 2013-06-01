@@ -4,23 +4,25 @@
  Copyright (c) 2010 hamcrest.org
  */
 
-require_once 'Hamcrest/BaseMatcher.php';
-require_once 'Hamcrest/Description.php';
+require_once 'Hamcrest/Core/IsTypeOf.php';
 
 /**
- * Tests whether the value is an integer.
+ * Tests whether the value is callable.
  */
-class Hamcrest_Type_IsCallable extends Hamcrest_BaseMatcher
+class Hamcrest_Type_IsCallable extends Hamcrest_Core_IsTypeOf
 {
+
+  /**
+   * Creates a new instance of IsCallable
+   */
+  public function __construct()
+  {
+    parent::__construct('callable');
+  }
 
   public function matches($item)
   {
     return is_callable($item);
-  }
-
-  public function describeTo(Hamcrest_Description $description)
-  {
-    $description->appendText('function name, callback array, Closure, or callable object');
   }
   
   /**
@@ -28,7 +30,7 @@ class Hamcrest_Type_IsCallable extends Hamcrest_BaseMatcher
    *
    * @factory
    */
-  public static function callable()
+  public static function callableValue()
   {
     return new self;
   }

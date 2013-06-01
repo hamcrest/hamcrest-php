@@ -34,10 +34,11 @@ function assertThat()
 /**
  * Evaluates to true only if each $matcher[$i] is satisfied by $array[$i].
  */
-function anArray($array)
+function anArray(/* args... */)
 {
   require_once 'Hamcrest/Array/IsArray.php';
-  return Hamcrest_Array_IsArray::anArray($array);
+  $args = func_get_args();
+  return call_user_func_array(array('Hamcrest_Array_IsArray', 'anArray'), $args);
 }
 
 /**
@@ -65,37 +66,41 @@ function hasValue($item)
 /**
  * An array with elements that match the given matchers.
  */
-function arrayContainingInAnyOrder(array $items)
+function arrayContainingInAnyOrder(/* args... */)
 {
   require_once 'Hamcrest/Array/IsArrayContainingInAnyOrder.php';
-  return Hamcrest_Array_IsArrayContainingInAnyOrder::arrayContainingInAnyOrder($items);
+  $args = func_get_args();
+  return call_user_func_array(array('Hamcrest_Array_IsArrayContainingInAnyOrder', 'arrayContainingInAnyOrder'), $args);
 }
 
 /**
  * An array with elements that match the given matchers.
  */
-function containsInAnyOrder(array $items)
+function containsInAnyOrder(/* args... */)
 {
   require_once 'Hamcrest/Array/IsArrayContainingInAnyOrder.php';
-  return Hamcrest_Array_IsArrayContainingInAnyOrder::arrayContainingInAnyOrder($items);
+  $args = func_get_args();
+  return call_user_func_array(array('Hamcrest_Array_IsArrayContainingInAnyOrder', 'arrayContainingInAnyOrder'), $args);
 }
 
 /**
  * An array with elements that match the given matchers in the same order.
  */
-function arrayContaining(array $items)
+function arrayContaining(/* args... */)
 {
   require_once 'Hamcrest/Array/IsArrayContainingInOrder.php';
-  return Hamcrest_Array_IsArrayContainingInOrder::arrayContaining($items);
+  $args = func_get_args();
+  return call_user_func_array(array('Hamcrest_Array_IsArrayContainingInOrder', 'arrayContaining'), $args);
 }
 
 /**
  * An array with elements that match the given matchers in the same order.
  */
-function contains(array $items)
+function contains(/* args... */)
 {
   require_once 'Hamcrest/Array/IsArrayContainingInOrder.php';
-  return Hamcrest_Array_IsArrayContainingInOrder::arrayContaining($items);
+  $args = func_get_args();
+  return call_user_func_array(array('Hamcrest_Array_IsArrayContainingInOrder', 'arrayContaining'), $args);
 }
 
 /**
@@ -140,6 +145,8 @@ function hasEntry($key, $value)
 
 /**
  * Does array size satisfy a given matcher?
+ * 
+ * @param int $size as a {@link Hamcrest_Matcher} or a value.
  */
 function arrayWithSize($size)
 {
@@ -157,12 +164,30 @@ function emptyArray()
 }
 
 /**
- * Is traversable empty?
+ * Matches an empty array.
+ */
+function nonEmptyArray()
+{
+  require_once 'Hamcrest/Array/IsArrayWithSize.php';
+  return Hamcrest_Array_IsArrayWithSize::nonEmptyArray();
+}
+
+/**
+ * Returns true if traversable is empty.
  */
 function emptyTraversable()
 {
   require_once 'Hamcrest/Collection/IsEmptyTraversable.php';
   return Hamcrest_Collection_IsEmptyTraversable::emptyTraversable();
+}
+
+/**
+ * Returns true if traversable is not empty.
+ */
+function nonEmptyTraversable()
+{
+  require_once 'Hamcrest/Collection/IsEmptyTraversable.php';
+  return Hamcrest_Collection_IsEmptyTraversable::nonEmptyTraversable();
 }
 
 /**
@@ -192,6 +217,16 @@ function anyOf(/* args... */)
   require_once 'Hamcrest/Core/AnyOf.php';
   $args = func_get_args();
   return call_user_func_array(array('Hamcrest_Core_AnyOf', 'anyOf'), $args);
+}
+
+/**
+ * Evaluates to false if ANY of the passed in matchers evaluate to true.
+ */
+function noneOf(/* args... */)
+{
+  require_once 'Hamcrest/Core/AnyOf.php';
+  $args = func_get_args();
+  return call_user_func_array(array('Hamcrest_Core_AnyOf', 'noneOf'), $args);
 }
 
 /**
@@ -493,7 +528,7 @@ function atMost($value)
 }
 
 /**
- * Matches if value is zero-length string.
+ * Matches if value is a zero-length string.
  */
 function isEmptyString()
 {
@@ -502,7 +537,7 @@ function isEmptyString()
 }
 
 /**
- * Matches if value is zero-length string.
+ * Matches if value is a zero-length string.
  */
 function emptyString()
 {
@@ -511,7 +546,7 @@ function emptyString()
 }
 
 /**
- * Matches if value is null or zero-length string.
+ * Matches if value is null or a zero-length string.
  */
 function isEmptyOrNullString()
 {
@@ -520,12 +555,30 @@ function isEmptyOrNullString()
 }
 
 /**
- * Matches if value is null or zero-length string.
+ * Matches if value is null or a zero-length string.
  */
 function nullOrEmptyString()
 {
   require_once 'Hamcrest/Text/IsEmptyString.php';
   return Hamcrest_Text_IsEmptyString::isEmptyOrNullString();
+}
+
+/**
+ * Matches if value is a non-zero-length string.
+ */
+function isNonEmptyString()
+{
+  require_once 'Hamcrest/Text/IsEmptyString.php';
+  return Hamcrest_Text_IsEmptyString::isNonEmptyString();
+}
+
+/**
+ * Matches if value is a non-zero-length string.
+ */
+function nonEmptyString()
+{
+  require_once 'Hamcrest/Text/IsEmptyString.php';
+  return Hamcrest_Text_IsEmptyString::isNonEmptyString();
 }
 
 /**
@@ -576,10 +629,11 @@ function containsStringIgnoringCase($substring)
 /**
  * Matches if value contains $substrings in a constrained order.
  */
-function stringContainsInOrder(array $substrings)
+function stringContainsInOrder(/* args... */)
 {
   require_once 'Hamcrest/Text/StringContainsInOrder.php';
-  return Hamcrest_Text_StringContainsInOrder::stringContainsInOrder($substrings);
+  $args = func_get_args();
+  return call_user_func_array(array('Hamcrest_Text_StringContainsInOrder', 'stringContainsInOrder'), $args);
 }
 
 /**
@@ -630,10 +684,10 @@ function boolValue()
 /**
  * Is the value callable?
  */
-function callable()
+function callableValue()
 {
   require_once 'Hamcrest/Type/IsCallable.php';
-  return Hamcrest_Type_IsCallable::callable();
+  return Hamcrest_Type_IsCallable::callableValue();
 }
 
 /**

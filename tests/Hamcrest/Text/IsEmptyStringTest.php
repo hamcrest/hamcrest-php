@@ -10,41 +10,81 @@ class Hamcrest_Text_IsEmptyStringTest extends Hamcrest_AbstractMatcherTest
     return Hamcrest_Text_IsEmptyString::isEmptyOrNullString();
   }
   
-  public function testEmptyOrNullIsNull()
+  public function testEmptyDoesNotMatchNull()
   {
-    assertThat(null, isEmptyOrNullString());
+    $this->assertDoesNotMatch(emptyString(), null, 'null');
   }
   
-  public function testZeroIsNotEmptyOrNullString()
+  public function testEmptyDoesNotMatchZero()
   {
-    assertThat(0, not(isEmptyOrNullString()));
+    $this->assertDoesNotMatch(emptyString(), 0, 'zero');
   }
   
-  public function testFalseIsNotEmptyOrNullString()
+  public function testEmptyDoesNotMatchFalse()
   {
-    assertThat(false, not(isEmptyOrNullString()));
+    $this->assertDoesNotMatch(emptyString(), false, 'false');
   }
   
-  public function testEmptyIsNotNull()
+  public function testEmptyDoesNotMatchEmptyArray()
   {
-    assertThat(null, not(isEmptyString()));
+    $this->assertDoesNotMatch(emptyString(), array(), 'empty array');
   }
   
-  public function testMatchesEmptyString()
+  public function testEmptyMatchesEmptyString()
   {
-    $this->assertMatches(isEmptyString(), '', 'empty string');
-    $this->assertMatches(isEmptyOrNullString(), '', 'empty string');
+    $this->assertMatches(emptyString(), '', 'empty string');
   }
   
-  public function testDoesNotMatchNonEmptyString()
+  public function testEmptyDoesNotMatchNonEmptyString()
   {
-    $this->assertDoesNotMatch(isEmptyString(), 'a', 'non empty string');
+    $this->assertDoesNotMatch(emptyString(), 'foo', 'non-empty string');
   }
   
-  public function testHasAReadableDescription()
+  public function testEmptyHasAReadableDescription()
   {
-    $this->assertDescription('an empty string', isEmptyString());
-    $this->assertDescription('(null or an empty string)', isEmptyOrNullString());
+    $this->assertDescription('an empty string', emptyString());
+  }
+
+
+  public function testEmptyOrNullMatchesNull()
+  {
+    $this->assertMatches(nullOrEmptyString(), null, 'null');
+  }
+
+  public function testEmptyOrNullMatchesEmptyString()
+  {
+    $this->assertMatches(nullOrEmptyString(), '', 'empty string');
+  }
+
+  public function testEmptyOrNullDoesNotMatchNonEmptyString()
+  {
+    $this->assertDoesNotMatch(nullOrEmptyString(), 'foo', 'non-empty string');
+  }
+
+  public function testEmptyOrNullHasAReadableDescription()
+  {
+    $this->assertDescription('(null or an empty string)', nullOrEmptyString());
+  }
+
+
+  public function testNonEmptyDoesNotMatchNull()
+  {
+    $this->assertDoesNotMatch(nonEmptyString(), null, 'null');
+  }
+
+  public function testNonEmptyDoesNotMatchEmptyString()
+  {
+    $this->assertDoesNotMatch(nonEmptyString(), '', 'empty string');
+  }
+
+  public function testNonEmptyMatchesNonEmptyString()
+  {
+    $this->assertMatches(nonEmptyString(), 'foo', 'non-empty string');
+  }
+
+  public function testNonEmptyHasAReadableDescription()
+  {
+    $this->assertDescription('a non-empty string', nonEmptyString());
   }
   
 }
