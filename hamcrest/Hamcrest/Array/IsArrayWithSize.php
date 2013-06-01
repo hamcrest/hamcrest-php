@@ -15,19 +15,19 @@
  */
 class Hamcrest_Array_IsArrayWithSize extends Hamcrest_FeatureMatcher
 {
-  
+
   public function __construct(Hamcrest_Matcher $sizeMatcher)
   {
     parent::__construct(self::TYPE_ARRAY, null, $sizeMatcher,
       'an array with size', 'array size'
     );
   }
-  
+
   protected function featureValueOf($array)
   {
     return count($array);
   }
-  
+
   /**
    * Does array size satisfy a given matcher?
    *
@@ -39,7 +39,7 @@ class Hamcrest_Array_IsArrayWithSize extends Hamcrest_FeatureMatcher
   {
     return new self(Hamcrest_Util::wrapValueWithIsEqual($size));
   }
-  
+
   /**
    * Matches an empty array.
    *
@@ -65,5 +65,5 @@ class Hamcrest_Array_IsArrayWithSize extends Hamcrest_FeatureMatcher
       self::arrayWithSize(Hamcrest_Core_IsNot::not(0))
     );
   }
-  
+
 }

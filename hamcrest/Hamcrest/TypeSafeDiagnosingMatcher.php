@@ -11,27 +11,27 @@
 abstract class Hamcrest_TypeSafeDiagnosingMatcher
   extends Hamcrest_TypeSafeMatcher
 {
-  
+
   public final function matchesSafely($item)
   {
     return $this->matchesSafelyWithDiagnosticDescription($item,
         new Hamcrest_NullDescription());
   }
-  
+
   public final function describeMismatchSafely($item,
     Hamcrest_Description $mismatchDescription)
   {
     $this->matchesSafelyWithDiagnosticDescription($item,
         $mismatchDescription);
   }
-  
+
   // -- Protected Methods
-  
+
   /**
    * Subclasses should implement these. The item will already have been checked for
    * the specific type.
    */
   abstract protected function matchesSafelyWithDiagnosticDescription($item,
     Hamcrest_Description $mismatchDescription);
-  
+
 }

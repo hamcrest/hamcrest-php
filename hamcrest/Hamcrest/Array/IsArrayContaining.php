@@ -14,16 +14,16 @@
  */
 class Hamcrest_Array_IsArrayContaining extends Hamcrest_TypeSafeMatcher
 {
-  
+
   private $_elementMatcher;
-  
+
   public function __construct(Hamcrest_Matcher $elementMatcher)
   {
     parent::__construct(self::TYPE_ARRAY);
-    
+
     $this->_elementMatcher = $elementMatcher;
   }
-  
+
   protected function matchesSafely($array)
   {
     foreach ($array as $element)
@@ -33,16 +33,16 @@ class Hamcrest_Array_IsArrayContaining extends Hamcrest_TypeSafeMatcher
         return true;
       }
     }
-    
+
     return false;
   }
-  
+
   protected function describeMismatchSafely($array,
     Hamcrest_Description $mismatchDescription)
   {
     $mismatchDescription->appendText('was ')->appendValue($array);
   }
-  
+
   public function describeTo(Hamcrest_Description $description)
   {
     $description
@@ -50,10 +50,10 @@ class Hamcrest_Array_IsArrayContaining extends Hamcrest_TypeSafeMatcher
          ->appendDescriptionOf($this->_elementMatcher)
     ;
   }
-  
+
   /**
    * Evaluates to true if any item in an array satisfies the given matcher.
-   * 
+   *
    * @param mixed $item as a {@link Hamcrest_Matcher} or a value.
    *
    * @return \Hamcrest_Array_IsArrayContaining
@@ -63,4 +63,5 @@ class Hamcrest_Array_IsArrayContaining extends Hamcrest_TypeSafeMatcher
   {
     return new self(Hamcrest_Util::wrapValueWithIsEqual($item));
   }
+
 }

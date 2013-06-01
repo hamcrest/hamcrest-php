@@ -11,7 +11,7 @@
  */
 class Hamcrest_Text_StringEndsWith extends Hamcrest_Text_SubstringMatcher
 {
-  
+
   public function __construct($substring)
   {
     parent::__construct($substring);
@@ -26,17 +26,17 @@ class Hamcrest_Text_StringEndsWith extends Hamcrest_Text_SubstringMatcher
   {
     return new self($substring);
   }
-  
+
   // -- Protected Methods
-  
+
   protected function evalSubstringOf($string)
   {
     return (substr($string, (-1 * strlen($this->_substring))) === $this->_substring);
   }
-  
+
   protected function relationship()
   {
     return 'ending with';
   }
-  
+
 }

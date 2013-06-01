@@ -16,16 +16,16 @@
  */
 class Hamcrest_Core_AllOf extends Hamcrest_DiagnosingMatcher
 {
-  
+
   private $_matchers;
-  
+
   public function __construct(array $matchers)
   {
     Hamcrest_Util::checkAllAreMatchers($matchers);
-    
+
     $this->_matchers = $matchers;
   }
-  
+
   public function matchesWithDiagnosticDescription($item,
     Hamcrest_Description $mismatchDescription)
   {
@@ -35,19 +35,19 @@ class Hamcrest_Core_AllOf extends Hamcrest_DiagnosingMatcher
       {
         $mismatchDescription->appendDescriptionOf($matcher)->appendText(' ');
         $matcher->describeMismatch($item, $mismatchDescription);
-        
+
         return false;
       }
     }
-    
+
     return true;
   }
-  
+
   public function describeTo(Hamcrest_Description $description)
   {
     $description->appendList('(', ' and ', ')', $this->_matchers);
   }
-  
+
   /**
    * Evaluates to true only if ALL of the passed in matchers evaluate to true.
    *
@@ -58,5 +58,5 @@ class Hamcrest_Core_AllOf extends Hamcrest_DiagnosingMatcher
     $args = func_get_args();
     return new self(Hamcrest_Util::createMatcherArray($args));
   }
-  
+
 }

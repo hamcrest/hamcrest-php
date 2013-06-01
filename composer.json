@@ -1,19 +1,19 @@
 {
-    "name": "cordoval/hamcrest-php",
-    "type": "library",
-    "description": "This is the PHP port of Hamcrest Matchers",
-    "keywords": ["test"],
-    "license": "BSD",
-    "authors": [
-    ],
+	"name": "cordoval/hamcrest-php",
+	"type": "library",
+	"description": "This is the PHP port of Hamcrest Matchers",
+	"keywords": ["test"],
+	"license": "BSD",
+	"authors": [
+	],
 
-    "autoload": {
-        "psr-0": {
-            "Hamcrest": "hamcrest"
-        }
-    },
+	"autoload": {
+		"psr-0": {
+			"Hamcrest": "hamcrest"
+		}
+	},
 
-    "require": {
-        "php":          ">=5.3.2"
-    }
+	"require": {
+		"php": ">=5.3.2"
+	}
 }

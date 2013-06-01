@@ -13,7 +13,7 @@
  */
 class Hamcrest_Core_IsNull extends Hamcrest_BaseMatcher
 {
-  
+
   private static $_INSTANCE;
   private static $_NOT_INSTANCE;
 
@@ -21,12 +21,12 @@ class Hamcrest_Core_IsNull extends Hamcrest_BaseMatcher
   {
     return is_null($item);
   }
-  
+
   public function describeTo(Hamcrest_Description $description)
   {
     $description->appendText('null');
   }
-  
+
   /**
    * Matches if value is null.
    *
@@ -40,7 +40,7 @@ class Hamcrest_Core_IsNull extends Hamcrest_BaseMatcher
 
     return self::$_INSTANCE;
   }
-  
+
   /**
    * Matches if value is not null.
    *
@@ -51,7 +51,7 @@ class Hamcrest_Core_IsNull extends Hamcrest_BaseMatcher
     if (!self::$_NOT_INSTANCE) {
       self::$_NOT_INSTANCE = Hamcrest_Core_IsNot::not(self::nullValue());
   }
-  
+
     return self::$_NOT_INSTANCE;
   }
 

@@ -26,17 +26,17 @@ class Hamcrest_Text_StringContainsIgnoringCase extends Hamcrest_Text_SubstringMa
   {
     return new self($substring);
   }
-  
+
   // -- Protected Methods
-  
+
   protected function evalSubstringOf($item)
   {
     return (false !== stripos((string) $item, $this->_substring));
   }
-  
+
   protected function relationship()
   {
     return 'containing in any case';
   }
-  
+
 }

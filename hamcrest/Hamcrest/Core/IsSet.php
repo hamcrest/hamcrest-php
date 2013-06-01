@@ -21,16 +21,16 @@
  */
 class Hamcrest_Core_IsSet extends Hamcrest_BaseMatcher
 {
-  
+
   private $_property;
   private $_not;
-  
+
   public function __construct($property, $not = false)
   {
     $this->_property = $property;
     $this->_not = $not;
   }
-  
+
   public function matches($item)
   {
     if ($item === null) {
@@ -52,7 +52,7 @@ class Hamcrest_Core_IsSet extends Hamcrest_BaseMatcher
     }
     return $this->_not ? !$result : $result;
   }
-  
+
   public function describeTo(Hamcrest_Description $description)
   {
     $description->appendText(
@@ -61,7 +61,7 @@ class Hamcrest_Core_IsSet extends Hamcrest_BaseMatcher
             : 'set property '
       )->appendText($this->_property);
   }
-  
+
   public function describeMismatch($item,
     Hamcrest_Description $description)
   {
@@ -102,5 +102,5 @@ class Hamcrest_Core_IsSet extends Hamcrest_BaseMatcher
   {
     return new self($property, true);
   }
-  
+
 }

@@ -11,7 +11,7 @@
  */
 class Hamcrest_Type_IsResource extends Hamcrest_Core_IsTypeOf
 {
-  
+
   /**
    * Creates a new instance of IsResource
    */
@@ -19,7 +19,7 @@ class Hamcrest_Type_IsResource extends Hamcrest_Core_IsTypeOf
   {
     parent::__construct('resource');
   }
-  
+
   /**
    * Is the value a resource?
    *
@@ -29,5 +29,5 @@ class Hamcrest_Type_IsResource extends Hamcrest_Core_IsTypeOf
   {
     return new self;
   }
-  
+
 }

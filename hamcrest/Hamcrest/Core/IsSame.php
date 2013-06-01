@@ -13,19 +13,19 @@
  */
 class Hamcrest_Core_IsSame extends Hamcrest_BaseMatcher
 {
-  
+
   private $_object;
-  
+
   public function __construct($object)
   {
     $this->_object = $object;
   }
-  
+
   public function matches($object)
   {
     return ($object === $this->_object) && ($this->_object === $object);
   }
-  
+
   public function describeTo(Hamcrest_Description $description)
   {
     $description->appendText('sameInstance(')
@@ -33,7 +33,7 @@ class Hamcrest_Core_IsSame extends Hamcrest_BaseMatcher
                 ->appendText(')')
                 ;
   }
-  
+
   /**
    * Creates a new instance of IsSame.
    *
@@ -47,5 +47,5 @@ class Hamcrest_Core_IsSame extends Hamcrest_BaseMatcher
   {
     return new self($object);
   }
-  
+
 }

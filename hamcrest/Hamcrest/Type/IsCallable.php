@@ -24,7 +24,7 @@ class Hamcrest_Type_IsCallable extends Hamcrest_Core_IsTypeOf
   {
     return is_callable($item);
   }
-  
+
   /**
    * Is the value callable?
    *
@@ -34,5 +34,5 @@ class Hamcrest_Type_IsCallable extends Hamcrest_Core_IsTypeOf
   {
     return new self;
   }
-  
+
 }

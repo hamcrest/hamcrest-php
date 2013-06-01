@@ -12,20 +12,20 @@
  */
 class Hamcrest_Text_StringContainsInOrder extends Hamcrest_TypeSafeMatcher
 {
-  
+
   private $_substrings;
-  
+
   public function __construct(array $substrings)
   {
     parent::__construct(self::TYPE_STRING);
-    
+
     $this->_substrings = $substrings;
   }
-  
+
   protected function matchesSafely($item)
   {
     $fromIndex = 0;
-    
+
     foreach ($this->_substrings as $substring)
     {
       if (false === $fromIndex = strpos($item, $substring, $fromIndex))
@@ -33,16 +33,16 @@ class Hamcrest_Text_StringContainsInOrder extends Hamcrest_TypeSafeMatcher
         return false;
       }
     }
-    
+
     return true;
   }
-  
+
   protected function describeMismatchSafely($item,
     Hamcrest_Description $mismatchDescription)
   {
     $mismatchDescription->appendText('was ')->appendText($item);
   }
-  
+
   public function describeTo(Hamcrest_Description $description)
   {
     $description->appendText('a string containing ')
@@ -66,5 +66,5 @@ class Hamcrest_Text_StringContainsInOrder extends Hamcrest_TypeSafeMatcher
 
     return new self($args);
   }
-  
+
 }

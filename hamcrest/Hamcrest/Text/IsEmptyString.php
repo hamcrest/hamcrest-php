@@ -14,7 +14,7 @@
  */
 class Hamcrest_Text_IsEmptyString extends Hamcrest_BaseMatcher
 {
-  
+
   private static $_INSTANCE;
   private static $_NULL_OR_EMPTY_INSTANCE;
   private static $_NOT_INSTANCE;
@@ -25,14 +25,14 @@ class Hamcrest_Text_IsEmptyString extends Hamcrest_BaseMatcher
   {
     $this->_empty = $empty;
   }
-  
+
   public function matches($item)
   {
     return $this->_empty
       ? ($item === '')
       : is_string($item) && $item !== '';
   }
-  
+
   public function describeTo(Hamcrest_Description $description)
   {
     $description->appendText(
@@ -41,7 +41,7 @@ class Hamcrest_Text_IsEmptyString extends Hamcrest_BaseMatcher
         : 'a non-empty string'
       );
   }
-  
+
   /**
    * Matches if value is a zero-length string.
    *
@@ -53,10 +53,10 @@ class Hamcrest_Text_IsEmptyString extends Hamcrest_BaseMatcher
     {
       self::$_INSTANCE = new self(true);
     }
-    
+
     return self::$_INSTANCE;
   }
-  
+
   /**
    * Matches if value is null or a zero-length string.
    *
@@ -71,10 +71,10 @@ class Hamcrest_Text_IsEmptyString extends Hamcrest_BaseMatcher
         self::isEmptyString()
       );
     }
-    
+
     return self::$_NULL_OR_EMPTY_INSTANCE;
   }
-  
+
   /**
    * Matches if value is a non-zero-length string.
    *

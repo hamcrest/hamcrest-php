@@ -20,7 +20,7 @@ class Hamcrest_Type_IsScalar extends Hamcrest_Core_IsTypeOf
   {
     return is_scalar($item);
   }
-  
+
   /**
    * Is the value a scalar (boolean, integer, double, or string)?
    *
@@ -30,5 +30,5 @@ class Hamcrest_Type_IsScalar extends Hamcrest_Core_IsTypeOf
   {
     return new self;
   }
-  
+
 }

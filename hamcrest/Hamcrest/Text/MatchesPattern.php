@@ -11,7 +11,7 @@
  */
 class Hamcrest_Text_MatchesPattern extends Hamcrest_Text_SubstringMatcher
 {
-  
+
   public function __construct($pattern)
   {
     parent::__construct($pattern);
@@ -26,17 +26,17 @@ class Hamcrest_Text_MatchesPattern extends Hamcrest_Text_SubstringMatcher
   {
     return new self($pattern);
   }
-  
+
   // -- Protected Methods
-  
+
   protected function evalSubstringOf($item)
   {
     return preg_match($this->_substring, (string) $item) >= 1;
   }
-  
+
   protected function relationship()
   {
     return 'matching';
   }
-  
+
 }

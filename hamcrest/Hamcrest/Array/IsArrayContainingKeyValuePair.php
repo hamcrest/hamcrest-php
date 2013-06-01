@@ -10,19 +10,19 @@
 class Hamcrest_Array_IsArrayContainingKeyValuePair
   extends Hamcrest_TypeSafeMatcher
 {
-  
+
   private $_keyMatcher;
   private $_valueMatcher;
-  
+
   public function __construct(Hamcrest_Matcher $keyMatcher,
     Hamcrest_Matcher $valueMatcher)
   {
     parent::__construct(self::TYPE_ARRAY);
-    
+
     $this->_keyMatcher = $keyMatcher;
     $this->_valueMatcher = $valueMatcher;
   }
-  
+
   protected function matchesSafely($array)
   {
     foreach ($array as $key => $value)
@@ -33,10 +33,10 @@ class Hamcrest_Array_IsArrayContainingKeyValuePair
         return true;
       }
     }
-    
+
     return false;
   }
-  
+
   protected function describeMismatchSafely($array,
     Hamcrest_Description $mismatchDescription)
   {
@@ -56,7 +56,7 @@ class Hamcrest_Array_IsArrayContainingKeyValuePair
     }
     $mismatchDescription->appendText(']');
   }
-  
+
   public function describeTo(Hamcrest_Description $description)
   {
     $description->appendText('array containing [')
@@ -66,7 +66,7 @@ class Hamcrest_Array_IsArrayContainingKeyValuePair
                 ->appendText(']')
                 ;
   }
-  
+
   /**
    * Test if an array has both an key and value in parity with each other.
    *
@@ -79,5 +79,5 @@ class Hamcrest_Array_IsArrayContainingKeyValuePair
       Hamcrest_Util::wrapValueWithIsEqual($value)
     );
   }
-  
+
 }

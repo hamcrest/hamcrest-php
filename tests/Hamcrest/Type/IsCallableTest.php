@@ -8,7 +8,7 @@ class Hamcrest_Type_IsCallableTest extends Hamcrest_AbstractMatcherTest
   public static function callableFunction() { }
 
   public function __invoke() { }
-  
+
   protected function createMatcher()
   {
     return Hamcrest_Type_IsCallable::callableValue();
@@ -28,7 +28,7 @@ class Hamcrest_Type_IsCallableTest extends Hamcrest_AbstractMatcherTest
 
   public function testEvaluatesToTrueIfArgumentIsInstanceMethodCallback()
   {
-    assertThat(array($this, 
+    assertThat(array($this,
                      'testEvaluatesToTrueIfArgumentIsInstanceMethodCallback'),
                callableValue()
     );
@@ -84,7 +84,7 @@ class Hamcrest_Type_IsCallableTest extends Hamcrest_AbstractMatcherTest
     assertThat(false, not(callableValue()));
     assertThat(5.2, not(callableValue()));
   }
-  
+
   public function testHasAReadableDescription()
   {
     $this->assertDescription(
@@ -92,7 +92,7 @@ class Hamcrest_Type_IsCallableTest extends Hamcrest_AbstractMatcherTest
         callableValue()
     );
   }
-  
+
   public function testDecribesActualTypeInMismatchMessage()
   {
     $this->assertMismatchDescription('was a string "invalid-function"', callableValue(),

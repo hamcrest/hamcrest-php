@@ -18,25 +18,25 @@
  */
 class Hamcrest_Array_IsArray extends Hamcrest_TypeSafeMatcher
 {
-  
+
   private $_elementMatchers;
-  
+
   public function __construct(array $elementMatchers)
   {
     parent::__construct(self::TYPE_ARRAY);
-    
+
     Hamcrest_Util::checkAllAreMatchers($elementMatchers);
 
     $this->_elementMatchers = $elementMatchers;
   }
-  
+
   protected function matchesSafely($array)
   {
     if (array_keys($array) != array_keys($this->_elementMatchers))
     {
       return false;
     }
-    
+
     foreach ($this->_elementMatchers as $k => $matcher)
     {
       if (!$matcher->matches($array[$k]))
@@ -44,10 +44,10 @@ class Hamcrest_Array_IsArray extends Hamcrest_TypeSafeMatcher
         return false;
       }
     }
-    
+
     return true;
   }
-  
+
   protected function describeMismatchSafely($actual,
     Hamcrest_Description $mismatchDescription)
   {
@@ -68,7 +68,7 @@ class Hamcrest_Array_IsArray extends Hamcrest_TypeSafeMatcher
                           ;
       return;
     }
-    
+
     foreach ($this->_elementMatchers as $k => $matcher)
     {
       if (!$matcher->matches($actual[$k]))
@@ -80,7 +80,7 @@ class Hamcrest_Array_IsArray extends Hamcrest_TypeSafeMatcher
       }
     }
   }
-  
+
   public function describeTo(Hamcrest_Description $description)
   {
     $description->appendList(
@@ -90,7 +90,7 @@ class Hamcrest_Array_IsArray extends Hamcrest_TypeSafeMatcher
       $this->_elementMatchers
     );
   }
-  
+
   /**
    * Evaluates to true only if each $matcher[$i] is satisfied by $array[$i].
    *
@@ -101,22 +101,22 @@ class Hamcrest_Array_IsArray extends Hamcrest_TypeSafeMatcher
     $args = func_get_args();
     return new self(Hamcrest_Util::createMatcherArray($args));
   }
-  
+
   // -- Protected Methods
-  
+
   protected function descriptionStart()
   {
     return '[';
   }
-  
+
   protected function descriptionSeparator()
   {
     return ', ';
   }
-  
+
   protected function descriptionEnd()
   {
     return ']';
   }
-  
+
 }

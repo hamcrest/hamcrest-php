@@ -15,22 +15,22 @@
  */
 class Hamcrest_Core_AnyOf extends Hamcrest_Core_ShortcutCombination
 {
-  
+
   public function __construct(array $matchers)
   {
     parent::__construct($matchers);
   }
-  
+
   public function matches($item)
   {
     return $this->matchesWithShortcut($item, true);
   }
-  
+
   public function describeTo(Hamcrest_Description $description)
   {
     return $this->describeToWithOperator($description, 'or');
   }
-  
+
   /**
    * Evaluates to true if ANY of the passed in matchers evaluate to true.
    *
@@ -41,7 +41,7 @@ class Hamcrest_Core_AnyOf extends Hamcrest_Core_ShortcutCombination
     $args = func_get_args();
     return new self(Hamcrest_Util::createMatcherArray($args));
   }
-    
+
   /**
    * Evaluates to false if ANY of the passed in matchers evaluate to true.
    *
@@ -54,5 +54,5 @@ class Hamcrest_Core_AnyOf extends Hamcrest_Core_ShortcutCombination
       new self(Hamcrest_Util::createMatcherArray($args))
     );
   }
-  
+
 }

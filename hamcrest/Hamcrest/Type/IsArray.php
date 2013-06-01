@@ -11,7 +11,7 @@
  */
 class Hamcrest_Type_IsArray extends Hamcrest_Core_IsTypeOf
 {
-  
+
   /**
    * Creates a new instance of IsArray
    */
@@ -19,7 +19,7 @@ class Hamcrest_Type_IsArray extends Hamcrest_Core_IsTypeOf
   {
     parent::__construct('array');
   }
-  
+
   /**
    * Is the value an array?
    *
@@ -29,5 +29,5 @@ class Hamcrest_Type_IsArray extends Hamcrest_Core_IsTypeOf
   {
     return new self;
   }
-  
+
 }

@@ -13,19 +13,19 @@
  */
 abstract class Hamcrest_BaseDescription implements Hamcrest_Description
 {
-  
+
   public function appendText($text)
   {
     $this->append($text);
     return $this;
   }
-  
+
   public function appendDescriptionOf(Hamcrest_SelfDescribing $value)
   {
     $value->describeTo($this);
     return $this;
   }
-  
+
   public function appendValue($value)
   {
     if (is_null($value))
@@ -66,7 +66,7 @@ abstract class Hamcrest_BaseDescription implements Hamcrest_Description
     }
     return $this;
   }
-  
+
   public function appendValueList($start, $separator, $end, $values)
   {
     $list = array();
@@ -74,48 +74,48 @@ abstract class Hamcrest_BaseDescription implements Hamcrest_Description
     {
       $list[] = new Hamcrest_Internal_SelfDescribingValue($v);
     }
-    
+
     $this->appendList($start, $separator, $end, $list);
     return $this;
   }
-  
+
   public function appendList($start, $separator, $end, $values)
   {
     $this->append($start);
-    
+
     $separate = false;
-    
+
     foreach ($values as $value)
     {
       /*if (!($value instanceof Hamcrest_SelfDescribing))
       {
         $value = new Hamcrest_Internal_SelfDescribingValue($value);
       }*/
-      
+
       if ($separate)
       {
         $this->append($separator);
       }
-      
+
       $this->appendDescriptionOf($value);
-      
+
       $separate = true;
     }
-    
+
     $this->append($end);
-    
+
     return $this;
   }
-  
+
   // -- Protected Methods
-  
+
   /**
    * Append the String <var>$str</var> to the description.
    */
   abstract protected function append($str);
-  
+
   // -- Private Methods
-  
+
   private function _toPhpSyntax($value)
   {
     $str = '"';
@@ -126,19 +126,19 @@ abstract class Hamcrest_BaseDescription implements Hamcrest_Description
         case '"':
           $str .= '\\"';
           break;
-        
+
         case "\t":
           $str .= '\\t';
           break;
-        
+
         case "\r":
           $str .= '\\r';
           break;
-        
+
         case "\n":
           $str .= '\\n';
           break;
-        
+
         default:
           $str .= $value[$i];
       }
@@ -146,5 +146,5 @@ abstract class Hamcrest_BaseDescription implements Hamcrest_Description
     $str .= '"';
     $this->append($str);
   }
-  
+
 }
