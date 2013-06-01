@@ -4,8 +4,6 @@
  Copyright (c) 2010 hamcrest.org
  */
 
-// require_once 'Hamcrest/Text/SubstringMatcher.php';
-
 /**
  * Tests if the argument is a string that matches a regular expression.
  */

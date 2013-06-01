@@ -4,9 +4,6 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-// require_once 'Hamcrest/DiagnosingMatcher.php';
-// require_once 'Hamcrest/Description.php';
-
 /**
  * Tests whether the value is an instance of a class.
  */

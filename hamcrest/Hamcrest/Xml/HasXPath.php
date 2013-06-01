@@ -4,10 +4,6 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-// require_once 'Hamcrest/DiagnosingMatcher.php';
-// require_once 'Hamcrest/Matcher.php';
-// require_once 'Hamcrest/Core/IsEqual.php';
-
 /**
  * Matches if XPath applied to XML/HTML/XHTML document either
  * evaluates to result matching the matcher or returns at least

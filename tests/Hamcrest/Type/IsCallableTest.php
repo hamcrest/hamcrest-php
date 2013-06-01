@@ -87,10 +87,7 @@ class Hamcrest_Type_IsCallableTest extends Hamcrest_AbstractMatcherTest
 
   public function testHasAReadableDescription()
   {
-    $this->assertDescription(
-        'function name, callback array, Closure, or callable object',
-        callableValue()
-    );
+    $this->assertDescription('a callable', callableValue());
   }
 
   public function testDecribesActualTypeInMismatchMessage()

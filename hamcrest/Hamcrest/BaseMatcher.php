@@ -4,10 +4,6 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-// require_once 'Hamcrest/Matcher.php';
-// require_once 'Hamcrest/Description.php';
-// require_once 'Hamcrest/StringDescription.php';
-
 /**
  * BaseClass for all Matcher implementations.
  *

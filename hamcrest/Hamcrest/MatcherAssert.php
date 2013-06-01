@@ -4,11 +4,6 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-// require_once 'Hamcrest/Matcher.php';
-// require_once 'Hamcrest/StringDescription.php';
-// require_once 'Hamcrest/AssertionError.php';
-// require_once 'Hamcrest/Util.php';
-
 class Hamcrest_MatcherAssert
 {
 

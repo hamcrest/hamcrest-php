@@ -4,8 +4,6 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-// require_once 'Hamcrest/SelfDescribing.php';
-
 /**
  * A matcher over acceptable values.
  * A matcher is able to describe itself to give feedback when it fails.

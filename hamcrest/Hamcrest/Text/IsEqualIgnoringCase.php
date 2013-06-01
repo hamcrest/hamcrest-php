@@ -4,9 +4,6 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-// require_once 'Hamcrest/TypeSafeMatcher.php';
-// require_once 'Hamcrest/Description.php';
-
 /**
  * Tests if a string is equal to another string, regardless of the case.
  */

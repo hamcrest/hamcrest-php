@@ -4,9 +4,6 @@
  Copyright (c) 2012 hamcrest.org
  */
 
-// require_once 'Hamcrest/Matcher.php';
-// require_once 'Hamcrest/Core/IsEqual.php';
-
 /**
  * Contains utility methods for handling Hamcrest matchers.
  *

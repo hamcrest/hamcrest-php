@@ -1,9 +1,5 @@
 <?php
 
-// require_once 'Hamcrest/TypeSafeMatcher.php';
-// require_once 'Hamcrest/Description.php';
-// require_once 'Hamcrest/Util.php';
-
 /**
  * Tests for the presence of both a key and value inside an array.
  */
