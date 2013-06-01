@@ -1,5 +1,5 @@
 {
-    "name": "davedevelopment/hamcrest-php",
+    "name": "cordoval/hamcrest-php",
     "type": "library",
     "description": "This is the PHP port of Hamcrest Matchers",
     "keywords": ["test"],
