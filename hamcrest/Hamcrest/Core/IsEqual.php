@@ -4,9 +4,6 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-// require_once 'Hamcrest/BaseMatcher.php';
-// require_once 'Hamcrest/Description.php';
-
 /**
  * Is the value equal to another value, as tested by the use of the "=="
  * comparison operator?

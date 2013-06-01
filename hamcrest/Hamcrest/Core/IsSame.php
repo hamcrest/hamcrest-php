@@ -4,9 +4,6 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-// require_once 'Hamcrest/BaseMatcher.php';
-// require_once 'Hamcrest/Description.php';
-
 /**
  * Is the value the same object as another value?
  * In PHP terms, does $a === $b?

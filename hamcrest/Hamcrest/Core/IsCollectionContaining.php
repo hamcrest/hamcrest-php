@@ -4,12 +4,6 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-// require_once 'Hamcrest/TypeSafeMatcher.php';
-// require_once 'Hamcrest/Matcher.php';
-// require_once 'Hamcrest/Description.php';
-// require_once 'Hamcrest/Util.php';
-// require_once 'Hamcrest/Core/AllOf.php';
-
 /**
  * Tests if an array contains values that match one or more Matchers.
  */

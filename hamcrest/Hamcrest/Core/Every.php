@@ -4,10 +4,6 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-// require_once 'Hamcrest/TypeSafeDiagnosingMatcher.php';
-// require_once 'Hamcrest/Description.php';
-// require_once 'Hamcrest/Matcher.php';
-
 class Hamcrest_Core_Every extends Hamcrest_TypeSafeDiagnosingMatcher
 {
 

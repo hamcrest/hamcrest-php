@@ -4,9 +4,6 @@
  Copyright (c) 2010 hamcrest.org
  */
 
-// require_once 'Hamcrest/BaseMatcher.php';
-// require_once 'Hamcrest/Description.php';
-
 /**
  * Tests if a value (class, object, or array) has a named property.
  *

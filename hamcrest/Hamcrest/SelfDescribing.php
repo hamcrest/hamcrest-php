@@ -4,8 +4,6 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-// require_once 'Hamcrest/Description.php';
-
 /**
  * The ability of an object to describe itself.
  */

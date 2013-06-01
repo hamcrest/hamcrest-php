@@ -4,9 +4,6 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-// require_once 'Hamcrest/SelfDescribing.php';
-// require_once 'Hamcrest/Description.php';
-
 /**
  * A wrapper around any value so that it describes itself.
  */

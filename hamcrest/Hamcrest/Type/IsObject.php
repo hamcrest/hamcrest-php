@@ -4,8 +4,6 @@
  Copyright (c) 2010 hamcrest.org
  */
 
-// require_once 'Hamcrest/Core/IsTypeOf.php';
-
 /**
  * Tests whether the value is an object.
  */

@@ -4,9 +4,6 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-// require_once 'Hamcrest/TypeSafeMatcher.php';
-// require_once 'Hamcrest/Description.php';
-
 class Hamcrest_Number_OrderingComparison extends Hamcrest_TypeSafeMatcher
 {
 

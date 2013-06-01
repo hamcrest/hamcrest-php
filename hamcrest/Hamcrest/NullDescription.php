@@ -4,9 +4,6 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-// require_once 'Hamcrest/Description.php';
-// require_once 'Hamcrest/SelfDescribing.php';
-
 /**
  * Null implementation of {@link Hamcrest_Description}.
  */
