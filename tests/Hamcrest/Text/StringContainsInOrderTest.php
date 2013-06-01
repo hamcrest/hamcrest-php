@@ -29,6 +29,11 @@ class Hamcrest_Text_StringContainsInOrderTest
     $this->assertDoesNotMatch($this->_m, '', 'empty string');
   }
   
+  public function testAcceptsVariableArguments()
+  {
+    $this->assertMatches(stringContainsInOrder('a', 'b', 'c'), 'abc', 'substrings as variable arguments');
+  }
+
   public function testHasAReadableDescription()
   {
     $this->assertDescription(

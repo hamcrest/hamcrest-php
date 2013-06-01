@@ -7,8 +7,8 @@
 require_once 'Hamcrest/TypeSafeMatcher.php';
 require_once 'Hamcrest/Matcher.php';
 require_once 'Hamcrest/Description.php';
+require_once 'Hamcrest/Util.php';
 require_once 'Hamcrest/Core/AllOf.php';
-require_once 'Hamcrest/Core/IsEqual.php';
 
 /**
  * Tests if an array contains values that match one or more Matchers.
@@ -69,16 +69,7 @@ class Hamcrest_Core_IsCollectionContaining extends Hamcrest_TypeSafeMatcher
     $args = func_get_args();
     $firstArg = array_shift($args);
     
-    if (!($firstArg instanceof Hamcrest_Matcher))
-    {
-      $matcher = Hamcrest_Core_IsEqual::equalTo($firstArg);
-    }
-    else
-    {
-      $matcher = $firstArg;
-    }
-    
-    return new self($matcher);
+    return new self(Hamcrest_Util::wrapValueWithIsEqual($firstArg));
   }
   
   /**
@@ -92,7 +83,7 @@ class Hamcrest_Core_IsCollectionContaining extends Hamcrest_TypeSafeMatcher
    *
    * @factory ...
    */
-  public static function hasItems()
+  public static function hasItems(/* args... */)
   {
     $args = func_get_args();
     $matchers = array();

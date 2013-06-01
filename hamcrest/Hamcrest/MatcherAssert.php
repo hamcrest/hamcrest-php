@@ -7,7 +7,7 @@
 require_once 'Hamcrest/Matcher.php';
 require_once 'Hamcrest/StringDescription.php';
 require_once 'Hamcrest/AssertionError.php';
-require_once 'Hamcrest/Core/IsEqual.php';
+require_once 'Hamcrest/Util.php';
 
 class Hamcrest_MatcherAssert
 {
@@ -66,10 +66,11 @@ class Hamcrest_MatcherAssert
 
       case 3:
         self::$_count++;
-        self::doAssert($args[0], $args[1],
-                       $args[2] instanceof Hamcrest_Matcher
-                       ? $args[2]
-                       : Hamcrest_Core_IsEqual::equalTo($args[2]));
+        self::doAssert(
+          $args[0],
+          $args[1],
+          Hamcrest_Util::wrapValueWithIsEqual($args[2])
+        );
         break;
 
       default:

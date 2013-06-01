@@ -11,18 +11,18 @@ class Hamcrest_Type_IsCallableTest extends Hamcrest_AbstractMatcherTest
   
   protected function createMatcher()
   {
-    return Hamcrest_Type_IsCallable::callable();
+    return Hamcrest_Type_IsCallable::callableValue();
   }
 
   public function testEvaluatesToTrueIfArgumentIsFunctionName()
   {
-    assertThat('preg_match', callable());
+    assertThat('preg_match', callableValue());
   }
 
   public function testEvaluatesToTrueIfArgumentIsStaticMethodCallback()
   {
     assertThat(array('Hamcrest_Type_IsCallableTest', 'callableFunction'),
-               callable()
+               callableValue()
     );
   }
 
@@ -30,7 +30,7 @@ class Hamcrest_Type_IsCallableTest extends Hamcrest_AbstractMatcherTest
   {
     assertThat(array($this, 
                      'testEvaluatesToTrueIfArgumentIsInstanceMethodCallback'),
-               callable()
+               callableValue()
     );
   }
 
@@ -40,7 +40,7 @@ class Hamcrest_Type_IsCallableTest extends Hamcrest_AbstractMatcherTest
     {
       $this->markTestSkipped('Closures require PHP 5.3');
     }
-    eval('assertThat(function() {}, callable());');
+    eval('assertThat(function () {}, callableValue());');
   }
 
   public function testEvaluatesToTrueIfArgumentImplementsInvoke()
@@ -49,7 +49,7 @@ class Hamcrest_Type_IsCallableTest extends Hamcrest_AbstractMatcherTest
     {
       $this->markTestSkipped('Magic method __invoke() requires PHP 5.3');
     }
-    assertThat($this, callable());
+    assertThat($this, callableValue());
   }
 
   public function testEvaluatesToFalseIfArgumentIsInvalidFunctionName()
@@ -59,43 +59,40 @@ class Hamcrest_Type_IsCallableTest extends Hamcrest_AbstractMatcherTest
       $this->markTestSkipped(
           'Function "not_a_Hamcrest_function" must not exist');
     }
-    assertThat('not_a_Hamcrest_function', not(callable()));
+    assertThat('not_a_Hamcrest_function', not(callableValue()));
   }
 
   public function testEvaluatesToFalseIfArgumentIsInvalidStaticMethodCallback()
   {
     assertThat(array('Hamcrest_Type_IsCallableTest', 'noMethod'), 
-        not(callable())
+        not(callableValue())
     );
   }
 
   public function testEvaluatesToFalseIfArgumentIsInvalidInstanceMethodCallback()
   {
-    assertThat(array($this, 'noMethod'), not(callable()));
+    assertThat(array($this, 'noMethod'), not(callableValue()));
   }
 
   public function testEvaluatesToFalseIfArgumentDoesntImplementInvoke()
   {
-    assertThat(new stdClass(), not(callable()));
+    assertThat(new stdClass(), not(callableValue()));
   }
 
   public function testEvaluatesToFalseIfArgumentDoesntMatchType()
   {
-    assertThat(false, not(callable()));
-    assertThat(5.2, not(callable()));
+    assertThat(false, not(callableValue()));
+    assertThat(5.2, not(callableValue()));
   }
   
   public function testHasAReadableDescription()
   {
-    $this->assertDescription(
-        'function name, callback array, Closure, or callable object',
-        callable()
-    );
+    $this->assertDescription('a callable', callableValue());
   }
   
   public function testDecribesActualTypeInMismatchMessage()
   {
-    $this->assertMismatchDescription('was "invalid-function"', callable(), 
+    $this->assertMismatchDescription('was a string "invalid-function"', callableValue(),
         'invalid-function'
     );
   }

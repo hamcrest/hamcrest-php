@@ -21,7 +21,7 @@ class Hamcrest_Text_IsEqualIgnoringWhiteSpaceTest
   public function testPassesIfWordsAreSameButWhitespaceDiffers()
   {
     assertThat('Hello World how are we?', $this->_matcher);
-    assertThat("   Hello World   how are \n\n\twe?", $this->_matcher);
+    assertThat("   Hello \rWorld \t  how are\nwe?", $this->_matcher);
   }
   
   public function testFailsIfTextOtherThanWhitespaceDiffers()

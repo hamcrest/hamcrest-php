@@ -14,6 +14,9 @@ require_once 'Hamcrest/Core/IsNot.php';
 class Hamcrest_Core_IsNull extends Hamcrest_BaseMatcher
 {
   
+  private static $_INSTANCE;
+  private static $_NOT_INSTANCE;
+
   public function matches($item)
   {
     return is_null($item);
@@ -31,7 +34,11 @@ class Hamcrest_Core_IsNull extends Hamcrest_BaseMatcher
    */
   public static function nullValue()
   {
-    return new self();
+    if (!self::$_INSTANCE) {
+      self::$_INSTANCE = new self();
+    }
+
+    return self::$_INSTANCE;
   }
   
   /**
@@ -41,7 +48,11 @@ class Hamcrest_Core_IsNull extends Hamcrest_BaseMatcher
    */
   public static function notNullValue()
   {
-    return Hamcrest_Core_IsNot::not(new self());
+    if (!self::$_NOT_INSTANCE) {
+      self::$_NOT_INSTANCE = Hamcrest_Core_IsNot::not(self::nullValue());
   }
   
+    return self::$_NOT_INSTANCE;
+  }
+
 }

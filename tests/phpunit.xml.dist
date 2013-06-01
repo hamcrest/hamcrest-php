@@ -17,7 +17,6 @@
   <filter>
     <whitelist addUncoveredFilesFromWhitelist="true">
       <directory suffix=".php">../hamcrest</directory>
-      <file>../hamcrest.php</file>
     </whitelist>
   </filter>
 </phpunit>

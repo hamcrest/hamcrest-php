@@ -25,6 +25,8 @@ class Hamcrest_Array_IsArray extends Hamcrest_TypeSafeMatcher
   {
     parent::__construct(self::TYPE_ARRAY);
     
+    Hamcrest_Util::checkAllAreMatchers($elementMatchers);
+
     $this->_elementMatchers = $elementMatchers;
   }
   
@@ -92,11 +94,12 @@ class Hamcrest_Array_IsArray extends Hamcrest_TypeSafeMatcher
   /**
    * Evaluates to true only if each $matcher[$i] is satisfied by $array[$i].
    *
-   * @factory
+   * @factory ...
    */
-  public static function anArray($array)
+  public static function anArray(/* args... */)
   {
-    return new self($array);
+    $args = func_get_args();
+    return new self(Hamcrest_Util::createMatcherArray($args));
   }
   
   // -- Protected Methods
