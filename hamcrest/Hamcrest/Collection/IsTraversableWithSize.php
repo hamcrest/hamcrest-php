@@ -4,9 +4,9 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-require_once 'Hamcrest/FeatureMatcher.php';
-require_once 'Hamcrest/Matcher.php';
-require_once 'Hamcrest/Util.php';
+// require_once 'Hamcrest/FeatureMatcher.php';
+// require_once 'Hamcrest/Matcher.php';
+// require_once 'Hamcrest/Util.php';
 
 /**
  * Matches if traversable size satisfies a nested matcher.

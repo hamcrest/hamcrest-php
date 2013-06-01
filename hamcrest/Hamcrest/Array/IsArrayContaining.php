@@ -4,10 +4,10 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-require_once 'Hamcrest/TypeSafeMatcher.php';
-require_once 'Hamcrest/Description.php';
-require_once 'Hamcrest/Matcher.php';
-require_once 'Hamcrest/Util.php';
+// require_once 'Hamcrest/TypeSafeMatcher.php';
+// require_once 'Hamcrest/Description.php';
+// require_once 'Hamcrest/Matcher.php';
+// require_once 'Hamcrest/Util.php';
 
 /**
  * Matches if an array contains an item satisfying a nested matcher.
@@ -48,7 +48,7 @@ class Hamcrest_Array_IsArrayContaining extends Hamcrest_TypeSafeMatcher
     $description
          ->appendText('an array containing ')
          ->appendDescriptionOf($this->_elementMatcher)
-         ;
+    ;
   }
   
   /**
@@ -56,11 +56,11 @@ class Hamcrest_Array_IsArrayContaining extends Hamcrest_TypeSafeMatcher
    * 
    * @param mixed $item as a {@link Hamcrest_Matcher} or a value.
    *
+   * @return \Hamcrest_Array_IsArrayContaining
    * @factory hasValue
    */
   public static function hasItemInArray($item)
   {
     return new self(Hamcrest_Util::wrapValueWithIsEqual($item));
   }
-  
 }

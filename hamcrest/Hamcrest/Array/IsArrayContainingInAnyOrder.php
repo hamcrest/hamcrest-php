@@ -4,11 +4,11 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-require_once 'Hamcrest/TypeSafeDiagnosingMatcher.php';
-require_once 'Hamcrest/Description.php';
-require_once 'Hamcrest/Matcher.php';
-require_once 'Hamcrest/Util.php';
-require_once 'Hamcrest/Array/MatchingOnce.php';
+// require_once 'Hamcrest/TypeSafeDiagnosingMatcher.php';
+// require_once 'Hamcrest/Description.php';
+// require_once 'Hamcrest/Matcher.php';
+// require_once 'Hamcrest/Util.php';
+// require_once 'Hamcrest/Array/MatchingOnce.php';
 
 /**
  * Matches if an array contains a set of items satisfying nested matchers.

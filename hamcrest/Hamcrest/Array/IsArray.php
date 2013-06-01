@@ -4,8 +4,8 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-require_once 'Hamcrest/TypeSafeMatcher.php';
-require_once 'Hamcrest/Description.php';
+// require_once 'Hamcrest/TypeSafeMatcher.php';
+// require_once 'Hamcrest/Description.php';
 
 // NOTE: This class is not exactly a direct port of Java's since Java handles
 //       arrays quite differently than PHP

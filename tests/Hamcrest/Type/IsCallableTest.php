@@ -64,7 +64,7 @@ class Hamcrest_Type_IsCallableTest extends Hamcrest_AbstractMatcherTest
 
   public function testEvaluatesToFalseIfArgumentIsInvalidStaticMethodCallback()
   {
-    assertThat(array('Hamcrest_Type_IsCallableTest', 'noMethod'), 
+    assertThat(array('Hamcrest_Type_IsCallableTest', 'noMethod'),
         not(callableValue())
     );
   }
@@ -87,7 +87,10 @@ class Hamcrest_Type_IsCallableTest extends Hamcrest_AbstractMatcherTest
   
   public function testHasAReadableDescription()
   {
-    $this->assertDescription('a callable', callableValue());
+    $this->assertDescription(
+        'function name, callback array, Closure, or callable object',
+        callableValue()
+    );
   }
   
   public function testDecribesActualTypeInMismatchMessage()
@@ -96,5 +99,5 @@ class Hamcrest_Type_IsCallableTest extends Hamcrest_AbstractMatcherTest
         'invalid-function'
     );
   }
-  
+
 }

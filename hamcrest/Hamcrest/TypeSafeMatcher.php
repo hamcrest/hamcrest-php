@@ -1,7 +1,7 @@
 <?php
 
-require_once 'Hamcrest/BaseMatcher.php';
-require_once 'Hamcrest/Description.php';
+// require_once 'Hamcrest/BaseMatcher.php';
+// require_once 'Hamcrest/Description.php';
 
 /**
  * Convenient base class for Matchers that require a value of a specific type.

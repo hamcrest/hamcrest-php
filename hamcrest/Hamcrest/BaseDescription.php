@@ -4,9 +4,9 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-require_once 'Hamcrest/Description.php';
-require_once 'Hamcrest/SelfDescribing.php';
-require_once 'Hamcrest/Internal/SelfDescribingValue.php';
+// require_once 'Hamcrest/Description.php';
+// require_once 'Hamcrest/SelfDescribing.php';
+// require_once 'Hamcrest/Internal/SelfDescribingValue.php';
 
 /**
  * A {@link Hamcrest_Description} that is stored as a string.

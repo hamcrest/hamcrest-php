@@ -4,10 +4,10 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-require_once 'Hamcrest/DiagnosingMatcher.php';
-require_once 'Hamcrest/Matcher.php';
-require_once 'Hamcrest/Description.php';
-require_once 'Hamcrest/Util.php';
+// require_once 'Hamcrest/DiagnosingMatcher.php';
+// require_once 'Hamcrest/Matcher.php';
+// require_once 'Hamcrest/Description.php';
+// require_once 'Hamcrest/Util.php';
 
 /**
  * Calculates the logical conjunction of multiple matchers. Evaluation is

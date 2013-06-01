@@ -4,8 +4,8 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-require_once 'Hamcrest/Core/IsSame.php';
-require_once 'Hamcrest/Description.php';
+// require_once 'Hamcrest/Core/IsSame.php';
+// require_once 'Hamcrest/Description.php';
 
 /**
  * The same as {@link Hamcrest_Core_IsSame} but with slightly different

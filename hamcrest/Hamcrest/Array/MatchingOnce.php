@@ -4,7 +4,7 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-require_once 'Hamcrest/Description.php';
+// require_once 'Hamcrest/Description.php';
 
 class Hamcrest_Array_MatchingOnce
 {

@@ -6,7 +6,7 @@
 
 // This file is generated from the static method @factory doctags.
 
-require_once 'Hamcrest/Matcher.php';
+// require_once 'Hamcrest/Matcher.php';
 
 /**
  * A series of static factories for all hamcrest matchers.
@@ -19,7 +19,7 @@ class Hamcrest_Matchers
    */
   public static function anArray(/* args... */)
   {
-    require_once 'Hamcrest/Array/IsArray.php';
+    // require_once 'Hamcrest/Array/IsArray.php';
     $args = func_get_args();
     return call_user_func_array(array('Hamcrest_Array_IsArray', 'anArray'), $args);
   }
@@ -31,7 +31,7 @@ class Hamcrest_Matchers
    */
   public static function hasItemInArray($item)
   {
-    require_once 'Hamcrest/Array/IsArrayContaining.php';
+    // require_once 'Hamcrest/Array/IsArrayContaining.php';
     return Hamcrest_Array_IsArrayContaining::hasItemInArray($item);
   }
 
@@ -42,7 +42,7 @@ class Hamcrest_Matchers
    */
   public static function hasValue($item)
   {
-    require_once 'Hamcrest/Array/IsArrayContaining.php';
+    // require_once 'Hamcrest/Array/IsArrayContaining.php';
     return Hamcrest_Array_IsArrayContaining::hasItemInArray($item);
   }
 
@@ -51,7 +51,7 @@ class Hamcrest_Matchers
    */
   public static function arrayContainingInAnyOrder(/* args... */)
   {
-    require_once 'Hamcrest/Array/IsArrayContainingInAnyOrder.php';
+    // require_once 'Hamcrest/Array/IsArrayContainingInAnyOrder.php';
     $args = func_get_args();
     return call_user_func_array(array('Hamcrest_Array_IsArrayContainingInAnyOrder', 'arrayContainingInAnyOrder'), $args);
   }
@@ -61,7 +61,7 @@ class Hamcrest_Matchers
    */
   public static function containsInAnyOrder(/* args... */)
   {
-    require_once 'Hamcrest/Array/IsArrayContainingInAnyOrder.php';
+    // require_once 'Hamcrest/Array/IsArrayContainingInAnyOrder.php';
     $args = func_get_args();
     return call_user_func_array(array('Hamcrest_Array_IsArrayContainingInAnyOrder', 'arrayContainingInAnyOrder'), $args);
   }
@@ -71,7 +71,7 @@ class Hamcrest_Matchers
    */
   public static function arrayContaining(/* args... */)
   {
-    require_once 'Hamcrest/Array/IsArrayContainingInOrder.php';
+    // require_once 'Hamcrest/Array/IsArrayContainingInOrder.php';
     $args = func_get_args();
     return call_user_func_array(array('Hamcrest_Array_IsArrayContainingInOrder', 'arrayContaining'), $args);
   }
@@ -81,7 +81,7 @@ class Hamcrest_Matchers
    */
   public static function contains(/* args... */)
   {
-    require_once 'Hamcrest/Array/IsArrayContainingInOrder.php';
+    // require_once 'Hamcrest/Array/IsArrayContainingInOrder.php';
     $args = func_get_args();
     return call_user_func_array(array('Hamcrest_Array_IsArrayContainingInOrder', 'arrayContaining'), $args);
   }
@@ -93,7 +93,7 @@ class Hamcrest_Matchers
    */
   public static function hasKeyInArray($key)
   {
-    require_once 'Hamcrest/Array/IsArrayContainingKey.php';
+    // require_once 'Hamcrest/Array/IsArrayContainingKey.php';
     return Hamcrest_Array_IsArrayContainingKey::hasKeyInArray($key);
   }
 
@@ -104,7 +104,7 @@ class Hamcrest_Matchers
    */
   public static function hasKey($key)
   {
-    require_once 'Hamcrest/Array/IsArrayContainingKey.php';
+    // require_once 'Hamcrest/Array/IsArrayContainingKey.php';
     return Hamcrest_Array_IsArrayContainingKey::hasKeyInArray($key);
   }
 
@@ -113,7 +113,7 @@ class Hamcrest_Matchers
    */
   public static function hasKeyValuePair($key, $value)
   {
-    require_once 'Hamcrest/Array/IsArrayContainingKeyValuePair.php';
+    // require_once 'Hamcrest/Array/IsArrayContainingKeyValuePair.php';
     return Hamcrest_Array_IsArrayContainingKeyValuePair::hasKeyValuePair($key, $value);
   }
 
@@ -122,7 +122,7 @@ class Hamcrest_Matchers
    */
   public static function hasEntry($key, $value)
   {
-    require_once 'Hamcrest/Array/IsArrayContainingKeyValuePair.php';
+    // require_once 'Hamcrest/Array/IsArrayContainingKeyValuePair.php';
     return Hamcrest_Array_IsArrayContainingKeyValuePair::hasKeyValuePair($key, $value);
   }
 
@@ -133,7 +133,7 @@ class Hamcrest_Matchers
    */
   public static function arrayWithSize($size)
   {
-    require_once 'Hamcrest/Array/IsArrayWithSize.php';
+    // require_once 'Hamcrest/Array/IsArrayWithSize.php';
     return Hamcrest_Array_IsArrayWithSize::arrayWithSize($size);
   }
 
@@ -142,7 +142,7 @@ class Hamcrest_Matchers
    */
   public static function emptyArray()
   {
-    require_once 'Hamcrest/Array/IsArrayWithSize.php';
+    // require_once 'Hamcrest/Array/IsArrayWithSize.php';
     return Hamcrest_Array_IsArrayWithSize::emptyArray();
   }
 
@@ -160,7 +160,7 @@ class Hamcrest_Matchers
    */
   public static function emptyTraversable()
   {
-    require_once 'Hamcrest/Collection/IsEmptyTraversable.php';
+    // require_once 'Hamcrest/Collection/IsEmptyTraversable.php';
     return Hamcrest_Collection_IsEmptyTraversable::emptyTraversable();
   }
 
@@ -178,7 +178,7 @@ class Hamcrest_Matchers
    */
   public static function traversableWithSize($size)
   {
-    require_once 'Hamcrest/Collection/IsTraversableWithSize.php';
+    // require_once 'Hamcrest/Collection/IsTraversableWithSize.php';
     return Hamcrest_Collection_IsTraversableWithSize::traversableWithSize($size);
   }
 
@@ -187,7 +187,7 @@ class Hamcrest_Matchers
    */
   public static function allOf(/* args... */)
   {
-    require_once 'Hamcrest/Core/AllOf.php';
+    // require_once 'Hamcrest/Core/AllOf.php';
     $args = func_get_args();
     return call_user_func_array(array('Hamcrest_Core_AllOf', 'allOf'), $args);
   }
@@ -197,7 +197,7 @@ class Hamcrest_Matchers
    */
   public static function anyOf(/* args... */)
   {
-    require_once 'Hamcrest/Core/AnyOf.php';
+    // require_once 'Hamcrest/Core/AnyOf.php';
     $args = func_get_args();
     return call_user_func_array(array('Hamcrest_Core_AnyOf', 'anyOf'), $args);
   }
@@ -221,7 +221,7 @@ class Hamcrest_Matchers
    */
   public static function both(Hamcrest_Matcher $matcher)
   {
-    require_once 'Hamcrest/Core/CombinableMatcher.php';
+    // require_once 'Hamcrest/Core/CombinableMatcher.php';
     return Hamcrest_Core_CombinableMatcher::both($matcher);
   }
 
@@ -234,7 +234,7 @@ class Hamcrest_Matchers
    */
   public static function either(Hamcrest_Matcher $matcher)
   {
-    require_once 'Hamcrest/Core/CombinableMatcher.php';
+    // require_once 'Hamcrest/Core/CombinableMatcher.php';
     return Hamcrest_Core_CombinableMatcher::either($matcher);
   }
 
@@ -243,7 +243,7 @@ class Hamcrest_Matchers
    */
   public static function describedAs(/* args... */)
   {
-    require_once 'Hamcrest/Core/DescribedAs.php';
+    // require_once 'Hamcrest/Core/DescribedAs.php';
     $args = func_get_args();
     return call_user_func_array(array('Hamcrest_Core_DescribedAs', 'describedAs'), $args);
   }
@@ -257,7 +257,7 @@ class Hamcrest_Matchers
    */
   public static function everyItem(Hamcrest_Matcher $itemMatcher)
   {
-    require_once 'Hamcrest/Core/Every.php';
+    // require_once 'Hamcrest/Core/Every.php';
     return Hamcrest_Core_Every::everyItem($itemMatcher);
   }
 
@@ -266,7 +266,7 @@ class Hamcrest_Matchers
    */
   public static function hasToString($matcher)
   {
-    require_once 'Hamcrest/Core/HasToString.php';
+    // require_once 'Hamcrest/Core/HasToString.php';
     return Hamcrest_Core_HasToString::hasToString($matcher);
   }
 
@@ -279,7 +279,7 @@ class Hamcrest_Matchers
    */
   public static function is($value)
   {
-    require_once 'Hamcrest/Core/Is.php';
+    // require_once 'Hamcrest/Core/Is.php';
     return Hamcrest_Core_Is::is($value);
   }
 
@@ -290,7 +290,7 @@ class Hamcrest_Matchers
    */
   public static function anything($description = 'ANYTHING')
   {
-    require_once 'Hamcrest/Core/IsAnything.php';
+    // require_once 'Hamcrest/Core/IsAnything.php';
     return Hamcrest_Core_IsAnything::anything($description);
   }
 
@@ -306,7 +306,7 @@ class Hamcrest_Matchers
    */
   public static function hasItem(/* args... */)
   {
-    require_once 'Hamcrest/Core/IsCollectionContaining.php';
+    // require_once 'Hamcrest/Core/IsCollectionContaining.php';
     $args = func_get_args();
     return call_user_func_array(array('Hamcrest_Core_IsCollectionContaining', 'hasItem'), $args);
   }
@@ -322,7 +322,7 @@ class Hamcrest_Matchers
    */
   public static function hasItems(/* args... */)
   {
-    require_once 'Hamcrest/Core/IsCollectionContaining.php';
+    // require_once 'Hamcrest/Core/IsCollectionContaining.php';
     $args = func_get_args();
     return call_user_func_array(array('Hamcrest_Core_IsCollectionContaining', 'hasItems'), $args);
   }
@@ -333,7 +333,7 @@ class Hamcrest_Matchers
    */
   public static function equalTo($item)
   {
-    require_once 'Hamcrest/Core/IsEqual.php';
+    // require_once 'Hamcrest/Core/IsEqual.php';
     return Hamcrest_Core_IsEqual::equalTo($item);
   }
 
@@ -342,7 +342,7 @@ class Hamcrest_Matchers
    */
   public static function identicalTo($value)
   {
-    require_once 'Hamcrest/Core/IsIdentical.php';
+    // require_once 'Hamcrest/Core/IsIdentical.php';
     return Hamcrest_Core_IsIdentical::identicalTo($value);
   }
 
@@ -354,7 +354,7 @@ class Hamcrest_Matchers
    */
   public static function anInstanceOf($theClass)
   {
-    require_once 'Hamcrest/Core/IsInstanceOf.php';
+    // require_once 'Hamcrest/Core/IsInstanceOf.php';
     return Hamcrest_Core_IsInstanceOf::anInstanceOf($theClass);
   }
 
@@ -366,7 +366,7 @@ class Hamcrest_Matchers
    */
   public static function any($theClass)
   {
-    require_once 'Hamcrest/Core/IsInstanceOf.php';
+    // require_once 'Hamcrest/Core/IsInstanceOf.php';
     return Hamcrest_Core_IsInstanceOf::anInstanceOf($theClass);
   }
 
@@ -375,7 +375,7 @@ class Hamcrest_Matchers
    */
   public static function not($value)
   {
-    require_once 'Hamcrest/Core/IsNot.php';
+    // require_once 'Hamcrest/Core/IsNot.php';
     return Hamcrest_Core_IsNot::not($value);
   }
 
@@ -384,7 +384,7 @@ class Hamcrest_Matchers
    */
   public static function nullValue()
   {
-    require_once 'Hamcrest/Core/IsNull.php';
+    // require_once 'Hamcrest/Core/IsNull.php';
     return Hamcrest_Core_IsNull::nullValue();
   }
 
@@ -393,7 +393,7 @@ class Hamcrest_Matchers
    */
   public static function notNullValue()
   {
-    require_once 'Hamcrest/Core/IsNull.php';
+    // require_once 'Hamcrest/Core/IsNull.php';
     return Hamcrest_Core_IsNull::notNullValue();
   }
 
@@ -406,7 +406,7 @@ class Hamcrest_Matchers
    */
   public static function sameInstance($object)
   {
-    require_once 'Hamcrest/Core/IsSame.php';
+    // require_once 'Hamcrest/Core/IsSame.php';
     return Hamcrest_Core_IsSame::sameInstance($object);
   }
 
@@ -415,7 +415,7 @@ class Hamcrest_Matchers
    */
   public static function set($property)
   {
-    require_once 'Hamcrest/Core/IsSet.php';
+    // require_once 'Hamcrest/Core/IsSet.php';
     return Hamcrest_Core_IsSet::set($property);
   }
 
@@ -424,7 +424,7 @@ class Hamcrest_Matchers
    */
   public static function notSet($property)
   {
-    require_once 'Hamcrest/Core/IsSet.php';
+    // require_once 'Hamcrest/Core/IsSet.php';
     return Hamcrest_Core_IsSet::notSet($property);
   }
 
@@ -433,7 +433,7 @@ class Hamcrest_Matchers
    */
   public static function typeOf($theType)
   {
-    require_once 'Hamcrest/Core/IsTypeOf.php';
+    // require_once 'Hamcrest/Core/IsTypeOf.php';
     return Hamcrest_Core_IsTypeOf::typeOf($theType);
   }
 
@@ -443,7 +443,7 @@ class Hamcrest_Matchers
    */
   public static function closeTo($value, $delta)
   {
-    require_once 'Hamcrest/Number/IsCloseTo.php';
+    // require_once 'Hamcrest/Number/IsCloseTo.php';
     return Hamcrest_Number_IsCloseTo::closeTo($value, $delta);
   }
 
@@ -452,7 +452,7 @@ class Hamcrest_Matchers
    */
   public static function comparesEqualTo($value)
   {
-    require_once 'Hamcrest/Number/OrderingComparison.php';
+    // require_once 'Hamcrest/Number/OrderingComparison.php';
     return Hamcrest_Number_OrderingComparison::comparesEqualTo($value);
   }
 
@@ -461,7 +461,7 @@ class Hamcrest_Matchers
    */
   public static function greaterThan($value)
   {
-    require_once 'Hamcrest/Number/OrderingComparison.php';
+    // require_once 'Hamcrest/Number/OrderingComparison.php';
     return Hamcrest_Number_OrderingComparison::greaterThan($value);
   }
 
@@ -470,7 +470,7 @@ class Hamcrest_Matchers
    */
   public static function greaterThanOrEqualTo($value)
   {
-    require_once 'Hamcrest/Number/OrderingComparison.php';
+    // require_once 'Hamcrest/Number/OrderingComparison.php';
     return Hamcrest_Number_OrderingComparison::greaterThanOrEqualTo($value);
   }
 
@@ -479,7 +479,7 @@ class Hamcrest_Matchers
    */
   public static function atLeast($value)
   {
-    require_once 'Hamcrest/Number/OrderingComparison.php';
+    // require_once 'Hamcrest/Number/OrderingComparison.php';
     return Hamcrest_Number_OrderingComparison::greaterThanOrEqualTo($value);
   }
 
@@ -488,7 +488,7 @@ class Hamcrest_Matchers
    */
   public static function lessThan($value)
   {
-    require_once 'Hamcrest/Number/OrderingComparison.php';
+    // require_once 'Hamcrest/Number/OrderingComparison.php';
     return Hamcrest_Number_OrderingComparison::lessThan($value);
   }
 
@@ -497,7 +497,7 @@ class Hamcrest_Matchers
    */
   public static function lessThanOrEqualTo($value)
   {
-    require_once 'Hamcrest/Number/OrderingComparison.php';
+    // require_once 'Hamcrest/Number/OrderingComparison.php';
     return Hamcrest_Number_OrderingComparison::lessThanOrEqualTo($value);
   }
 
@@ -506,7 +506,7 @@ class Hamcrest_Matchers
    */
   public static function atMost($value)
   {
-    require_once 'Hamcrest/Number/OrderingComparison.php';
+    // require_once 'Hamcrest/Number/OrderingComparison.php';
     return Hamcrest_Number_OrderingComparison::lessThanOrEqualTo($value);
   }
 
@@ -515,7 +515,7 @@ class Hamcrest_Matchers
    */
   public static function isEmptyString()
   {
-    require_once 'Hamcrest/Text/IsEmptyString.php';
+    // require_once 'Hamcrest/Text/IsEmptyString.php';
     return Hamcrest_Text_IsEmptyString::isEmptyString();
   }
 
@@ -524,7 +524,7 @@ class Hamcrest_Matchers
    */
   public static function emptyString()
   {
-    require_once 'Hamcrest/Text/IsEmptyString.php';
+    // require_once 'Hamcrest/Text/IsEmptyString.php';
     return Hamcrest_Text_IsEmptyString::isEmptyString();
   }
 
@@ -533,7 +533,7 @@ class Hamcrest_Matchers
    */
   public static function isEmptyOrNullString()
   {
-    require_once 'Hamcrest/Text/IsEmptyString.php';
+    // require_once 'Hamcrest/Text/IsEmptyString.php';
     return Hamcrest_Text_IsEmptyString::isEmptyOrNullString();
   }
 
@@ -542,7 +542,7 @@ class Hamcrest_Matchers
    */
   public static function nullOrEmptyString()
   {
-    require_once 'Hamcrest/Text/IsEmptyString.php';
+    // require_once 'Hamcrest/Text/IsEmptyString.php';
     return Hamcrest_Text_IsEmptyString::isEmptyOrNullString();
   }
 
@@ -569,7 +569,7 @@ class Hamcrest_Matchers
    */
   public static function equalToIgnoringCase($string)
   {
-    require_once 'Hamcrest/Text/IsEqualIgnoringCase.php';
+    // require_once 'Hamcrest/Text/IsEqualIgnoringCase.php';
     return Hamcrest_Text_IsEqualIgnoringCase::equalToIgnoringCase($string);
   }
 
@@ -578,7 +578,7 @@ class Hamcrest_Matchers
    */
   public static function equalToIgnoringWhiteSpace($string)
   {
-    require_once 'Hamcrest/Text/IsEqualIgnoringWhiteSpace.php';
+    // require_once 'Hamcrest/Text/IsEqualIgnoringWhiteSpace.php';
     return Hamcrest_Text_IsEqualIgnoringWhiteSpace::equalToIgnoringWhiteSpace($string);
   }
 
@@ -587,7 +587,7 @@ class Hamcrest_Matchers
    */
   public static function matchesPattern($pattern)
   {
-    require_once 'Hamcrest/Text/MatchesPattern.php';
+    // require_once 'Hamcrest/Text/MatchesPattern.php';
     return Hamcrest_Text_MatchesPattern::matchesPattern($pattern);
   }
 
@@ -596,7 +596,7 @@ class Hamcrest_Matchers
    */
   public static function containsString($substring)
   {
-    require_once 'Hamcrest/Text/StringContains.php';
+    // require_once 'Hamcrest/Text/StringContains.php';
     return Hamcrest_Text_StringContains::containsString($substring);
   }
 
@@ -605,7 +605,7 @@ class Hamcrest_Matchers
    */
   public static function containsStringIgnoringCase($substring)
   {
-    require_once 'Hamcrest/Text/StringContainsIgnoringCase.php';
+    // require_once 'Hamcrest/Text/StringContainsIgnoringCase.php';
     return Hamcrest_Text_StringContainsIgnoringCase::containsStringIgnoringCase($substring);
   }
 
@@ -614,7 +614,7 @@ class Hamcrest_Matchers
    */
   public static function stringContainsInOrder(/* args... */)
   {
-    require_once 'Hamcrest/Text/StringContainsInOrder.php';
+    // require_once 'Hamcrest/Text/StringContainsInOrder.php';
     $args = func_get_args();
     return call_user_func_array(array('Hamcrest_Text_StringContainsInOrder', 'stringContainsInOrder'), $args);
   }
@@ -624,7 +624,7 @@ class Hamcrest_Matchers
    */
   public static function endsWith($substring)
   {
-    require_once 'Hamcrest/Text/StringEndsWith.php';
+    // require_once 'Hamcrest/Text/StringEndsWith.php';
     return Hamcrest_Text_StringEndsWith::endsWith($substring);
   }
 
@@ -633,7 +633,7 @@ class Hamcrest_Matchers
    */
   public static function startsWith($substring)
   {
-    require_once 'Hamcrest/Text/StringStartsWith.php';
+    // require_once 'Hamcrest/Text/StringStartsWith.php';
     return Hamcrest_Text_StringStartsWith::startsWith($substring);
   }
 
@@ -642,7 +642,7 @@ class Hamcrest_Matchers
    */
   public static function arrayValue()
   {
-    require_once 'Hamcrest/Type/IsArray.php';
+    // require_once 'Hamcrest/Type/IsArray.php';
     return Hamcrest_Type_IsArray::arrayValue();
   }
 
@@ -651,7 +651,7 @@ class Hamcrest_Matchers
    */
   public static function booleanValue()
   {
-    require_once 'Hamcrest/Type/IsBoolean.php';
+    // require_once 'Hamcrest/Type/IsBoolean.php';
     return Hamcrest_Type_IsBoolean::booleanValue();
   }
 
@@ -660,7 +660,7 @@ class Hamcrest_Matchers
    */
   public static function boolValue()
   {
-    require_once 'Hamcrest/Type/IsBoolean.php';
+    // require_once 'Hamcrest/Type/IsBoolean.php';
     return Hamcrest_Type_IsBoolean::booleanValue();
   }
 
@@ -669,7 +669,7 @@ class Hamcrest_Matchers
    */
   public static function callableValue()
   {
-    require_once 'Hamcrest/Type/IsCallable.php';
+    // require_once 'Hamcrest/Type/IsCallable.php';
     return Hamcrest_Type_IsCallable::callableValue();
   }
 
@@ -678,7 +678,7 @@ class Hamcrest_Matchers
    */
   public static function doubleValue()
   {
-    require_once 'Hamcrest/Type/IsDouble.php';
+    // require_once 'Hamcrest/Type/IsDouble.php';
     return Hamcrest_Type_IsDouble::doubleValue();
   }
 
@@ -687,7 +687,7 @@ class Hamcrest_Matchers
    */
   public static function floatValue()
   {
-    require_once 'Hamcrest/Type/IsDouble.php';
+    // require_once 'Hamcrest/Type/IsDouble.php';
     return Hamcrest_Type_IsDouble::doubleValue();
   }
 
@@ -696,7 +696,7 @@ class Hamcrest_Matchers
    */
   public static function integerValue()
   {
-    require_once 'Hamcrest/Type/IsInteger.php';
+    // require_once 'Hamcrest/Type/IsInteger.php';
     return Hamcrest_Type_IsInteger::integerValue();
   }
 
@@ -705,7 +705,7 @@ class Hamcrest_Matchers
    */
   public static function intValue()
   {
-    require_once 'Hamcrest/Type/IsInteger.php';
+    // require_once 'Hamcrest/Type/IsInteger.php';
     return Hamcrest_Type_IsInteger::integerValue();
   }
 
@@ -714,7 +714,7 @@ class Hamcrest_Matchers
    */
   public static function numericValue()
   {
-    require_once 'Hamcrest/Type/IsNumeric.php';
+    // require_once 'Hamcrest/Type/IsNumeric.php';
     return Hamcrest_Type_IsNumeric::numericValue();
   }
 
@@ -723,7 +723,7 @@ class Hamcrest_Matchers
    */
   public static function objectValue()
   {
-    require_once 'Hamcrest/Type/IsObject.php';
+    // require_once 'Hamcrest/Type/IsObject.php';
     return Hamcrest_Type_IsObject::objectValue();
   }
 
@@ -732,7 +732,7 @@ class Hamcrest_Matchers
    */
   public static function anObject()
   {
-    require_once 'Hamcrest/Type/IsObject.php';
+    // require_once 'Hamcrest/Type/IsObject.php';
     return Hamcrest_Type_IsObject::objectValue();
   }
 
@@ -741,7 +741,7 @@ class Hamcrest_Matchers
    */
   public static function resourceValue()
   {
-    require_once 'Hamcrest/Type/IsResource.php';
+    // require_once 'Hamcrest/Type/IsResource.php';
     return Hamcrest_Type_IsResource::resourceValue();
   }
 
@@ -750,7 +750,7 @@ class Hamcrest_Matchers
    */
   public static function scalarValue()
   {
-    require_once 'Hamcrest/Type/IsScalar.php';
+    // require_once 'Hamcrest/Type/IsScalar.php';
     return Hamcrest_Type_IsScalar::scalarValue();
   }
 
@@ -759,7 +759,7 @@ class Hamcrest_Matchers
    */
   public static function stringValue()
   {
-    require_once 'Hamcrest/Type/IsString.php';
+    // require_once 'Hamcrest/Type/IsString.php';
     return Hamcrest_Type_IsString::stringValue();
   }
 
@@ -770,7 +770,7 @@ class Hamcrest_Matchers
    */
   public static function hasXPath($xpath, $matcher = null)
   {
-    require_once 'Hamcrest/Xml/HasXPath.php';
+    // require_once 'Hamcrest/Xml/HasXPath.php';
     return Hamcrest_Xml_HasXPath::hasXPath($xpath, $matcher);
   }
 

@@ -4,10 +4,10 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-require_once 'Hamcrest/BaseMatcher.php';
-require_once 'Hamcrest/Matcher.php';
-require_once 'Hamcrest/Description.php';
-require_once 'Hamcrest/Util.php';
+// require_once 'Hamcrest/BaseMatcher.php';
+// require_once 'Hamcrest/Matcher.php';
+// require_once 'Hamcrest/Description.php';
+// require_once 'Hamcrest/Util.php';
 
 /**
  * Decorates another Matcher, retaining the behavior but allowing tests

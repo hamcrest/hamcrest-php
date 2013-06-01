@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ChangeListManager">
+    <list default="true" id="44778515-cc96-4f6f-a5c1-6dd7d52e6888" name="Default" comment="">
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/hamcrest-php.iml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/.name" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/composer.json" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/encodings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/misc.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/modules.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/scopes/scope_settings.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/vcs.xml" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/AllOf.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/AllOf.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/AnyOf.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/AnyOf.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/BaseDescription.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/BaseDescription.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/BaseMatcher.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/BaseMatcher.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/CombinableMatcher.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/CombinableMatcher.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/DescribedAs.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/DescribedAs.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Description.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Description.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/DiagnosingMatcher.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/DiagnosingMatcher.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/Every.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/Every.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/FeatureMatcher.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/FeatureMatcher.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/HasToString.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/HasToString.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Xml/HasXPath.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Xml/HasXPath.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/Is.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/Is.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/IsAnything.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/IsAnything.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Array/IsArray.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Array/IsArray.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Type/IsArray.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Type/IsArray.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Array/IsArrayContaining.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Array/IsArrayContaining.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Array/IsArrayContainingInAnyOrder.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Array/IsArrayContainingInAnyOrder.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Array/IsArrayContainingInOrder.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Array/IsArrayContainingInOrder.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Array/IsArrayContainingKey.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Array/IsArrayContainingKey.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Array/IsArrayContainingKeyValuePair.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Array/IsArrayContainingKeyValuePair.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Array/IsArrayWithSize.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Array/IsArrayWithSize.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Type/IsBoolean.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Type/IsBoolean.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Type/IsCallable.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Type/IsCallable.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/Hamcrest/Type/IsCallableTest.php" afterPath="$PROJECT_DIR$/tests/Hamcrest/Type/IsCallableTest.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Number/IsCloseTo.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Number/IsCloseTo.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/IsCollectionContaining.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/IsCollectionContaining.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Type/IsDouble.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Type/IsDouble.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Text/IsEmptyString.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Text/IsEmptyString.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Collection/IsEmptyTraversable.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Collection/IsEmptyTraversable.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/IsEqual.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/IsEqual.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Text/IsEqualIgnoringCase.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Text/IsEqualIgnoringCase.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Text/IsEqualIgnoringWhiteSpace.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Text/IsEqualIgnoringWhiteSpace.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/IsIdentical.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/IsIdentical.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/IsInstanceOf.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/IsInstanceOf.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Type/IsInteger.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Type/IsInteger.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/IsNot.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/IsNot.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/IsNull.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/IsNull.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Type/IsNumeric.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Type/IsNumeric.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Type/IsObject.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Type/IsObject.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Type/IsResource.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Type/IsResource.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/IsSame.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/IsSame.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Type/IsScalar.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Type/IsScalar.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/IsSet.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/IsSet.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Type/IsString.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Type/IsString.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Collection/IsTraversableWithSize.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Collection/IsTraversableWithSize.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/IsTypeOf.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/IsTypeOf.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Matcher.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Matcher.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/MatcherAssert.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/MatcherAssert.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Matchers.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Matchers.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Text/MatchesPattern.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Text/MatchesPattern.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Array/MatchingOnce.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Array/MatchingOnce.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/NullDescription.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/NullDescription.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Number/OrderingComparison.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Number/OrderingComparison.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/SelfDescribing.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/SelfDescribing.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Internal/SelfDescribingValue.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Internal/SelfDescribingValue.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Array/SeriesMatchingOnce.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Array/SeriesMatchingOnce.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/ShortcutCombination.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Core/ShortcutCombination.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Text/StringContains.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Text/StringContains.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Text/StringContainsIgnoringCase.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Text/StringContainsIgnoringCase.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Text/StringContainsInOrder.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Text/StringContainsInOrder.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/StringDescription.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/StringDescription.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Text/StringEndsWith.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Text/StringEndsWith.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Text/StringStartsWith.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Text/StringStartsWith.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/Text/SubstringMatcher.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/Text/SubstringMatcher.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/TypeSafeDiagnosingMatcher.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/TypeSafeDiagnosingMatcher.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/hamcrest/Hamcrest/TypeSafeMatcher.php" afterPath="$PROJECT_DIR$/hamcrest/Hamcrest/TypeSafeMatcher.php" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/tests/bootstrap.php" afterPath="$PROJECT_DIR$/tests/bootstrap.php" />
+    </list>
+    <ignored path="hamcrest-php.iws" />
+    <ignored path=".idea/workspace.xml" />
+    <file path="/Dummy.txt" changelist="44778515-cc96-4f6f-a5c1-6dd7d52e6888" time="1370115618698" ignored="false" />
+    <option name="TRACKING_ENABLED" value="true" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="ChangesViewManager" flattened_view="true" show_ignored="false" />
+  <component name="CreatePatchCommitExecutor">
+    <option name="PATCH_PATH" value="" />
+  </component>
+  <component name="DaemonCodeAnalyzer">
+    <disable_hints />
+  </component>
+  <component name="ExecutionTargetManager" SELECTED_TARGET="default_target" />
+  <component name="FavoritesManager">
+    <favorites_list name="hamcrest-php" />
+  </component>
+  <component name="FileEditorManager">
+    <leaf>
+      <file leaf-file-name="AllOf.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hamcrest/Hamcrest/Core/AllOf.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="3" selection-start="185" selection-end="185" vertical-scroll-proportion="-7.59375">
+              <folding>
+                <element signature="e#7#46#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IsCallableTest.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/tests/Hamcrest/Type/IsCallableTest.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="101" column="0" selection-start="2735" selection-end="2735" vertical-scroll-proportion="-25.9375">
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IsCallable.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hamcrest/Hamcrest/Type/IsCallable.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="36" column="2" selection-start="546" selection-end="546" vertical-scroll-proportion="-22.5625">
+              <folding>
+                <element signature="e#7#46#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="MatcherAssert.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hamcrest/Hamcrest/MatcherAssert.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="11" column="19" selection-start="242" selection-end="242" vertical-scroll-proportion="-9.28125">
+              <folding>
+                <element signature="e#7#46#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ShortcutCombination.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hamcrest/Hamcrest/Core/ShortcutCombination.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="36" selection-start="172" selection-end="172" vertical-scroll-proportion="6.125">
+              <folding>
+                <element signature="e#7#46#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IsNot.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hamcrest/Hamcrest/Core/IsNot.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="36" selection-start="212" selection-end="212" vertical-scroll-proportion="-7.59375">
+              <folding>
+                <element signature="e#7#46#0" expanded="true" />
+                <marker date="1370116850000" expanded="true" signature="51:212" placeholder="..." />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="IsCollectionContaining.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hamcrest/Hamcrest/Core/IsCollectionContaining.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="7" column="12" selection-start="108" selection-end="108" vertical-scroll-proportion="-5.90625">
+              <folding>
+                <element signature="e#7#46#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="HasToString.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hamcrest/Hamcrest/Core/HasToString.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="36" selection-start="171" selection-end="171" vertical-scroll-proportion="-6.75">
+              <folding>
+                <element signature="e#7#46#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="AnyOf.php" pinned="false" current="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/hamcrest/Hamcrest/Core/AnyOf.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="8" column="36" selection-start="185" selection-end="185" vertical-scroll-proportion="-6.75">
+              <folding>
+                <element signature="e#7#46#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Is.php" pinned="false" current="true" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/hamcrest/Hamcrest/Core/Is.php">
+          <provider selected="true" editor-type-id="text-editor">
+            <state line="9" column="36" selection-start="212" selection-end="212" vertical-scroll-proportion="-0.66703415">
+              <folding>
+                <element signature="e#7#46#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+    </leaf>
+  </component>
+  <component name="FindManager">
+    <FindUsagesManager>
+      <setting name="OPEN_NEW_TAB" value="false" />
+    </FindUsagesManager>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitLogSettings">
+    <option name="myDateState">
+      <MyDateState />
+    </option>
+  </component>
+  <component name="IdeDocumentHistory">
+    <option name="changedFiles">
+      <list>
+        <option value="$PROJECT_DIR$/hamcrest/Hamcrest/Array/IsArrayContainingKey.php" />
+        <option value="$PROJECT_DIR$/hamcrest/Hamcrest/Array/IsArrayContainingKeyValuePair.php" />
+        <option value="$PROJECT_DIR$/hamcrest/Hamcrest/Array/IsArrayWithSize.php" />
+        <option value="$PROJECT_DIR$/hamcrest/Hamcrest/Matchers.php" />
+        <option value="$PROJECT_DIR$/hamcrest/Hamcrest/Collection/IsEmptyTraversable.php" />
+        <option value="$PROJECT_DIR$/hamcrest/Hamcrest/Collection/IsTraversableWithSize.php" />
+        <option value="$PROJECT_DIR$/hamcrest/Hamcrest/Core/AllOf.php" />
+        <option value="$PROJECT_DIR$/tests/Hamcrest/Type/IsCallableTest.php" />
+        <option value="$PROJECT_DIR$/hamcrest/Hamcrest/Type/IsCallable.php" />
+        <option value="$PROJECT_DIR$/hamcrest/Hamcrest/MatcherAssert.php" />
+        <option value="$PROJECT_DIR$/hamcrest/Hamcrest/Core/ShortcutCombination.php" />
+        <option value="$PROJECT_DIR$/hamcrest/Hamcrest/Core/IsNot.php" />
+        <option value="$PROJECT_DIR$/hamcrest/Hamcrest/Core/IsCollectionContaining.php" />
+        <option value="$PROJECT_DIR$/hamcrest/Hamcrest/Core/HasToString.php" />
+        <option value="$PROJECT_DIR$/hamcrest/Hamcrest/Core/AnyOf.php" />
+        <option value="$PROJECT_DIR$/hamcrest/Hamcrest/Core/Is.php" />
+      </list>
+    </option>
+  </component>
+  <component name="PhpWorkspaceProjectConfiguration" backward_compatibility_performed="true" />
+  <component name="ProjectFrameBounds">
+    <option name="x" value="10" />
+    <option name="y" value="22" />
+    <option name="width" value="1900" />
+    <option name="height" value="1018" />
+  </component>
+  <component name="ProjectLevelVcsManager" settingsEditedManually="false">
+    <OptionsSetting value="true" id="Add" />
+    <OptionsSetting value="true" id="Remove" />
+    <OptionsSetting value="true" id="Checkout" />
+    <OptionsSetting value="true" id="Update" />
+    <OptionsSetting value="true" id="Status" />
+    <OptionsSetting value="true" id="Edit" />
+    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="0" id="Remove" />
+  </component>
+  <component name="ProjectReloadState">
+    <option name="STATE" value="0" />
+  </component>
+  <component name="ProjectView">
+    <navigator currentView="ProjectPane" proportions="" version="1" splitterProportion="0.5">
+      <flattenPackages />
+      <showMembers />
+      <showModules />
+      <showLibraryContents ProjectPane="true" />
+      <hideEmptyPackages />
+      <abbreviatePackageNames />
+      <autoscrollToSource />
+      <autoscrollFromSource />
+      <sortByType />
+    </navigator>
+    <panes>
+      <pane id="ProjectPane">
+        <subPane>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hamcrest-php" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hamcrest-php" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hamcrest-php" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+          <PATH>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hamcrest-php" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.ProjectViewProjectNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hamcrest-php" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+            <PATH_ELEMENT>
+              <option name="myItemId" value="hamcrest" />
+              <option name="myItemType" value="com.intellij.ide.projectView.impl.nodes.PsiDirectoryNode" />
+            </PATH_ELEMENT>
+          </PATH>
+        </subPane>
+      </pane>
+      <pane id="Scope" />
+    </panes>
+  </component>
+  <component name="PropertiesComponent">
+    <property name="options.splitter.main.proportions" value="0.3" />
+    <property name="WebServerToolWindowFactoryState" value="true" />
+    <property name="options.lastSelected" value="File.Encoding" />
+    <property name="GoToClass.includeJavaFiles" value="false" />
+    <property name="options.splitter.details.proportions" value="0.2" />
+    <property name="options.searchVisible" value="true" />
+  </component>
+  <component name="RunManager">
+    <list size="0" />
+  </component>
+  <component name="ShelveChangesManager" show_recycled="false" />
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="44778515-cc96-4f6f-a5c1-6dd7d52e6888" name="Default" comment="" />
+      <created>1370115618215</created>
+      <updated>1370115618215</updated>
+    </task>
+    <servers />
+  </component>
+  <component name="ToolWindowManager">
+    <frame x="10" y="22" width="1900" height="1018" extended-state="0" />
+    <editor active="true" />
+    <layout>
+      <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
+      <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Remote Host" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Debug" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
+      <window_info id="Favorites" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Event Log" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="true" content_ui="tabs" />
+      <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
+      <window_info id="Version Control" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
+      <window_info id="Cvs" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="4" side_tool="false" content_ui="tabs" />
+      <window_info id="Message" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Commander" active="false" anchor="right" auto_hide="false" internal_type="SLIDING" type="SLIDING" visible="false" weight="0.4" sideWeight="0.5" order="0" side_tool="false" content_ui="tabs" />
+      <window_info id="Inspection" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.4" sideWeight="0.5" order="5" side_tool="false" content_ui="tabs" />
+      <window_info id="Hierarchy" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="2" side_tool="false" content_ui="combo" />
+    </layout>
+  </component>
+  <component name="VcsContentAnnotationSettings">
+    <option name="myLimit" value="2678400000" />
+  </component>
+  <component name="VcsManagerConfiguration">
+    <option name="OFFER_MOVE_TO_ANOTHER_CHANGELIST_ON_PARTIAL_COMMIT" value="true" />
+    <option name="CHECK_CODE_SMELLS_BEFORE_PROJECT_COMMIT" value="true" />
+    <option name="CHECK_NEW_TODO" value="true" />
+    <option name="myTodoPanelSettings">
+      <value>
+        <are-packages-shown value="false" />
+        <are-modules-shown value="false" />
+        <flatten-packages value="false" />
+        <is-autoscroll-to-source value="false" />
+      </value>
+    </option>
+    <option name="PERFORM_UPDATE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_COMMIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_EDIT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_CHECKOUT_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ADD_REMOVE_IN_BACKGROUND" value="true" />
+    <option name="PERFORM_ROLLBACK_IN_BACKGROUND" value="false" />
+    <option name="CHECK_LOCALLY_CHANGED_CONFLICTS_IN_BACKGROUND" value="false" />
+    <option name="CHANGED_ON_SERVER_INTERVAL" value="60" />
+    <option name="SHOW_ONLY_CHANGED_IN_SELECTION_DIFF" value="true" />
+    <option name="CHECK_COMMIT_MESSAGE_SPELLING" value="true" />
+    <option name="DEFAULT_PATCH_EXTENSION" value="patch" />
+    <option name="SHORT_DIFF_HORIZONTALLY" value="true" />
+    <option name="SHORT_DIFF_EXTRA_LINES" value="2" />
+    <option name="SOFT_WRAPS_IN_SHORT_DIFF" value="true" />
+    <option name="INCLUDE_TEXT_INTO_PATCH" value="false" />
+    <option name="INCLUDE_TEXT_INTO_SHELF" value="false" />
+    <option name="SHOW_FILE_HISTORY_DETAILS" value="true" />
+    <option name="SHOW_VCS_ERROR_NOTIFICATIONS" value="true" />
+    <option name="SHOW_DIRTY_RECURSIVELY" value="false" />
+    <option name="LIMIT_HISTORY" value="true" />
+    <option name="MAXIMUM_HISTORY_ROWS" value="1000" />
+    <option name="UPDATE_FILTER_SCOPE_NAME" />
+    <option name="USE_COMMIT_MESSAGE_MARGIN" value="false" />
+    <option name="COMMIT_MESSAGE_MARGIN_SIZE" value="72" />
+    <option name="WRAP_WHEN_TYPING_REACHES_RIGHT_MARGIN" value="false" />
+    <option name="FORCE_NON_EMPTY_COMMENT" value="false" />
+    <option name="CLEAR_INITIAL_COMMIT_MESSAGE" value="false" />
+    <option name="LAST_COMMIT_MESSAGE" />
+    <option name="MAKE_NEW_CHANGELIST_ACTIVE" value="false" />
+    <option name="OPTIMIZE_IMPORTS_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="CHECK_FILES_UP_TO_DATE_BEFORE_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_PROJECT_COMMIT" value="false" />
+    <option name="REFORMAT_BEFORE_FILE_COMMIT" value="false" />
+    <option name="FILE_HISTORY_DIALOG_COMMENTS_SPLITTER_PROPORTION" value="0.8" />
+    <option name="FILE_HISTORY_DIALOG_SPLITTER_PROPORTION" value="0.5" />
+    <option name="ACTIVE_VCS_NAME" />
+    <option name="UPDATE_GROUP_BY_PACKAGES" value="false" />
+    <option name="UPDATE_GROUP_BY_CHANGELIST" value="false" />
+    <option name="UPDATE_FILTER_BY_SCOPE" value="false" />
+    <option name="SHOW_FILE_HISTORY_AS_TREE" value="false" />
+    <option name="FILE_HISTORY_SPLITTER_PROPORTION" value="0.6" />
+  </component>
+  <component name="XDebuggerManager">
+    <breakpoint-manager />
+  </component>
+  <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/hamcrest/Hamcrest/Array/IsArrayContainingKey.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="3" selection-start="183" selection-end="183" vertical-scroll-proportion="-7.59375">
+          <folding>
+            <element signature="e#7#46#0" expanded="true" />
+            <marker date="1370116195000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hamcrest/Hamcrest/Array/IsArrayContainingKeyValuePair.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="4" column="3" selection-start="102" selection-end="102" vertical-scroll-proportion="-3.375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hamcrest/Hamcrest/Array/IsArrayWithSize.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="3" selection-start="224" selection-end="224" vertical-scroll-proportion="-8.4375">
+          <folding>
+            <element signature="e#7#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hamcrest/Hamcrest/Collection/IsEmptyTraversable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="10" column="7" selection-start="148" selection-end="148" vertical-scroll-proportion="-8.4375">
+          <folding>
+            <element signature="e#7#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hamcrest/Hamcrest/Collection/IsTraversableWithSize.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="7" selection-start="184" selection-end="184" vertical-scroll-proportion="-9.28125">
+          <folding>
+            <element signature="e#7#46#0" expanded="true" />
+            <marker date="1370116540000" expanded="true" signature="-1:-1" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hamcrest/Hamcrest/Matchers.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="685" column="11" selection-start="19352" selection-end="19354" vertical-scroll-proportion="-4.9310346">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hamcrest/Hamcrest/Core/AllOf.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="3" selection-start="185" selection-end="185" vertical-scroll-proportion="-7.59375">
+          <folding>
+            <element signature="e#7#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/tests/Hamcrest/Type/IsCallableTest.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="101" column="0" selection-start="2735" selection-end="2735" vertical-scroll-proportion="-25.9375">
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hamcrest/Hamcrest/Type/IsCallable.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="36" column="2" selection-start="546" selection-end="546" vertical-scroll-proportion="-22.5625">
+          <folding>
+            <element signature="e#7#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hamcrest/Hamcrest/MatcherAssert.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="11" column="19" selection-start="242" selection-end="242" vertical-scroll-proportion="-9.28125">
+          <folding>
+            <element signature="e#7#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hamcrest/Hamcrest/Core/ShortcutCombination.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="36" selection-start="172" selection-end="172" vertical-scroll-proportion="6.125">
+          <folding>
+            <element signature="e#7#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hamcrest/Hamcrest/Core/IsNot.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="36" selection-start="212" selection-end="212" vertical-scroll-proportion="-7.59375">
+          <folding>
+            <element signature="e#7#46#0" expanded="true" />
+            <marker date="1370116850000" expanded="true" signature="51:212" placeholder="..." />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hamcrest/Hamcrest/Core/IsCollectionContaining.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="7" column="12" selection-start="108" selection-end="108" vertical-scroll-proportion="-5.90625">
+          <folding>
+            <element signature="e#7#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hamcrest/Hamcrest/Core/HasToString.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="36" selection-start="171" selection-end="171" vertical-scroll-proportion="-6.75">
+          <folding>
+            <element signature="e#7#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hamcrest/Hamcrest/Core/AnyOf.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="8" column="36" selection-start="185" selection-end="185" vertical-scroll-proportion="-6.75">
+          <folding>
+            <element signature="e#7#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/hamcrest/Hamcrest/Core/Is.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state line="9" column="36" selection-start="212" selection-end="212" vertical-scroll-proportion="-0.66703415">
+          <folding>
+            <element signature="e#7#46#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+  </component>
+</project>
+
