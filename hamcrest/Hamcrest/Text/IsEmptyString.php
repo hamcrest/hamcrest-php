@@ -1,4 +1,5 @@
 <?php
+namespace Hamcrest\Text;
 
 /*
  Copyright (c) 2009 hamcrest.org
@@ -7,7 +8,7 @@
 /**
  * Matches empty Strings (and null).
  */
-class Hamcrest_Text_IsEmptyString extends Hamcrest_BaseMatcher
+class IsEmptyString extends \Hamcrest\BaseMatcher
 {
 
   private static $_INSTANCE;
@@ -28,7 +29,7 @@ class Hamcrest_Text_IsEmptyString extends Hamcrest_BaseMatcher
       : is_string($item) && $item !== '';
   }
 
-  public function describeTo(Hamcrest_Description $description)
+  public function describeTo(\Hamcrest\Description $description)
   {
     $description->appendText(
       $this->_empty
@@ -44,8 +45,7 @@ class Hamcrest_Text_IsEmptyString extends Hamcrest_BaseMatcher
    */
   public static function isEmptyString()
   {
-    if (!self::$_INSTANCE)
-    {
+    if (!self::$_INSTANCE) {
       self::$_INSTANCE = new self(true);
     }
 
@@ -59,10 +59,9 @@ class Hamcrest_Text_IsEmptyString extends Hamcrest_BaseMatcher
    */
   public static function isEmptyOrNullString()
   {
-    if (!self::$_NULL_OR_EMPTY_INSTANCE)
-    {
-      self::$_NULL_OR_EMPTY_INSTANCE = Hamcrest_Core_AnyOf::anyOf(
-        Hamcrest_Core_IsNull::nullvalue(),
+    if (!self::$_NULL_OR_EMPTY_INSTANCE) {
+      self::$_NULL_OR_EMPTY_INSTANCE = \Hamcrest\Core\AnyOf::anyOf(
+        \Hamcrest\Core\IsNull::nullvalue(),
         self::isEmptyString()
       );
     }
@@ -77,8 +76,7 @@ class Hamcrest_Text_IsEmptyString extends Hamcrest_BaseMatcher
    */
   public static function isNonEmptyString()
   {
-    if (!self::$_NOT_INSTANCE)
-    {
+    if (!self::$_NOT_INSTANCE) {
       self::$_NOT_INSTANCE = new self(false);
     }
 

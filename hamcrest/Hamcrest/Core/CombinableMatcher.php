@@ -1,15 +1,16 @@
 <?php
+namespace Hamcrest\Core;
 
 /*
  Copyright (c) 2009 hamcrest.org
  */
 
-class Hamcrest_Core_CombinableMatcher extends Hamcrest_BaseMatcher
+class CombinableMatcher extends \Hamcrest\BaseMatcher
 {
 
   private $_matcher;
 
-  public function __construct(Hamcrest_Matcher $matcher)
+  public function __construct(\Hamcrest\Matcher $matcher)
   {
     $this->_matcher = $matcher;
   }
@@ -19,21 +20,21 @@ class Hamcrest_Core_CombinableMatcher extends Hamcrest_BaseMatcher
     return $this->_matcher->matches($item);
   }
 
-  public function describeTo(Hamcrest_Description $description)
+  public function describeTo(\Hamcrest\Description $description)
   {
     $description->appendDescriptionOf($this->_matcher);
   }
 
   /** Diversion from Hamcrest-Java... Logical "and" not permitted */
-  public function andAlso(Hamcrest_Matcher $other)
+  public function andAlso(\Hamcrest\Matcher $other)
   {
-    return new self(new Hamcrest_Core_AllOf($this->_templatedListWith($other)));
+    return new self(new AllOf($this->_templatedListWith($other)));
   }
 
   /** Diversion from Hamcrest-Java... Logical "or" not permitted */
-  public function orElse(Hamcrest_Matcher $other)
+  public function orElse(\Hamcrest\Matcher $other)
   {
-    return new self(new Hamcrest_Core_AnyOf($this->_templatedListWith($other)));
+    return new self(new AnyOf($this->_templatedListWith($other)));
   }
 
   /**
@@ -45,7 +46,7 @@ class Hamcrest_Core_CombinableMatcher extends Hamcrest_BaseMatcher
    *
    * @factory
    */
-  public static function both(Hamcrest_Matcher $matcher)
+  public static function both(\Hamcrest\Matcher $matcher)
   {
     return new self($matcher);
   }
@@ -59,14 +60,14 @@ class Hamcrest_Core_CombinableMatcher extends Hamcrest_BaseMatcher
    *
    * @factory
    */
-  public static function either(Hamcrest_Matcher $matcher)
+  public static function either(\Hamcrest\Matcher $matcher)
   {
     return new self($matcher);
   }
 
   // -- Private Methods
 
-  private function _templatedListWith(Hamcrest_Matcher $other)
+  private function _templatedListWith(\Hamcrest\Matcher $other)
   {
     return array($this->_matcher, $other);
   }

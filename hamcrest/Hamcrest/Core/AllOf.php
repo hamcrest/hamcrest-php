@@ -1,4 +1,5 @@
 <?php
+namespace Hamcrest\Core;
 
 /*
  Copyright (c) 2009 hamcrest.org
@@ -9,25 +10,23 @@
  * shortcut, so subsequent matchers are not called if an earlier matcher
  * returns <code>false</code>.
  */
-class Hamcrest_Core_AllOf extends Hamcrest_DiagnosingMatcher
+class AllOf extends \Hamcrest\DiagnosingMatcher
 {
 
   private $_matchers;
 
   public function __construct(array $matchers)
   {
-    Hamcrest_Util::checkAllAreMatchers($matchers);
+    \Hamcrest\Util::checkAllAreMatchers($matchers);
 
     $this->_matchers = $matchers;
   }
 
   public function matchesWithDiagnosticDescription($item,
-    Hamcrest_Description $mismatchDescription)
+    \Hamcrest\Description $mismatchDescription)
   {
-    foreach ($this->_matchers as $matcher)
-    {
-      if (!$matcher->matches($item))
-      {
+    foreach ($this->_matchers as $matcher) {
+      if (!$matcher->matches($item)) {
         $mismatchDescription->appendDescriptionOf($matcher)->appendText(' ');
         $matcher->describeMismatch($item, $mismatchDescription);
 
@@ -38,7 +37,7 @@ class Hamcrest_Core_AllOf extends Hamcrest_DiagnosingMatcher
     return true;
   }
 
-  public function describeTo(Hamcrest_Description $description)
+  public function describeTo(\Hamcrest\Description $description)
   {
     $description->appendList('(', ' and ', ')', $this->_matchers);
   }
@@ -51,7 +50,8 @@ class Hamcrest_Core_AllOf extends Hamcrest_DiagnosingMatcher
   public static function allOf(/* args... */)
   {
     $args = func_get_args();
-    return new self(Hamcrest_Util::createMatcherArray($args));
+
+    return new self(\Hamcrest\Util::createMatcherArray($args));
   }
 
 }

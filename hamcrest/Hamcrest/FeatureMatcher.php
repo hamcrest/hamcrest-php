@@ -1,4 +1,5 @@
 <?php
+namespace Hamcrest;
 
 /*
  Copyright (c) 2009 hamcrest.org
@@ -9,8 +10,8 @@
  * <code>featureValueOf()</code> in a subclass to pull out the feature to be
  * matched against.
  */
-abstract class Hamcrest_FeatureMatcher
-  extends Hamcrest_TypeSafeDiagnosingMatcher
+abstract class FeatureMatcher
+  extends TypeSafeDiagnosingMatcher
 {
 
   private $_subMatcher;
@@ -24,7 +25,7 @@ abstract class Hamcrest_FeatureMatcher
    * @param string $featureDescription Descriptive text to use in describeTo
    * @param string $featureName Identifying text for mismatch message
    */
-  public function __construct($type, $subtype, Hamcrest_Matcher $subMatcher,
+  public function __construct($type, $subtype, Matcher $subMatcher,
     $featureDescription, $featureName)
   {
     parent::__construct($type, $subtype);
@@ -44,21 +45,21 @@ abstract class Hamcrest_FeatureMatcher
   abstract protected function featureValueOf($actual);
 
   public function matchesSafelyWithDiagnosticDescription($actual,
-    Hamcrest_Description $mismatchDescription)
+    Description $mismatchDescription)
   {
     $featureValue = $this->featureValueOf($actual);
 
-    if (!$this->_subMatcher->matches($featureValue))
-    {
+    if (!$this->_subMatcher->matches($featureValue)) {
       $mismatchDescription->appendText($this->_featureName)
                           ->appendText(' was ')->appendValue($featureValue);
+
       return false;
     }
 
     return true;
   }
 
-  final public function describeTo(Hamcrest_Description $description)
+  final public function describeTo(Description $description)
   {
     $description->appendText($this->_featureDescription)->appendText(' ')
                 ->appendDescriptionOf($this->_subMatcher)

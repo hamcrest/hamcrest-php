@@ -16,7 +16,7 @@ function assertThat()
 {
   $args = func_get_args();
   call_user_func_array(
-    array('Hamcrest_MatcherAssert', 'assertThat'),
+    array('Hamcrest\MatcherAssert', 'assertThat'),
     $args
   );
 }

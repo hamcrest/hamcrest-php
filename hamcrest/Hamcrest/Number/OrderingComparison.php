@@ -1,10 +1,11 @@
 <?php
+namespace Hamcrest\Number;
 
 /*
  Copyright (c) 2009 hamcrest.org
  */
 
-class Hamcrest_Number_OrderingComparison extends Hamcrest_TypeSafeMatcher
+class OrderingComparison extends \Hamcrest\TypeSafeMatcher
 {
 
   private $_value;
@@ -23,11 +24,12 @@ class Hamcrest_Number_OrderingComparison extends Hamcrest_TypeSafeMatcher
   protected function matchesSafely($other)
   {
     $compare = $this->_compare($this->_value, $other);
+
     return ($this->_minCompare <= $compare) && ($compare <= $this->_maxCompare);
   }
 
   protected function describeMismatchSafely($item,
-    Hamcrest_Description $mismatchDescription)
+    \Hamcrest\Description $mismatchDescription)
   {
     $mismatchDescription
       ->appendValue($item)->appendText(' was ')
@@ -36,13 +38,12 @@ class Hamcrest_Number_OrderingComparison extends Hamcrest_TypeSafeMatcher
       ;
   }
 
-  public function describeTo(Hamcrest_Description $description)
+  public function describeTo(\Hamcrest\Description $description)
   {
     $description->appendText('a value ')
       ->appendText($this->_comparison($this->_minCompare))
       ;
-    if ($this->_minCompare != $this->_maxCompare)
-    {
+    if ($this->_minCompare != $this->_maxCompare) {
       $description->appendText(' or ')
         ->appendText($this->_comparison($this->_maxCompare))
         ;
@@ -107,32 +108,22 @@ class Hamcrest_Number_OrderingComparison extends Hamcrest_TypeSafeMatcher
     $a = $left;
     $b = $right;
 
-    if ($a < $b)
-    {
+    if ($a < $b) {
       return -1;
-    }
-    elseif ($a == $b)
-    {
+    } elseif ($a == $b) {
       return 0;
-    }
-    else
-    {
+    } else {
       return 1;
     }
   }
 
   private function _comparison($compare)
   {
-    if ($compare > 0)
-    {
+    if ($compare > 0) {
       return 'less than';
-    }
-    elseif ($compare == 0)
-    {
+    } elseif ($compare == 0) {
       return 'equal to';
-    }
-    else
-    {
+    } else {
       return 'greater than';
     }
   }

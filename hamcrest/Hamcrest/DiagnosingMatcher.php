@@ -1,4 +1,5 @@
 <?php
+namespace Hamcrest;
 
 /*
  Copyright (c) 2009 hamcrest.org
@@ -7,23 +8,23 @@
 /**
  * Official documentation for this class is missing.
  */
-abstract class Hamcrest_DiagnosingMatcher extends Hamcrest_BaseMatcher
+abstract class DiagnosingMatcher extends BaseMatcher
 {
 
   final public function matches($item)
   {
     return $this->matchesWithDiagnosticDescription(
-      $item, new Hamcrest_NullDescription()
+      $item, new NullDescription()
     );
   }
 
   public function describeMismatch($item,
-    Hamcrest_Description $mismatchDescription)
+    \Hamcrest\Description $mismatchDescription)
   {
     $this->matchesWithDiagnosticDescription($item, $mismatchDescription);
   }
 
   abstract protected function matchesWithDiagnosticDescription($item,
-    Hamcrest_Description $mismatchDescription);
+    \Hamcrest\Description $mismatchDescription);
 
 }

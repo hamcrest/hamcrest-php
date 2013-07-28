@@ -1,8 +1,7 @@
 <?php
-require_once 'Hamcrest/AbstractMatcherTest.php';
-require_once 'Hamcrest/Xml/HasXPath.php';
+namespace Hamcrest\Xml;
 
-class Hamcrest_Xml_HasXPathTest extends Hamcrest_AbstractMatcherTest
+class HasXPathTest extends \Hamcrest\AbstractMatcherTest
 {
   protected static $xml;
   protected static $doc;
@@ -30,7 +29,7 @@ class Hamcrest_Xml_HasXPathTest extends Hamcrest_AbstractMatcherTest
   </user>
 </users>
 XML;
-    self::$doc = new DOMDocument();
+    self::$doc = new \DOMDocument();
     self::$doc->loadXML(self::$xml);
 
     self::$html = <<<HTML
@@ -48,7 +47,7 @@ HTML;
 
   protected function createMatcher()
   {
-    return Hamcrest_Xml_HasXPath::hasXPath('/users/user');
+    return \Hamcrest\Xml\HasXPath::hasXPath('/users/user');
   }
 
   public function testMatchesWhenXPathIsFound()
@@ -59,7 +58,7 @@ HTML;
 
   public function testDoesNotMatchWhenXPathIsNotFound()
   {
-    assertThat('no match', self::$doc, 
+    assertThat('no match', self::$doc,
         not(hasXPath('user[contains(id, "frank")]'))
     );
   }
@@ -80,17 +79,17 @@ HTML;
 
   public function testMatchesWhenExpressionIsEqual()
   {
-    assertThat('one match', self::$doc, 
+    assertThat('one match', self::$doc,
         hasXPath('count(user[id = "bob"])', 1)
     );
-    assertThat('two matches', self::$doc, 
+    assertThat('two matches', self::$doc,
         hasXPath('count(user[role = "user"])', 2)
     );
   }
 
   public function testDoesNotMatchWhenExpressionIsNotEqual()
   {
-    assertThat('no match', self::$doc, 
+    assertThat('no match', self::$doc,
         not(hasXPath('count(user[id = "frank"])', 2))
     );
     assertThat('one match', self::$doc,
@@ -138,7 +137,7 @@ HTML;
   {
     assertThat('accepts HTML string', self::$html, hasXPath('body/h1', 'Heading'));
   }
-  
+
   public function testHasAReadableDescription()
   {
     $this->assertDescription('XML or HTML document with XPath "/users/user"',
@@ -173,5 +172,5 @@ HTML;
         self::$doc
     );
   }
-  
+
 }

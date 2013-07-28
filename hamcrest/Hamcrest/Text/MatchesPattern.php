@@ -1,4 +1,5 @@
 <?php
+namespace Hamcrest\Text;
 
 /*
  Copyright (c) 2010 hamcrest.org
@@ -7,7 +8,7 @@
 /**
  * Tests if the argument is a string that matches a regular expression.
  */
-class Hamcrest_Text_MatchesPattern extends Hamcrest_Text_SubstringMatcher
+class MatchesPattern extends SubstringMatcher
 {
 
   public function __construct($pattern)

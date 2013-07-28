@@ -1,4 +1,5 @@
 <?php
+namespace Hamcrest\Type;
 
 /*
  Copyright (c) 2010 hamcrest.org
@@ -7,7 +8,7 @@
 /**
  * Tests whether the value is a resource.
  */
-class Hamcrest_Type_IsResource extends Hamcrest_Core_IsTypeOf
+class IsResource extends \Hamcrest\Core\IsTypeOf
 {
 
   /**

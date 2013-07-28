@@ -1,4 +1,5 @@
 <?php
+namespace Hamcrest\Collection;
 
 /*
  Copyright (c) 2009 hamcrest.org
@@ -7,7 +8,7 @@
 /**
  * Matches if traversable is empty or non-empty.
  */
-class Hamcrest_Collection_IsEmptyTraversable extends Hamcrest_BaseMatcher
+class IsEmptyTraversable extends \Hamcrest\BaseMatcher
 {
 
   private static $_INSTANCE;
@@ -22,20 +23,18 @@ class Hamcrest_Collection_IsEmptyTraversable extends Hamcrest_BaseMatcher
 
   public function matches($item)
   {
-    if (!$item instanceof Traversable)
-    {
+    if (!$item instanceof \Traversable) {
       return false;
     }
 
-    foreach ($item as $value)
-    {
+    foreach ($item as $value) {
       return !$this->_empty;
     }
 
     return $this->_empty;
   }
 
-  public function describeTo(Hamcrest_Description $description)
+  public function describeTo(\Hamcrest\Description $description)
   {
     $description->appendText(
       $this->_empty

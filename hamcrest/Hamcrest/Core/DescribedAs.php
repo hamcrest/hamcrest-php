@@ -1,4 +1,5 @@
 <?php
+namespace Hamcrest\Core;
 
 /*
  Copyright (c) 2009 hamcrest.org
@@ -7,7 +8,7 @@
 /**
  * Provides a custom description to another matcher.
  */
-class Hamcrest_Core_DescribedAs extends Hamcrest_BaseMatcher
+class DescribedAs extends \Hamcrest\BaseMatcher
 {
 
   private $_descriptionTemplate;
@@ -16,7 +17,7 @@ class Hamcrest_Core_DescribedAs extends Hamcrest_BaseMatcher
 
   const ARG_PATTERN = '/%([0-9]+)/';
 
-  public function __construct($descriptionTemplate, Hamcrest_Matcher $matcher,
+  public function __construct($descriptionTemplate, \Hamcrest\Matcher $matcher,
     array $values)
   {
     $this->_descriptionTemplate = $descriptionTemplate;
@@ -29,7 +30,7 @@ class Hamcrest_Core_DescribedAs extends Hamcrest_BaseMatcher
     return $this->_matcher->matches($item);
   }
 
-  public function describeTo(Hamcrest_Description $description)
+  public function describeTo(\Hamcrest\Description $description)
   {
     $textStart = 0;
     while (preg_match(self::ARG_PATTERN, $this->_descriptionTemplate,
@@ -46,8 +47,7 @@ class Hamcrest_Core_DescribedAs extends Hamcrest_BaseMatcher
       $textStart = $offset + strlen($text);
     }
 
-    if ($textStart < strlen($this->_descriptionTemplate))
-    {
+    if ($textStart < strlen($this->_descriptionTemplate)) {
       $description->appendText(substr($this->_descriptionTemplate, $textStart));
     }
   }
@@ -57,7 +57,7 @@ class Hamcrest_Core_DescribedAs extends Hamcrest_BaseMatcher
    *
    * @factory ...
    */
-  public static function describedAs(/* $description, Hamcrest_Matcher $matcher, $values... */)
+  public static function describedAs(/* $description, Hamcrest\Matcher $matcher, $values... */)
   {
     $args = func_get_args();
     $description = array_shift($args);

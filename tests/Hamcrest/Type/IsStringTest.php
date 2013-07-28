@@ -1,15 +1,14 @@
 <?php
-require_once 'Hamcrest/AbstractMatcherTest.php';
-require_once 'Hamcrest/Type/IsString.php';
+namespace Hamcrest\Type;
 
-class Hamcrest_Type_IsStringTest extends Hamcrest_AbstractMatcherTest
+class IsStringTest extends \Hamcrest\AbstractMatcherTest
 {
-  
+
   protected function createMatcher()
   {
-    return Hamcrest_Type_IsString::stringValue();
+    return \Hamcrest\Type\IsString::stringValue();
   }
-  
+
   public function testEvaluatesToTrueIfArgumentMatchesType()
   {
     assertThat('', stringValue());
@@ -22,16 +21,16 @@ class Hamcrest_Type_IsStringTest extends Hamcrest_AbstractMatcherTest
     assertThat(5, not(stringValue()));
     assertThat(array(1, 2, 3), not(stringValue()));
   }
-  
+
   public function testHasAReadableDescription()
   {
     $this->assertDescription('a string', stringValue());
   }
-  
+
   public function testDecribesActualTypeInMismatchMessage()
   {
     $this->assertMismatchDescription('was null', stringValue(), null);
     $this->assertMismatchDescription('was a double <5.2F>', stringValue(), 5.2);
   }
-  
+
 }

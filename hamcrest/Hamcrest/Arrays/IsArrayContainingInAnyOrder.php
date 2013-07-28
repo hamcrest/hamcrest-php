@@ -1,4 +1,5 @@
 <?php
+namespace Hamcrest\Arrays;
 
 /*
  Copyright (c) 2009 hamcrest.org
@@ -7,8 +8,8 @@
 /**
  * Matches if an array contains a set of items satisfying nested matchers.
  */
-class Hamcrest_Array_IsArrayContainingInAnyOrder
-  extends Hamcrest_TypeSafeDiagnosingMatcher
+class IsArrayContainingInAnyOrder
+  extends \Hamcrest\TypeSafeDiagnosingMatcher
 {
 
   private $_elementMatchers;
@@ -17,22 +18,20 @@ class Hamcrest_Array_IsArrayContainingInAnyOrder
   {
     parent::__construct(self::TYPE_ARRAY);
 
-    Hamcrest_Util::checkAllAreMatchers($elementMatchers);
+    \Hamcrest\Util::checkAllAreMatchers($elementMatchers);
 
     $this->_elementMatchers = $elementMatchers;
   }
 
   protected function matchesSafelyWithDiagnosticDescription($array,
-    Hamcrest_Description $mismatchDescription)
+    \Hamcrest\Description $mismatchDescription)
   {
-    $matching = new Hamcrest_Array_MatchingOnce(
+    $matching = new MatchingOnce(
       $this->_elementMatchers, $mismatchDescription
     );
 
-    foreach ($array as $element)
-    {
-      if (!$matching->matches($element))
-      {
+    foreach ($array as $element) {
+      if (!$matching->matches($element)) {
         return false;
       }
     }
@@ -40,7 +39,7 @@ class Hamcrest_Array_IsArrayContainingInAnyOrder
     return $matching->isFinished($array);
   }
 
-  public function describeTo(Hamcrest_Description $description)
+  public function describeTo(\Hamcrest\Description $description)
   {
     $description->appendList('[', ', ', ']', $this->_elementMatchers)
                 ->appendText(' in any order')
@@ -55,7 +54,8 @@ class Hamcrest_Array_IsArrayContainingInAnyOrder
   public static function arrayContainingInAnyOrder(/* args... */)
   {
     $args = func_get_args();
-    return new self(Hamcrest_Util::createMatcherArray($args));
+
+    return new self(\Hamcrest\Util::createMatcherArray($args));
   }
 
 }

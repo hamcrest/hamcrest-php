@@ -1,4 +1,5 @@
 <?php
+namespace Hamcrest\Core;
 
 /*
  Copyright (c) 2009 hamcrest.org
@@ -7,12 +8,12 @@
 /**
  * Tests if an array contains values that match one or more Matchers.
  */
-class Hamcrest_Core_IsCollectionContaining extends Hamcrest_TypeSafeMatcher
+class IsCollectionContaining extends \Hamcrest\TypeSafeMatcher
 {
 
   private $_elementMatcher;
 
-  public function __construct(Hamcrest_Matcher $elementMatcher)
+  public function __construct(\Hamcrest\Matcher $elementMatcher)
   {
     parent::__construct(self::TYPE_ARRAY);
 
@@ -21,10 +22,8 @@ class Hamcrest_Core_IsCollectionContaining extends Hamcrest_TypeSafeMatcher
 
   protected function matchesSafely($items)
   {
-    foreach ($items as $item)
-    {
-      if ($this->_elementMatcher->matches($item))
-      {
+    foreach ($items as $item) {
+      if ($this->_elementMatcher->matches($item)) {
         return true;
       }
     }
@@ -33,12 +32,12 @@ class Hamcrest_Core_IsCollectionContaining extends Hamcrest_TypeSafeMatcher
   }
 
   protected function describeMismatchSafely($items,
-    Hamcrest_Description $mismatchDescription)
+    \Hamcrest\Description $mismatchDescription)
   {
     $mismatchDescription->appendText('was ')->appendValue($items);
   }
 
-  public function describeTo(Hamcrest_Description $description)
+  public function describeTo(\Hamcrest\Description $description)
   {
     $description
         ->appendText('a collection containing ')
@@ -63,7 +62,7 @@ class Hamcrest_Core_IsCollectionContaining extends Hamcrest_TypeSafeMatcher
     $args = func_get_args();
     $firstArg = array_shift($args);
 
-    return new self(Hamcrest_Util::wrapValueWithIsEqual($firstArg));
+    return new self(\Hamcrest\Util::wrapValueWithIsEqual($firstArg));
   }
 
   /**
@@ -82,12 +81,11 @@ class Hamcrest_Core_IsCollectionContaining extends Hamcrest_TypeSafeMatcher
     $args = func_get_args();
     $matchers = array();
 
-    foreach ($args as $arg)
-    {
+    foreach ($args as $arg) {
       $matchers[] = self::hasItem($arg);
     }
 
-    return Hamcrest_Core_AllOf::allOf($matchers);
+    return AllOf::allOf($matchers);
   }
 
 }

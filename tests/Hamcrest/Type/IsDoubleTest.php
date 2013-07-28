@@ -1,15 +1,14 @@
 <?php
-require_once 'Hamcrest/AbstractMatcherTest.php';
-require_once 'Hamcrest/Type/IsDouble.php';
+namespace Hamcrest\Type;
 
-class Hamcrest_Type_IsDoubleTest extends Hamcrest_AbstractMatcherTest
+class IsDoubleTest extends \Hamcrest\AbstractMatcherTest
 {
-  
+
   protected function createMatcher()
   {
-    return Hamcrest_Type_IsDouble::doubleValue();
+    return \Hamcrest\Type\IsDouble::doubleValue();
   }
-  
+
   public function testEvaluatesToTrueIfArgumentMatchesType()
   {
     assertThat((float) 5.2, floatValue());
@@ -22,16 +21,16 @@ class Hamcrest_Type_IsDoubleTest extends Hamcrest_AbstractMatcherTest
     assertThat(5, not(doubleValue()));
     assertThat('foo', not(doubleValue()));
   }
-  
+
   public function testHasAReadableDescription()
   {
     $this->assertDescription('a double', doubleValue());
   }
-  
+
   public function testDecribesActualTypeInMismatchMessage()
   {
     $this->assertMismatchDescription('was null', doubleValue(), null);
     $this->assertMismatchDescription('was a string "foo"', doubleValue(), 'foo');
   }
-  
+
 }

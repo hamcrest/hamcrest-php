@@ -1,4 +1,5 @@
 <?php
+namespace Hamcrest;
 
 /*
  Copyright (c) 2009 hamcrest.org
@@ -7,7 +8,7 @@
 /**
  * The ability of an object to describe itself.
  */
-interface Hamcrest_SelfDescribing
+interface SelfDescribing
 {
 
   /**
@@ -15,9 +16,9 @@ interface Hamcrest_SelfDescribing
    * of a description of a larger object of which this is just a component,
    * so it should be worded appropriately.
    *
-   * @param Hamcrest_Description $description
+   * @param Hamcrest\Description $description
    *   The description to be built or appended to.
    */
-  public function describeTo(Hamcrest_Description $description);
+  public function describeTo(Description $description);
 
 }

@@ -8,9 +8,7 @@
 	],
 
 	"autoload": {
-		"psr-0": {
-			"Hamcrest": "hamcrest"
-		}
+		"classmap": ["hamcrest/", "tests", "generator"]
 	},
 
 	"require": {

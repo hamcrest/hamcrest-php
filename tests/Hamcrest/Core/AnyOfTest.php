@@ -1,50 +1,46 @@
 <?php
-require_once 'Hamcrest/AbstractMatcherTest.php';
-require_once 'Hamcrest/Core/AnyOf.php';
-require_once 'Hamcrest/Core/SampleBaseClass.php';
-require_once 'Hamcrest/Core/SampleSubClass.php';
+namespace Hamcrest\Core;
 
-class Hamcrest_Core_AnyOfTest extends Hamcrest_AbstractMatcherTest
+class AnyOfTest extends \Hamcrest\AbstractMatcherTest
 {
-  
+
   protected function createMatcher()
   {
-    return Hamcrest_Core_AnyOf::anyOf('irrelevant');
+    return \Hamcrest\Core\AnyOf::anyOf('irrelevant');
   }
-  
+
   public function testAnyOfEvaluatesToTheLogicalDisjunctionOfTwoOtherMatchers()
   {
     assertThat('good', anyOf('bad', 'good'));
     assertThat('good', anyOf('good', 'good'));
     assertThat('good', anyOf('good', 'bad'));
-    
+
     assertThat('good', not(anyOf('bad', startsWith('b'))));
   }
-  
+
   public function testAnyOfEvaluatesToTheLogicalDisjunctionOfManyOtherMatchers()
   {
     assertThat('good', anyOf('bad', 'good', 'bad', 'bad', 'bad'));
     assertThat('good', not(anyOf('bad', 'bad', 'bad', 'bad', 'bad')));
   }
-  
+
   public function testAnyOfSupportsMixedTypes()
   {
     $combined = anyOf(
-      equalTo(new Hamcrest_Core_SampleBaseClass('good')),
-      equalTo(new Hamcrest_Core_SampleBaseClass('ugly')),
-      equalTo(new Hamcrest_Core_SampleSubClass('good'))
+      equalTo(new \Hamcrest\Core\SampleBaseClass('good')),
+      equalTo(new \Hamcrest\Core\SampleBaseClass('ugly')),
+      equalTo(new \Hamcrest\Core\SampleSubClass('good'))
     );
-    
-    assertThat(new Hamcrest_Core_SampleSubClass('good'), $combined);
+
+    assertThat(new \Hamcrest\Core\SampleSubClass('good'), $combined);
   }
-  
+
   public function testAnyOfHasAReadableDescription()
   {
     $this->assertDescription('("good" or "bad" or "ugly")',
       anyOf('good', 'bad', 'ugly')
     );
   }
-
 
   public function testNoneOfEvaluatesToTheLogicalDisjunctionOfTwoOtherMatchers()
   {
@@ -64,12 +60,12 @@ class Hamcrest_Core_AnyOfTest extends Hamcrest_AbstractMatcherTest
   public function testNoneOfSupportsMixedTypes()
   {
     $combined = noneOf(
-      equalTo(new Hamcrest_Core_SampleBaseClass('good')),
-      equalTo(new Hamcrest_Core_SampleBaseClass('ugly')),
-      equalTo(new Hamcrest_Core_SampleSubClass('good'))
+      equalTo(new \Hamcrest\Core\SampleBaseClass('good')),
+      equalTo(new \Hamcrest\Core\SampleBaseClass('ugly')),
+      equalTo(new \Hamcrest\Core\SampleSubClass('good'))
     );
 
-    assertThat(new Hamcrest_Core_SampleSubClass('bad'), $combined);
+    assertThat(new \Hamcrest\Core\SampleSubClass('bad'), $combined);
   }
 
   public function testNoneOfHasAReadableDescription()
@@ -78,5 +74,5 @@ class Hamcrest_Core_AnyOfTest extends Hamcrest_AbstractMatcherTest
       noneOf('good', 'bad', 'ugly')
     );
   }
-  
+
 }

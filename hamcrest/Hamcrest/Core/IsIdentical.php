@@ -1,14 +1,15 @@
 <?php
+namespace Hamcrest\Core;
 
 /*
  Copyright (c) 2009 hamcrest.org
  */
 
 /**
- * The same as {@link Hamcrest_Core_IsSame} but with slightly different
+ * The same as {@link Hamcrest\Core\IsSame} but with slightly different
  * semantics.
  */
-class Hamcrest_Core_IsIdentical extends Hamcrest_Core_IsSame
+class IsIdentical extends IsSame
 {
 
   private $_value;
@@ -19,7 +20,7 @@ class Hamcrest_Core_IsIdentical extends Hamcrest_Core_IsSame
     $this->_value = $value;
   }
 
-  public function describeTo(Hamcrest_Description $description)
+  public function describeTo(\Hamcrest\Description $description)
   {
     $description->appendValue($this->_value);
   }

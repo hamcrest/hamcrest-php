@@ -1,4 +1,5 @@
 <?php
+namespace Hamcrest\Text;
 
 /*
  Copyright (c) 2009 hamcrest.org
@@ -8,7 +9,7 @@
  * Tests if a string is equal to another string, ignoring any changes in
  * whitespace.
  */
-class Hamcrest_Text_IsEqualIgnoringWhiteSpace extends Hamcrest_TypeSafeMatcher
+class IsEqualIgnoringWhiteSpace extends \Hamcrest\TypeSafeMatcher
 {
 
   private $_string;
@@ -27,12 +28,12 @@ class Hamcrest_Text_IsEqualIgnoringWhiteSpace extends Hamcrest_TypeSafeMatcher
   }
 
   protected function describeMismatchSafely($item,
-    Hamcrest_Description $mismatchDescription)
+    \Hamcrest\Description $mismatchDescription)
   {
     $mismatchDescription->appendText('was ')->appendText($item);
   }
 
-  public function describeTo(Hamcrest_Description $description)
+  public function describeTo(\Hamcrest\Description $description)
   {
     $description->appendText('equalToIgnoringWhiteSpace(')
                 ->appendValue($this->_string)
@@ -55,10 +56,10 @@ class Hamcrest_Text_IsEqualIgnoringWhiteSpace extends Hamcrest_TypeSafeMatcher
   private function _stripSpace($string)
   {
     $parts = preg_split("/[\r\n\t ]+/", $string);
-    foreach ($parts as $i => $part)
-    {
+    foreach ($parts as $i => $part) {
       $parts[$i] = trim($part, " \r\n\t");
     }
+
     return trim(implode(' ', $parts), " \r\n\t");
   }
 

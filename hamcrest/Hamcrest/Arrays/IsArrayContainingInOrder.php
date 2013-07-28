@@ -1,4 +1,5 @@
 <?php
+namespace Hamcrest\Arrays;
 
 /*
  Copyright (c) 2009 hamcrest.org
@@ -7,8 +8,8 @@
 /**
  * Matches if an array contains a set of items satisfying nested matchers.
  */
-class Hamcrest_Array_IsArrayContainingInOrder
-  extends Hamcrest_TypeSafeDiagnosingMatcher
+class IsArrayContainingInOrder
+  extends \Hamcrest\TypeSafeDiagnosingMatcher
 {
 
   private $_elementMatchers;
@@ -17,22 +18,20 @@ class Hamcrest_Array_IsArrayContainingInOrder
   {
     parent::__construct(self::TYPE_ARRAY);
 
-    Hamcrest_Util::checkAllAreMatchers($elementMatchers);
+    \Hamcrest\Util::checkAllAreMatchers($elementMatchers);
 
     $this->_elementMatchers = $elementMatchers;
   }
 
   protected function matchesSafelyWithDiagnosticDescription($array,
-    Hamcrest_Description $mismatchDescription)
+    \Hamcrest\Description $mismatchDescription)
   {
-    $series = new Hamcrest_Array_SeriesMatchingOnce(
+    $series = new SeriesMatchingOnce(
       $this->_elementMatchers, $mismatchDescription
     );
 
-    foreach ($array as $element)
-    {
-      if (!$series->matches($element))
-      {
+    foreach ($array as $element) {
+      if (!$series->matches($element)) {
         return false;
       }
     }
@@ -40,7 +39,7 @@ class Hamcrest_Array_IsArrayContainingInOrder
     return $series->isFinished();
   }
 
-  public function describeTo(Hamcrest_Description $description)
+  public function describeTo(\Hamcrest\Description $description)
   {
     $description->appendList('[', ', ', ']', $this->_elementMatchers);
   }
@@ -53,7 +52,8 @@ class Hamcrest_Array_IsArrayContainingInOrder
   public static function arrayContaining(/* args... */)
   {
     $args = func_get_args();
-    return new self(Hamcrest_Util::createMatcherArray($args));
+
+    return new self(\Hamcrest\Util::createMatcherArray($args));
   }
 
 }

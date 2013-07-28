@@ -1,13 +1,14 @@
 <?php
+namespace Hamcrest;
 
 /*
  Copyright (c) 2009 hamcrest.org
  */
 
 /**
- * Null implementation of {@link Hamcrest_Description}.
+ * Null implementation of {@link Hamcrest\Description}.
  */
-class Hamcrest_NullDescription implements Hamcrest_Description
+class NullDescription implements Description
 {
 
   public function appendText($text)
@@ -15,7 +16,7 @@ class Hamcrest_NullDescription implements Hamcrest_Description
     return $this;
   }
 
-  public function appendDescriptionOf(Hamcrest_SelfDescribing $value)
+  public function appendDescriptionOf(SelfDescribing $value)
   {
     return $this;
   }

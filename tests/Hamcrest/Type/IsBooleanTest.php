@@ -1,15 +1,14 @@
 <?php
-require_once 'Hamcrest/AbstractMatcherTest.php';
-require_once 'Hamcrest/Type/IsBoolean.php';
+namespace Hamcrest\Type;
 
-class Hamcrest_Type_IsBooleanTest extends Hamcrest_AbstractMatcherTest
+class IsBooleanTest extends \Hamcrest\AbstractMatcherTest
 {
-  
+
   protected function createMatcher()
   {
-    return Hamcrest_Type_IsBoolean::booleanValue();
+    return \Hamcrest\Type\IsBoolean::booleanValue();
   }
-  
+
   public function testEvaluatesToTrueIfArgumentMatchesType()
   {
     assertThat(false, booleanValue());
@@ -22,16 +21,16 @@ class Hamcrest_Type_IsBooleanTest extends Hamcrest_AbstractMatcherTest
     assertThat(5, not(booleanValue()));
     assertThat('foo', not(booleanValue()));
   }
-  
+
   public function testHasAReadableDescription()
   {
     $this->assertDescription('a boolean', booleanValue());
   }
-  
+
   public function testDecribesActualTypeInMismatchMessage()
   {
     $this->assertMismatchDescription('was null', booleanValue(), null);
     $this->assertMismatchDescription('was a string "foo"', booleanValue(), 'foo');
   }
-  
+
 }

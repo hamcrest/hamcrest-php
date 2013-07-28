@@ -1,4 +1,5 @@
 <?php
+namespace Hamcrest\Type;
 
 /*
  Copyright (c) 2010 hamcrest.org
@@ -9,7 +10,7 @@
  *
  * PHP returns "double" for values of type "float".
  */
-class Hamcrest_Type_IsDouble extends Hamcrest_Core_IsTypeOf
+class IsDouble extends \Hamcrest\Core\IsTypeOf
 {
 
   /**

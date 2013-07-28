@@ -1,4 +1,5 @@
 <?php
+namespace Hamcrest\Core;
 
 /*
  Copyright (c) 2009 hamcrest.org
@@ -7,7 +8,7 @@
 /**
  * A matcher that always returns <code>true</code>.
  */
-class Hamcrest_Core_IsAnything extends Hamcrest_BaseMatcher
+class IsAnything extends \Hamcrest\BaseMatcher
 {
 
   private $_message;
@@ -22,7 +23,7 @@ class Hamcrest_Core_IsAnything extends Hamcrest_BaseMatcher
     return true;
   }
 
-  public function describeTo(Hamcrest_Description $description)
+  public function describeTo(\Hamcrest\Description $description)
   {
     $description->appendText($this->_message);
   }

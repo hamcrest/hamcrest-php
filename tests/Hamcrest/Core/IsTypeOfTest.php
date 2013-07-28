@@ -1,15 +1,14 @@
 <?php
-require_once 'Hamcrest/AbstractMatcherTest.php';
-require_once 'Hamcrest/Core/IsTypeOf.php';
+namespace Hamcrest\Core;
 
-class Hamcrest_Core_IsTypeOfTest extends Hamcrest_AbstractMatcherTest
+class IsTypeOfTest extends \Hamcrest\AbstractMatcherTest
 {
-  
+
   protected function createMatcher()
   {
-    return Hamcrest_Core_IsTypeOf::typeOf('integer');
+    return \Hamcrest\Core\IsTypeOf::typeOf('integer');
   }
-  
+
   public function testEvaluatesToTrueIfArgumentMatchesType()
   {
     assertThat(array('5', 5), typeOf('array'));
@@ -31,17 +30,17 @@ class Hamcrest_Core_IsTypeOfTest extends Hamcrest_AbstractMatcherTest
     assertThat('a string', not(typeOf('resource')));
     assertThat(tmpfile(), not(typeOf('string')));
   }
-  
+
   public function testHasAReadableDescription()
   {
     $this->assertDescription('a double', typeOf('double'));
     $this->assertDescription('an integer', typeOf('integer'));
   }
-  
+
   public function testDecribesActualTypeInMismatchMessage()
   {
     $this->assertMismatchDescription('was null', typeOf('boolean'), null);
     $this->assertMismatchDescription('was an integer <5>', typeOf('float'), 5);
   }
-  
+
 }

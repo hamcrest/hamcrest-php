@@ -1,2 +1,2 @@
 
-require_once 'Hamcrest/Matcher.php';
+namespace Hamcrest;

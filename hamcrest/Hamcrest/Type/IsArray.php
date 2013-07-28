@@ -1,4 +1,5 @@
 <?php
+namespace Hamcrest\Type;
 
 /*
  Copyright (c) 2010 hamcrest.org
@@ -7,7 +8,7 @@
 /**
  * Tests whether the value is an array.
  */
-class Hamcrest_Type_IsArray extends Hamcrest_Core_IsTypeOf
+class IsArray extends \Hamcrest\Core\IsTypeOf
 {
 
   /**

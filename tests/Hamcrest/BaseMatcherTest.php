@@ -1,29 +1,24 @@
 <?php
-require_once 'Hamcrest/BaseMatcher.php';
+namespace Hamcrest;
 
 /* Test-specific subclass only */
-class Hamcrest_SomeMatcher extends Hamcrest_BaseMatcher
+class BaseMatcherTest extends \Hamcrest\BaseMatcher
 {
-  
+
   public function matches($item)
   {
-    throw new RuntimeException();
+    throw new \RuntimeException();
   }
-  
-  public function describeTo(Hamcrest_Description $description)
+
+  public function describeTo(\Hamcrest\Description $description)
   {
     $description->appendText('SOME DESCRIPTION');
   }
-  
-}
 
-class Hamcrest_BaseMatcherTest extends PHPUnit_Framework_TestCase
-{
-  
   public function testDescribesItselfWithToStringMethod()
   {
-    $someMatcher = new Hamcrest_SomeMatcher();
+    $someMatcher = new \Hamcrest\SomeMatcher();
     $this->assertEquals('SOME DESCRIPTION', (string) $someMatcher);
   }
-  
+
 }

@@ -1,15 +1,14 @@
 <?php
-require_once 'Hamcrest/AbstractMatcherTest.php';
-require_once 'Hamcrest/Type/IsInteger.php';
+namespace Hamcrest\Type;
 
-class Hamcrest_Type_IsIntegerTest extends Hamcrest_AbstractMatcherTest
+class IsIntegerTest extends \Hamcrest\AbstractMatcherTest
 {
-  
+
   protected function createMatcher()
   {
-    return Hamcrest_Type_IsInteger::integerValue();
+    return \Hamcrest\Type\IsInteger::integerValue();
   }
-  
+
   public function testEvaluatesToTrueIfArgumentMatchesType()
   {
     assertThat(5, integerValue());
@@ -23,16 +22,16 @@ class Hamcrest_Type_IsIntegerTest extends Hamcrest_AbstractMatcherTest
     assertThat(5.2, not(integerValue()));
     assertThat('foo', not(integerValue()));
   }
-  
+
   public function testHasAReadableDescription()
   {
     $this->assertDescription('an integer', integerValue());
   }
-  
+
   public function testDecribesActualTypeInMismatchMessage()
   {
     $this->assertMismatchDescription('was null', integerValue(), null);
     $this->assertMismatchDescription('was a string "foo"', integerValue(), 'foo');
   }
-  
+
 }

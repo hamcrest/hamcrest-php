@@ -1,4 +1,5 @@
 <?php
+namespace Hamcrest\Text;
 
 /*
  Copyright (c) 2009 hamcrest.org
@@ -7,7 +8,7 @@
 /**
  * Tests if the argument is a string that ends with a substring.
  */
-class Hamcrest_Text_StringEndsWith extends Hamcrest_Text_SubstringMatcher
+class StringEndsWith extends SubstringMatcher
 {
 
   public function __construct($substring)

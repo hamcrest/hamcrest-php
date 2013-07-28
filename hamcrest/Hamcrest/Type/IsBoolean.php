@@ -1,4 +1,5 @@
 <?php
+namespace Hamcrest\Type;
 
 /*
  Copyright (c) 2010 hamcrest.org
@@ -7,7 +8,7 @@
 /**
  * Tests whether the value is a boolean.
  */
-class Hamcrest_Type_IsBoolean extends Hamcrest_Core_IsTypeOf
+class IsBoolean extends \Hamcrest\Core\IsTypeOf
 {
 
   /**

@@ -1,10 +1,11 @@
 <?php
+namespace Hamcrest\Arrays;
 
 /*
  Copyright (c) 2009 hamcrest.org
  */
 
-class Hamcrest_Array_SeriesMatchingOnce
+class SeriesMatchingOnce
 {
 
   private $_elementMatchers;
@@ -13,7 +14,7 @@ class Hamcrest_Array_SeriesMatchingOnce
   private $_nextMatchKey;
 
   public function __construct(array $elementMatchers,
-    Hamcrest_Description $mismatchDescription)
+    \Hamcrest\Description $mismatchDescription)
   {
     $this->_elementMatchers = $elementMatchers;
     $this->_keys = array_keys($elementMatchers);
@@ -27,10 +28,10 @@ class Hamcrest_Array_SeriesMatchingOnce
 
   public function isFinished()
   {
-    if (!empty($this->_elementMatchers))
-    {
+    if (!empty($this->_elementMatchers)) {
       $nextMatcher = current($this->_elementMatchers);
       $this->_mismatchDescription->appendText('No item matched: ')->appendDescriptionOf($nextMatcher);
+
       return false;
     }
 
@@ -41,9 +42,9 @@ class Hamcrest_Array_SeriesMatchingOnce
 
   private function _isNotSurplus($item)
   {
-    if (empty($this->_elementMatchers))
-    {
+    if (empty($this->_elementMatchers)) {
       $this->_mismatchDescription->appendText('Not matched: ')->appendValue($item);
+
       return false;
     }
 
@@ -55,16 +56,16 @@ class Hamcrest_Array_SeriesMatchingOnce
     $this->_nextMatchKey = array_shift($this->_keys);
     $nextMatcher = array_shift($this->_elementMatchers);
 
-    if (!$nextMatcher->matches($item))
-    {
+    if (!$nextMatcher->matches($item)) {
       $this->_describeMismatch($nextMatcher, $item);
+
       return false;
     }
 
     return true;
   }
 
-  private function _describeMismatch(Hamcrest_Matcher $matcher, $item)
+  private function _describeMismatch(\Hamcrest\Matcher $matcher, $item)
   {
     $this->_mismatchDescription->appendText('item with key ' . $this->_nextMatchKey . ': ');
     $matcher->describeMismatch($item, $this->_mismatchDescription);

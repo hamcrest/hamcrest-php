@@ -1,17 +1,18 @@
 <?php
+namespace Hamcrest\Arrays;
 
 /*
  Copyright (c) 2009 hamcrest.org
  */
 
-class Hamcrest_Array_MatchingOnce
+class MatchingOnce
 {
 
   private $_elementMatchers;
   private $_mismatchDescription;
 
   public function __construct(array $elementMatchers,
-    Hamcrest_Description $mismatchDescription)
+    \Hamcrest\Description $mismatchDescription)
   {
     $this->_elementMatchers = $elementMatchers;
     $this->_mismatchDescription = $mismatchDescription;
@@ -24,8 +25,7 @@ class Hamcrest_Array_MatchingOnce
 
   public function isFinished($items)
   {
-    if (empty($this->_elementMatchers))
-    {
+    if (empty($this->_elementMatchers)) {
       return true;
     }
 
@@ -33,6 +33,7 @@ class Hamcrest_Array_MatchingOnce
          ->appendText('No item matches: ')->appendList('', ', ', '', $this->_elementMatchers)
          ->appendText(' in ')->appendValueList('[', ', ', ']', $items)
          ;
+
     return false;
   }
 
@@ -40,9 +41,9 @@ class Hamcrest_Array_MatchingOnce
 
   private function _isNotSurplus($item)
   {
-    if (empty($this->_elementMatchers))
-    {
+    if (empty($this->_elementMatchers)) {
       $this->_mismatchDescription->appendText('Not matched: ')->appendValue($item);
+
       return false;
     }
 
@@ -51,15 +52,15 @@ class Hamcrest_Array_MatchingOnce
 
   private function _isMatched($item)
   {
-    foreach ($this->_elementMatchers as $i => $matcher)
-    {
-      if ($matcher->matches($item))
-      {
+    foreach ($this->_elementMatchers as $i => $matcher) {
+      if ($matcher->matches($item)) {
         unset($this->_elementMatchers[$i]);
+
         return true;
       }
     }
     $this->_mismatchDescription->appendText('Not matched: ')->appendValue($item);
+
     return false;
   }
 
