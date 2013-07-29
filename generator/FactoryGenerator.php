@@ -4,9 +4,6 @@
  Copyright (c) 2009 hamcrest.org
  */
 
-require 'File/Iterator/Factory.php';
-require 'File/Iterator.php';
-
 /**
  * Controls the process of extracting @factory doctags
  * and generating factory method files.
