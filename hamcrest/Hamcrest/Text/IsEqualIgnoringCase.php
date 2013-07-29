@@ -4,11 +4,13 @@ namespace Hamcrest\Text;
 /*
  Copyright (c) 2009 hamcrest.org
  */
+use Hamcrest\Description;
+use Hamcrest\TypeSafeMatcher;
 
 /**
  * Tests if a string is equal to another string, regardless of the case.
  */
-class IsEqualIgnoringCase extends \Hamcrest\TypeSafeMatcher
+class IsEqualIgnoringCase extends TypeSafeMatcher
 {
 
   private $_string;
@@ -26,12 +28,12 @@ class IsEqualIgnoringCase extends \Hamcrest\TypeSafeMatcher
   }
 
   protected function describeMismatchSafely($item,
-    \Hamcrest\Description $mismatchDescription)
+    Description $mismatchDescription)
   {
     $mismatchDescription->appendText('was ')->appendText($item);
   }
 
-  public function describeTo(\Hamcrest\Description $description)
+  public function describeTo(Description $description)
   {
     $description->appendText('equalToIgnoringCase(')
                 ->appendValue($this->_string)

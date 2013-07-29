@@ -5,7 +5,10 @@ namespace Hamcrest\Text;
  Copyright (c) 2009 hamcrest.org
  */
 
-abstract class SubstringMatcher extends \Hamcrest\TypeSafeMatcher
+use Hamcrest\Description;
+use Hamcrest\TypeSafeMatcher;
+
+abstract class SubstringMatcher extends TypeSafeMatcher
 {
 
   protected $_substring;
@@ -23,12 +26,12 @@ abstract class SubstringMatcher extends \Hamcrest\TypeSafeMatcher
   }
 
   protected function describeMismatchSafely($item,
-    \Hamcrest\Description $mismatchDescription)
+    Description $mismatchDescription)
   {
     $mismatchDescription->appendText('was "')->appendText($item)->appendText('"');
   }
 
-  public function describeTo(\Hamcrest\Description $description)
+  public function describeTo(Description $description)
   {
     $description->appendText('a string ')
                 ->appendText($this->relationship())

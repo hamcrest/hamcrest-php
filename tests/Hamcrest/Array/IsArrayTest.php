@@ -1,12 +1,14 @@
 <?php
 namespace Hamcrest\Arrays;
 
-class IsArrayTest extends \Hamcrest\AbstractMatcherTest
+use Hamcrest\AbstractMatcherTest;
+
+class IsArrayTest extends AbstractMatcherTest
 {
 
   protected function createMatcher()
   {
-    return \Hamcrest\Arrays\IsArray::anArray(array(equalTo('irrelevant')));
+    return IsArray::anArray(array(equalTo('irrelevant')));
   }
 
   public function testMatchesAnArrayThatMatchesAllTheElementMatchers()

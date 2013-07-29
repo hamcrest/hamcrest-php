@@ -4,11 +4,15 @@ namespace Hamcrest\Text;
 /*
  Copyright (c) 2009 hamcrest.org
  */
+use Hamcrest\BaseMatcher;
+use Hamcrest\Core\AnyOf;
+use Hamcrest\Core\IsNull;
+use Hamcrest\Description;
 
 /**
  * Matches empty Strings (and null).
  */
-class IsEmptyString extends \Hamcrest\BaseMatcher
+class IsEmptyString extends BaseMatcher
 {
 
   private static $_INSTANCE;
@@ -29,7 +33,7 @@ class IsEmptyString extends \Hamcrest\BaseMatcher
       : is_string($item) && $item !== '';
   }
 
-  public function describeTo(\Hamcrest\Description $description)
+  public function describeTo(Description $description)
   {
     $description->appendText(
       $this->_empty
@@ -60,8 +64,8 @@ class IsEmptyString extends \Hamcrest\BaseMatcher
   public static function isEmptyOrNullString()
   {
     if (!self::$_NULL_OR_EMPTY_INSTANCE) {
-      self::$_NULL_OR_EMPTY_INSTANCE = \Hamcrest\Core\AnyOf::anyOf(
-        \Hamcrest\Core\IsNull::nullvalue(),
+      self::$_NULL_OR_EMPTY_INSTANCE = AnyOf::anyOf(
+        IsNull::nullvalue(),
         self::isEmptyString()
       );
     }

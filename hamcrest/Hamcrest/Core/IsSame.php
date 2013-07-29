@@ -4,12 +4,14 @@ namespace Hamcrest\Core;
 /*
  Copyright (c) 2009 hamcrest.org
  */
+use Hamcrest\BaseMatcher;
+use Hamcrest\Description;
 
 /**
  * Is the value the same object as another value?
  * In PHP terms, does $a === $b?
  */
-class IsSame extends \Hamcrest\BaseMatcher
+class IsSame extends BaseMatcher
 {
 
   private $_object;
@@ -24,7 +26,7 @@ class IsSame extends \Hamcrest\BaseMatcher
     return ($object === $this->_object) && ($this->_object === $object);
   }
 
-  public function describeTo(\Hamcrest\Description $description)
+  public function describeTo(Description $description)
   {
     $description->appendText('sameInstance(')
                 ->appendValue($this->_object)
@@ -39,6 +41,7 @@ class IsSame extends \Hamcrest\BaseMatcher
    *   The predicate evaluates to true only when the argument is
    *   this object.
    *
+   * @return \Hamcrest\Core\IsSame
    * @factory
    */
   public static function sameInstance($object)

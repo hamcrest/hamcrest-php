@@ -4,11 +4,12 @@ namespace Hamcrest\Type;
 /*
  Copyright (c) 2010 hamcrest.org
  */
+use Hamcrest\Core\IsTypeOf;
 
 /**
  * Tests whether the value is callable.
  */
-class IsCallable extends \Hamcrest\Core\IsTypeOf
+class IsCallable extends IsTypeOf
 {
 
   /**

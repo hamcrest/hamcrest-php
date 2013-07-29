@@ -9,12 +9,15 @@ namespace Hamcrest\Arrays;
 //       arrays quite differently than PHP
 
 // TODO: Allow this to take matchers or values within the array
+use Hamcrest\Description;
+use Hamcrest\TypeSafeMatcher;
+use Hamcrest\Util;
 
 /**
  * Matcher for array whose elements satisfy a sequence of matchers.
  * The array size must equal the number of element matchers.
  */
-class IsArray extends \Hamcrest\TypeSafeMatcher
+class IsArray extends TypeSafeMatcher
 {
 
   private $_elementMatchers;
@@ -23,7 +26,7 @@ class IsArray extends \Hamcrest\TypeSafeMatcher
   {
     parent::__construct(self::TYPE_ARRAY);
 
-    \Hamcrest\Util::checkAllAreMatchers($elementMatchers);
+    Util::checkAllAreMatchers($elementMatchers);
 
     $this->_elementMatchers = $elementMatchers;
   }
@@ -34,7 +37,8 @@ class IsArray extends \Hamcrest\TypeSafeMatcher
       return false;
     }
 
-    foreach ($this->_elementMatchers as $k => $matcher) {
+      /** @var $matcher \Hamcrest\Matcher */
+      foreach ($this->_elementMatchers as $k => $matcher) {
       if (!$matcher->matches($array[$k])) {
         return false;
       }
@@ -44,7 +48,7 @@ class IsArray extends \Hamcrest\TypeSafeMatcher
   }
 
   protected function describeMismatchSafely($actual,
-    \Hamcrest\Description $mismatchDescription)
+    Description $mismatchDescription)
   {
     if (count($actual) != count($this->_elementMatchers)) {
       $mismatchDescription->appendText('array length was ' . count($actual));
@@ -63,7 +67,8 @@ class IsArray extends \Hamcrest\TypeSafeMatcher
       return;
     }
 
-    foreach ($this->_elementMatchers as $k => $matcher) {
+      /** @var $matcher \Hamcrest\Matcher */
+      foreach ($this->_elementMatchers as $k => $matcher) {
       if (!$matcher->matches($actual[$k])) {
         $mismatchDescription->appendText('element ')->appendValue($k)
                             ->appendText(' was ')->appendValue($actual[$k])
@@ -74,7 +79,7 @@ class IsArray extends \Hamcrest\TypeSafeMatcher
     }
   }
 
-  public function describeTo(\Hamcrest\Description $description)
+  public function describeTo(Description $description)
   {
     $description->appendList(
       $this->descriptionStart(),
@@ -93,7 +98,7 @@ class IsArray extends \Hamcrest\TypeSafeMatcher
   {
     $args = func_get_args();
 
-    return new self(\Hamcrest\Util::createMatcherArray($args));
+    return new self(Util::createMatcherArray($args));
   }
 
   // -- Protected Methods

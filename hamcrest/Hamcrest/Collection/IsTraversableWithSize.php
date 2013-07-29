@@ -4,14 +4,17 @@ namespace Hamcrest\Collection;
 /*
  Copyright (c) 2009 hamcrest.org
  */
+use Hamcrest\FeatureMatcher;
+use Hamcrest\Matcher;
+use Hamcrest\Util;
 
 /**
  * Matches if traversable size satisfies a nested matcher.
  */
-class IsTraversableWithSize extends \Hamcrest\FeatureMatcher
+class IsTraversableWithSize extends FeatureMatcher
 {
 
-  public function __construct(\Hamcrest\Matcher $sizeMatcher)
+  public function __construct(Matcher $sizeMatcher)
   {
     parent::__construct(self::TYPE_OBJECT, 'Traversable', $sizeMatcher,
         'a traversable with size', 'traversable size');
@@ -34,7 +37,7 @@ class IsTraversableWithSize extends \Hamcrest\FeatureMatcher
    */
   public static function traversableWithSize($size)
   {
-    return new self(\Hamcrest\Util::wrapValueWithIsEqual($size));
+    return new self(Util::wrapValueWithIsEqual($size));
   }
 
 }

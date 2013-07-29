@@ -4,6 +4,7 @@ namespace Hamcrest\Core;
 /*
  Copyright (c) 2009 hamcrest.org
  */
+use Hamcrest\Description;
 
 /**
  * The same as {@link Hamcrest\Core\IsSame} but with slightly different
@@ -20,7 +21,7 @@ class IsIdentical extends IsSame
     $this->_value = $value;
   }
 
-  public function describeTo(\Hamcrest\Description $description)
+  public function describeTo(Description $description)
   {
     $description->appendValue($this->_value);
   }

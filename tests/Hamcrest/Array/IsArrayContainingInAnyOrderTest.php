@@ -1,13 +1,15 @@
 <?php
 namespace Hamcrest\Arrays;
 
+use Hamcrest\AbstractMatcherTest;
+
 class IsArrayContainingInAnyOrderTest
-  extends \Hamcrest\AbstractMatcherTest
+  extends AbstractMatcherTest
 {
 
   protected function createMatcher()
   {
-    return \Hamcrest\Arrays\IsArrayContainingInAnyOrder::arrayContainingInAnyOrder(array(1, 2));
+    return IsArrayContainingInAnyOrder::arrayContainingInAnyOrder(array(1, 2));
   }
 
   public function testHasAReadableDescription()

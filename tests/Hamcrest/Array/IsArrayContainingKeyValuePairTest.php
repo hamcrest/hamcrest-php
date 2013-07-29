@@ -1,12 +1,14 @@
 <?php
 namespace Hamcrest\Arrays;
 
-class IsArrayContainingKeyValuePairTest extends \Hamcrest\AbstractMatcherTest
+use Hamcrest\AbstractMatcherTest;
+
+class IsArrayContainingKeyValuePairTest extends AbstractMatcherTest
 {
 
   protected function createMatcher()
   {
-    return \Hamcrest\Arrays\IsArrayContainingKeyValuePair::hasKeyValuePair('irrelevant', 'irrelevant');
+    return IsArrayContainingKeyValuePair::hasKeyValuePair('irrelevant', 'irrelevant');
   }
 
   public function testMatchesArrayContainingMatchingKeyAndValue()

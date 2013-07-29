@@ -5,12 +5,16 @@ namespace Hamcrest\Core;
  Copyright (c) 2009 hamcrest.org
  */
 
-class CombinableMatcher extends \Hamcrest\BaseMatcher
+use Hamcrest\BaseMatcher;
+use Hamcrest\Description;
+use Hamcrest\Matcher;
+
+class CombinableMatcher extends BaseMatcher
 {
 
   private $_matcher;
 
-  public function __construct(\Hamcrest\Matcher $matcher)
+  public function __construct(Matcher $matcher)
   {
     $this->_matcher = $matcher;
   }
@@ -20,19 +24,19 @@ class CombinableMatcher extends \Hamcrest\BaseMatcher
     return $this->_matcher->matches($item);
   }
 
-  public function describeTo(\Hamcrest\Description $description)
+  public function describeTo(Description $description)
   {
     $description->appendDescriptionOf($this->_matcher);
   }
 
   /** Diversion from Hamcrest-Java... Logical "and" not permitted */
-  public function andAlso(\Hamcrest\Matcher $other)
+  public function andAlso(Matcher $other)
   {
     return new self(new AllOf($this->_templatedListWith($other)));
   }
 
   /** Diversion from Hamcrest-Java... Logical "or" not permitted */
-  public function orElse(\Hamcrest\Matcher $other)
+  public function orElse(Matcher $other)
   {
     return new self(new AnyOf($this->_templatedListWith($other)));
   }
@@ -46,7 +50,7 @@ class CombinableMatcher extends \Hamcrest\BaseMatcher
    *
    * @factory
    */
-  public static function both(\Hamcrest\Matcher $matcher)
+  public static function both(Matcher $matcher)
   {
     return new self($matcher);
   }
@@ -60,14 +64,14 @@ class CombinableMatcher extends \Hamcrest\BaseMatcher
    *
    * @factory
    */
-  public static function either(\Hamcrest\Matcher $matcher)
+  public static function either(Matcher $matcher)
   {
     return new self($matcher);
   }
 
   // -- Private Methods
 
-  private function _templatedListWith(\Hamcrest\Matcher $other)
+  private function _templatedListWith(Matcher $other)
   {
     return array($this->_matcher, $other);
   }

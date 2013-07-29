@@ -4,16 +4,20 @@ namespace Hamcrest\Core;
 /*
  Copyright (c) 2009 hamcrest.org
  */
+use Hamcrest\Description;
+use Hamcrest\Matcher;
+use Hamcrest\TypeSafeMatcher;
+use Hamcrest\Util;
 
 /**
  * Tests if an array contains values that match one or more Matchers.
  */
-class IsCollectionContaining extends \Hamcrest\TypeSafeMatcher
+class IsCollectionContaining extends TypeSafeMatcher
 {
 
   private $_elementMatcher;
 
-  public function __construct(\Hamcrest\Matcher $elementMatcher)
+  public function __construct(Matcher $elementMatcher)
   {
     parent::__construct(self::TYPE_ARRAY);
 
@@ -32,12 +36,12 @@ class IsCollectionContaining extends \Hamcrest\TypeSafeMatcher
   }
 
   protected function describeMismatchSafely($items,
-    \Hamcrest\Description $mismatchDescription)
+    Description $mismatchDescription)
   {
     $mismatchDescription->appendText('was ')->appendValue($items);
   }
 
-  public function describeTo(\Hamcrest\Description $description)
+  public function describeTo(Description $description)
   {
     $description
         ->appendText('a collection containing ')
@@ -62,7 +66,7 @@ class IsCollectionContaining extends \Hamcrest\TypeSafeMatcher
     $args = func_get_args();
     $firstArg = array_shift($args);
 
-    return new self(\Hamcrest\Util::wrapValueWithIsEqual($firstArg));
+    return new self(Util::wrapValueWithIsEqual($firstArg));
   }
 
   /**

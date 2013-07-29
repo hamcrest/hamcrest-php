@@ -1,3 +1,0 @@
-
-require_once 'Hamcrest/Matcher.php';
-require_once 'Hamcrest/MatcherAssert.php';

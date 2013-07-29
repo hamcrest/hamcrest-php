@@ -4,11 +4,13 @@ namespace Hamcrest\Collection;
 /*
  Copyright (c) 2009 hamcrest.org
  */
+use Hamcrest\BaseMatcher;
+use Hamcrest\Description;
 
 /**
  * Matches if traversable is empty or non-empty.
  */
-class IsEmptyTraversable extends \Hamcrest\BaseMatcher
+class IsEmptyTraversable extends BaseMatcher
 {
 
   private static $_INSTANCE;
@@ -34,7 +36,7 @@ class IsEmptyTraversable extends \Hamcrest\BaseMatcher
     return $this->_empty;
   }
 
-  public function describeTo(\Hamcrest\Description $description)
+  public function describeTo(Description $description)
   {
     $description->appendText(
       $this->_empty

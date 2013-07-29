@@ -4,12 +4,14 @@ namespace Hamcrest\Number;
 /*
  Copyright (c) 2009 hamcrest.org
  */
+use Hamcrest\Description;
+use Hamcrest\TypeSafeMatcher;
 
 /**
  * Is the value a number equal to a value within some range of
  * acceptable error?
  */
-class IsCloseTo extends \Hamcrest\TypeSafeMatcher
+class IsCloseTo extends TypeSafeMatcher
 {
 
   private $_value;
@@ -29,7 +31,7 @@ class IsCloseTo extends \Hamcrest\TypeSafeMatcher
   }
 
   protected function describeMismatchSafely($item,
-    \Hamcrest\Description $mismatchDescription)
+    Description $mismatchDescription)
   {
     $mismatchDescription->appendValue($item)
                         ->appendText(' differed by ')
@@ -37,7 +39,7 @@ class IsCloseTo extends \Hamcrest\TypeSafeMatcher
                         ;
   }
 
-  public function describeTo(\Hamcrest\Description $description)
+  public function describeTo(Description $description)
   {
     $description->appendText('a numeric value within ')
                 ->appendValue($this->_delta)

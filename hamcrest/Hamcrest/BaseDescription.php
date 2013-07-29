@@ -4,6 +4,7 @@ namespace Hamcrest;
 /*
  Copyright (c) 2009 hamcrest.org
  */
+use Hamcrest\Internal\SelfDescribingValue;
 
 /**
  * A {@link Hamcrest\Description} that is stored as a string.
@@ -58,7 +59,7 @@ abstract class BaseDescription implements Description
   {
     $list = array();
     foreach ($values as $v) {
-      $list[] = new Internal\SelfDescribingValue($v);
+      $list[] = new SelfDescribingValue($v);
     }
 
     $this->appendList($start, $separator, $end, $list);

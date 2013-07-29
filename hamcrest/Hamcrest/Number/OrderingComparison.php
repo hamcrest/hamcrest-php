@@ -5,7 +5,10 @@ namespace Hamcrest\Number;
  Copyright (c) 2009 hamcrest.org
  */
 
-class OrderingComparison extends \Hamcrest\TypeSafeMatcher
+use Hamcrest\Description;
+use Hamcrest\TypeSafeMatcher;
+
+class OrderingComparison extends TypeSafeMatcher
 {
 
   private $_value;
@@ -29,7 +32,7 @@ class OrderingComparison extends \Hamcrest\TypeSafeMatcher
   }
 
   protected function describeMismatchSafely($item,
-    \Hamcrest\Description $mismatchDescription)
+    Description $mismatchDescription)
   {
     $mismatchDescription
       ->appendValue($item)->appendText(' was ')
@@ -38,7 +41,7 @@ class OrderingComparison extends \Hamcrest\TypeSafeMatcher
       ;
   }
 
-  public function describeTo(\Hamcrest\Description $description)
+  public function describeTo(Description $description)
   {
     $description->appendText('a value ')
       ->appendText($this->_comparison($this->_minCompare))

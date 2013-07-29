@@ -19,12 +19,12 @@ abstract class DiagnosingMatcher extends BaseMatcher
   }
 
   public function describeMismatch($item,
-    \Hamcrest\Description $mismatchDescription)
+    Description $mismatchDescription)
   {
     $this->matchesWithDiagnosticDescription($item, $mismatchDescription);
   }
 
   abstract protected function matchesWithDiagnosticDescription($item,
-    \Hamcrest\Description $mismatchDescription);
+    Description $mismatchDescription);
 
 }

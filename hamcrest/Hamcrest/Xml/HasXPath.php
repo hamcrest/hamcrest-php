@@ -4,13 +4,17 @@ namespace Hamcrest\Xml;
 /*
  Copyright (c) 2009 hamcrest.org
  */
+use Hamcrest\Core\IsEqual;
+use Hamcrest\Description;
+use Hamcrest\DiagnosingMatcher;
+use Hamcrest\Matcher;
 
 /**
  * Matches if XPath applied to XML/HTML/XHTML document either
  * evaluates to result matching the matcher or returns at least
  * one node, matching the matcher if present.
  */
-class HasXPath extends \Hamcrest\DiagnosingMatcher
+class HasXPath extends DiagnosingMatcher
 {
 
   /**
@@ -24,11 +28,11 @@ class HasXPath extends \Hamcrest\DiagnosingMatcher
    * Optional matcher to apply to the XPath expression result
    * or the content of the returned nodes.
    *
-   * @var Hamcrest\Matcher
+   * @var Matcher
    */
   private $_matcher;
 
-  public function __construct($xpath, \Hamcrest\Matcher $matcher=null)
+  public function __construct($xpath, Matcher $matcher=null)
   {
     $this->_xpath = $xpath;
     $this->_matcher = $matcher;
@@ -37,12 +41,12 @@ class HasXPath extends \Hamcrest\DiagnosingMatcher
   /**
    * Matches if the XPath matches against the DOM node and the matcher.
    *
-   * @param string|DOMNode $actual
-   * @param Hamcrest\Description $mismatchDescription
+   * @param string|\DOMNode $actual
+   * @param Description $mismatchDescription
    * @return bool
    */
   protected function matchesWithDiagnosticDescription($actual,
-      \Hamcrest\Description $mismatchDescription)
+      Description $mismatchDescription)
   {
     if (is_string($actual)) {
       $actual = $this->createDocument($actual);
@@ -64,8 +68,8 @@ class HasXPath extends \Hamcrest\DiagnosingMatcher
    * XML or HTML string.
    *
    * @param string $text
-   * @return DOMDocument built from <code>$text</code>
-   * @throws InvalidArgumentException if the document is not valid
+   * @return \DOMDocument built from <code>$text</code>
+   * @throws \InvalidArgumentException if the document is not valid
    */
   protected function createDocument($text)
   {
@@ -89,7 +93,7 @@ class HasXPath extends \Hamcrest\DiagnosingMatcher
    * Applies the configurd XPath to the DOM node and returns either
    * the result if it's an expression or the node list if it's a query.
    *
-   * @param DOMNode $node context from which to issue query
+   * @param \DOMNode $node context from which to issue query
    * @return mixed result of expression or DOMNodeList from query
    */
   protected function evaluate(\DOMNode $node)
@@ -109,12 +113,12 @@ class HasXPath extends \Hamcrest\DiagnosingMatcher
    * Matches if the list of nodes is not empty and the content of at least
    * one node matches the configured matcher, if supplied.
    *
-   * @param DOMNodeList $nodes selected by the XPath query
-   * @param Hamcrest\Description $mismatchDescription
+   * @param \DOMNodeList $nodes selected by the XPath query
+   * @param Description $mismatchDescription
    * @return bool
    */
   protected function matchesContent(\DOMNodeList $nodes,
-      \Hamcrest\Description $mismatchDescription)
+      Description $mismatchDescription)
   {
     if ($nodes->length == 0) {
       $mismatchDescription->appendText('XPath returned no results');
@@ -142,11 +146,11 @@ class HasXPath extends \Hamcrest\DiagnosingMatcher
    * matcher or evaluates to <code>true</code> if there is none.
    *
    * @param mixed $result result of the XPath expression
-   * @param Hamcrest\Description $mismatchDescription
+   * @param Description $mismatchDescription
    * @return bool
    */
   protected function matchesExpression($result,
-      \Hamcrest\Description $mismatchDescription)
+      Description $mismatchDescription)
   {
     if ($this->_matcher === null) {
       if ($result) {
@@ -165,7 +169,7 @@ class HasXPath extends \Hamcrest\DiagnosingMatcher
     return false;
   }
 
-  public function describeTo(\Hamcrest\Description $description)
+  public function describeTo(Description $description)
   {
     $description->appendText('XML or HTML document with XPath "')
                 ->appendText($this->_xpath)
@@ -185,13 +189,13 @@ class HasXPath extends \Hamcrest\DiagnosingMatcher
    */
   public static function hasXPath($xpath, $matcher=null)
   {
-    if ($matcher === null || $matcher instanceof \Hamcrest\Matcher) {
+    if ($matcher === null || $matcher instanceof Matcher) {
       return new self($xpath, $matcher);
     } elseif (is_int($matcher) && strpos($xpath, 'count(') !== 0) {
       $xpath = 'count(' . $xpath . ')';
     }
 
-    return new self($xpath, \Hamcrest\Core\IsEqual::equalTo($matcher));
+    return new self($xpath, IsEqual::equalTo($matcher));
   }
 
 }

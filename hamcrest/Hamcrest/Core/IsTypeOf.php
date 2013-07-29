@@ -4,11 +4,13 @@ namespace Hamcrest\Core;
 /*
  Copyright (c) 2010 hamcrest.org
  */
+use Hamcrest\BaseMatcher;
+use Hamcrest\Description;
 
 /**
  * Tests whether the value has a built-in type.
  */
-class IsTypeOf extends \Hamcrest\BaseMatcher
+class IsTypeOf extends BaseMatcher
 {
 
   private $_theType;
@@ -29,12 +31,12 @@ class IsTypeOf extends \Hamcrest\BaseMatcher
     return strtolower(gettype($item)) == $this->_theType;
   }
 
-  public function describeTo(\Hamcrest\Description $description)
+  public function describeTo(Description $description)
   {
     $description->appendText(self::getTypeDescription($this->_theType));
   }
 
-  public function describeMismatch($item, \Hamcrest\Description $description)
+  public function describeMismatch($item, Description $description)
   {
     if ($item === null) {
       $description->appendText('was null');

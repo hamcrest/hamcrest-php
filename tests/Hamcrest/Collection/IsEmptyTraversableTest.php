@@ -1,13 +1,15 @@
 <?php
 namespace Hamcrest\Collection;
 
+use Hamcrest\AbstractMatcherTest;
+
 class IsEmptyTraversableTest
-    extends \Hamcrest\AbstractMatcherTest
+    extends AbstractMatcherTest
 {
 
   protected function createMatcher()
   {
-    return \Hamcrest\Collection\IsEmptyTraversable::emptyTraversable();
+    return IsEmptyTraversable::emptyTraversable();
   }
 
   public function testEmptyMatcherMatchesWhenEmpty()

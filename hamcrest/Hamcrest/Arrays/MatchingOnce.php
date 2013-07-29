@@ -5,6 +5,8 @@ namespace Hamcrest\Arrays;
  Copyright (c) 2009 hamcrest.org
  */
 
+use Hamcrest\Description;
+
 class MatchingOnce
 {
 
@@ -12,7 +14,7 @@ class MatchingOnce
   private $_mismatchDescription;
 
   public function __construct(array $elementMatchers,
-    \Hamcrest\Description $mismatchDescription)
+    Description $mismatchDescription)
   {
     $this->_elementMatchers = $elementMatchers;
     $this->_mismatchDescription = $mismatchDescription;
@@ -52,7 +54,8 @@ class MatchingOnce
 
   private function _isMatched($item)
   {
-    foreach ($this->_elementMatchers as $i => $matcher) {
+      /** @var $matcher \Hamcrest\Matcher */
+      foreach ($this->_elementMatchers as $i => $matcher) {
       if ($matcher->matches($item)) {
         unset($this->_elementMatchers[$i]);
 

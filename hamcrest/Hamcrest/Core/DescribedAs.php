@@ -4,11 +4,14 @@ namespace Hamcrest\Core;
 /*
  Copyright (c) 2009 hamcrest.org
  */
+use Hamcrest\BaseMatcher;
+use Hamcrest\Description;
+use Hamcrest\Matcher;
 
 /**
  * Provides a custom description to another matcher.
  */
-class DescribedAs extends \Hamcrest\BaseMatcher
+class DescribedAs extends BaseMatcher
 {
 
   private $_descriptionTemplate;
@@ -17,7 +20,7 @@ class DescribedAs extends \Hamcrest\BaseMatcher
 
   const ARG_PATTERN = '/%([0-9]+)/';
 
-  public function __construct($descriptionTemplate, \Hamcrest\Matcher $matcher,
+  public function __construct($descriptionTemplate, Matcher $matcher,
     array $values)
   {
     $this->_descriptionTemplate = $descriptionTemplate;
@@ -30,7 +33,7 @@ class DescribedAs extends \Hamcrest\BaseMatcher
     return $this->_matcher->matches($item);
   }
 
-  public function describeTo(\Hamcrest\Description $description)
+  public function describeTo(Description $description)
   {
     $textStart = 0;
     while (preg_match(self::ARG_PATTERN, $this->_descriptionTemplate,

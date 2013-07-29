@@ -27,7 +27,7 @@ class StringDescription extends BaseDescription
    * Return the description of a {@link Hamcrest\SelfDescribing} object as a
    * String.
    *
-   * @param Hamcrest_SelfDescribing $selfDescribing
+   * @param \Hamcrest\SelfDescribing $selfDescribing
    *   The object to be described.
    *
    * @return string

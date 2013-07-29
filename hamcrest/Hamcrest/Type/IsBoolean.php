@@ -4,11 +4,12 @@ namespace Hamcrest\Type;
 /*
  Copyright (c) 2010 hamcrest.org
  */
+use Hamcrest\Core\IsTypeOf;
 
 /**
  * Tests whether the value is a boolean.
  */
-class IsBoolean extends \Hamcrest\Core\IsTypeOf
+class IsBoolean extends IsTypeOf
 {
 
   /**

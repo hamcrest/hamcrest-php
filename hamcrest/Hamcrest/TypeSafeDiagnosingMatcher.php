@@ -17,7 +17,7 @@ abstract class TypeSafeDiagnosingMatcher
   }
 
   final public function describeMismatchSafely($item,
-    \Hamcrest\Description $mismatchDescription)
+    Description $mismatchDescription)
   {
     $this->matchesSafelyWithDiagnosticDescription($item,
         $mismatchDescription);

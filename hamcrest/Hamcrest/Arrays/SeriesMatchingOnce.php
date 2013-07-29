@@ -5,6 +5,9 @@ namespace Hamcrest\Arrays;
  Copyright (c) 2009 hamcrest.org
  */
 
+use Hamcrest\Description;
+use Hamcrest\Matcher;
+
 class SeriesMatchingOnce
 {
 
@@ -14,7 +17,7 @@ class SeriesMatchingOnce
   private $_nextMatchKey;
 
   public function __construct(array $elementMatchers,
-    \Hamcrest\Description $mismatchDescription)
+    Description $mismatchDescription)
   {
     $this->_elementMatchers = $elementMatchers;
     $this->_keys = array_keys($elementMatchers);
@@ -65,7 +68,7 @@ class SeriesMatchingOnce
     return true;
   }
 
-  private function _describeMismatch(\Hamcrest\Matcher $matcher, $item)
+  private function _describeMismatch(Matcher $matcher, $item)
   {
     $this->_mismatchDescription->appendText('item with key ' . $this->_nextMatchKey . ': ');
     $matcher->describeMismatch($item, $this->_mismatchDescription);

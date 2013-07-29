@@ -4,6 +4,8 @@ namespace Hamcrest\Core;
 /*
  Copyright (c) 2010 hamcrest.org
  */
+use Hamcrest\BaseMatcher;
+use Hamcrest\Description;
 
 /**
  * Tests if a value (class, object, or array) has a named property.
@@ -17,7 +19,7 @@ namespace Hamcrest\Core;
  *
  * @todo Replace $property with a matcher and iterate all property names.
  */
-class Set extends \Hamcrest\BaseMatcher
+class Set extends BaseMatcher
 {
 
   private $_property;
@@ -49,7 +51,7 @@ class Set extends \Hamcrest\BaseMatcher
     return $this->_not ? !$result : $result;
   }
 
-  public function describeTo(\Hamcrest\Description $description)
+  public function describeTo(Description $description)
   {
     $description->appendText(
         $this->_not
@@ -59,8 +61,9 @@ class Set extends \Hamcrest\BaseMatcher
   }
 
   public function describeMismatch($item,
-    \Hamcrest\Description $description)
+    Description $description)
   {
+    $value = '';
     if (!$this->_not) {
       $description->appendText('was not set');
     } else {

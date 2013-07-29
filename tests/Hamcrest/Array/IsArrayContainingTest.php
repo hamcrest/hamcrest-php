@@ -1,12 +1,14 @@
 <?php
 namespace Hamcrest\Arrays;
 
-class IsArrayContainingTest extends \Hamcrest\AbstractMatcherTest
+use Hamcrest\AbstractMatcherTest;
+
+class IsArrayContainingTest extends AbstractMatcherTest
 {
 
   protected function createMatcher()
   {
-    return \Hamcrest\Arrays\IsArrayContaining::hasItemInArray('irrelevant');
+    return IsArrayContaining::hasItemInArray('irrelevant');
   }
 
   public function testMatchesAnArrayThatContainsAnElementMatchingTheGivenMatcher()

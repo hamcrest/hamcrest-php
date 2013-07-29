@@ -4,20 +4,24 @@ namespace Hamcrest\Arrays;
 /**
  * Tests for the presence of both a key and value inside an array.
  */
+use Hamcrest\Description;
+use Hamcrest\Matcher;
+use Hamcrest\TypeSafeMatcher;
+use Hamcrest\Util;
 
 /**
  * @namespace
  */
 
 class IsArrayContainingKeyValuePair
-  extends \Hamcrest\TypeSafeMatcher
+  extends TypeSafeMatcher
 {
 
   private $_keyMatcher;
   private $_valueMatcher;
 
-  public function __construct(\Hamcrest\Matcher $keyMatcher,
-    \Hamcrest\Matcher $valueMatcher)
+  public function __construct(Matcher $keyMatcher,
+    Matcher $valueMatcher)
   {
     parent::__construct(self::TYPE_ARRAY);
 
@@ -39,7 +43,7 @@ class IsArrayContainingKeyValuePair
   }
 
   protected function describeMismatchSafely($array,
-    \Hamcrest\Description $mismatchDescription)
+    Description $mismatchDescription)
   {
     //Not using appendValueList() so that keys can be shown
     $mismatchDescription->appendText('array was ')
@@ -56,7 +60,7 @@ class IsArrayContainingKeyValuePair
     $mismatchDescription->appendText(']');
   }
 
-  public function describeTo(\Hamcrest\Description $description)
+  public function describeTo(Description $description)
   {
     $description->appendText('array containing [')
                 ->appendDescriptionOf($this->_keyMatcher)
@@ -74,8 +78,8 @@ class IsArrayContainingKeyValuePair
   public static function hasKeyValuePair($key, $value)
   {
     return new self(
-      \Hamcrest\Util::wrapValueWithIsEqual($key),
-      \Hamcrest\Util::wrapValueWithIsEqual($value)
+      Util::wrapValueWithIsEqual($key),
+      Util::wrapValueWithIsEqual($value)
     );
   }
 

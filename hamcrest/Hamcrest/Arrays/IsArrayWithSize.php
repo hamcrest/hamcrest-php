@@ -4,14 +4,19 @@ namespace Hamcrest\Arrays;
 /*
  Copyright (c) 2009 hamcrest.org
  */
+use Hamcrest\Core\DescribedAs;
+use Hamcrest\Core\IsNot;
+use Hamcrest\FeatureMatcher;
+use Hamcrest\Matcher;
+use Hamcrest\Util;
 
 /**
  * Matches if array size satisfies a nested matcher.
  */
-class IsArrayWithSize extends \Hamcrest\FeatureMatcher
+class IsArrayWithSize extends FeatureMatcher
 {
 
-  public function __construct(\Hamcrest\Matcher $sizeMatcher)
+  public function __construct(Matcher $sizeMatcher)
   {
     parent::__construct(self::TYPE_ARRAY, null, $sizeMatcher,
       'an array with size', 'array size'
@@ -26,13 +31,14 @@ class IsArrayWithSize extends \Hamcrest\FeatureMatcher
   /**
    * Does array size satisfy a given matcher?
    *
-   * @param int $size as a {@link Hamcrest\Matcher} or a value.
+   * @param \Hamcrest\Matcher|int $size as a {@link Hamcrest\Matcher} or a value.
    *
+   * @return \Hamcrest\Arrays\IsArrayWithSize
    * @factory
    */
   public static function arrayWithSize($size)
   {
-    return new self(\Hamcrest\Util::wrapValueWithIsEqual($size));
+    return new self(Util::wrapValueWithIsEqual($size));
   }
 
   /**
@@ -42,7 +48,7 @@ class IsArrayWithSize extends \Hamcrest\FeatureMatcher
    */
   public static function emptyArray()
   {
-    return \Hamcrest\Core\DescribedAs::describedAs(
+    return DescribedAs::describedAs(
       'an empty array',
       self::arrayWithSize(0)
     );
@@ -55,9 +61,9 @@ class IsArrayWithSize extends \Hamcrest\FeatureMatcher
    */
   public static function nonEmptyArray()
   {
-    return \Hamcrest\Core\DescribedAs::describedAs(
+    return DescribedAs::describedAs(
       'a non-empty array',
-      self::arrayWithSize(Core\IsNot::not(0))
+      self::arrayWithSize(IsNot::not(0))
     );
   }
 

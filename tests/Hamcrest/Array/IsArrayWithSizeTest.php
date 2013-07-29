@@ -1,12 +1,14 @@
 <?php
 namespace Hamcrest\Arrays;
 
-class IsArrayWithSizeTest extends \Hamcrest\AbstractMatcherTest
+use Hamcrest\AbstractMatcherTest;
+
+class IsArrayWithSizeTest extends AbstractMatcherTest
 {
 
   protected function createMatcher()
   {
-    return \Hamcrest\Arrays\IsArrayWithSize::arrayWithSize(equalTo(2));
+    return IsArrayWithSize::arrayWithSize(equalTo(2));
   }
 
   public function testMatchesWhenSizeIsCorrect()

@@ -88,17 +88,18 @@ class MatcherAssert
     self::$_count = 0;
   }
 
-  /**
-   * Performs the actual assertion logic.
-   *
-   * If <code>$matcher</code> doesn't match <code>$actual</code>,
-   * throws a {@link Hamcrest\AssertionError} with a description
-   * of the failure along with the optional <code>$identifier</code>.
-   *
-   * @param string $identifier added to the message upon failure
-   * @param mixed $actual value to compare against <code>$matcher</code>
-   * @param Hamcrest\Matcher $matcher applied to <code>$actual</code>
-   */
+    /**
+     * Performs the actual assertion logic.
+     *
+     * If <code>$matcher</code> doesn't match <code>$actual</code>,
+     * throws a {@link Hamcrest\AssertionError} with a description
+     * of the failure along with the optional <code>$identifier</code>.
+     *
+     * @param string $identifier added to the message upon failure
+     * @param mixed $actual value to compare against <code>$matcher</code>
+     * @param \Hamcrest\Matcher $matcher applied to <code>$actual</code>
+     * @throws AssertionError
+     */
   private static function doAssert($identifier, $actual,
       Matcher $matcher)
   {

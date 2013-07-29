@@ -90,7 +90,7 @@ class FactoryMethod
 
   public function extractFactoryNamesFromLine($line) {
     if (preg_match('/^\s*@factory(\s+(.+))?$/', $line, $match)) {
-      $this->createCalls($this->extraceFactoryNamesFromAnnotation(
+      $this->createCalls($this->extractFactoryNamesFromAnnotation(
         isset($match[2]) ? trim($match[2]) : null
       ));
       return true;
@@ -98,7 +98,7 @@ class FactoryMethod
     return false;
   }
 
-  public function extraceFactoryNamesFromAnnotation($value) {
+  public function extractFactoryNamesFromAnnotation($value) {
     $primaryName = $this->reflector->getName();
     if (empty($value)) {
       return array($primaryName);
@@ -137,7 +137,7 @@ class FactoryMethod
       return '';
     }
     $params = array();
-    foreach ($this->parameters as $parameter) {
+    foreach ($this->parameters as /** @var $parameter FactoryParameter */ $parameter) {
       $params[] = $parameter->getDeclaration();
     }
     return implode(', ', $params);

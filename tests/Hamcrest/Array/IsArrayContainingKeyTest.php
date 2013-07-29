@@ -1,12 +1,14 @@
 <?php
 namespace Hamcrest\Arrays;
 
-class IsArrayContainingKeyTest extends \Hamcrest\AbstractMatcherTest
+use Hamcrest\AbstractMatcherTest;
+
+class IsArrayContainingKeyTest extends AbstractMatcherTest
 {
 
   protected function createMatcher()
   {
-    return \Hamcrest\Arrays\IsArrayContainingKey::hasKeyInArray('irrelevant');
+    return IsArrayContainingKey::hasKeyInArray('irrelevant');
   }
 
   public function testMatchesSingleElementArrayContainingKey()
@@ -38,7 +40,7 @@ class IsArrayContainingKeyTest extends \Hamcrest\AbstractMatcherTest
     assertThat($array, hasKey(1));
 
     // very ugly version!
-    assertThat($array, \Hamcrest\Arrays\IsArrayContainingKey::hasKeyInArray(2));
+    assertThat($array, IsArrayContainingKey::hasKeyInArray(2));
   }
 
   public function testHasReadableDescription()

@@ -4,13 +4,14 @@ namespace Hamcrest\Type;
 /*
  Copyright (c) 2010 hamcrest.org
  */
+use Hamcrest\Core\IsTypeOf;
 
 /**
  * Tests whether the value is a float/double.
  *
  * PHP returns "double" for values of type "float".
  */
-class IsDouble extends \Hamcrest\Core\IsTypeOf
+class IsDouble extends IsTypeOf
 {
 
   /**

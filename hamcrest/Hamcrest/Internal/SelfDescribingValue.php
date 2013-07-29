@@ -4,11 +4,13 @@ namespace Hamcrest\Internal;
 /*
  Copyright (c) 2009 hamcrest.org
  */
+use Hamcrest\Description;
+use Hamcrest\SelfDescribing;
 
 /**
  * A wrapper around any value so that it describes itself.
  */
-class SelfDescribingValue implements \Hamcrest\SelfDescribing
+class SelfDescribingValue implements SelfDescribing
 {
 
   private $_value;
@@ -18,7 +20,7 @@ class SelfDescribingValue implements \Hamcrest\SelfDescribing
     $this->_value = $value;
   }
 
-  public function describeTo(\Hamcrest\Description $description)
+  public function describeTo(Description $description)
   {
     $description->appendValue($this->_value);
   }

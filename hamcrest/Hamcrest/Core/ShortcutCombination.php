@@ -5,21 +5,29 @@ namespace Hamcrest\Core;
  Copyright (c) 2009 hamcrest.org
  */
 
-abstract class ShortcutCombination extends \Hamcrest\BaseMatcher
+use Hamcrest\BaseMatcher;
+use Hamcrest\Description;
+use Hamcrest\Util;
+
+abstract class ShortcutCombination extends BaseMatcher
 {
 
-  private $_matchers;
+    /**
+     * @var array<\Hamcrest\Matcher>
+     */
+    private $_matchers;
 
   public function __construct(array $matchers)
   {
-    \Hamcrest\Util::checkAllAreMatchers($matchers);
+    Util::checkAllAreMatchers($matchers);
 
     $this->_matchers = $matchers;
   }
 
   protected function matchesWithShortcut($item, $shortcut)
   {
-    foreach ($this->_matchers as $matcher) {
+      /** @var $matcher \Hamcrest\Matcher */
+      foreach ($this->_matchers as $matcher) {
       if ($matcher->matches($item) == $shortcut) {
         return $shortcut;
       }
@@ -28,7 +36,7 @@ abstract class ShortcutCombination extends \Hamcrest\BaseMatcher
     return !$shortcut;
   }
 
-  public function describeToWithOperator(\Hamcrest\Description $description,
+  public function describeToWithOperator(Description $description,
     $operator)
   {
     $description->appendList('(', ' ' . $operator . ' ', ')', $this->_matchers);

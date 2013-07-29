@@ -4,11 +4,13 @@ namespace Hamcrest\Text;
 /*
  Copyright (c) 2009 hamcrest.org
  */
+use Hamcrest\Description;
+use Hamcrest\TypeSafeMatcher;
 
 /**
  * Tests if the value contains a series of substrings in a constrained order.
  */
-class StringContainsInOrder extends \Hamcrest\TypeSafeMatcher
+class StringContainsInOrder extends TypeSafeMatcher
 {
 
   private $_substrings;
@@ -34,12 +36,12 @@ class StringContainsInOrder extends \Hamcrest\TypeSafeMatcher
   }
 
   protected function describeMismatchSafely($item,
-    \Hamcrest\Description $mismatchDescription)
+    Description $mismatchDescription)
   {
     $mismatchDescription->appendText('was ')->appendText($item);
   }
 
-  public function describeTo(\Hamcrest\Description $description)
+  public function describeTo(Description $description)
   {
     $description->appendText('a string containing ')
                 ->appendValueList('', ', ', '', $this->_substrings)

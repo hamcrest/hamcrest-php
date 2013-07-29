@@ -4,6 +4,8 @@ namespace Hamcrest\Core;
 /*
  Copyright (c) 2009 hamcrest.org
  */
+use Hamcrest\Description;
+use Hamcrest\Util;
 
 /**
  * Calculates the logical disjunction of multiple matchers. Evaluation is
@@ -23,9 +25,9 @@ class AnyOf extends ShortcutCombination
     return $this->matchesWithShortcut($item, true);
   }
 
-  public function describeTo(\Hamcrest\Description $description)
+  public function describeTo(Description $description)
   {
-    return $this->describeToWithOperator($description, 'or');
+    $this->describeToWithOperator($description, 'or');
   }
 
   /**
@@ -37,7 +39,7 @@ class AnyOf extends ShortcutCombination
   {
     $args = func_get_args();
 
-    return new self(\Hamcrest\Util::createMatcherArray($args));
+    return new self(Util::createMatcherArray($args));
   }
 
   /**
@@ -50,7 +52,7 @@ class AnyOf extends ShortcutCombination
     $args = func_get_args();
 
     return IsNot::not(
-      new self(\Hamcrest\Util::createMatcherArray($args))
+      new self(Util::createMatcherArray($args))
     );
   }
 

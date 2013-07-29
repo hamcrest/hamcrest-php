@@ -4,11 +4,12 @@ namespace Hamcrest\Type;
 /*
  Copyright (c) 2010 hamcrest.org
  */
+use Hamcrest\Core\IsTypeOf;
 
 /**
  * Tests whether the value is numeric.
  */
-class IsNumeric extends \Hamcrest\Core\IsTypeOf
+class IsNumeric extends IsTypeOf
 {
 
   public function __construct()
