@@ -49,7 +49,7 @@ abstract class FactoryFile
     $method = $call->getMethod();
     $code = $method->getComment($this->indent) . PHP_EOL;
     $code .= $this->generateDeclaration($call->getName(), $method);
-    $code .= $this->generateImport($method);
+    // $code .= $this->generateImport($method);
     $code .= $this->generateCall($method);
     $code .= $this->generateClosing();
     return $code;

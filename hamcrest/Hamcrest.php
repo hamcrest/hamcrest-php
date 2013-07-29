@@ -36,37 +36,31 @@ function assertThat()
  */
 function anArray(/* args... */)
 {
-  require_once 'Hamcrest/Arrays/IsArray.php';
   $args = func_get_args();
-
   return call_user_func_array(array('Hamcrest\Arrays\IsArray', 'anArray'), $args);
 }
 
 /**
  * Evaluates to true if any item in an array satisfies the given matcher.
- *
+ * 
  * @param mixed $item as a {@link Hamcrest\Matcher} or a value.
- *
+ * 
  * @return \Hamcrest\Array\IsArrayContaining
  */
 function hasItemInArray($item)
 {
-  require_once 'Hamcrest/Arrays/IsArrayContaining.php';
-
   return Hamcrest\Arrays\IsArrayContaining::hasItemInArray($item);
 }
 
 /**
  * Evaluates to true if any item in an array satisfies the given matcher.
- *
+ * 
  * @param mixed $item as a {@link Hamcrest\Matcher} or a value.
- *
+ * 
  * @return \Hamcrest\Array\IsArrayContaining
  */
 function hasValue($item)
 {
-  require_once 'Hamcrest/Arrays/IsArrayContaining.php';
-
   return Hamcrest\Arrays\IsArrayContaining::hasItemInArray($item);
 }
 
@@ -75,9 +69,7 @@ function hasValue($item)
  */
 function arrayContainingInAnyOrder(/* args... */)
 {
-  require_once 'Hamcrest/Arrays/IsArrayContainingInAnyOrder.php';
   $args = func_get_args();
-
   return call_user_func_array(array('Hamcrest\Arrays\IsArrayContainingInAnyOrder', 'arrayContainingInAnyOrder'), $args);
 }
 
@@ -86,9 +78,7 @@ function arrayContainingInAnyOrder(/* args... */)
  */
 function containsInAnyOrder(/* args... */)
 {
-  require_once 'Hamcrest/Arrays/IsArrayContainingInAnyOrder.php';
   $args = func_get_args();
-
   return call_user_func_array(array('Hamcrest\Arrays\IsArrayContainingInAnyOrder', 'arrayContainingInAnyOrder'), $args);
 }
 
@@ -97,9 +87,7 @@ function containsInAnyOrder(/* args... */)
  */
 function arrayContaining(/* args... */)
 {
-  require_once 'Hamcrest/Arrays/IsArrayContainingInOrder.php';
   $args = func_get_args();
-
   return call_user_func_array(array('Hamcrest\Arrays\IsArrayContainingInOrder', 'arrayContaining'), $args);
 }
 
@@ -108,33 +96,27 @@ function arrayContaining(/* args... */)
  */
 function contains(/* args... */)
 {
-  require_once 'Hamcrest/Arrays/IsArrayContainingInOrder.php';
   $args = func_get_args();
-
   return call_user_func_array(array('Hamcrest\Arrays\IsArrayContainingInOrder', 'arrayContaining'), $args);
 }
 
 /**
  * Evaluates to true if any key in an array matches the given matcher.
- *
+ * 
  * @param mixed $key as a {@link Hamcrest\Matcher} or a value.
  */
 function hasKeyInArray($key)
 {
-  require_once 'Hamcrest/Arrays/IsArrayContainingKey.php';
-
   return Hamcrest\Arrays\IsArrayContainingKey::hasKeyInArray($key);
 }
 
 /**
  * Evaluates to true if any key in an array matches the given matcher.
- *
+ * 
  * @param mixed $key as a {@link Hamcrest\Matcher} or a value.
  */
 function hasKey($key)
 {
-  require_once 'Hamcrest/Arrays/IsArrayContainingKey.php';
-
   return Hamcrest\Arrays\IsArrayContainingKey::hasKeyInArray($key);
 }
 
@@ -143,8 +125,6 @@ function hasKey($key)
  */
 function hasKeyValuePair($key, $value)
 {
-  require_once 'Hamcrest/Arrays/IsArrayContainingKeyValuePair.php';
-
   return Hamcrest\Arrays\IsArrayContainingKeyValuePair::hasKeyValuePair($key, $value);
 }
 
@@ -153,20 +133,16 @@ function hasKeyValuePair($key, $value)
  */
 function hasEntry($key, $value)
 {
-  require_once 'Hamcrest/Arrays/IsArrayContainingKeyValuePair.php';
-
   return Hamcrest\Arrays\IsArrayContainingKeyValuePair::hasKeyValuePair($key, $value);
 }
 
 /**
  * Does array size satisfy a given matcher?
- *
+ * 
  * @param int $size as a {@link Hamcrest\Matcher} or a value.
  */
 function arrayWithSize($size)
 {
-  require_once 'Hamcrest/Arrays/IsArrayWithSize.php';
-
   return Hamcrest\Arrays\IsArrayWithSize::arrayWithSize($size);
 }
 
@@ -175,8 +151,6 @@ function arrayWithSize($size)
  */
 function emptyArray()
 {
-  require_once 'Hamcrest/Arrays/IsArrayWithSize.php';
-
   return Hamcrest\Arrays\IsArrayWithSize::emptyArray();
 }
 
@@ -185,8 +159,6 @@ function emptyArray()
  */
 function nonEmptyArray()
 {
-  require_once 'Hamcrest/Arrays/IsArrayWithSize.php';
-
   return Hamcrest\Arrays\IsArrayWithSize::nonEmptyArray();
 }
 
@@ -195,8 +167,6 @@ function nonEmptyArray()
  */
 function emptyTraversable()
 {
-  require_once 'Hamcrest/Collection/IsEmptyTraversable.php';
-
   return Hamcrest\Collection\IsEmptyTraversable::emptyTraversable();
 }
 
@@ -205,8 +175,6 @@ function emptyTraversable()
  */
 function nonEmptyTraversable()
 {
-  require_once 'Hamcrest/Collection/IsEmptyTraversable.php';
-
   return Hamcrest\Collection\IsEmptyTraversable::nonEmptyTraversable();
 }
 
@@ -215,8 +183,6 @@ function nonEmptyTraversable()
  */
 function traversableWithSize($size)
 {
-  require_once 'Hamcrest/Collection/IsTraversableWithSize.php';
-
   return Hamcrest\Collection\IsTraversableWithSize::traversableWithSize($size);
 }
 
@@ -225,9 +191,7 @@ function traversableWithSize($size)
  */
 function allOf(/* args... */)
 {
-  require_once 'Hamcrest/Core/AllOf.php';
   $args = func_get_args();
-
   return call_user_func_array(array('Hamcrest\Core\AllOf', 'allOf'), $args);
 }
 
@@ -236,9 +200,7 @@ function allOf(/* args... */)
  */
 function anyOf(/* args... */)
 {
-  require_once 'Hamcrest/Core/AnyOf.php';
   $args = func_get_args();
-
   return call_user_func_array(array('Hamcrest\Core\AnyOf', 'anyOf'), $args);
 }
 
@@ -247,9 +209,7 @@ function anyOf(/* args... */)
  */
 function noneOf(/* args... */)
 {
-  require_once 'Hamcrest/Core/AnyOf.php';
   $args = func_get_args();
-
   return call_user_func_array(array('Hamcrest\Core\AnyOf', 'noneOf'), $args);
 }
 
@@ -262,8 +222,6 @@ function noneOf(/* args... */)
  */
 function both(Hamcrest\Matcher $matcher)
 {
-  require_once 'Hamcrest/Core/CombinableMatcher.php';
-
   return Hamcrest\Core\CombinableMatcher::both($matcher);
 }
 
@@ -276,8 +234,6 @@ function both(Hamcrest\Matcher $matcher)
  */
 function either(Hamcrest\Matcher $matcher)
 {
-  require_once 'Hamcrest/Core/CombinableMatcher.php';
-
   return Hamcrest\Core\CombinableMatcher::either($matcher);
 }
 
@@ -286,23 +242,19 @@ function either(Hamcrest\Matcher $matcher)
  */
 function describedAs(/* args... */)
 {
-  require_once 'Hamcrest/Core/DescribedAs.php';
   $args = func_get_args();
-
   return call_user_func_array(array('Hamcrest\Core\DescribedAs', 'describedAs'), $args);
 }
 
 /**
  * @param Hamcrest\Matcher $itemMatcher
  *   A matcher to apply to every element in an array.
- *
+ * 
  * @return Hamcrest\Core\Every
  *   Evaluates to TRUE for a collection in which every item matches $itemMatcher
  */
 function everyItem(Hamcrest\Matcher $itemMatcher)
 {
-  require_once 'Hamcrest/Core/Every.php';
-
   return Hamcrest\Core\Every::everyItem($itemMatcher);
 }
 
@@ -311,40 +263,34 @@ function everyItem(Hamcrest\Matcher $itemMatcher)
  */
 function hasToString($matcher)
 {
-  require_once 'Hamcrest/Core/HasToString.php';
-
   return Hamcrest\Core\HasToString::hasToString($matcher);
 }
 
 /**
  * Decorates another Matcher, retaining the behavior but allowing tests
  * to be slightly more expressive.
- *
+ * 
  * For example:  assertThat($cheese, equalTo($smelly))
  *          vs.  assertThat($cheese, is(equalTo($smelly)))
  */
 function is($value)
 {
-  require_once 'Hamcrest/Core/Is.php';
-
   return Hamcrest\Core\Is::is($value);
 }
 
 /**
  * This matcher always evaluates to true.
- *
+ * 
  * @param string $description A meaningful string used when describing itself.
  */
 function anything($description = 'ANYTHING')
 {
-  require_once 'Hamcrest/Core/IsAnything.php';
-
   return Hamcrest\Core\IsAnything::anything($description);
 }
 
 /**
  * Test if the value is an array containing this matcher.
- *
+ * 
  * Example:
  * <pre>
  * assertThat(array('a', 'b'), hasItem(equalTo('b')));
@@ -354,16 +300,14 @@ function anything($description = 'ANYTHING')
  */
 function hasItem(/* args... */)
 {
-  require_once 'Hamcrest/Core/IsCollectionContaining.php';
   $args = func_get_args();
-
   return call_user_func_array(array('Hamcrest\Core\IsCollectionContaining', 'hasItem'), $args);
 }
 
 /**
  * Test if the value is an array containing elements that match all of these
  * matchers.
- *
+ * 
  * Example:
  * <pre>
  * assertThat(array('a', 'b', 'c'), hasItems(equalTo('a'), equalTo('b')));
@@ -371,9 +315,7 @@ function hasItem(/* args... */)
  */
 function hasItems(/* args... */)
 {
-  require_once 'Hamcrest/Core/IsCollectionContaining.php';
   $args = func_get_args();
-
   return call_user_func_array(array('Hamcrest\Core\IsCollectionContaining', 'hasItems'), $args);
 }
 
@@ -383,8 +325,6 @@ function hasItems(/* args... */)
  */
 function equalTo($item)
 {
-  require_once 'Hamcrest/Core/IsEqual.php';
-
   return Hamcrest\Core\IsEqual::equalTo($item);
 }
 
@@ -393,8 +333,6 @@ function equalTo($item)
  */
 function identicalTo($value)
 {
-  require_once 'Hamcrest/Core/IsIdentical.php';
-
   return Hamcrest\Core\IsIdentical::identicalTo($value);
 }
 
@@ -406,8 +344,6 @@ function identicalTo($value)
  */
 function anInstanceOf($theClass)
 {
-  require_once 'Hamcrest/Core/IsInstanceOf.php';
-
   return Hamcrest\Core\IsInstanceOf::anInstanceOf($theClass);
 }
 
@@ -419,8 +355,6 @@ function anInstanceOf($theClass)
  */
 function any($theClass)
 {
-  require_once 'Hamcrest/Core/IsInstanceOf.php';
-
   return Hamcrest\Core\IsInstanceOf::anInstanceOf($theClass);
 }
 
@@ -429,8 +363,6 @@ function any($theClass)
  */
 function not($value)
 {
-  require_once 'Hamcrest/Core/IsNot.php';
-
   return Hamcrest\Core\IsNot::not($value);
 }
 
@@ -439,8 +371,6 @@ function not($value)
  */
 function nullValue()
 {
-  require_once 'Hamcrest/Core/IsNull.php';
-
   return Hamcrest\Core\IsNull::nullValue();
 }
 
@@ -449,22 +379,18 @@ function nullValue()
  */
 function notNullValue()
 {
-  require_once 'Hamcrest/Core/IsNull.php';
-
   return Hamcrest\Core\IsNull::notNullValue();
 }
 
 /**
  * Creates a new instance of IsSame.
- *
+ * 
  * @param mixed $object
  *   The predicate evaluates to true only when the argument is
  *   this object.
  */
 function sameInstance($object)
 {
-  require_once 'Hamcrest/Core/IsSame.php';
-
   return Hamcrest\Core\IsSame::sameInstance($object);
 }
 
@@ -473,8 +399,6 @@ function sameInstance($object)
  */
 function typeOf($theType)
 {
-  require_once 'Hamcrest/Core/IsTypeOf.php';
-
   return Hamcrest\Core\IsTypeOf::typeOf($theType);
 }
 
@@ -483,8 +407,6 @@ function typeOf($theType)
  */
 function set($property)
 {
-  require_once 'Hamcrest/Core/Set.php';
-
   return Hamcrest\Core\Set::set($property);
 }
 
@@ -493,8 +415,6 @@ function set($property)
  */
 function notSet($property)
 {
-  require_once 'Hamcrest/Core/Set.php';
-
   return Hamcrest\Core\Set::notSet($property);
 }
 
@@ -504,8 +424,6 @@ function notSet($property)
  */
 function closeTo($value, $delta)
 {
-  require_once 'Hamcrest/Number/IsCloseTo.php';
-
   return Hamcrest\Number\IsCloseTo::closeTo($value, $delta);
 }
 
@@ -514,8 +432,6 @@ function closeTo($value, $delta)
  */
 function comparesEqualTo($value)
 {
-  require_once 'Hamcrest/Number/OrderingComparison.php';
-
   return Hamcrest\Number\OrderingComparison::comparesEqualTo($value);
 }
 
@@ -524,8 +440,6 @@ function comparesEqualTo($value)
  */
 function greaterThan($value)
 {
-  require_once 'Hamcrest/Number/OrderingComparison.php';
-
   return Hamcrest\Number\OrderingComparison::greaterThan($value);
 }
 
@@ -534,8 +448,6 @@ function greaterThan($value)
  */
 function greaterThanOrEqualTo($value)
 {
-  require_once 'Hamcrest/Number/OrderingComparison.php';
-
   return Hamcrest\Number\OrderingComparison::greaterThanOrEqualTo($value);
 }
 
@@ -544,8 +456,6 @@ function greaterThanOrEqualTo($value)
  */
 function atLeast($value)
 {
-  require_once 'Hamcrest/Number/OrderingComparison.php';
-
   return Hamcrest\Number\OrderingComparison::greaterThanOrEqualTo($value);
 }
 
@@ -554,8 +464,6 @@ function atLeast($value)
  */
 function lessThan($value)
 {
-  require_once 'Hamcrest/Number/OrderingComparison.php';
-
   return Hamcrest\Number\OrderingComparison::lessThan($value);
 }
 
@@ -564,8 +472,6 @@ function lessThan($value)
  */
 function lessThanOrEqualTo($value)
 {
-  require_once 'Hamcrest/Number/OrderingComparison.php';
-
   return Hamcrest\Number\OrderingComparison::lessThanOrEqualTo($value);
 }
 
@@ -574,8 +480,6 @@ function lessThanOrEqualTo($value)
  */
 function atMost($value)
 {
-  require_once 'Hamcrest/Number/OrderingComparison.php';
-
   return Hamcrest\Number\OrderingComparison::lessThanOrEqualTo($value);
 }
 
@@ -584,8 +488,6 @@ function atMost($value)
  */
 function isEmptyString()
 {
-  require_once 'Hamcrest/Text/IsEmptyString.php';
-
   return Hamcrest\Text\IsEmptyString::isEmptyString();
 }
 
@@ -594,8 +496,6 @@ function isEmptyString()
  */
 function emptyString()
 {
-  require_once 'Hamcrest/Text/IsEmptyString.php';
-
   return Hamcrest\Text\IsEmptyString::isEmptyString();
 }
 
@@ -604,8 +504,6 @@ function emptyString()
  */
 function isEmptyOrNullString()
 {
-  require_once 'Hamcrest/Text/IsEmptyString.php';
-
   return Hamcrest\Text\IsEmptyString::isEmptyOrNullString();
 }
 
@@ -614,8 +512,6 @@ function isEmptyOrNullString()
  */
 function nullOrEmptyString()
 {
-  require_once 'Hamcrest/Text/IsEmptyString.php';
-
   return Hamcrest\Text\IsEmptyString::isEmptyOrNullString();
 }
 
@@ -624,8 +520,6 @@ function nullOrEmptyString()
  */
 function isNonEmptyString()
 {
-  require_once 'Hamcrest/Text/IsEmptyString.php';
-
   return Hamcrest\Text\IsEmptyString::isNonEmptyString();
 }
 
@@ -634,8 +528,6 @@ function isNonEmptyString()
  */
 function nonEmptyString()
 {
-  require_once 'Hamcrest/Text/IsEmptyString.php';
-
   return Hamcrest\Text\IsEmptyString::isNonEmptyString();
 }
 
@@ -644,8 +536,6 @@ function nonEmptyString()
  */
 function equalToIgnoringCase($string)
 {
-  require_once 'Hamcrest/Text/IsEqualIgnoringCase.php';
-
   return Hamcrest\Text\IsEqualIgnoringCase::equalToIgnoringCase($string);
 }
 
@@ -654,8 +544,6 @@ function equalToIgnoringCase($string)
  */
 function equalToIgnoringWhiteSpace($string)
 {
-  require_once 'Hamcrest/Text/IsEqualIgnoringWhiteSpace.php';
-
   return Hamcrest\Text\IsEqualIgnoringWhiteSpace::equalToIgnoringWhiteSpace($string);
 }
 
@@ -664,8 +552,6 @@ function equalToIgnoringWhiteSpace($string)
  */
 function matchesPattern($pattern)
 {
-  require_once 'Hamcrest/Text/MatchesPattern.php';
-
   return Hamcrest\Text\MatchesPattern::matchesPattern($pattern);
 }
 
@@ -674,8 +560,6 @@ function matchesPattern($pattern)
  */
 function containsString($substring)
 {
-  require_once 'Hamcrest/Text/StringContains.php';
-
   return Hamcrest\Text\StringContains::containsString($substring);
 }
 
@@ -684,8 +568,6 @@ function containsString($substring)
  */
 function containsStringIgnoringCase($substring)
 {
-  require_once 'Hamcrest/Text/StringContainsIgnoringCase.php';
-
   return Hamcrest\Text\StringContainsIgnoringCase::containsStringIgnoringCase($substring);
 }
 
@@ -694,9 +576,7 @@ function containsStringIgnoringCase($substring)
  */
 function stringContainsInOrder(/* args... */)
 {
-  require_once 'Hamcrest/Text/StringContainsInOrder.php';
   $args = func_get_args();
-
   return call_user_func_array(array('Hamcrest\Text\StringContainsInOrder', 'stringContainsInOrder'), $args);
 }
 
@@ -705,8 +585,6 @@ function stringContainsInOrder(/* args... */)
  */
 function endsWith($substring)
 {
-  require_once 'Hamcrest/Text/StringEndsWith.php';
-
   return Hamcrest\Text\StringEndsWith::endsWith($substring);
 }
 
@@ -715,8 +593,6 @@ function endsWith($substring)
  */
 function startsWith($substring)
 {
-  require_once 'Hamcrest/Text/StringStartsWith.php';
-
   return Hamcrest\Text\StringStartsWith::startsWith($substring);
 }
 
@@ -725,8 +601,6 @@ function startsWith($substring)
  */
 function arrayValue()
 {
-  require_once 'Hamcrest/Type/IsArray.php';
-
   return Hamcrest\Type\IsArray::arrayValue();
 }
 
@@ -735,8 +609,6 @@ function arrayValue()
  */
 function booleanValue()
 {
-  require_once 'Hamcrest/Type/IsBoolean.php';
-
   return Hamcrest\Type\IsBoolean::booleanValue();
 }
 
@@ -745,8 +617,6 @@ function booleanValue()
  */
 function boolValue()
 {
-  require_once 'Hamcrest/Type/IsBoolean.php';
-
   return Hamcrest\Type\IsBoolean::booleanValue();
 }
 
@@ -755,8 +625,6 @@ function boolValue()
  */
 function callableValue()
 {
-  require_once 'Hamcrest/Type/IsCallable.php';
-
   return Hamcrest\Type\IsCallable::callableValue();
 }
 
@@ -765,8 +633,6 @@ function callableValue()
  */
 function doubleValue()
 {
-  require_once 'Hamcrest/Type/IsDouble.php';
-
   return Hamcrest\Type\IsDouble::doubleValue();
 }
 
@@ -775,8 +641,6 @@ function doubleValue()
  */
 function floatValue()
 {
-  require_once 'Hamcrest/Type/IsDouble.php';
-
   return Hamcrest\Type\IsDouble::doubleValue();
 }
 
@@ -785,8 +649,6 @@ function floatValue()
  */
 function integerValue()
 {
-  require_once 'Hamcrest/Type/IsInteger.php';
-
   return Hamcrest\Type\IsInteger::integerValue();
 }
 
@@ -795,8 +657,6 @@ function integerValue()
  */
 function intValue()
 {
-  require_once 'Hamcrest/Type/IsInteger.php';
-
   return Hamcrest\Type\IsInteger::integerValue();
 }
 
@@ -805,8 +665,6 @@ function intValue()
  */
 function numericValue()
 {
-  require_once 'Hamcrest/Type/IsNumeric.php';
-
   return Hamcrest\Type\IsNumeric::numericValue();
 }
 
@@ -815,8 +673,6 @@ function numericValue()
  */
 function objectValue()
 {
-  require_once 'Hamcrest/Type/IsObject.php';
-
   return Hamcrest\Type\IsObject::objectValue();
 }
 
@@ -825,8 +681,6 @@ function objectValue()
  */
 function anObject()
 {
-  require_once 'Hamcrest/Type/IsObject.php';
-
   return Hamcrest\Type\IsObject::objectValue();
 }
 
@@ -835,8 +689,6 @@ function anObject()
  */
 function resourceValue()
 {
-  require_once 'Hamcrest/Type/IsResource.php';
-
   return Hamcrest\Type\IsResource::resourceValue();
 }
 
@@ -845,8 +697,6 @@ function resourceValue()
  */
 function scalarValue()
 {
-  require_once 'Hamcrest/Type/IsScalar.php';
-
   return Hamcrest\Type\IsScalar::scalarValue();
 }
 
@@ -855,8 +705,6 @@ function scalarValue()
  */
 function stringValue()
 {
-  require_once 'Hamcrest/Type/IsString.php';
-
   return Hamcrest\Type\IsString::stringValue();
 }
 
@@ -867,7 +715,5 @@ function stringValue()
  */
 function hasXPath($xpath, $matcher = null)
 {
-  require_once 'Hamcrest/Xml/HasXPath.php';
-
   return Hamcrest\Xml\HasXPath::hasXPath($xpath, $matcher);
 }
