@@ -1,16 +1,19 @@
 <?php
+namespace Hamcrest\Type;
 
 /*
  Copyright (c) 2010 hamcrest.org
  */
+use Hamcrest\Core\IsTypeOf;
 
 /**
  * Tests whether the value is numeric.
  */
-class Hamcrest_Type_IsNumeric extends Hamcrest_Core_IsTypeOf
+class IsNumeric extends IsTypeOf
 {
 
-  public function __construct() {
+  public function __construct()
+  {
     parent::__construct('number');
   }
 

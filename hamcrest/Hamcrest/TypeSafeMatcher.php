@@ -1,4 +1,5 @@
 <?php
+namespace Hamcrest;
 
 /**
  * Convenient base class for Matchers that require a value of a specific type.
@@ -8,7 +9,8 @@
  * be cast to certain data types such as numerics (or even strings if
  * __toString() has not be defined).
  */
-abstract class Hamcrest_TypeSafeMatcher extends Hamcrest_BaseMatcher
+
+abstract class TypeSafeMatcher extends BaseMatcher
 {
 
   /* Types that PHP can compare against */
@@ -40,20 +42,17 @@ abstract class Hamcrest_TypeSafeMatcher extends Hamcrest_BaseMatcher
     $this->_expectedSubtype = $expectedSubtype;
   }
 
-  public final function matches($item)
+  final public function matches($item)
   {
     return $this->_isSafeType($item) && $this->matchesSafely($item);
   }
 
-  public final function describeMismatch($item,
-    Hamcrest_Description $mismatchDescription)
+  final public function describeMismatch($item,
+    Description $mismatchDescription)
   {
-    if (!$this->_isSafeType($item))
-    {
+    if (!$this->_isSafeType($item)) {
       parent::describeMismatch($item, $mismatchDescription);
-    }
-    else
-    {
+    } else {
       $this->describeMismatchSafely($item, $mismatchDescription);
     }
   }
@@ -69,14 +68,13 @@ abstract class Hamcrest_TypeSafeMatcher extends Hamcrest_BaseMatcher
    * The item will already have been checked for the specific type and subtype.
    */
   abstract protected function describeMismatchSafely($item,
-    Hamcrest_Description $mismatchDescription);
+    Description $mismatchDescription);
 
   // -- Private Methods
 
   private function _isSafeType($value)
   {
-    switch ($this->_expectedType)
-    {
+    switch ($this->_expectedType) {
 
       case self::TYPE_ANY:
         return true;

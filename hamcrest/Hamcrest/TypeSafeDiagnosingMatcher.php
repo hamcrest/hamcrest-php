@@ -1,21 +1,23 @@
 <?php
+namespace Hamcrest;
 
 /**
  * Convenient base class for Matchers that require a value of a specific type.
  * This simply checks the type and then casts.
  */
-abstract class Hamcrest_TypeSafeDiagnosingMatcher
-  extends Hamcrest_TypeSafeMatcher
+
+abstract class TypeSafeDiagnosingMatcher
+  extends TypeSafeMatcher
 {
 
-  public final function matchesSafely($item)
+  final public function matchesSafely($item)
   {
     return $this->matchesSafelyWithDiagnosticDescription($item,
-        new Hamcrest_NullDescription());
+        new NullDescription());
   }
 
-  public final function describeMismatchSafely($item,
-    Hamcrest_Description $mismatchDescription)
+  final public function describeMismatchSafely($item,
+    Description $mismatchDescription)
   {
     $this->matchesSafelyWithDiagnosticDescription($item,
         $mismatchDescription);
@@ -28,6 +30,6 @@ abstract class Hamcrest_TypeSafeDiagnosingMatcher
    * the specific type.
    */
   abstract protected function matchesSafelyWithDiagnosticDescription($item,
-    Hamcrest_Description $mismatchDescription);
+    Description $mismatchDescription);
 
 }

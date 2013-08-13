@@ -1,15 +1,16 @@
 <?php
-require_once 'Hamcrest/AbstractMatcherTest.php';
-require_once 'Hamcrest/Array/IsArray.php';
+namespace Hamcrest\Arrays;
 
-class Hamcrest_Array_IsArrayTest extends Hamcrest_AbstractMatcherTest
+use Hamcrest\AbstractMatcherTest;
+
+class IsArrayTest extends AbstractMatcherTest
 {
-  
+
   protected function createMatcher()
   {
-    return Hamcrest_Array_IsArray::anArray(array(equalTo('irrelevant')));
+    return IsArray::anArray(array(equalTo('irrelevant')));
   }
-  
+
   public function testMatchesAnArrayThatMatchesAllTheElementMatchers()
   {
     $this->assertMatches(
@@ -18,7 +19,7 @@ class Hamcrest_Array_IsArrayTest extends Hamcrest_AbstractMatcherTest
       'should match array with matching elements'
     );
   }
-  
+
   public function testDoesNotMatchAnArrayWhenElementsDoNotMatch()
   {
     $this->assertDoesNotMatch(
@@ -27,7 +28,7 @@ class Hamcrest_Array_IsArrayTest extends Hamcrest_AbstractMatcherTest
       'should not match array with different elements'
     );
   }
-  
+
   public function testDoesNotMatchAnArrayOfDifferentSize()
   {
     $this->assertDoesNotMatch(
@@ -41,7 +42,7 @@ class Hamcrest_Array_IsArrayTest extends Hamcrest_AbstractMatcherTest
       'should not match smaller array'
     );
   }
-  
+
   public function testDoesNotMatchNull()
   {
     $this->assertDoesNotMatch(
@@ -49,14 +50,14 @@ class Hamcrest_Array_IsArrayTest extends Hamcrest_AbstractMatcherTest
       'should not match null'
     );
   }
-  
+
   public function testHasAReadableDescription()
   {
     $this->assertDescription(
       '["a", "b"]', anArray(array(equalTo('a'), equalTo('b')))
     );
   }
-  
+
   public function testHasAReadableMismatchDescriptionWhenKeysDontMatch()
   {
     $this->assertMismatchDescription(
@@ -64,7 +65,7 @@ class Hamcrest_Array_IsArrayTest extends Hamcrest_AbstractMatcherTest
       array(1 => 'a', 2 => 'b')
     );
   }
-  
+
   public function testSupportsMatchesAssociativeArrays()
   {
     $this->assertMatches(
@@ -73,7 +74,7 @@ class Hamcrest_Array_IsArrayTest extends Hamcrest_AbstractMatcherTest
       'should match associative array with matching elements'
     );
   }
-  
+
   public function testDoesNotMatchAnAssociativeArrayWhenKeysDoNotMatch()
   {
     $this->assertDoesNotMatch(
@@ -82,5 +83,5 @@ class Hamcrest_Array_IsArrayTest extends Hamcrest_AbstractMatcherTest
       'should not match array with different keys'
     );
   }
-  
+
 }

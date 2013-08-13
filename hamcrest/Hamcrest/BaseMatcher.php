@@ -1,4 +1,5 @@
 <?php
+namespace Hamcrest;
 
 /*
  Copyright (c) 2009 hamcrest.org
@@ -7,19 +8,19 @@
 /**
  * BaseClass for all Matcher implementations.
  *
- * @see Hamcrest_Matcher
+ * @see Hamcrest\Matcher
  */
-abstract class Hamcrest_BaseMatcher implements Hamcrest_Matcher
+abstract class BaseMatcher implements Matcher
 {
 
-  public function describeMismatch($item, Hamcrest_Description $description)
+  public function describeMismatch($item, Description $description)
   {
     $description->appendText('was ')->appendValue($item);
   }
 
   public function __toString()
   {
-    return Hamcrest_StringDescription::toString($this);
+    return StringDescription::toString($this);
   }
 
 }

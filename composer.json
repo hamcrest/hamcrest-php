@@ -8,9 +8,7 @@
 	],
 
 	"autoload": {
-		"psr-0": {
-			"Hamcrest": "hamcrest"
-		}
+		"classmap": ["hamcrest/", "tests", "generator"]
 	},
 
 	"require": {
@@ -18,6 +16,7 @@
 	},
 
 	"require-dev": {
-		"satooshi/php-coveralls": "dev-master"
+		"satooshi/php-coveralls": "dev-master",
+		"phpunit/php-file-iterator": "1.3.3"
 	}
 }

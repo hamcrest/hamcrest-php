@@ -1,25 +1,23 @@
 <?php
-require_once 'Hamcrest/AbstractMatcherTest.php';
-require_once 'Hamcrest/Text/StringContainsIgnoringCase.php';
+namespace Hamcrest\Text;
 
-class Hamcrest_Text_StringContainsIgnoringCaseTest extends Hamcrest_AbstractMatcherTest
+class StringContainsIgnoringCaseTest extends \Hamcrest\AbstractMatcherTest
 {
 
   const EXCERPT = 'ExcErPt';
-  
+
   private $_stringContains;
-  
+
   public function setUp()
   {
-    $this->_stringContains = Hamcrest_Text_StringContainsIgnoringCase
-        ::containsStringIgnoringCase(strtolower(self::EXCERPT));
+    $this->_stringContains = \Hamcrest\Text\StringContainsIgnoringCase::containsStringIgnoringCase(strtolower(self::EXCERPT));
   }
-  
+
   protected function createMatcher()
   {
     return $this->_stringContains;
   }
-  
+
   public function testEvaluatesToTrueIfArgumentContainsSpecifiedSubstring()
   {
     $this->assertTrue($this->_stringContains->matches(self::EXCERPT . 'END'),
@@ -34,7 +32,7 @@ class Hamcrest_Text_StringContainsIgnoringCaseTest extends Hamcrest_AbstractMatc
     $this->assertTrue($this->_stringContains->matches(self::EXCERPT . self::EXCERPT),
       'should be true if excerpt is repeated'
     );
-    
+
     $this->assertFalse($this->_stringContains->matches('Something else'),
       'should not be true if excerpt is not in string'
     );
@@ -42,7 +40,7 @@ class Hamcrest_Text_StringContainsIgnoringCaseTest extends Hamcrest_AbstractMatc
       'should not be true if part of excerpt is in string'
     );
   }
-  
+
   public function testEvaluatesToTrueIfArgumentIsEqualToSubstring()
   {
     $this->assertTrue($this->_stringContains->matches(self::EXCERPT),
@@ -59,11 +57,11 @@ class Hamcrest_Text_StringContainsIgnoringCaseTest extends Hamcrest_AbstractMatc
       'should be false if excerpt is contained in string ignoring case'
     );
   }
-  
+
   public function testHasAReadableDescription()
   {
     $this->assertDescription('a string containing in any case "'
         . strtolower(self::EXCERPT) . '"', $this->_stringContains);
   }
-  
+
 }

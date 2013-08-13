@@ -1,16 +1,19 @@
 <?php
+namespace Hamcrest\Type;
 
 /*
  Copyright (c) 2010 hamcrest.org
  */
+use Hamcrest\Core\IsTypeOf;
 
 /**
  * Tests whether the value is a scalar (boolean, integer, double, or string).
  */
-class Hamcrest_Type_IsScalar extends Hamcrest_Core_IsTypeOf
+class IsScalar extends IsTypeOf
 {
 
-  public function __construct() {
+  public function __construct()
+  {
     parent::__construct('scalar');
   }
 

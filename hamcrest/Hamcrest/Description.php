@@ -1,4 +1,5 @@
 <?php
+namespace Hamcrest;
 
 /*
  Copyright (c) 2009 hamcrest.org
@@ -8,9 +9,9 @@
  * A description of a Matcher. A Matcher will describe itself to a description
  * which can later be used for reporting.
  *
- * @see Hamcrest_Matcher::describeTo()
+ * @see Hamcrest\Matcher::describeTo()
  */
-interface Hamcrest_Description
+interface Description
 {
 
   /**
@@ -18,26 +19,26 @@ interface Hamcrest_Description
    *
    * @param string $text
    *
-   * @return Hamcrest_Description
+   * @return \Hamcrest\Description
    */
   public function appendText($text);
 
   /**
-   * Appends the description of a {@link Hamcrest_SelfDescribing} value to
+   * Appends the description of a {@link Hamcrest\SelfDescribing} value to
    * this description.
    *
-   * @param Hamcrest_SelfDescribing $value
+   * @param \Hamcrest\SelfDescribing $value
    *
-   * @return Hamcrest_Description
+   * @return \Hamcrest\Description
    */
-  public function appendDescriptionOf(Hamcrest_SelfDescribing $value);
+  public function appendDescriptionOf(SelfDescribing $value);
 
   /**
    * Appends an arbitary value to the description.
    *
    * @param mixed $value
    *
-   * @return Hamcrest_SelfDescribing
+   * @return \Hamcrest\Description
    */
   public function appendValue($value);
 
@@ -47,23 +48,23 @@ interface Hamcrest_Description
    * @param string $start
    * @param string $separator
    * @param string $end
-   * @param array|IteratorAggregate|Iterator $values
+   * @param array|\IteratorAggregate|\Iterator $values
    *
-   * @return Hamcrest_Description
+   * @return \Hamcrest\Description
    */
   public function appendValueList($start, $separator, $end, $values);
 
   /**
-   * Appends a list of {@link Hamcrest_SelfDescribing} objects to the
+   * Appends a list of {@link Hamcrest\SelfDescribing} objects to the
    * description.
    *
    * @param string $start
    * @param string $separator
    * @param string $end
-   * @param array|IteratorAggregate|Iterator $values
-   *   must be instances of {@link Hamcrest_SelfDescribing}
+   * @param array|\\IteratorAggregate|\\Iterator $values
+   *   must be instances of {@link Hamcrest\SelfDescribing}
    *
-   * @return Hamcrest_Description
+   * @return \Hamcrest\Description
    */
   public function appendList($start, $separator, $end, $values);
 

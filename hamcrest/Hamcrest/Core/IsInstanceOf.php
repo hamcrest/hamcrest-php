@@ -1,13 +1,16 @@
 <?php
+namespace Hamcrest\Core;
 
 /*
  Copyright (c) 2009 hamcrest.org
  */
+use Hamcrest\Description;
+use Hamcrest\DiagnosingMatcher;
 
 /**
  * Tests whether the value is an instance of a class.
  */
-class Hamcrest_Core_IsInstanceOf extends Hamcrest_DiagnosingMatcher
+class IsInstanceOf extends DiagnosingMatcher
 {
 
   private $_theClass;
@@ -25,25 +28,25 @@ class Hamcrest_Core_IsInstanceOf extends Hamcrest_DiagnosingMatcher
   }
 
   protected function matchesWithDiagnosticDescription($item,
-    Hamcrest_Description $mismatchDescription)
+    Description $mismatchDescription)
   {
-    if (!is_object($item))
-    {
+    if (!is_object($item)) {
       $mismatchDescription->appendText('was ')->appendValue($item);
+
       return false;
     }
 
-    if (!($item instanceof $this->_theClass))
-    {
+    if (!($item instanceof $this->_theClass)) {
       $mismatchDescription->appendText('[' . get_class($item) . '] ')
                           ->appendValue($item);
+
       return false;
     }
 
     return true;
   }
 
-  public function describeTo(Hamcrest_Description $description)
+  public function describeTo(Description $description)
   {
     $description->appendText('an instance of ')
                 ->appendText($this->_theClass)

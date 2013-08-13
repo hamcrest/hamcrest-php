@@ -1,50 +1,48 @@
 <?php
-require_once 'Hamcrest/AbstractMatcherTest.php';
-require_once 'Hamcrest/Text/IsEmptyString.php';
+namespace Hamcrest\Text;
 
-class Hamcrest_Text_IsEmptyStringTest extends Hamcrest_AbstractMatcherTest
+class IsEmptyStringTest extends \Hamcrest\AbstractMatcherTest
 {
-  
+
   protected function createMatcher()
   {
-    return Hamcrest_Text_IsEmptyString::isEmptyOrNullString();
+    return \Hamcrest\Text\IsEmptyString::isEmptyOrNullString();
   }
-  
+
   public function testEmptyDoesNotMatchNull()
   {
     $this->assertDoesNotMatch(emptyString(), null, 'null');
   }
-  
+
   public function testEmptyDoesNotMatchZero()
   {
     $this->assertDoesNotMatch(emptyString(), 0, 'zero');
   }
-  
+
   public function testEmptyDoesNotMatchFalse()
   {
     $this->assertDoesNotMatch(emptyString(), false, 'false');
   }
-  
+
   public function testEmptyDoesNotMatchEmptyArray()
   {
     $this->assertDoesNotMatch(emptyString(), array(), 'empty array');
   }
-  
+
   public function testEmptyMatchesEmptyString()
   {
     $this->assertMatches(emptyString(), '', 'empty string');
   }
-  
+
   public function testEmptyDoesNotMatchNonEmptyString()
   {
     $this->assertDoesNotMatch(emptyString(), 'foo', 'non-empty string');
   }
-  
+
   public function testEmptyHasAReadableDescription()
   {
     $this->assertDescription('an empty string', emptyString());
   }
-
 
   public function testEmptyOrNullMatchesNull()
   {
@@ -66,7 +64,6 @@ class Hamcrest_Text_IsEmptyStringTest extends Hamcrest_AbstractMatcherTest
     $this->assertDescription('(null or an empty string)', nullOrEmptyString());
   }
 
-
   public function testNonEmptyDoesNotMatchNull()
   {
     $this->assertDoesNotMatch(nonEmptyString(), null, 'null');
@@ -86,5 +83,5 @@ class Hamcrest_Text_IsEmptyStringTest extends Hamcrest_AbstractMatcherTest
   {
     $this->assertDescription('a non-empty string', nonEmptyString());
   }
-  
+
 }

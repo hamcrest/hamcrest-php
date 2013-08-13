@@ -1,8 +1,7 @@
 <?php
-require_once 'Hamcrest/AbstractMatcherTest.php';
-require_once 'Hamcrest/Type/IsCallable.php';
+namespace Hamcrest\Type;
 
-class Hamcrest_Type_IsCallableTest extends Hamcrest_AbstractMatcherTest
+class IsCallableTest extends \Hamcrest\AbstractMatcherTest
 {
 
   public static function callableFunction() { }
@@ -11,7 +10,7 @@ class Hamcrest_Type_IsCallableTest extends Hamcrest_AbstractMatcherTest
 
   protected function createMatcher()
   {
-    return Hamcrest_Type_IsCallable::callableValue();
+    return \Hamcrest\Type\IsCallable::callableValue();
   }
 
   public function testEvaluatesToTrueIfArgumentIsFunctionName()
@@ -21,7 +20,7 @@ class Hamcrest_Type_IsCallableTest extends Hamcrest_AbstractMatcherTest
 
   public function testEvaluatesToTrueIfArgumentIsStaticMethodCallback()
   {
-    assertThat(array('Hamcrest_Type_IsCallableTest', 'callableFunction'),
+    assertThat(array('Hamcrest\Type\IsCallableTest', 'callableFunction'),
                callableValue()
     );
   }
@@ -36,26 +35,23 @@ class Hamcrest_Type_IsCallableTest extends Hamcrest_AbstractMatcherTest
 
   public function testEvaluatesToTrueIfArgumentIsClosure()
   {
-    if (!version_compare(PHP_VERSION, '5.3', '>='))
-    {
-      $this->markTestSkipped('Closures require PHP 5.3');
+    if (!version_compare(PHP_VERSION, '5.3', '>=')) {
+      $this->markTestSkipped('Closures require php 5.3');
     }
     eval('assertThat(function () {}, callableValue());');
   }
 
   public function testEvaluatesToTrueIfArgumentImplementsInvoke()
   {
-    if (!version_compare(PHP_VERSION, '5.3', '>='))
-    {
-      $this->markTestSkipped('Magic method __invoke() requires PHP 5.3');
+    if (!version_compare(PHP_VERSION, '5.3', '>=')) {
+      $this->markTestSkipped('Magic method __invoke() requires php 5.3');
     }
     assertThat($this, callableValue());
   }
 
   public function testEvaluatesToFalseIfArgumentIsInvalidFunctionName()
   {
-    if (function_exists('not_a_Hamcrest_function'))
-    {
+    if (function_exists('not_a_Hamcrest_function')) {
       $this->markTestSkipped(
           'Function "not_a_Hamcrest_function" must not exist');
     }
@@ -64,7 +60,7 @@ class Hamcrest_Type_IsCallableTest extends Hamcrest_AbstractMatcherTest
 
   public function testEvaluatesToFalseIfArgumentIsInvalidStaticMethodCallback()
   {
-    assertThat(array('Hamcrest_Type_IsCallableTest', 'noMethod'),
+    assertThat(array('Hamcrest\Type\IsCallableTest', 'noMethod'),
         not(callableValue())
     );
   }
@@ -76,7 +72,7 @@ class Hamcrest_Type_IsCallableTest extends Hamcrest_AbstractMatcherTest
 
   public function testEvaluatesToFalseIfArgumentDoesntImplementInvoke()
   {
-    assertThat(new stdClass(), not(callableValue()));
+    assertThat(new \stdClass(), not(callableValue()));
   }
 
   public function testEvaluatesToFalseIfArgumentDoesntMatchType()

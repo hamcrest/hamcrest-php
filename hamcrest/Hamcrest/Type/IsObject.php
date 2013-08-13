@@ -1,13 +1,15 @@
 <?php
+namespace Hamcrest\Type;
 
 /*
  Copyright (c) 2010 hamcrest.org
  */
+use Hamcrest\Core\IsTypeOf;
 
 /**
  * Tests whether the value is an object.
  */
-class Hamcrest_Type_IsObject extends Hamcrest_Core_IsTypeOf
+class IsObject extends IsTypeOf
 {
 
   /**

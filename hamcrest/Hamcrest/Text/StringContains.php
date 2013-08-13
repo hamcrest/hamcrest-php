@@ -1,4 +1,5 @@
 <?php
+namespace Hamcrest\Text;
 
 /*
  Copyright (c) 2009 hamcrest.org
@@ -7,7 +8,7 @@
 /**
  * Tests if the argument is a string that contains a substring.
  */
-class Hamcrest_Text_StringContains extends Hamcrest_Text_SubstringMatcher
+class StringContains extends SubstringMatcher
 {
 
   public function __construct($substring)
@@ -17,7 +18,7 @@ class Hamcrest_Text_StringContains extends Hamcrest_Text_SubstringMatcher
 
   public function ignoringCase()
   {
-    return new Hamcrest_Text_StringContainsIgnoringCase($this->_substring);
+    return new StringContainsIgnoringCase($this->_substring);
   }
 
   /**

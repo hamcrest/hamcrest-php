@@ -1,31 +1,30 @@
 <?php
-require_once 'Hamcrest/AbstractMatcherTest.php';
-require_once 'Hamcrest/Core/IsAnything.php';
+namespace Hamcrest\Core;
 
-class Hamcrest_Core_IsAnythingTest extends Hamcrest_AbstractMatcherTest
+class IsAnythingTest extends \Hamcrest\AbstractMatcherTest
 {
-  
+
   protected function createMatcher()
   {
-    return Hamcrest_Core_IsAnything::anything();
+    return \Hamcrest\Core\IsAnything::anything();
   }
-  
+
   public function testAlwaysEvaluatesToTrue()
   {
     assertThat(null, anything());
-    assertThat(new stdClass(), anything());
+    assertThat(new \stdClass(), anything());
     assertThat('hi', anything());
   }
-  
+
   public function testHasUsefulDefaultDescription()
   {
     $this->assertDescription('ANYTHING', anything());
   }
-  
+
   public function testCanOverrideDescription()
   {
     $description = 'description';
     $this->assertDescription($description, anything($description));
   }
-  
+
 }

@@ -1,13 +1,16 @@
 <?php
+namespace Hamcrest\Core;
 
 /*
  Copyright (c) 2009 hamcrest.org
  */
+use Hamcrest\BaseMatcher;
+use Hamcrest\Description;
 
 /**
  * Is the value null?
  */
-class Hamcrest_Core_IsNull extends Hamcrest_BaseMatcher
+class IsNull extends BaseMatcher
 {
 
   private static $_INSTANCE;
@@ -18,7 +21,7 @@ class Hamcrest_Core_IsNull extends Hamcrest_BaseMatcher
     return is_null($item);
   }
 
-  public function describeTo(Hamcrest_Description $description)
+  public function describeTo(Description $description)
   {
     $description->appendText('null');
   }
@@ -45,7 +48,7 @@ class Hamcrest_Core_IsNull extends Hamcrest_BaseMatcher
   public static function notNullValue()
   {
     if (!self::$_NOT_INSTANCE) {
-      self::$_NOT_INSTANCE = Hamcrest_Core_IsNot::not(self::nullValue());
+      self::$_NOT_INSTANCE = IsNot::not(self::nullValue());
   }
 
     return self::$_NOT_INSTANCE;

@@ -1,29 +1,28 @@
 <?php
-require_once 'Hamcrest/AbstractMatcherTest.php';
-require_once 'Hamcrest/Collection/IsTraversableWithSize.php';
+namespace Hamcrest\Collection;
 
-class Hamcrest_Traversable_IsTraversableWithSizeTest
-    extends Hamcrest_AbstractMatcherTest
+class IsTraversableWithSizeTest
+    extends \Hamcrest\AbstractMatcherTest
 {
 
   protected function createMatcher()
   {
-    return Hamcrest_Collection_IsTraversableWithSize::traversableWithSize(
+    return \Hamcrest\Collection\IsTraversableWithSize::traversableWithSize(
         equalTo(2)
     );
   }
-  
+
   public function testMatchesWhenSizeIsCorrect()
   {
-    $this->assertMatches(traversableWithSize(equalTo(3)), 
-        new ArrayObject(array(1, 2, 3)), 'correct size'
+    $this->assertMatches(traversableWithSize(equalTo(3)),
+        new \ArrayObject(array(1, 2, 3)), 'correct size'
     );
   }
 
   public function testDoesNotMatchWhenSizeIsIncorrect()
   {
-    $this->assertDoesNotMatch(traversableWithSize(equalTo(2)), 
-        new ArrayObject(array(1, 2, 3)), 'incorrect size'
+    $this->assertDoesNotMatch(traversableWithSize(equalTo(2)),
+        new \ArrayObject(array(1, 2, 3)), 'incorrect size'
     );
   }
 
@@ -37,15 +36,15 @@ class Hamcrest_Traversable_IsTraversableWithSizeTest
   public function testProvidesConvenientShortcutForTraversableWithSizeEqualTo()
   {
     $this->assertMatches(traversableWithSize(3),
-        new ArrayObject(array(1, 2, 3)), 'correct size'
+        new \ArrayObject(array(1, 2, 3)), 'correct size'
     );
   }
-  
+
   public function testHasAReadableDescription()
   {
-    $this->assertDescription('a traversable with size <3>', 
+    $this->assertDescription('a traversable with size <3>',
         traversableWithSize(equalTo(3))
     );
   }
-  
+
 }

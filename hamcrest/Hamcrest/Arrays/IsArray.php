@@ -1,4 +1,5 @@
 <?php
+namespace Hamcrest\Arrays;
 
 /*
  Copyright (c) 2009 hamcrest.org
@@ -8,12 +9,15 @@
 //       arrays quite differently than PHP
 
 // TODO: Allow this to take matchers or values within the array
+use Hamcrest\Description;
+use Hamcrest\TypeSafeMatcher;
+use Hamcrest\Util;
 
 /**
  * Matcher for array whose elements satisfy a sequence of matchers.
  * The array size must equal the number of element matchers.
  */
-class Hamcrest_Array_IsArray extends Hamcrest_TypeSafeMatcher
+class IsArray extends TypeSafeMatcher
 {
 
   private $_elementMatchers;
@@ -22,22 +26,20 @@ class Hamcrest_Array_IsArray extends Hamcrest_TypeSafeMatcher
   {
     parent::__construct(self::TYPE_ARRAY);
 
-    Hamcrest_Util::checkAllAreMatchers($elementMatchers);
+    Util::checkAllAreMatchers($elementMatchers);
 
     $this->_elementMatchers = $elementMatchers;
   }
 
   protected function matchesSafely($array)
   {
-    if (array_keys($array) != array_keys($this->_elementMatchers))
-    {
+    if (array_keys($array) != array_keys($this->_elementMatchers)) {
       return false;
     }
 
-    foreach ($this->_elementMatchers as $k => $matcher)
-    {
-      if (!$matcher->matches($array[$k]))
-      {
+      /** @var $matcher \Hamcrest\Matcher */
+      foreach ($this->_elementMatchers as $k => $matcher) {
+      if (!$matcher->matches($array[$k])) {
         return false;
       }
     }
@@ -46,15 +48,13 @@ class Hamcrest_Array_IsArray extends Hamcrest_TypeSafeMatcher
   }
 
   protected function describeMismatchSafely($actual,
-    Hamcrest_Description $mismatchDescription)
+    Description $mismatchDescription)
   {
-    if (count($actual) != count($this->_elementMatchers))
-    {
+    if (count($actual) != count($this->_elementMatchers)) {
       $mismatchDescription->appendText('array length was ' . count($actual));
+
       return;
-    }
-    elseif (array_keys($actual) != array_keys($this->_elementMatchers))
-    {
+    } elseif (array_keys($actual) != array_keys($this->_elementMatchers)) {
       $mismatchDescription->appendText('array keys were ')
                           ->appendValueList(
                             $this->descriptionStart(),
@@ -63,22 +63,23 @@ class Hamcrest_Array_IsArray extends Hamcrest_TypeSafeMatcher
                             array_keys($actual)
                             )
                           ;
+
       return;
     }
 
-    foreach ($this->_elementMatchers as $k => $matcher)
-    {
-      if (!$matcher->matches($actual[$k]))
-      {
+      /** @var $matcher \Hamcrest\Matcher */
+      foreach ($this->_elementMatchers as $k => $matcher) {
+      if (!$matcher->matches($actual[$k])) {
         $mismatchDescription->appendText('element ')->appendValue($k)
                             ->appendText(' was ')->appendValue($actual[$k])
                             ;
+
         return;
       }
     }
   }
 
-  public function describeTo(Hamcrest_Description $description)
+  public function describeTo(Description $description)
   {
     $description->appendList(
       $this->descriptionStart(),
@@ -96,7 +97,8 @@ class Hamcrest_Array_IsArray extends Hamcrest_TypeSafeMatcher
   public static function anArray(/* args... */)
   {
     $args = func_get_args();
-    return new self(Hamcrest_Util::createMatcherArray($args));
+
+    return new self(Util::createMatcherArray($args));
   }
 
   // -- Protected Methods

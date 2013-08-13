@@ -1,13 +1,16 @@
 <?php
+namespace Hamcrest\Core;
 
 /*
  Copyright (c) 2010 hamcrest.org
  */
+use Hamcrest\BaseMatcher;
+use Hamcrest\Description;
 
 /**
  * Tests whether the value has a built-in type.
  */
-class Hamcrest_Core_IsTypeOf extends Hamcrest_BaseMatcher
+class IsTypeOf extends BaseMatcher
 {
 
   private $_theType;
@@ -28,19 +31,16 @@ class Hamcrest_Core_IsTypeOf extends Hamcrest_BaseMatcher
     return strtolower(gettype($item)) == $this->_theType;
   }
 
-  public function describeTo(Hamcrest_Description $description)
+  public function describeTo(Description $description)
   {
     $description->appendText(self::getTypeDescription($this->_theType));
   }
 
-  public function describeMismatch($item, Hamcrest_Description $description)
+  public function describeMismatch($item, Description $description)
   {
-    if ($item === null)
-    {
+    if ($item === null) {
       $description->appendText('was null');
-    }
-    else
-    {
+    } else {
       $description->appendText('was ')
                   ->appendText(self::getTypeDescription(
                                strtolower(gettype($item))))
@@ -52,10 +52,10 @@ class Hamcrest_Core_IsTypeOf extends Hamcrest_BaseMatcher
 
   public static function getTypeDescription($type)
   {
-    if ($type == 'null')
-    {
+    if ($type == 'null') {
       return 'null';
     }
+
     return (strpos('aeiou', substr($type, 0, 1)) === false ? 'a ' : 'an ')
         . $type;
   }

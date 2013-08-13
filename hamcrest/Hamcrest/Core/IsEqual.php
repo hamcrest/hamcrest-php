@@ -1,14 +1,17 @@
 <?php
+namespace Hamcrest\Core;
 
 /*
  Copyright (c) 2009 hamcrest.org
  */
+use Hamcrest\BaseMatcher;
+use Hamcrest\Description;
 
 /**
  * Is the value equal to another value, as tested by the use of the "=="
  * comparison operator?
  */
-class Hamcrest_Core_IsEqual extends Hamcrest_BaseMatcher
+class IsEqual extends BaseMatcher
 {
 
   private $_item;
@@ -23,7 +26,7 @@ class Hamcrest_Core_IsEqual extends Hamcrest_BaseMatcher
     return (($arg == $this->_item) && ($this->_item == $arg));
   }
 
-  public function describeTo(Hamcrest_Description $description)
+  public function describeTo(Description $description)
   {
     $description->appendValue($this->_item);
   }

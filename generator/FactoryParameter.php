@@ -28,7 +28,7 @@ class FactoryParameter
     else {
       $class = $this->reflector->getClass();
       if ($class !== null) {
-        $code = $class->name . ' ';
+        $code = '\\' . $class->name . ' ';
       }
       else {
         $code = '';

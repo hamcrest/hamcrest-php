@@ -1,15 +1,14 @@
 <?php
-require_once 'Hamcrest/AbstractMatcherTest.php';
-require_once 'Hamcrest/Type/IsNumeric.php';
+namespace Hamcrest\Type;
 
-class Hamcrest_Type_IsNumericTest extends Hamcrest_AbstractMatcherTest
+class IsNumericTest extends \Hamcrest\AbstractMatcherTest
 {
-  
+
   protected function createMatcher()
   {
-    return Hamcrest_Type_IsNumeric::numericValue();
+    return \Hamcrest\Type\IsNumeric::numericValue();
   }
-  
+
   public function testEvaluatesToTrueIfArgumentMatchesType()
   {
     assertThat(5, numericValue());
@@ -36,16 +35,16 @@ class Hamcrest_Type_IsNumericTest extends Hamcrest_AbstractMatcherTest
     assertThat('foo5', not(numericValue()));
     assertThat('5foo', not(numericValue()));
   }
-  
+
   public function testHasAReadableDescription()
   {
     $this->assertDescription('a number', numericValue());
   }
-  
+
   public function testDecribesActualTypeInMismatchMessage()
   {
     $this->assertMismatchDescription('was null', numericValue(), null);
     $this->assertMismatchDescription('was a string "foo"', numericValue(), 'foo');
   }
-  
+
 }

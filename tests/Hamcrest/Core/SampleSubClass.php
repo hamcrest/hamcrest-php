@@ -1,7 +1,6 @@
 <?php
+namespace Hamcrest\Core;
 
-require_once 'Hamcrest/Core/SampleBaseClass.php';
-
-class Hamcrest_Core_SampleSubClass extends Hamcrest_Core_SampleBaseClass
+class SampleSubClass extends \Hamcrest\Core\SampleBaseClass
 {
 }

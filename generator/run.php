@@ -3,9 +3,10 @@
 /*
  Copyright (c) 2009 hamcrest.org
  */
+require __DIR__ . '/../vendor/autoload.php';
 
 /*
- * Generates the Hamcrest_Matchers factory class and factory functions
+ * Generates the Hamcrest\Matchers factory class and factory functions
  * from the @factory doctags in the various matchers.
  */
 
@@ -26,10 +27,6 @@ set_include_path(implode(PATH_SEPARATOR, array(
     get_include_path()
   )));
 
-function __autoload($class) {
-  $file = str_replace('_', '/', $class) . '.php';
-  require_once $file;
-}
 
 @unlink(GLOBAL_FUNCTIONS_FILE);
 @unlink(STATIC_MATCHERS_FILE);

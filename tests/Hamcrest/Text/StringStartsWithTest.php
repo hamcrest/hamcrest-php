@@ -1,24 +1,23 @@
 <?php
-require_once 'Hamcrest/AbstractMatcherTest.php';
-require_once 'Hamcrest/Text/StringStartsWith.php';
+namespace Hamcrest\Text;
 
-class Hamcrest_Text_StringStartsWithTest extends Hamcrest_AbstractMatcherTest
+class StringStartsWithTest extends \Hamcrest\AbstractMatcherTest
 {
-  
+
   const EXCERPT = 'EXCERPT';
-  
+
   private $_stringStartsWith;
-  
+
   public function setUp()
   {
-    $this->_stringStartsWith = Hamcrest_Text_StringStartsWith::startsWith(self::EXCERPT);
+    $this->_stringStartsWith = \Hamcrest\Text\StringStartsWith::startsWith(self::EXCERPT);
   }
-  
+
   protected function createMatcher()
   {
     return $this->_stringStartsWith;
   }
-  
+
   public function testEvaluatesToTrueIfArgumentContainsSpecifiedSubstring()
   {
     $this->assertTrue($this->_stringStartsWith->matches(self::EXCERPT . 'END'),
@@ -33,7 +32,7 @@ class Hamcrest_Text_StringStartsWithTest extends Hamcrest_AbstractMatcherTest
     $this->assertTrue($this->_stringStartsWith->matches(self::EXCERPT . self::EXCERPT),
       'should be true if excerpt is at beginning and repeated'
     );
-    
+
     $this->assertFalse($this->_stringStartsWith->matches('Something else'),
       'should be false if excerpt is not in string'
     );
@@ -41,17 +40,17 @@ class Hamcrest_Text_StringStartsWithTest extends Hamcrest_AbstractMatcherTest
       'should be false if part of excerpt is at start of string'
     );
   }
-  
+
   public function testEvaluatesToTrueIfArgumentIsEqualToSubstring()
   {
     $this->assertTrue($this->_stringStartsWith->matches(self::EXCERPT),
       'should be true if excerpt is entire string'
     );
   }
-  
+
   public function testHasAReadableDescription()
   {
     $this->assertDescription('a string starting with "EXCERPT"', $this->_stringStartsWith);
   }
-  
+
 }

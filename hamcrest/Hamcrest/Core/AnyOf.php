@@ -1,15 +1,18 @@
 <?php
+namespace Hamcrest\Core;
 
 /*
  Copyright (c) 2009 hamcrest.org
  */
+use Hamcrest\Description;
+use Hamcrest\Util;
 
 /**
  * Calculates the logical disjunction of multiple matchers. Evaluation is
  * shortcut, so subsequent matchers are not called if an earlier matcher
  * returns <code>true</code>.
  */
-class Hamcrest_Core_AnyOf extends Hamcrest_Core_ShortcutCombination
+class AnyOf extends ShortcutCombination
 {
 
   public function __construct(array $matchers)
@@ -22,9 +25,9 @@ class Hamcrest_Core_AnyOf extends Hamcrest_Core_ShortcutCombination
     return $this->matchesWithShortcut($item, true);
   }
 
-  public function describeTo(Hamcrest_Description $description)
+  public function describeTo(Description $description)
   {
-    return $this->describeToWithOperator($description, 'or');
+    $this->describeToWithOperator($description, 'or');
   }
 
   /**
@@ -35,7 +38,8 @@ class Hamcrest_Core_AnyOf extends Hamcrest_Core_ShortcutCombination
   public static function anyOf(/* args... */)
   {
     $args = func_get_args();
-    return new self(Hamcrest_Util::createMatcherArray($args));
+
+    return new self(Util::createMatcherArray($args));
   }
 
   /**
@@ -46,8 +50,9 @@ class Hamcrest_Core_AnyOf extends Hamcrest_Core_ShortcutCombination
   public static function noneOf(/* args... */)
     {
     $args = func_get_args();
-    return Hamcrest_Core_IsNot::not(
-      new self(Hamcrest_Util::createMatcherArray($args))
+
+    return IsNot::not(
+      new self(Util::createMatcherArray($args))
     );
   }
 

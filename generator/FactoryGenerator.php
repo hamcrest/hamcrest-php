@@ -66,7 +66,7 @@ class FactoryGenerator
   }
 
   public function getSortedFiles() {
-    $iter = File_Iterator_Factory::getFileIterator($this->path, '.php');
+    $iter = \File_Iterator_Factory::getFileIterator($this->path, '.php');
     $files = array();
     foreach ($iter as $file) {
       $files[] = $file;
@@ -79,6 +79,7 @@ class FactoryGenerator
     $name = $this->getFactoryClassName($file);
     if ($name !== null) {
       require_once $file;
+
       if (class_exists($name)) {
         $class = new FactoryClass(substr($file, strpos($file, 'Hamcrest/')), new ReflectionClass($name));
         if ($class->isFactory()) {
@@ -91,9 +92,10 @@ class FactoryGenerator
 
   public function getFactoryClassName($file) {
     $content = file_get_contents($file);
-    if (preg_match('/\n\s*class\s+(\w+)\s+extends\b/', $content, $match)
+    if (preg_match('/namespace\s+(.+);/', $content, $namespace)
+        && preg_match('/\n\s*class\s+(\w+)\s+extends\b/', $content, $className)
         && preg_match('/@factory\b/', $content)) {
-      return $match[1];
+      return $namespace[1] . '\\'. $className[1];
     }
     return null;
   }

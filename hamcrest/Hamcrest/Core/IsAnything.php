@@ -1,13 +1,16 @@
 <?php
+namespace Hamcrest\Core;
 
 /*
  Copyright (c) 2009 hamcrest.org
  */
+use Hamcrest\BaseMatcher;
+use Hamcrest\Description;
 
 /**
  * A matcher that always returns <code>true</code>.
  */
-class Hamcrest_Core_IsAnything extends Hamcrest_BaseMatcher
+class IsAnything extends BaseMatcher
 {
 
   private $_message;
@@ -22,7 +25,7 @@ class Hamcrest_Core_IsAnything extends Hamcrest_BaseMatcher
     return true;
   }
 
-  public function describeTo(Hamcrest_Description $description)
+  public function describeTo(Description $description)
   {
     $description->appendText($this->_message);
   }
@@ -32,6 +35,7 @@ class Hamcrest_Core_IsAnything extends Hamcrest_BaseMatcher
    *
    * @param string $description A meaningful string used when describing itself.
    *
+   * @return \Hamcrest\Core\IsAnything
    * @factory
    */
   public static function anything($description = 'ANYTHING')

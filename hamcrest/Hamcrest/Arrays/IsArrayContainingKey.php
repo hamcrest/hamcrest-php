@@ -1,18 +1,23 @@
 <?php
+namespace Hamcrest\Arrays;
 
 /*
  Copyright (c) 2009 hamcrest.org
  */
+use Hamcrest\Description;
+use Hamcrest\Matcher;
+use Hamcrest\TypeSafeMatcher;
+use Hamcrest\Util;
 
 /**
  * Matches if an array contains the specified key.
  */
-class Hamcrest_Array_IsArrayContainingKey extends Hamcrest_TypeSafeMatcher
+class IsArrayContainingKey extends TypeSafeMatcher
 {
 
   private $_keyMatcher;
 
-  public function __construct(Hamcrest_Matcher $keyMatcher)
+  public function __construct(Matcher $keyMatcher)
   {
     parent::__construct(self::TYPE_ARRAY);
 
@@ -21,10 +26,8 @@ class Hamcrest_Array_IsArrayContainingKey extends Hamcrest_TypeSafeMatcher
 
   protected function matchesSafely($array)
   {
-    foreach ($array as $key => $element)
-    {
-      if ($this->_keyMatcher->matches($key))
-      {
+    foreach ($array as $key => $element) {
+      if ($this->_keyMatcher->matches($key)) {
         return true;
       }
     }
@@ -33,17 +36,15 @@ class Hamcrest_Array_IsArrayContainingKey extends Hamcrest_TypeSafeMatcher
   }
 
   protected function describeMismatchSafely($array,
-    Hamcrest_Description $mismatchDescription)
+    Description $mismatchDescription)
   {
     //Not using appendValueList() so that keys can be shown
     $mismatchDescription->appendText('array was ')
                         ->appendText('[')
                         ;
     $loop = false;
-    foreach ($array as $key => $value)
-    {
-      if ($loop)
-      {
+    foreach ($array as $key => $value) {
+      if ($loop) {
         $mismatchDescription->appendText(', ');
       }
       $mismatchDescription->appendValue($key)->appendText(' => ')->appendValue($value);
@@ -52,7 +53,7 @@ class Hamcrest_Array_IsArrayContainingKey extends Hamcrest_TypeSafeMatcher
     $mismatchDescription->appendText(']');
   }
 
-  public function describeTo(Hamcrest_Description $description)
+  public function describeTo(Description $description)
   {
     $description
          ->appendText('array with key ')
@@ -63,13 +64,14 @@ class Hamcrest_Array_IsArrayContainingKey extends Hamcrest_TypeSafeMatcher
   /**
    * Evaluates to true if any key in an array matches the given matcher.
    *
-   * @param mixed $key as a {@link Hamcrest_Matcher} or a value.
+   * @param mixed $key as a {@link Hamcrest\Matcher} or a value.
    *
+   * @return \Hamcrest\Arrays\IsArrayContainingKey
    * @factory hasKey
    */
   public static function hasKeyInArray($key)
   {
-    return new self(Hamcrest_Util::wrapValueWithIsEqual($key));
+    return new self(Util::wrapValueWithIsEqual($key));
   }
 
 }

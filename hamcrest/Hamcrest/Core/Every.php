@@ -1,15 +1,20 @@
 <?php
+namespace Hamcrest\Core;
 
 /*
  Copyright (c) 2009 hamcrest.org
  */
 
-class Hamcrest_Core_Every extends Hamcrest_TypeSafeDiagnosingMatcher
+use Hamcrest\Description;
+use Hamcrest\Matcher;
+use Hamcrest\TypeSafeDiagnosingMatcher;
+
+class Every extends TypeSafeDiagnosingMatcher
 {
 
   private $_matcher;
 
-  public function __construct(Hamcrest_Matcher $matcher)
+  public function __construct(Matcher $matcher)
   {
     parent::__construct(self::TYPE_ARRAY);
 
@@ -17,12 +22,10 @@ class Hamcrest_Core_Every extends Hamcrest_TypeSafeDiagnosingMatcher
   }
 
   protected function matchesSafelyWithDiagnosticDescription($items,
-    Hamcrest_Description $mismatchDescription)
+    Description $mismatchDescription)
   {
-    foreach ($items as $item)
-    {
-      if (!$this->_matcher->matches($item))
-      {
+    foreach ($items as $item) {
+      if (!$this->_matcher->matches($item)) {
         $mismatchDescription->appendText('an item ');
         $this->_matcher->describeMismatch($item, $mismatchDescription);
 
@@ -33,21 +36,21 @@ class Hamcrest_Core_Every extends Hamcrest_TypeSafeDiagnosingMatcher
     return true;
   }
 
-  public function describeTo(Hamcrest_Description $description)
+  public function describeTo(Description $description)
   {
     $description->appendText('every item is ')->appendDescriptionOf($this->_matcher);
   }
 
   /**
-   * @param Hamcrest_Matcher $itemMatcher
+   * @param Matcher $itemMatcher
    *   A matcher to apply to every element in an array.
    *
-   * @return Hamcrest_Core_Every
+   * @return \Hamcrest\Core\Every
    *   Evaluates to TRUE for a collection in which every item matches $itemMatcher
    *
    * @factory
    */
-  public static function everyItem(Hamcrest_Matcher $itemMatcher)
+  public static function everyItem(Matcher $itemMatcher)
   {
     return new self($itemMatcher);
   }

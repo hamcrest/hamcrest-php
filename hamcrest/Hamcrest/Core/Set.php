@@ -1,8 +1,11 @@
 <?php
+namespace Hamcrest\Core;
 
 /*
  Copyright (c) 2010 hamcrest.org
  */
+use Hamcrest\BaseMatcher;
+use Hamcrest\Description;
 
 /**
  * Tests if a value (class, object, or array) has a named property.
@@ -16,7 +19,7 @@
  *
  * @todo Replace $property with a matcher and iterate all property names.
  */
-class Hamcrest_Core_IsSet extends Hamcrest_BaseMatcher
+class Set extends BaseMatcher
 {
 
   private $_property;
@@ -36,21 +39,19 @@ class Hamcrest_Core_IsSet extends Hamcrest_BaseMatcher
     $property = $this->_property;
     if (is_array($item)) {
       $result = isset($item[$property]);
-    }
-    elseif (is_object($item)) {
+    } elseif (is_object($item)) {
       $result = isset($item->$property);
-    }
-    elseif (is_string($item)) {
+    } elseif (is_string($item)) {
       $result = isset($item::$$property);
-    }
-    else {
-      throw new InvalidArgumentException(
+    } else {
+      throw new \InvalidArgumentException(
           'Must pass an object, array, or class name');
     }
+
     return $this->_not ? !$result : $result;
   }
 
-  public function describeTo(Hamcrest_Description $description)
+  public function describeTo(Description $description)
   {
     $description->appendText(
         $this->_not
@@ -60,20 +61,18 @@ class Hamcrest_Core_IsSet extends Hamcrest_BaseMatcher
   }
 
   public function describeMismatch($item,
-    Hamcrest_Description $description)
+    Description $description)
   {
+    $value = '';
     if (!$this->_not) {
       $description->appendText('was not set');
-    }
-    else {
+    } else {
       $property = $this->_property;
       if (is_array($item)) {
         $value = $item[$property];
-      }
-      elseif (is_object($item)) {
+      } elseif (is_object($item)) {
         $value = $item->$property;
-      }
-      elseif (is_string($item)) {
+      } elseif (is_string($item)) {
         $value = $item::$$property;
       }
       parent::describeMismatch($value, $description);

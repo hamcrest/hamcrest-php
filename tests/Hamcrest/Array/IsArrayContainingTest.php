@@ -1,15 +1,16 @@
 <?php
-require_once 'Hamcrest/AbstractMatcherTest.php';
-require_once 'Hamcrest/Array/IsArrayContaining.php';
+namespace Hamcrest\Arrays;
 
-class Hamcrest_Array_IsArrayContainingTest extends Hamcrest_AbstractMatcherTest
+use Hamcrest\AbstractMatcherTest;
+
+class IsArrayContainingTest extends AbstractMatcherTest
 {
-  
+
   protected function createMatcher()
   {
-    return Hamcrest_Array_IsArrayContaining::hasItemInArray('irrelevant');
+    return IsArrayContaining::hasItemInArray('irrelevant');
   }
-  
+
   public function testMatchesAnArrayThatContainsAnElementMatchingTheGivenMatcher()
   {
     $this->assertMatches(
@@ -17,7 +18,7 @@ class Hamcrest_Array_IsArrayContainingTest extends Hamcrest_AbstractMatcherTest
       "should matches array that contains 'a'"
     );
   }
-  
+
   public function testDoesNotMatchAnArrayThatDoesntContainAnElementMatchingTheGivenMatcher()
   {
     $this->assertDoesNotMatch(
@@ -29,7 +30,7 @@ class Hamcrest_Array_IsArrayContainingTest extends Hamcrest_AbstractMatcherTest
       'should not match empty array'
     );
   }
-  
+
   public function testDoesNotMatchNull()
   {
     $this->assertDoesNotMatch(
@@ -37,10 +38,10 @@ class Hamcrest_Array_IsArrayContainingTest extends Hamcrest_AbstractMatcherTest
       'should not match null'
     );
   }
-  
+
   public function testHasAReadableDescription()
   {
     $this->assertDescription('an array containing "a"', hasItemInArray('a'));
   }
-  
+
 }

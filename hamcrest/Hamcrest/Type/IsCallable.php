@@ -1,13 +1,15 @@
 <?php
+namespace Hamcrest\Type;
 
 /*
  Copyright (c) 2010 hamcrest.org
  */
+use Hamcrest\Core\IsTypeOf;
 
 /**
  * Tests whether the value is callable.
  */
-class Hamcrest_Type_IsCallable extends Hamcrest_Core_IsTypeOf
+class IsCallable extends IsTypeOf
 {
 
   /**

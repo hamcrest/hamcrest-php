@@ -3,5 +3,5 @@
 /**
  * A series of static factories for all hamcrest matchers.
  */
-class Hamcrest_Matchers
+class Matchers
 {
