@@ -18,5 +18,10 @@
 	"require-dev": {
 		"satooshi/php-coveralls": "dev-master",
 		"phpunit/php-file-iterator": "1.3.3"
+	},
+
+	"replace": {
+		"kodova/hamcrest-php": "*",
+		"davedevelopment/hamcrest-php": "*"
 	}
 }
