@@ -53,8 +53,6 @@ set_include_path(
 require_once 'hamcrest.php';
 
 assertThat('a', equalToIgnoringCase('A'));
-
-?>
 ```
 
 hamcrest.php uses global function names.  If you really need namespaced ones
@@ -73,8 +71,6 @@ require_once 'hamcrest/Hamcrest/MatcherAssert.php';
 require_once 'hamcrest/Hamcrest/Matchers.php';
 
 Hamcrest_MatcherAssert::assertThat('a', Hamcrest_Matchers::equalToIgnoringCase('A'));
-
-?>
 ```
 
 PEAR Package
@@ -97,8 +93,6 @@ in your global include path, you only need to include hamcrest.php.
 require_once 'Hamcrest/hamcrest.php';
 
 assertThat('a', equalToIgnoringCase('A'));
-
-?>
 ```
 
   ** [Unless we consider POPO's (Plain Old PHP Objects) akin to JavaBeans]
