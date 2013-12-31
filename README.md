@@ -43,18 +43,18 @@ To use Hamcrest, add the hamcrest directory to your include path and then
 simply include hamcrest.php to gain access to each of the Hamcrest matchers.
 
 ```php
-    <?php
+<?php
 
-    set_include_path(
-      'hamcrest-php/hamcrest' . PATH_SEPARATOR .
-      get_include_path()
-    );
+set_include_path(
+  'hamcrest-php/hamcrest' . PATH_SEPARATOR .
+  get_include_path()
+);
 
-    require_once 'hamcrest.php';
+require_once 'hamcrest.php';
 
-    assertThat('a', equalToIgnoringCase('A'));
+assertThat('a', equalToIgnoringCase('A'));
 
-    ?>
+?>
 ```
 
 hamcrest.php uses global function names.  If you really need namespaced ones
@@ -62,19 +62,19 @@ hamcrest.php uses global function names.  If you really need namespaced ones
 "hamcrest/Hamcrest/MatcherAssert.php".
 
 ```php
-    <?php
+<?php
 
-    set_include_path(
-      'hamcrest-php/hamcrest' . PATH_SEPARATOR .
-      get_include_path()
-    );
+set_include_path(
+  'hamcrest-php/hamcrest' . PATH_SEPARATOR .
+  get_include_path()
+);
 
-    require_once 'hamcrest/Hamcrest/MatcherAssert.php';
-    require_once 'hamcrest/Hamcrest/Matchers.php';
+require_once 'hamcrest/Hamcrest/MatcherAssert.php';
+require_once 'hamcrest/Hamcrest/Matchers.php';
 
-    Hamcrest_MatcherAssert::assertThat('a', Hamcrest_Matchers::equalToIgnoringCase('A'));
+Hamcrest_MatcherAssert::assertThat('a', Hamcrest_Matchers::equalToIgnoringCase('A'));
 
-    ?>
+?>
 ```
 
 PEAR Package
@@ -84,21 +84,21 @@ You can now install Hamcrest using PEAR.  Note that the channel is lowercase
 while the package is uppercase.
 
 ```cli
-    > pear channel-discover hamcrest.googlecode.com/svn/pear
-    > pear install hamcrest/Hamcrest
+> pear channel-discover hamcrest.googlecode.com/svn/pear
+> pear install hamcrest/Hamcrest
 ```
 
 Assuming you have PEAR's library installation directory (e.g. /usr/bin/php)
 in your global include path, you only need to include hamcrest.php.
 
 ```php
-    <?php
+<?php
 
-    require_once 'Hamcrest/hamcrest.php';
+require_once 'Hamcrest/hamcrest.php';
 
-    assertThat('a', equalToIgnoringCase('A'));
+assertThat('a', equalToIgnoringCase('A'));
 
-    ?>
+?>
 ```
 
   ** [Unless we consider POPO's (Plain Old PHP Objects) akin to JavaBeans]
