@@ -1,5 +1,5 @@
 {
-	"name": "cordoval/hamcrest-php",
+	"name": "hamcrest/hamcrest-php",
 	"type": "library",
 	"description": "This is the PHP port of Hamcrest Matchers",
 	"keywords": ["test"],
@@ -22,6 +22,7 @@
 
 	"replace": {
 		"kodova/hamcrest-php": "*",
-		"davedevelopment/hamcrest-php": "*"
+		"davedevelopment/hamcrest-php": "*",
+		"cordoval/hamcrest-php": "*"
 	}
 }
