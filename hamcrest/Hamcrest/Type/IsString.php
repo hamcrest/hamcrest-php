@@ -12,22 +12,21 @@ use Hamcrest\Core\IsTypeOf;
 class IsString extends IsTypeOf
 {
 
-  /**
-   * Creates a new instance of IsString
-   */
-  public function __construct()
-  {
-    parent::__construct('string');
-  }
+    /**
+     * Creates a new instance of IsString
+     */
+    public function __construct()
+    {
+        parent::__construct('string');
+    }
 
-  /**
-   * Is the value a string?
-   *
-   * @factory
-   */
-  public static function stringValue()
-  {
-    return new self;
-  }
-
+    /**
+     * Is the value a string?
+     *
+     * @factory
+     */
+    public static function stringValue()
+    {
+        return new self;
+    }
 }

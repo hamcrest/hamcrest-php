@@ -12,22 +12,21 @@ use Hamcrest\Core\IsTypeOf;
 class IsObject extends IsTypeOf
 {
 
-  /**
-   * Creates a new instance of IsObject
-   */
-  public function __construct()
-  {
-    parent::__construct('object');
-  }
+    /**
+     * Creates a new instance of IsObject
+     */
+    public function __construct()
+    {
+        parent::__construct('object');
+    }
 
-  /**
-   * Is the value an object?
-   *
-   * @factory anObject
-   */
-  public static function objectValue()
-  {
-    return new self;
-  }
-
+    /**
+     * Is the value an object?
+     *
+     * @factory anObject
+     */
+    public static function objectValue()
+    {
+        return new self;
+    }
 }

@@ -14,32 +14,31 @@ use Hamcrest\Description;
 class IsEqual extends BaseMatcher
 {
 
-  private $_item;
+    private $_item;
 
-  public function __construct($item)
-  {
-    $this->_item = $item;
-  }
+    public function __construct($item)
+    {
+        $this->_item = $item;
+    }
 
-  public function matches($arg)
-  {
-    return (($arg == $this->_item) && ($this->_item == $arg));
-  }
+    public function matches($arg)
+    {
+        return (($arg == $this->_item) && ($this->_item == $arg));
+    }
 
-  public function describeTo(Description $description)
-  {
-    $description->appendValue($this->_item);
-  }
+    public function describeTo(Description $description)
+    {
+        $description->appendValue($this->_item);
+    }
 
-  /**
-   * Is the value equal to another value, as tested by the use of the "=="
-   * comparison operator?
-   *
-   * @factory
-   */
-  public static function equalTo($item)
-  {
-    return new self($item);
-  }
-
+    /**
+     * Is the value equal to another value, as tested by the use of the "=="
+     * comparison operator?
+     *
+     * @factory
+     */
+    public static function equalTo($item)
+    {
+        return new self($item);
+    }
 }

@@ -14,22 +14,21 @@ use Hamcrest\Core\IsTypeOf;
 class IsDouble extends IsTypeOf
 {
 
-  /**
-   * Creates a new instance of IsDouble
-   */
-  public function __construct()
-  {
-    parent::__construct('double');
-  }
+    /**
+     * Creates a new instance of IsDouble
+     */
+    public function __construct()
+    {
+        parent::__construct('double');
+    }
 
-  /**
-   * Is the value a float/double?
-   *
-   * @factory floatValue
-   */
-  public static function doubleValue()
-  {
-    return new self;
-  }
-
+    /**
+     * Is the value a float/double?
+     *
+     * @factory floatValue
+     */
+    public static function doubleValue()
+    {
+        return new self;
+    }
 }

@@ -10,13 +10,12 @@ namespace Hamcrest;
  * <code>featureValueOf()</code> in a subclass to pull out the feature to be
  * matched against.
  */
-abstract class FeatureMatcher
-  extends TypeSafeDiagnosingMatcher
+abstract class FeatureMatcher extends TypeSafeDiagnosingMatcher
 {
 
-  private $_subMatcher;
-  private $_featureDescription;
-  private $_featureName;
+    private $_subMatcher;
+    private $_featureDescription;
+    private $_featureName;
 
     /**
      * Constructor.
@@ -27,45 +26,42 @@ abstract class FeatureMatcher
      * @param string $featureDescription Descriptive text to use in describeTo
      * @param string $featureName Identifying text for mismatch message
      */
-  public function __construct($type, $subtype, Matcher $subMatcher,
-    $featureDescription, $featureName)
-  {
-    parent::__construct($type, $subtype);
+    public function __construct($type, $subtype, Matcher $subMatcher, $featureDescription, $featureName)
+    {
+        parent::__construct($type, $subtype);
 
-    $this->_subMatcher = $subMatcher;
-    $this->_featureDescription = $featureDescription;
-    $this->_featureName = $featureName;
-  }
-
-  /**
-   * Implement this to extract the interesting feature.
-   *
-   * @param mixed $actual the target object
-   *
-   * @return mixed the feature to be matched
-   */
-  abstract protected function featureValueOf($actual);
-
-  public function matchesSafelyWithDiagnosticDescription($actual,
-    Description $mismatchDescription)
-  {
-    $featureValue = $this->featureValueOf($actual);
-
-    if (!$this->_subMatcher->matches($featureValue)) {
-      $mismatchDescription->appendText($this->_featureName)
-                          ->appendText(' was ')->appendValue($featureValue);
-
-      return false;
+        $this->_subMatcher = $subMatcher;
+        $this->_featureDescription = $featureDescription;
+        $this->_featureName = $featureName;
     }
 
-    return true;
-  }
+    /**
+     * Implement this to extract the interesting feature.
+     *
+     * @param mixed $actual the target object
+     *
+     * @return mixed the feature to be matched
+     */
+    abstract protected function featureValueOf($actual);
 
-  final public function describeTo(Description $description)
-  {
-    $description->appendText($this->_featureDescription)->appendText(' ')
-                ->appendDescriptionOf($this->_subMatcher)
-               ;
-  }
+    public function matchesSafelyWithDiagnosticDescription($actual, Description $mismatchDescription)
+    {
+        $featureValue = $this->featureValueOf($actual);
 
+        if (!$this->_subMatcher->matches($featureValue)) {
+            $mismatchDescription->appendText($this->_featureName)
+                                                    ->appendText(' was ')->appendValue($featureValue);
+
+            return false;
+        }
+
+        return true;
+    }
+
+    final public function describeTo(Description $description)
+    {
+        $description->appendText($this->_featureDescription)->appendText(' ')
+                                ->appendDescriptionOf($this->_subMatcher)
+                             ;
+    }
 }

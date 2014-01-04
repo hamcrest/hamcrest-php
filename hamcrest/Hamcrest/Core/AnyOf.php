@@ -15,45 +15,44 @@ use Hamcrest\Util;
 class AnyOf extends ShortcutCombination
 {
 
-  public function __construct(array $matchers)
-  {
-    parent::__construct($matchers);
-  }
-
-  public function matches($item)
-  {
-    return $this->matchesWithShortcut($item, true);
-  }
-
-  public function describeTo(Description $description)
-  {
-    $this->describeToWithOperator($description, 'or');
-  }
-
-  /**
-   * Evaluates to true if ANY of the passed in matchers evaluate to true.
-   *
-   * @factory ...
-   */
-  public static function anyOf(/* args... */)
-  {
-    $args = func_get_args();
-
-    return new self(Util::createMatcherArray($args));
-  }
-
-  /**
-   * Evaluates to false if ANY of the passed in matchers evaluate to true.
-   *
-   * @factory ...
-   */
-  public static function noneOf(/* args... */)
+    public function __construct(array $matchers)
     {
-    $args = func_get_args();
+        parent::__construct($matchers);
+    }
 
-    return IsNot::not(
-      new self(Util::createMatcherArray($args))
-    );
-  }
+    public function matches($item)
+    {
+        return $this->matchesWithShortcut($item, true);
+    }
 
+    public function describeTo(Description $description)
+    {
+        $this->describeToWithOperator($description, 'or');
+    }
+
+    /**
+     * Evaluates to true if ANY of the passed in matchers evaluate to true.
+     *
+     * @factory ...
+     */
+    public static function anyOf(/* args... */)
+    {
+        $args = func_get_args();
+
+        return new self(Util::createMatcherArray($args));
+    }
+
+    /**
+     * Evaluates to false if ANY of the passed in matchers evaluate to true.
+     *
+     * @factory ...
+     */
+    public static function noneOf(/* args... */)
+    {
+        $args = func_get_args();
+
+        return IsNot::not(
+            new self(Util::createMatcherArray($args))
+        );
+    }
 }

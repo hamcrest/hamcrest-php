@@ -6,60 +6,67 @@
 
 class FactoryClass
 {
-  /**
-   * @var string
-   */
-  private $file;
+    /**
+     * @var string
+     */
+    private $file;
 
-  /**
-   * @var ReflectionClass
-   */
-  private $reflector;
+    /**
+     * @var ReflectionClass
+     */
+    private $reflector;
 
-  /**
-   * @var array
-   */
-  private $methods;
+    /**
+     * @var array
+     */
+    private $methods;
 
-  public function __construct($file, ReflectionClass $class) {
-    $this->file = $file;
-    $this->reflector = $class;
-    $this->extractFactoryMethods();
-  }
-
-  public function extractFactoryMethods() {
-    $this->methods = array();
-    foreach ($this->getPublicStaticMethods() as $method) {
-      if ($method->isFactory()) {
-//        echo $this->getName() . '::' . $method->getName() . ' : ' . count($method->getCalls()) . PHP_EOL;
-        $this->methods[] = $method;
-      }
+    public function __construct($file, ReflectionClass $class)
+    {
+        $this->file = $file;
+        $this->reflector = $class;
+        $this->extractFactoryMethods();
     }
-  }
 
-  public function getPublicStaticMethods() {
-    $methods = array();
-    foreach ($this->reflector->getMethods(ReflectionMethod::IS_STATIC) as $method) {
-      if ($method->isPublic() && $method->getDeclaringClass() == $this->reflector) {
-        $methods[] = new FactoryMethod($this, $method);
-      }
+    public function extractFactoryMethods()
+    {
+        $this->methods = array();
+        foreach ($this->getPublicStaticMethods() as $method) {
+            if ($method->isFactory()) {
+//                echo $this->getName() . '::' . $method->getName() . ' : ' . count($method->getCalls()) . PHP_EOL;
+                $this->methods[] = $method;
+            }
+        }
     }
-    return $methods;
-  }
 
-  public function getFile() {
-    return $this->file;
-  }
+    public function getPublicStaticMethods()
+    {
+        $methods = array();
+        foreach ($this->reflector->getMethods(ReflectionMethod::IS_STATIC) as $method) {
+            if ($method->isPublic() && $method->getDeclaringClass() == $this->reflector) {
+                $methods[] = new FactoryMethod($this, $method);
+            }
+        }
+        return $methods;
+    }
 
-  public function getName() {
-    return $this->reflector->name;
-  }
+    public function getFile()
+    {
+        return $this->file;
+    }
 
-  public function isFactory() {
-    return !empty($this->methods);
-  }
+    public function getName()
+    {
+        return $this->reflector->name;
+    }
 
-  public function getMethods() {
-    return $this->methods;
-  }
+    public function isFactory()
+    {
+        return !empty($this->methods);
+    }
+
+    public function getMethods()
+    {
+        return $this->methods;
+    }
 }

@@ -13,56 +13,54 @@ use Hamcrest\TypeSafeMatcher;
 class StringContainsInOrder extends TypeSafeMatcher
 {
 
-  private $_substrings;
+    private $_substrings;
 
-  public function __construct(array $substrings)
-  {
-    parent::__construct(self::TYPE_STRING);
+    public function __construct(array $substrings)
+    {
+        parent::__construct(self::TYPE_STRING);
 
-    $this->_substrings = $substrings;
-  }
-
-  protected function matchesSafely($item)
-  {
-    $fromIndex = 0;
-
-    foreach ($this->_substrings as $substring) {
-      if (false === $fromIndex = strpos($item, $substring, $fromIndex)) {
-        return false;
-      }
+        $this->_substrings = $substrings;
     }
 
-    return true;
-  }
+    protected function matchesSafely($item)
+    {
+        $fromIndex = 0;
 
-  protected function describeMismatchSafely($item,
-    Description $mismatchDescription)
-  {
-    $mismatchDescription->appendText('was ')->appendText($item);
-  }
+        foreach ($this->_substrings as $substring) {
+            if (false === $fromIndex = strpos($item, $substring, $fromIndex)) {
+                return false;
+            }
+        }
 
-  public function describeTo(Description $description)
-  {
-    $description->appendText('a string containing ')
-                ->appendValueList('', ', ', '', $this->_substrings)
-                ->appendText(' in order')
-                ;
-  }
-
-  /**
-   * Matches if value contains $substrings in a constrained order.
-   *
-   * @factory ...
-   */
-  public static function stringContainsInOrder(/* args... */)
-  {
-    $args = func_get_args();
-
-    if (isset($args[0]) && is_array($args[0])) {
-      $args = $args[0];
+        return true;
     }
 
-    return new self($args);
-  }
+    protected function describeMismatchSafely($item, Description $mismatchDescription)
+    {
+        $mismatchDescription->appendText('was ')->appendText($item);
+    }
 
+    public function describeTo(Description $description)
+    {
+        $description->appendText('a string containing ')
+                                ->appendValueList('', ', ', '', $this->_substrings)
+                                ->appendText(' in order')
+                                ;
+    }
+
+    /**
+     * Matches if value contains $substrings in a constrained order.
+     *
+     * @factory ...
+     */
+    public static function stringContainsInOrder(/* args... */)
+    {
+        $args = func_get_args();
+
+        if (isset($args[0]) && is_array($args[0])) {
+            $args = $args[0];
+        }
+
+        return new self($args);
+    }
 }

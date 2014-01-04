@@ -11,31 +11,30 @@ namespace Hamcrest\Text;
 class StringContainsIgnoringCase extends SubstringMatcher
 {
 
-  public function __construct($substring)
-  {
-    parent::__construct($substring);
-  }
+    public function __construct($substring)
+    {
+        parent::__construct($substring);
+    }
 
-  /**
-   * Matches if value is a string that contains $substring regardless of the case.
-   *
-   * @factory
-   */
-  public static function containsStringIgnoringCase($substring)
-  {
-    return new self($substring);
-  }
+    /**
+     * Matches if value is a string that contains $substring regardless of the case.
+     *
+     * @factory
+     */
+    public static function containsStringIgnoringCase($substring)
+    {
+        return new self($substring);
+    }
 
-  // -- Protected Methods
+    // -- Protected Methods
 
-  protected function evalSubstringOf($item)
-  {
-    return (false !== stripos((string) $item, $this->_substring));
-  }
+    protected function evalSubstringOf($item)
+    {
+        return (false !== stripos((string) $item, $this->_substring));
+    }
 
-  protected function relationship()
-  {
-    return 'containing in any case';
-  }
-
+    protected function relationship()
+    {
+        return 'containing in any case';
+    }
 }

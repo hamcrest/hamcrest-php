@@ -12,22 +12,21 @@ use Hamcrest\Core\IsTypeOf;
 class IsInteger extends IsTypeOf
 {
 
-  /**
-   * Creates a new instance of IsInteger
-   */
-  public function __construct()
-  {
-    parent::__construct('integer');
-  }
+    /**
+     * Creates a new instance of IsInteger
+     */
+    public function __construct()
+    {
+        parent::__construct('integer');
+    }
 
-  /**
-   * Is the value an integer?
-   *
-   * @factory intValue
-   */
-  public static function integerValue()
-  {
-    return new self;
-  }
-
+    /**
+     * Is the value an integer?
+     *
+     * @factory intValue
+     */
+    public static function integerValue()
+    {
+        return new self;
+    }
 }
