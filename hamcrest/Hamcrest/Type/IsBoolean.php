@@ -12,22 +12,21 @@ use Hamcrest\Core\IsTypeOf;
 class IsBoolean extends IsTypeOf
 {
 
-  /**
-   * Creates a new instance of IsBoolean
-   */
-  public function __construct()
-  {
-    parent::__construct('boolean');
-  }
+    /**
+     * Creates a new instance of IsBoolean
+     */
+    public function __construct()
+    {
+        parent::__construct('boolean');
+    }
 
-  /**
-   * Is the value a boolean?
-   *
-   * @factory boolValue
-   */
-  public static function booleanValue()
-  {
-    return new self;
-  }
-
+    /**
+     * Is the value a boolean?
+     *
+     * @factory boolValue
+     */
+    public static function booleanValue()
+    {
+        return new self;
+    }
 }

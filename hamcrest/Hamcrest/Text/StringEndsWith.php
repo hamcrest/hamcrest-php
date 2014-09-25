@@ -11,31 +11,30 @@ namespace Hamcrest\Text;
 class StringEndsWith extends SubstringMatcher
 {
 
-  public function __construct($substring)
-  {
-    parent::__construct($substring);
-  }
+    public function __construct($substring)
+    {
+        parent::__construct($substring);
+    }
 
-  /**
-   * Matches if value is a string that ends with $substring.
-   *
-   * @factory
-   */
-  public static function endsWith($substring)
-  {
-    return new self($substring);
-  }
+    /**
+     * Matches if value is a string that ends with $substring.
+     *
+     * @factory
+     */
+    public static function endsWith($substring)
+    {
+        return new self($substring);
+    }
 
-  // -- Protected Methods
+    // -- Protected Methods
 
-  protected function evalSubstringOf($string)
-  {
-    return (substr($string, (-1 * strlen($this->_substring))) === $this->_substring);
-  }
+    protected function evalSubstringOf($string)
+    {
+        return (substr($string, (-1 * strlen($this->_substring))) === $this->_substring);
+    }
 
-  protected function relationship()
-  {
-    return 'ending with';
-  }
-
+    protected function relationship()
+    {
+        return 'ending with';
+    }
 }

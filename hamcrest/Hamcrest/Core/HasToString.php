@@ -15,43 +15,42 @@ use Hamcrest\Util;
 class HasToString extends FeatureMatcher
 {
 
-  public function __construct(Matcher $toStringMatcher)
-  {
-    parent::__construct(self::TYPE_OBJECT, null, $toStringMatcher,
-        'an object with toString()', 'toString()'
-    );
-  }
-
-  public function matchesSafelyWithDiagnosticDescription($actual,
-    Description $mismatchDescription)
-  {
-    if (method_exists($actual, 'toString')
-        || method_exists($actual, '__toString'))
+    public function __construct(Matcher $toStringMatcher)
     {
-      return parent::matchesSafelyWithDiagnosticDescription($actual,
-          $mismatchDescription);
+        parent::__construct(
+            self::TYPE_OBJECT,
+            null,
+            $toStringMatcher,
+            'an object with toString()',
+            'toString()'
+        );
     }
 
-    return false;
-  }
+    public function matchesSafelyWithDiagnosticDescription($actual, Description $mismatchDescription)
+    {
+        if (method_exists($actual, 'toString') || method_exists($actual, '__toString')) {
+            return parent::matchesSafelyWithDiagnosticDescription($actual, $mismatchDescription);
+        }
 
-  protected function featureValueOf($actual)
-  {
-    if (method_exists($actual, 'toString')) {
-      return $actual->toString();
+        return false;
     }
 
-    return (string) $actual;
-  }
+    protected function featureValueOf($actual)
+    {
+        if (method_exists($actual, 'toString')) {
+            return $actual->toString();
+        }
 
-  /**
-   * Does array size satisfy a given matcher?
-   *
-   * @factory
-   */
-  public static function hasToString($matcher)
-  {
-    return new self(Util::wrapValueWithIsEqual($matcher));
-  }
+        return (string) $actual;
+    }
 
+    /**
+     * Does array size satisfy a given matcher?
+     *
+     * @factory
+     */
+    public static function hasToString($matcher)
+    {
+        return new self(Util::wrapValueWithIsEqual($matcher));
+    }
 }

@@ -12,24 +12,23 @@ use Hamcrest\Core\IsTypeOf;
 class IsNumeric extends IsTypeOf
 {
 
-  public function __construct()
-  {
-    parent::__construct('number');
-  }
+    public function __construct()
+    {
+        parent::__construct('number');
+    }
 
-  public function matches($item)
-  {
-    return is_numeric($item);
-  }
+    public function matches($item)
+    {
+        return is_numeric($item);
+    }
 
-  /**
-   * Is the value a numeric?
-   *
-   * @factory
-   */
-  public static function numericValue()
-  {
-    return new self;
-  }
-
+    /**
+     * Is the value a numeric?
+     *
+     * @factory
+     */
+    public static function numericValue()
+    {
+        return new self;
+    }
 }

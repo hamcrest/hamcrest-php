@@ -12,24 +12,23 @@ use Hamcrest\Core\IsTypeOf;
 class IsScalar extends IsTypeOf
 {
 
-  public function __construct()
-  {
-    parent::__construct('scalar');
-  }
+    public function __construct()
+    {
+        parent::__construct('scalar');
+    }
 
-  public function matches($item)
-  {
-    return is_scalar($item);
-  }
+    public function matches($item)
+    {
+        return is_scalar($item);
+    }
 
-  /**
-   * Is the value a scalar (boolean, integer, double, or string)?
-   *
-   * @factory
-   */
-  public static function scalarValue()
-  {
-    return new self;
-  }
-
+    /**
+     * Is the value a scalar (boolean, integer, double, or string)?
+     *
+     * @factory
+     */
+    public static function scalarValue()
+    {
+        return new self;
+    }
 }

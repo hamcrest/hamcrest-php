@@ -12,27 +12,26 @@ use Hamcrest\Core\IsTypeOf;
 class IsCallable extends IsTypeOf
 {
 
-  /**
-   * Creates a new instance of IsCallable
-   */
-  public function __construct()
-  {
-    parent::__construct('callable');
-  }
+    /**
+     * Creates a new instance of IsCallable
+     */
+    public function __construct()
+    {
+        parent::__construct('callable');
+    }
 
-  public function matches($item)
-  {
-    return is_callable($item);
-  }
+    public function matches($item)
+    {
+        return is_callable($item);
+    }
 
-  /**
-   * Is the value callable?
-   *
-   * @factory
-   */
-  public static function callableValue()
-  {
-    return new self;
-  }
-
+    /**
+     * Is the value callable?
+     *
+     * @factory
+     */
+    public static function callableValue()
+    {
+        return new self;
+    }
 }

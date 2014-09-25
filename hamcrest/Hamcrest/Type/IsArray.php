@@ -12,22 +12,21 @@ use Hamcrest\Core\IsTypeOf;
 class IsArray extends IsTypeOf
 {
 
-  /**
-   * Creates a new instance of IsArray
-   */
-  public function __construct()
-  {
-    parent::__construct('array');
-  }
+    /**
+     * Creates a new instance of IsArray
+     */
+    public function __construct()
+    {
+        parent::__construct('array');
+    }
 
-  /**
-   * Is the value an array?
-   *
-   * @factory
-   */
-  public static function arrayValue()
-  {
-    return new self;
-  }
-
+    /**
+     * Is the value an array?
+     *
+     * @factory
+     */
+    public static function arrayValue()
+    {
+        return new self;
+    }
 }

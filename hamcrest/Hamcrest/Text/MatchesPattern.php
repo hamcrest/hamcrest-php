@@ -11,31 +11,30 @@ namespace Hamcrest\Text;
 class MatchesPattern extends SubstringMatcher
 {
 
-  public function __construct($pattern)
-  {
-    parent::__construct($pattern);
-  }
+    public function __construct($pattern)
+    {
+        parent::__construct($pattern);
+    }
 
-  /**
-   * Matches if value is a string that matches regular expression $pattern.
-   *
-   * @factory
-   */
-  public static function matchesPattern($pattern)
-  {
-    return new self($pattern);
-  }
+    /**
+     * Matches if value is a string that matches regular expression $pattern.
+     *
+     * @factory
+     */
+    public static function matchesPattern($pattern)
+    {
+        return new self($pattern);
+    }
 
-  // -- Protected Methods
+    // -- Protected Methods
 
-  protected function evalSubstringOf($item)
-  {
-    return preg_match($this->_substring, (string) $item) >= 1;
-  }
+    protected function evalSubstringOf($item)
+    {
+        return preg_match($this->_substring, (string) $item) >= 1;
+    }
 
-  protected function relationship()
-  {
-    return 'matching';
-  }
-
+    protected function relationship()
+    {
+        return 'matching';
+    }
 }

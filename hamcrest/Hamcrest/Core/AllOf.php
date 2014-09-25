@@ -16,46 +16,44 @@ use Hamcrest\Util;
 class AllOf extends DiagnosingMatcher
 {
 
-  private $_matchers;
+    private $_matchers;
 
-  public function __construct(array $matchers)
-  {
-    Util::checkAllAreMatchers($matchers);
+    public function __construct(array $matchers)
+    {
+        Util::checkAllAreMatchers($matchers);
 
-    $this->_matchers = $matchers;
-  }
-
-  public function matchesWithDiagnosticDescription($item,
-    Description $mismatchDescription)
-  {
-      /** @var $matcher \Hamcrest\Matcher */
-      foreach ($this->_matchers as $matcher) {
-      if (!$matcher->matches($item)) {
-        $mismatchDescription->appendDescriptionOf($matcher)->appendText(' ');
-        $matcher->describeMismatch($item, $mismatchDescription);
-
-        return false;
-      }
+        $this->_matchers = $matchers;
     }
 
-    return true;
-  }
+    public function matchesWithDiagnosticDescription($item, Description $mismatchDescription)
+    {
+        /** @var $matcher \Hamcrest\Matcher */
+        foreach ($this->_matchers as $matcher) {
+            if (!$matcher->matches($item)) {
+                $mismatchDescription->appendDescriptionOf($matcher)->appendText(' ');
+                $matcher->describeMismatch($item, $mismatchDescription);
 
-  public function describeTo(Description $description)
-  {
-    $description->appendList('(', ' and ', ')', $this->_matchers);
-  }
+                return false;
+            }
+        }
 
-  /**
-   * Evaluates to true only if ALL of the passed in matchers evaluate to true.
-   *
-   * @factory ...
-   */
-  public static function allOf(/* args... */)
-  {
-    $args = func_get_args();
+        return true;
+    }
 
-    return new self(Util::createMatcherArray($args));
-  }
+    public function describeTo(Description $description)
+    {
+        $description->appendList('(', ' and ', ')', $this->_matchers);
+    }
 
+    /**
+     * Evaluates to true only if ALL of the passed in matchers evaluate to true.
+     *
+     * @factory ...
+     */
+    public static function allOf(/* args... */)
+    {
+        $args = func_get_args();
+
+        return new self(Util::createMatcherArray($args));
+    }
 }
