@@ -3,8 +3,8 @@ php:
   - 5.4
   - 5.3
 
-before_script:
-  - composer install --dev
+install:
+  - composer install
 
 script:
   - mkdir -p build/logs

@@ -7,7 +7,7 @@ This is the PHP port of Hamcrest Matchers
 
 Hamcrest is a matching library originally written for Java, but
 subsequently ported to many other languages.  hamcrest-php is the
-offical PHP port of Hamcrest and essentially follows a literal
+official PHP port of Hamcrest and essentially follows a literal
 translation of the original Java API for Hamcrest, with a few
 Exceptions, mostly down to PHP language barriers:
 
@@ -86,26 +86,6 @@ require '/path/to/vendor/autoload.php';
 
 assertThat('a', equalToIgnoringCase('A'));
 Hamcrest_MatcherAssert::assertThat('a', Hamcrest_Matchers::equalToIgnoringCase('A'));
-```
-
-PEAR Package
-------------
-
-You can now install Hamcrest using PEAR.  Note that the channel is lowercase
-while the package is uppercase.
-
-```cli
-> pear channel-discover hamcrest.googlecode.com/svn/pear
-> pear install hamcrest/Hamcrest
-```
-
-Assuming you have PEAR's library installation directory (e.g. /usr/bin/php)
-in your global include path, you only need to include hamcrest.php.
-
-```php
-require_once 'Hamcrest/hamcrest.php';
-
-assertThat('a', equalToIgnoringCase('A'));
 ```
 
   ** [Unless we consider POPO's (Plain Old PHP Objects) akin to JavaBeans]
