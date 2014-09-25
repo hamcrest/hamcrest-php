@@ -26,7 +26,7 @@ Exceptions, mostly down to PHP language barriers:
 
   5. Several official matchers have not been ported because they don't
      make sense or don't apply in PHP:
-     
+
        - `typeCompatibleWith($theClass)`
        - `eventFrom($source)`
        - `hasProperty($name)` **
@@ -44,8 +44,6 @@ To use Hamcrest, add the hamcrest directory to your include path and then
 simply include hamcrest.php to gain access to each of the Hamcrest matchers.
 
 ```php
-<?php
-
 set_include_path(
   'hamcrest-php/hamcrest' . PATH_SEPARATOR .
   get_include_path()
@@ -61,8 +59,6 @@ hamcrest.php uses global function names.  If you really need namespaced ones
 "hamcrest/Hamcrest/MatcherAssert.php".
 
 ```php
-<?php
-
 set_include_path(
   'hamcrest-php/hamcrest' . PATH_SEPARATOR .
   get_include_path()
@@ -71,6 +67,24 @@ set_include_path(
 require_once 'hamcrest/Hamcrest/MatcherAssert.php';
 require_once 'hamcrest/Hamcrest/Matchers.php';
 
+Hamcrest_MatcherAssert::assertThat('a', Hamcrest_Matchers::equalToIgnoringCase('A'));
+```
+
+Composer Package
+----------------
+
+Hamcrest is available as the [Composer](https://getcomposer.org/) package
+[hamcrest/hamcrest-php](https://packagist.org/packages/hamcrest/hamcrest-php).
+
+Using Hamcrest via Composer means there is no need to manually `require()` any
+files. Simply include the package as a dependency, and include the Composer
+class loader as normal, and you will have access to both the global functions,
+and the Hamcrest classes:
+
+```php
+require '/path/to/vendor/autoload.php';
+
+assertThat('a', equalToIgnoringCase('A'));
 Hamcrest_MatcherAssert::assertThat('a', Hamcrest_Matchers::equalToIgnoringCase('A'));
 ```
 
@@ -89,8 +103,6 @@ Assuming you have PEAR's library installation directory (e.g. /usr/bin/php)
 in your global include path, you only need to include hamcrest.php.
 
 ```php
-<?php
-
 require_once 'Hamcrest/hamcrest.php';
 
 assertThat('a', equalToIgnoringCase('A'));

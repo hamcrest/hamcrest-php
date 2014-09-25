@@ -8,7 +8,11 @@
 	],
 
 	"autoload": {
-		"classmap": ["hamcrest/", "tests", "generator"]
+		"classmap": ["hamcrest"],
+		"files": ["hamcrest/Hamcrest.php"]
+	},
+	"autoload-dev": {
+		"classmap": ["tests", "generator"]
 	},
 
 	"require": {
