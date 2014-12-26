@@ -4,7 +4,7 @@ namespace Hamcrest;
 class UnknownType {
 }
 
-abstract class AbstractMatcherTest extends \PhpUnit_Framework_TestCase
+abstract class AbstractMatcherTest extends \PHPUnit_Framework_TestCase
 {
 
     const ARGUMENT_IGNORED = "ignored";
