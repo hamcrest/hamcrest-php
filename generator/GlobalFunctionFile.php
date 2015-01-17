@@ -13,7 +13,7 @@ class GlobalFunctionFile extends FactoryFile
 
     public function __construct($file)
     {
-        parent::__construct($file, '');
+        parent::__construct($file, '    ');
         $this->functions = '';
     }
 
@@ -26,7 +26,8 @@ class GlobalFunctionFile extends FactoryFile
     {
         $this->addFileHeader();
         $this->addPart('functions_imports');
-        $this->addPart('assertThat');
+        $this->addPart('functions_header');
         $this->addCode($this->functions);
+        $this->addPart('functions_footer');
     }
 }
