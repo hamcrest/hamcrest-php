@@ -7,6 +7,10 @@
 // This file is generated from the static method @factory doctags.
 
 /**
+ * Start of conditional function definitions
+ */
+if (!function_exists('equalToIgnoringWhiteSpace')):
+/**
  * Make an assertion and throw {@link Hamcrest_AssertionError} if it fails.
  *
  * Example:
@@ -724,3 +728,8 @@ function hasXPath($xpath, $matcher = null)
 {
     return \Hamcrest\Xml\HasXPath::hasXPath($xpath, $matcher);
 }
+
+/**
+ * End of conditional function definitions
+ */
+endif;
