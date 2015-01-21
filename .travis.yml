@@ -9,9 +9,9 @@ install:
 script:
   - mkdir -p build/logs
   - cd tests
-  - phpunit --coverage-clover=coverage.clover ../build/logs/clover.xml .
+  - phpunit --coverage-clover=../build/logs/clover.xml .
   - wget https://scrutinizer-ci.com/ocular.phar
-  - php ocular.phar code-coverage:upload --format=php-clover coverage.clover
+  - php ocular.phar code-coverage:upload --format=php-clover ../build/logs/clover.xml
   - cd ../
 
 after_script:
