@@ -40,51 +40,9 @@ Exceptions, mostly down to PHP language barriers:
 Usage
 -----
 
-To use Hamcrest, add the hamcrest directory to your include path and then
-simply include hamcrest.php to gain access to each of the Hamcrest matchers.
+Hamcrest matchers are easy to use as:
 
 ```php
-set_include_path(
-  'hamcrest-php/hamcrest' . PATH_SEPARATOR .
-  get_include_path()
-);
-
-require_once 'hamcrest.php';
-
-assertThat('a', equalToIgnoringCase('A'));
-```
-
-hamcrest.php uses global function names.  If you really need namespaced ones
-(which won't look as fluent), include "hamcrest/Hamcrest/Matchers.php" and
-"hamcrest/Hamcrest/MatcherAssert.php".
-
-```php
-set_include_path(
-  'hamcrest-php/hamcrest' . PATH_SEPARATOR .
-  get_include_path()
-);
-
-require_once 'hamcrest/Hamcrest/MatcherAssert.php';
-require_once 'hamcrest/Hamcrest/Matchers.php';
-
-Hamcrest_MatcherAssert::assertThat('a', Hamcrest_Matchers::equalToIgnoringCase('A'));
-```
-
-Composer Package
-----------------
-
-Hamcrest is available as the [Composer](https://getcomposer.org/) package
-[hamcrest/hamcrest-php](https://packagist.org/packages/hamcrest/hamcrest-php).
-
-Using Hamcrest via Composer means there is no need to manually `require()` any
-files. Simply include the package as a dependency, and include the Composer
-class loader as normal, and you will have access to both the global functions,
-and the Hamcrest classes:
-
-```php
-require '/path/to/vendor/autoload.php';
-
-assertThat('a', equalToIgnoringCase('A'));
 Hamcrest_MatcherAssert::assertThat('a', Hamcrest_Matchers::equalToIgnoringCase('A'));
 ```
 
