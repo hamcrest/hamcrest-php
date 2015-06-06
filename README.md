@@ -37,6 +37,12 @@ Exceptions, mostly down to PHP language barriers:
      conventions between Java's Arrays, Collections, Sets and Maps compared
      with PHP's Arrays.
 
+---
+** [Unless we consider POPO's (Plain Old PHP Objects) akin to JavaBeans]
+     - The POPO thing is a joke.  Java devs coin the term POJO's (Plain Old
+       Java Objects).
+
+
 Usage
 -----
 
@@ -45,7 +51,3 @@ Hamcrest matchers are easy to use as:
 ```php
 Hamcrest_MatcherAssert::assertThat('a', Hamcrest_Matchers::equalToIgnoringCase('A'));
 ```
-
-  ** [Unless we consider POPO's (Plain Old PHP Objects) akin to JavaBeans]
-     - The POPO thing is a joke.  Java devs coin the term POJO's (Plain Old
-       Java Objects).
