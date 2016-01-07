@@ -20,7 +20,7 @@
 	},
 
 	"require-dev": {
-		"satooshi/php-coveralls": "dev-master",
+		"satooshi/php-coveralls": "^1.0",
 		"phpunit/php-file-iterator": "1.3.3",
 		"phpunit/phpunit": "~4.0"
 	},
