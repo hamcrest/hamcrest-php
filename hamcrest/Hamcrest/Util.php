@@ -12,6 +12,10 @@ namespace Hamcrest;
  */
 class Util
 {
+    public static function registerGlobalFunctions()
+    {
+        require_once __DIR__.'/../Hamcrest.php';
+    }
 
     /**
      * Wraps the item with an IsEqual matcher if it isn't a matcher already.
