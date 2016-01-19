@@ -29,5 +29,11 @@
 		"kodova/hamcrest-php": "*",
 		"davedevelopment/hamcrest-php": "*",
 		"cordoval/hamcrest-php": "*"
-	}
+	},
+
+    "extra": {
+        "branch-alias": {
+            "dev-master": "1.2-dev"
+        }
+    }
 }
