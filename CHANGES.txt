@@ -1,3 +1,7 @@
+== Version 2.0: Released XXX XX 2016 ==
+
+* Removed automatic loading of global functions
+
 == Version 1.1.0: Released Feb 2 2012 ==
 
 Issues Fixed: 121, 138, 147
