@@ -25,6 +25,7 @@ class IsNumericTest extends \Hamcrest\AbstractMatcherTest
         assertThat('0.053e-2', numericValue());
         assertThat('-53.253e+25', numericValue());
         assertThat('+53.253e+25', numericValue());
+        assertThat(0x4F2a04, numericValue());
         assertThat('0x4F2a04', numericValue());
     }
 
@@ -34,6 +35,9 @@ class IsNumericTest extends \Hamcrest\AbstractMatcherTest
         assertThat('foo', not(numericValue()));
         assertThat('foo5', not(numericValue()));
         assertThat('5foo', not(numericValue()));
+        assertThat('0x42A04G', not(numericValue())); // G is not in the hexadecimal range.
+        assertThat('1x42A04', not(numericValue())); // 1x is not a valid hexadecimal sequence.
+        assertThat('0x', not(numericValue()));
     }
 
     public function testHasAReadableDescription()
