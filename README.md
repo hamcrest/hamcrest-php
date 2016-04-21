@@ -51,3 +51,8 @@ Hamcrest matchers are easy to use as:
 ```php
 Hamcrest_MatcherAssert::assertThat('a', Hamcrest_Matchers::equalToIgnoringCase('A'));
 ```
+
+
+Documentation
+-------------
+A tutorial can be found on the [Hamcrest site](https://code.google.com/archive/p/hamcrest/wikis/TutorialPHP.wiki).
