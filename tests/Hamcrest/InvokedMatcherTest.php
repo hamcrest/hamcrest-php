@@ -24,12 +24,7 @@ class InvokedMatcherTest extends \PHPUnit_Framework_TestCase
     {
         $sampleMatcher = new SampleInvokeMatcher('foo');
 
-        $this->assertTrue(
-            $sampleMatcher('foo')
-        );
-
-        $this->assertFalse(
-            $sampleMatcher('bar')
-        );
+        $this->assertTrue($sampleMatcher('foo'));
+        $this->assertFalse($sampleMatcher('bar'));
     }
 }
