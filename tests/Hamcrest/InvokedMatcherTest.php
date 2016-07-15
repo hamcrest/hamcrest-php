@@ -22,14 +22,14 @@ class InvokedMatcherTest extends \PHPUnit_Framework_TestCase
 {
     public function testInvokedMatchersCallMatches()
     {
-        $sampleMatcher = new SampleInvokeMatcher("foo");
+        $sampleMatcher = new SampleInvokeMatcher('foo');
 
         $this->assertTrue(
-            $sampleMatcher("foo")
+            $sampleMatcher('foo')
         );
 
         $this->assertFalse(
-            $sampleMatcher("bar")
+            $sampleMatcher('bar')
         );
     }
 }
