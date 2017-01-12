@@ -76,12 +76,12 @@ A tutorial can be found on the [Hamcrest site](https://code.google.com/archive/p
 
 Available Matchers
 ------------------
-* [Array](../blob/master/README.md#array)
-* [Collection](../blob/master/README.md#collection)
-* [Object](../blob/master/README.md#object)
-* [Numbers](../blob/master/README.md#numbers)
-* [Type checking](../blob/master/README.md#type-checking)
-* [XML](../blob/master/README.md#xml)
+* [Array](../master/README.md#array)
+* [Collection](../master/README.md#collection)
+* [Object](../master/README.md#object)
+* [Numbers](../master/README.md#numbers)
+* [Type checking](../master/README.md#type-checking)
+* [XML](../master/README.md#xml)
 
 
 ### Array
@@ -168,7 +168,7 @@ assertThat($non_empty_it, traversableWithSize(count(range(1, 10))));
 `
 ```
 
-### Core - Matcher combination
+### Core
 
 * `allOf` - Evaluates to true only if ALL of the passed in matchers evaluate to true.
 ```php
