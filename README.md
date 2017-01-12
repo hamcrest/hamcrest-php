@@ -76,6 +76,14 @@ A tutorial can be found on the [Hamcrest site](https://code.google.com/archive/p
 
 Available Matchers
 ------------------
+* [Array](../blob/master/README.md#array)
+* [Collection](../blob/master/README.md#collection)
+* [Object](../blob/master/README.md#object)
+* [Numbers](../blob/master/README.md#numbers)
+* [Type checking](../blob/master/README.md#type-checking)
+* [XML](../blob/master/README.md#xml)
+
+
 ### Array
 
 * `anArray` - evaluates an array
@@ -138,7 +146,7 @@ assertThat([], emptyArray());
 assertThat([1], nonEmptyArray());
 ```
 
-### Collection - traversable|Iterable 
+### Collection
 
 * `emptyTraversable` - check if traversable is empty
 ```php
@@ -385,7 +393,7 @@ assertThat("foo", endsWith("oo"));
 assertThat("bar", startsWith("ba"));
 ```
 
-### Type checking
+### Type-checking
 
 * `arrayValue` - check array type
 ```php

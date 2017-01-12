@@ -276,5 +276,5 @@ $doc = new DOMDocument;
 $doc->loadXML($xml);
 assertThat($doc, hasXPath("book", 2));
 
-echo "Wao! I am done\n";
+echo "Everything looks great!\n";
 
