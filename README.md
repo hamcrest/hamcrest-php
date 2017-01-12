@@ -160,7 +160,7 @@ assertThat($non_empty_it, traversableWithSize(count(range(1, 10))));
 `
 ```
 
-### Core - Mather combination
+### Core - Matcher combination
 
 * `allOf` - Evaluates to true only if ALL of the passed in matchers evaluate to true.
 ```php
