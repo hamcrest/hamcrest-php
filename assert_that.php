@@ -4,41 +4,18 @@ require __DIR__ . '/vendor/autoload.php';
 
 Hamcrest\Util::registerGlobalFunctions();
 
-echo "Asserting boolean\n";
-// Boolean
-assertThat("This should be true", true, is(true));
-assertThat("This should be false", false, is(false));
-
-echo "Asserting String\n";
-// String
-$name = "Hamcrest";
-assertThat("Should be a string", $name, is(equalTo($name)));
-
-// instance
-$now = new DateTime();
-assertThat("now should be an instance of stdClass", $now, anInstanceOf(DateTimeInterface::class));
-
-
-$result = true;
-// with an identifier
-assertThat("result should be true", $result, is(equalTo(true)));
-
-// without an identifier
-assertThat($result, is(equalTo(true)));
-
-// evaluate a boolean expression
-assertThat($result === true);
-
 /***** Array *****/
 
-$list = [];
-assertThat("list should be an array", anArray($list), is(true))	;
+// anArray - Evaluates to true only if each $matcher[$i] is satisfied by $array[$i].
+ 
+assertThat([], anArray());
 
-$list = [2, 4, 6];
+// hasItemInArray
+$list = range(2, 7, 2);
 $item = 4;
-assertThat($list, hasItemInArray(4));
+assertThat($list, hasItemInArray($item));
 
-// hasValue 
+// hasValue - alias of hasItemInArray
 assertThat([2,4,6], hasValue(2));
 
 // arrayContainingInAnyOrder
@@ -48,23 +25,24 @@ assertThat([2, 4, 6], arrayContainingInAnyOrder([4, 2, 6]));
 // containsInAnyOrder
 assertThat([2, 4, 6], containsInAnyOrder([6, 2, 4]));
 
-// arrayContaining
+// arrayContaining - same order
 assertThat([2, 4, 6], arrayContaining([2, 4, 6]));
 assertthat([2, 4, 6], not(arrayContaining([6, 4, 2])));
 
-// contains
+// contains - same order
 assertThat([2, 4, 6], contains([2, 4, 6]));
 
 // hasKeyInArray
 assertThat(['name'=> 'foobar'], hasKeyInArray('name'));
 
-// hasKey
+// hasKey - alias of hasKeyInArray
 assertThat(['name'=> 'foobar'], hasKey('name'));
 
 // hasKeyValuePair
 assertThat(['name'=> 'foobar'], hasKeyValuePair('name', 'foobar'));
 
 // hasEntry same as hasKeyValuePair
+assertThat(['name'=> 'foobar'], hasKeyValuePair('name', 'foobar'));
 
 // arrayWithSize
 assertthat([2, 4, 6], arrayWithSize(3));
@@ -77,39 +55,53 @@ assertThat([1], nonEmptyArray());
 
 /****** Collection *******/
 
+$empty_it = new EmptyIterator;
+$non_empty_it = new ArrayIterator(range(1, 10));
 // emptyTraversable
-//assertThat([], emptyTraversable());
-// nonEmptyTraversable
-// traversableWithSize
+assertThat($empty_it, emptyTraversable());
+assertThat($non_empty_it, nonEmptyTraversable());
+assertThat($non_empty_it, traversableWithSize(count(range(1, 10))));
 
 /******* Core ******/
 
-// allOf
+// allOf - Evaluates to true only if ALL of the passed in matchers evaluate to true.
 assertThat([2,4,6], allOf(hasValue(2), arrayWithSize(3)));
 
-// anyOf
+// anyOf - Evaluates to true if ANY of the passed in matchers evaluate to true.
 assertThat([2, 4, 6], anyOf(hasValue(8), hasValue(2)));
 
-// noneOf
+// noneOf - Evaluates to false if ANY of the passed in matchers evaluate to true.
 assertThat([2, 4, 6], noneOf(hasValue(1), hasValue(3)));
 
-// both + andAlso
+// both + andAlso - This is useful for fluently combining matchers that must both pass.
 assertThat([2, 4, 6], both(hasValue(2))->andAlso(hasValue(4)));
 
-// either + orElse
+// either + orElse - This is useful for fluently combining matchers where either may pass,
 assertThat([2, 4, 6], either(hasValue(2))->orElse(hasValue(4)));
 
 // describedAs - http://happygiraffe.net/blog/2008/07/26/assertthat
+// Wraps an existing matcher and overrides the description when it fails.
+ 
 $expected = "Dog";
 $found = null;
 //assertThat("Expected {$expected}, got {$found}", $found, is(notNullValue()));
 //assertThat($found, describedAs($expected, notNullValue()));
 
-// everyItem
+// everyItem - A matcher to apply to every element in an array.
 assertThat([2, 4, 6], everyItem(notNullValue()));
 
+// hasItem - for collection
+assertThat([2, 4, 6], hasItem(equalTo(2)));
+
+// hasItems - for collection
+assertThat([1, 3, 5], hasItems(equalTo(1), equalTo(3)));
+
+
+/***** Object *****/
 // hasToString
 class Foo {
+    public $name = null;
+
     public function __toString() {
         return "[Foo]Instance";
     }
@@ -118,20 +110,13 @@ $foo = new Foo;
 
 assertThat($foo, hasToString(equalTo("[Foo]Instance")));
 
-// hasItem - for collection
-assertThat([2, 4, 6], hasItem(equalTo(2)));
 
-// hasItems - for collection
-assertThat([1, 3, 5], hasItems(equalTo(1), equalTo(3)));
-
-/***** Object *****/
-
-// equalTo - '=='
+// equalTo - compares'=='
 $foo = new Foo;
 $foo2 = new Foo;
 assertThat($foo, equalTo($foo2));
 
-// identicalTo '==='
+// identicalTo - compares '==='
 assertThat($foo, is(not(identicalTo($foo2))));
 
 // anInstanceOf
@@ -153,56 +138,143 @@ assertThat($foo, is(sameInstance($foo)));
 // typeOf
 assertThat(1, typeOf("integer"));
 
+// notSet - check if instance property is not set
+assertThat($foo, notSet("name"));
+
 // set - check instance property
+$foo->name = "bar";
+assertThat($foo, set("name"));
 
-// notSet
-
-///// Numbers ///////
+/****** Numbers *****/
 
 // closeTo - value close to a range
 assertThat(3, closeTo(3, 0.5));
 
 // comparesEqualTo
+assertThat(2, comparesEqualTo(2));
+
 // greaterThan
+assertThat(2, greaterThan(1));
+
 // greaterThanOrEqualTo
-// atLeast
+assertThat(2, greaterThanOrEqualTo(2));
+
+// atLeast - The value is >= given value
+assertThat(3, atLeast(2));
+
 // lessThan
+assertThat(2, lessThan(3));
+
 // lessThanOrEqualTo
-// atMost
+assertThat(2, lessThanOrEqualTo(3));
+
+// atMost - The value is <= given value
+assertThat(2, atMost(3));
 
 
-////// String ////
+/******* String *******/
+
 // emptyString
-// isEmptyOrNullString
-// nullOrEmptyString
-// isNonEmptyString
-// nonEmptyString
-// equalToIgnoringCase
-// equalToIgnoringWhiteSpace
-// matchesPattern
-// containsString
-// containsStringIgnoringCase
-// stringContainsInOrder
-// endsWith
-// startsWith
-// 
+assertThat("", emptyString());
 
-//// Type checking
+// isEmptyOrNullString
+assertThat(null, isEmptyOrNullString());
+
+// nullOrEmptyString
+assertThat("", nullOrEmptyString());
+
+// isNonEmptyString
+assertThat("foo", isNonEmptyString());
+
+// nonEmptyString
+assertThat("foo", nonEmptyString());
+
+// equalToIgnoringCase
+assertThat("Foo", equalToIgnoringCase("foo"));
+
+// equalToIgnoringWhiteSpace
+assertThat(" Foo ", equalToIgnoringWhiteSpace("Foo"));
+
+// matchesPattern
+assertThat("foobarbaz", matchesPattern('/(foo)(bar)(baz)/'));
+
+// containsString
+assertThat("foobar", containsString("foo"));
+
+// containsStringIgnoringCase
+assertThat("fooBar", containsStringIgnoringCase("bar"));
+
+// stringContainsInOrder
+assertThat("foo", stringContainsInOrder("foo"));
+
+// endsWith
+assertThat("foo", endsWith("oo"));
+
+// startsWith
+assertThat("bar", startsWith("ba"));
+
+
+/******* Type checking *******/
 // arrayValue
+assertThat([], arrayValue());
+
 // booleanValue
+assertThat(true, booleanValue());
+
 // boolValue
+assertThat(false, boolValue());
+
 // callableValue
+$func = function () {};
+assertThat($func, callableValue($func));
+
 // doubleValue
+assertThat(3.14, doubleValue());
+
 // floatValue
+assertThat(3.14, floatValue());
+
 // integerValue
+assertThat(1, integerValue());
+
 // intValue
+assertThat(1, intValue());
+
 // numericValue
+assertThat("123", numericValue());
+
 // objectValue
+$obj = new stdClass;
+assertThat($obj, objectValue());
+
 // anObject
+assertThat($obj, anObject());
+
 // resourceValue
+$fp = fopen("/tmp/foo", "w+");
+assertThat($fp, resourceValue());
+
 // scalarValue
+assertThat(1, scalarValue());
+
 // stringValue
+assertThat("", stringValue());
+
 // hasXPath
- 
+$xml = <<<XML
+<books>
+  <book>
+    <isbn>1</isbn>   
+  </book>
+  <book>
+    <isbn>2</isbn>   
+  </book>
+</books>
+XML;
+
+$doc = new DOMDocument;
+$doc->loadXML($xml);
+assertThat($doc, hasXPath("book", 2));
+
 echo "Wao! I am done\n";
 
