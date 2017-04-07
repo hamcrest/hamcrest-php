@@ -100,7 +100,7 @@ assertThat($list, hasItemInArray($item));
 
 * `hasValue` - alias of hasItemInArray
 
-* `arrayContainingInAnyOrder` - check if array contains elements in given order
+* `arrayContainingInAnyOrder` - check if array contains elements in any order
 ```php
 assertThat([2, 4, 6], arrayContainingInAnyOrder([6, 4, 2]));
 assertThat([2, 4, 6], arrayContainingInAnyOrder([4, 2, 6]));
