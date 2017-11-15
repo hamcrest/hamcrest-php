@@ -4,8 +4,7 @@
         "Read more about it at https://getcomposer.org/doc/01-basic-usage.md#composer-lock-the-lock-file",
         "This file is @generated automatically"
     ],
-    "hash": "52d9e3c2e238bdc2aab7f6e1d322e31d",
-    "content-hash": "ed113672807f01f40b4d9809b102dc31",
+    "content-hash": "538ef5606eec06f7c9e029c4309ff043",
     "packages": [],
     "packages-dev": [
         {
@@ -60,7 +59,7 @@
                 "constructor",
                 "instantiate"
             ],
-            "time": "2015-06-14 21:17:01"
+            "time": "2015-06-14T21:17:01+00:00"
         },
         {
             "name": "guzzle/guzzle",
@@ -155,7 +154,8 @@
                 "rest",
                 "web service"
             ],
-            "time": "2015-03-18 18:23:50"
+            "abandoned": "guzzlehttp/guzzle",
+            "time": "2015-03-18T18:23:50+00:00"
         },
         {
             "name": "phpdocumentor/reflection-docblock",
@@ -204,7 +204,7 @@
                     "email": "mike.vanriel@naenius.com"
                 }
             ],
-            "time": "2015-02-03 12:10:50"
+            "time": "2015-02-03T12:10:50+00:00"
         },
         {
             "name": "phpspec/prophecy",
@@ -264,7 +264,7 @@
                 "spy",
                 "stub"
             ],
-            "time": "2015-08-13 10:07:40"
+            "time": "2015-08-13T10:07:40+00:00"
         },
         {
             "name": "phpunit/php-code-coverage",
@@ -326,35 +326,37 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-10-06 15:47:00"
+            "time": "2015-10-06T15:47:00+00:00"
         },
         {
             "name": "phpunit/php-file-iterator",
-            "version": "1.3.3",
+            "version": "1.4.2",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/php-file-iterator.git",
-                "reference": "16a78140ed2fc01b945cfa539665fadc6a038029"
+                "reference": "3cc8f69b3028d0f96a9078e6295d86e9bf019be5"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/16a78140ed2fc01b945cfa539665fadc6a038029",
-                "reference": "16a78140ed2fc01b945cfa539665fadc6a038029",
+                "url": "https://api.github.com/repos/sebastianbergmann/php-file-iterator/zipball/3cc8f69b3028d0f96a9078e6295d86e9bf019be5",
+                "reference": "3cc8f69b3028d0f96a9078e6295d86e9bf019be5",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3"
             },
             "type": "library",
+            "extra": {
+                "branch-alias": {
+                    "dev-master": "1.4.x-dev"
+                }
+            },
             "autoload": {
                 "classmap": [
-                    "File/"
+                    "src/"
                 ]
             },
             "notification-url": "https://packagist.org/downloads/",
-            "include-path": [
-                ""
-            ],
             "license": [
                 "BSD-3-Clause"
             ],
@@ -366,12 +368,12 @@
                 }
             ],
             "description": "FilterIterator implementation that filters files based on a list of suffixes.",
-            "homepage": "http://www.phpunit.de/",
+            "homepage": "https://github.com/sebastianbergmann/php-file-iterator/",
             "keywords": [
                 "filesystem",
                 "iterator"
             ],
-            "time": "2012-10-11 11:44:38"
+            "time": "2016-10-03T07:40:28+00:00"
         },
         {
             "name": "phpunit/php-text-template",
@@ -412,7 +414,7 @@
             "keywords": [
                 "template"
             ],
-            "time": "2015-06-21 13:50:34"
+            "time": "2015-06-21T13:50:34+00:00"
         },
         {
             "name": "phpunit/php-timer",
@@ -453,7 +455,7 @@
             "keywords": [
                 "timer"
             ],
-            "time": "2015-06-21 08:01:12"
+            "time": "2015-06-21T08:01:12+00:00"
         },
         {
             "name": "phpunit/php-token-stream",
@@ -502,20 +504,20 @@
             "keywords": [
                 "tokenizer"
             ],
-            "time": "2015-09-15 10:49:45"
+            "time": "2015-09-15T10:49:45+00:00"
         },
         {
             "name": "phpunit/phpunit",
-            "version": "4.5.1",
+            "version": "4.8.36",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/phpunit.git",
-                "reference": "d6429b0995b24a2d9dfe5587ee3a7071c1161af4"
+                "reference": "46023de9a91eec7dfb06cc56cb4e260017298517"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/d6429b0995b24a2d9dfe5587ee3a7071c1161af4",
-                "reference": "d6429b0995b24a2d9dfe5587ee3a7071c1161af4",
+                "url": "https://api.github.com/repos/sebastianbergmann/phpunit/zipball/46023de9a91eec7dfb06cc56cb4e260017298517",
+                "reference": "46023de9a91eec7dfb06cc56cb4e260017298517",
                 "shasum": ""
             },
             "require": {
@@ -525,19 +527,19 @@
                 "ext-reflection": "*",
                 "ext-spl": "*",
                 "php": ">=5.3.3",
-                "phpspec/prophecy": "~1.3,>=1.3.1",
-                "phpunit/php-code-coverage": "~2.0,>=2.0.11",
-                "phpunit/php-file-iterator": "~1.3.2",
+                "phpspec/prophecy": "^1.3.1",
+                "phpunit/php-code-coverage": "~2.1",
+                "phpunit/php-file-iterator": "~1.4",
                 "phpunit/php-text-template": "~1.2",
-                "phpunit/php-timer": "~1.0.2",
+                "phpunit/php-timer": "^1.0.6",
                 "phpunit/phpunit-mock-objects": "~2.3",
-                "sebastian/comparator": "~1.1",
-                "sebastian/diff": "~1.1",
-                "sebastian/environment": "~1.2",
+                "sebastian/comparator": "~1.2.2",
+                "sebastian/diff": "~1.2",
+                "sebastian/environment": "~1.3",
                 "sebastian/exporter": "~1.2",
                 "sebastian/global-state": "~1.0",
                 "sebastian/version": "~1.0",
-                "symfony/yaml": "~2.0"
+                "symfony/yaml": "~2.1|~3.0"
             },
             "suggest": {
                 "phpunit/php-invoker": "~1.1"
@@ -548,7 +550,7 @@
             "type": "library",
             "extra": {
                 "branch-alias": {
-                    "dev-master": "4.5.x-dev"
+                    "dev-master": "4.8.x-dev"
                 }
             },
             "autoload": {
@@ -574,7 +576,7 @@
                 "testing",
                 "xunit"
             ],
-            "time": "2015-03-29 09:24:05"
+            "time": "2017-06-21T08:07:12+00:00"
         },
         {
             "name": "phpunit/phpunit-mock-objects",
@@ -630,7 +632,7 @@
                 "mock",
                 "xunit"
             ],
-            "time": "2015-10-02 06:51:40"
+            "time": "2015-10-02T06:51:40+00:00"
         },
         {
             "name": "psr/log",
@@ -668,7 +670,7 @@
                 "psr",
                 "psr-3"
             ],
-            "time": "2012-12-21 11:40:51"
+            "time": "2012-12-21T11:40:51+00:00"
         },
         {
             "name": "satooshi/php-coveralls",
@@ -731,26 +733,26 @@
                 "github",
                 "test"
             ],
-            "time": "2015-12-28 09:07:32"
+            "time": "2015-12-28T09:07:32+00:00"
         },
         {
             "name": "sebastian/comparator",
-            "version": "1.2.0",
+            "version": "1.2.4",
             "source": {
                 "type": "git",
                 "url": "https://github.com/sebastianbergmann/comparator.git",
-                "reference": "937efb279bd37a375bcadf584dec0726f84dbf22"
+                "reference": "2b7424b55f5047b47ac6e5ccb20b2aea4011d9be"
             },
             "dist": {
                 "type": "zip",
-                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/937efb279bd37a375bcadf584dec0726f84dbf22",
-                "reference": "937efb279bd37a375bcadf584dec0726f84dbf22",
+                "url": "https://api.github.com/repos/sebastianbergmann/comparator/zipball/2b7424b55f5047b47ac6e5ccb20b2aea4011d9be",
+                "reference": "2b7424b55f5047b47ac6e5ccb20b2aea4011d9be",
                 "shasum": ""
             },
             "require": {
                 "php": ">=5.3.3",
                 "sebastian/diff": "~1.2",
-                "sebastian/exporter": "~1.2"
+                "sebastian/exporter": "~1.2 || ~2.0"
             },
             "require-dev": {
                 "phpunit/phpunit": "~4.4"
@@ -795,7 +797,7 @@
                 "compare",
                 "equality"
             ],
-            "time": "2015-07-26 15:48:44"
+            "time": "2017-01-29T09:50:25+00:00"
         },
         {
             "name": "sebastian/diff",
@@ -847,7 +849,7 @@
             "keywords": [
                 "diff"
             ],
-            "time": "2015-12-08 07:14:41"
+            "time": "2015-12-08T07:14:41+00:00"
         },
         {
             "name": "sebastian/environment",
@@ -897,7 +899,7 @@
                 "environment",
                 "hhvm"
             ],
-            "time": "2015-12-02 08:37:27"
+            "time": "2015-12-02T08:37:27+00:00"
         },
         {
             "name": "sebastian/exporter",
@@ -963,7 +965,7 @@
                 "export",
                 "exporter"
             ],
-            "time": "2015-06-21 07:55:53"
+            "time": "2015-06-21T07:55:53+00:00"
         },
         {
             "name": "sebastian/global-state",
@@ -1014,7 +1016,7 @@
             "keywords": [
                 "global state"
             ],
-            "time": "2015-10-12 03:26:01"
+            "time": "2015-10-12T03:26:01+00:00"
         },
         {
             "name": "sebastian/recursion-context",
@@ -1067,7 +1069,7 @@
             ],
             "description": "Provides functionality to recursively process PHP variables",
             "homepage": "http://www.github.com/sebastianbergmann/recursion-context",
-            "time": "2015-11-11 19:50:13"
+            "time": "2015-11-11T19:50:13+00:00"
         },
         {
             "name": "sebastian/version",
@@ -1102,7 +1104,7 @@
             ],
             "description": "Library that helps with managing the version number of Git-hosted PHP projects",
             "homepage": "https://github.com/sebastianbergmann/version",
-            "time": "2015-06-21 13:59:46"
+            "time": "2015-06-21T13:59:46+00:00"
         },
         {
             "name": "symfony/config",
@@ -1152,7 +1154,7 @@
             ],
             "description": "Symfony Config Component",
             "homepage": "https://symfony.com",
-            "time": "2015-12-26 13:37:56"
+            "time": "2015-12-26T13:37:56+00:00"
         },
         {
             "name": "symfony/console",
@@ -1212,7 +1214,7 @@
             ],
             "description": "Symfony Console Component",
             "homepage": "https://symfony.com",
-            "time": "2015-12-22 10:25:57"
+            "time": "2015-12-22T10:25:57+00:00"
         },
         {
             "name": "symfony/event-dispatcher",
@@ -1272,7 +1274,7 @@
             ],
             "description": "Symfony EventDispatcher Component",
             "homepage": "https://symfony.com",
-            "time": "2015-10-30 20:15:42"
+            "time": "2015-10-30T20:15:42+00:00"
         },
         {
             "name": "symfony/filesystem",
@@ -1321,7 +1323,7 @@
             ],
             "description": "Symfony Filesystem Component",
             "homepage": "https://symfony.com",
-            "time": "2015-12-22 10:25:57"
+            "time": "2015-12-22T10:25:57+00:00"
         },
         {
             "name": "symfony/polyfill-mbstring",
@@ -1380,7 +1382,7 @@
                 "portable",
                 "shim"
             ],
-            "time": "2015-11-20 09:19:13"
+            "time": "2015-11-20T09:19:13+00:00"
         },
         {
             "name": "symfony/stopwatch",
@@ -1429,7 +1431,7 @@
             ],
             "description": "Symfony Stopwatch Component",
             "homepage": "https://symfony.com",
-            "time": "2015-10-30 20:15:42"
+            "time": "2015-10-30T20:15:42+00:00"
         },
         {
             "name": "symfony/yaml",
@@ -1478,7 +1480,7 @@
             ],
             "description": "Symfony Yaml Component",
             "homepage": "https://symfony.com",
-            "time": "2015-12-26 13:37:56"
+            "time": "2015-12-26T13:37:56+00:00"
         }
     ],
     "aliases": [],
@@ -1487,7 +1489,7 @@
     "prefer-stable": false,
     "prefer-lowest": false,
     "platform": {
-        "php": ">=5.3.2"
+        "php": "^5.3|^7.0"
     },
     "platform-dev": []
 }

@@ -1,6 +1,7 @@
 <?php
 namespace Hamcrest;
 
+use PHPUnit\Framework\TestCase;
 
 class SampleInvokeMatcher extends BaseMatcherTest
 {
@@ -18,7 +19,7 @@ class SampleInvokeMatcher extends BaseMatcherTest
 
 }
 
-class InvokedMatcherTest extends \PHPUnit_Framework_TestCase
+class InvokedMatcherTest extends TestCase
 {
     public function testInvokedMatchersCallMatches()
     {
