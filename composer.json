@@ -3,7 +3,7 @@
 	"type": "library",
 	"description": "This is the PHP port of Hamcrest Matchers",
 	"keywords": ["test"],
-	"license": "BSD",
+	"license": "BSD-3-Clause",
 	"authors": [
 	],
 
