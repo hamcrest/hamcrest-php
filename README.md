@@ -52,7 +52,7 @@ Hamcrest matchers are easy to use as:
 Hamcrest_MatcherAssert::assertThat('a', Hamcrest_Matchers::equalToIgnoringCase('A'));
 ```
 
-Alternative, you can use the global proxy-functions:
+Alternatively, you can use the global proxy-functions:
 
 ```php
 $result = true;
