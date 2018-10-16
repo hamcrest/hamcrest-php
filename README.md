@@ -52,7 +52,7 @@ Hamcrest matchers are easy to use as:
 Hamcrest_MatcherAssert::assertThat('a', Hamcrest_Matchers::equalToIgnoringCase('A'));
 ```
 
-or using static function `assertThat` as: 
+Alternative, you can use the global proxy-functions:
 
 ```php
 $result = true;
@@ -68,6 +68,15 @@ assertThat($result === true);
 // with syntactic sugar is()
 assertThat(true, is(true));
 ```
+
+:warning: **NOTE:** the global proxy-functions aren't autoloaded by default, so you will need to load them first:
+
+```php
+Utils::registerGlobals();
+```
+
+For brevity, all of the examples below use the proxy-functions.
+
 
 Documentation
 -------------
