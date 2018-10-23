@@ -72,7 +72,7 @@ assertThat(true, is(true));
 :warning: **NOTE:** the global proxy-functions aren't autoloaded by default, so you will need to load them first:
 
 ```php
-Utils::registerGlobals();
+\Hamcrest\Util::registerGlobalFunctions();
 ```
 
 For brevity, all of the examples below use the proxy-functions.
