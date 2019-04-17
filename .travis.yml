@@ -20,6 +20,7 @@ matrix:
     - php: 5.3
       dist: precise
   allow_failures:
+    - php: nightly
     - php: hhvm
     - php: hhvm-nightly
 

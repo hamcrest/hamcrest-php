@@ -21,7 +21,7 @@
 	"require-dev": {
 		"satooshi/php-coveralls": "^1.0",
 		"phpunit/php-file-iterator": "^1.4",
-		"phpunit/phpunit": ">=4.8.35 <5|>=5.4.3 <6"
+		"phpunit/phpunit": "^4.8.36 || ^5.7 || ^6.5 || ^7.0"
 	},
 
 	"replace": {
