@@ -49,7 +49,7 @@ Usage
 Hamcrest matchers are easy to use as:
 
 ```php
-Hamcrest_MatcherAssert::assertThat('a', Hamcrest_Matchers::equalToIgnoringCase('A'));
+Hamcrest\MatcherAssert::assertThat('a', Hamcrest\Matchers::equalToIgnoringCase('A'));
 ```
 
 Alternatively, you can use the global proxy-functions:
