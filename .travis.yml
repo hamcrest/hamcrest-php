@@ -20,7 +20,7 @@ matrix:
       dist: bionic
     - php: 7.4
       dist: bionic
-    - php: hhvm-3.30
+    - php: hhvm-3.18
       dist: trusty
 
 install:
