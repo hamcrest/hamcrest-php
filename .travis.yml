@@ -1,28 +1,30 @@
 language: php
 
-dist: xenial
-
-php:
-  - 5.6
-  - 7.0
-  - 7.1
-  - 7.2
-  - 7.3
-  - 7.4
-
 matrix:
   include:
-    - php: hhvm-3.18
-      dist: trusty
     - php: 5.3
       dist: precise
     - php: 5.4
       dist: trusty
     - php: 5.5
       dist: trusty
+    - php: 5.6
+      dist: xenial
+    - php: 7.0
+      dist: xenial
+    - php: 7.1
+      dist: bionic
+    - php: 7.2
+      dist: bionic
+    - php: 7.3
+      dist: bionic
+    - php: 7.4
+      dist: bionic
+    - php: hhvm-3.24
+      dist: trusty
 
 install:
-  - composer update --prefer-source
+  - travis_retry composer update
 
 script:
   - mkdir -p build/logs
