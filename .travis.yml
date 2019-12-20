@@ -1,28 +1,25 @@
 language: php
 
-dist: trusty
-sudo: false
+dist: xenial
 
 php:
-  - 5.4
-  - 5.5
   - 5.6
   - 7.0
   - 7.1
   - 7.2
   - 7.3
-  - nightly
-  - hhvm
-  - hhvm-nightly
+  - 7.4
 
 matrix:
   include:
+    - php: hhvm-3.18
+      dist: trusty
     - php: 5.3
       dist: precise
-  allow_failures:
-    - php: nightly
-    - php: hhvm
-    - php: hhvm-nightly
+    - php: 5.4
+      dist: trusty
+    - php: 5.5
+      dist: trusty
 
 install:
   - composer update --prefer-source
