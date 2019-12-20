@@ -34,7 +34,7 @@ class IsArrayContainingInOrderTest extends AbstractMatcherTest
 
     public function testMismatchesItemsInAnyOrder()
     {
-        if (defined('HHVM_VERSION') {
+        if (defined('HHVM_VERSION')) {
             $this->markTestSkipped('Broken on HHVM.');
         }
 
