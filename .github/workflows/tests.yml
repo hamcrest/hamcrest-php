@@ -37,10 +37,4 @@ jobs:
       - name: Execute tests
         run: |
           mkdir -p build/logs
-          vendor/bin/phpunit --coverage-clover=build/logs/clover.xml -c tests/phpunit.xml.dist
-
-      - name: Upload coverage
-        run: |
-          vendor/bin/coveralls -v
-          wget https://scrutinizer-ci.com/ocular.phar
-          ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
+          vendor/bin/phpunit -c tests/phpunit.xml.dist
