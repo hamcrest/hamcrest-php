@@ -68,7 +68,7 @@ class FactoryParameter
 
             $class = $this->reflector->getClass();
 
-            return $class ? sprintf('\\%s ', $class) : '';
+            return $class ? sprintf('\\%s ', $class->getName()) : '';
         }
 
         if (!$this->reflector->hasType()) {
