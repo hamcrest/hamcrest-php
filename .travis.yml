@@ -20,5 +20,4 @@ install:
   - travis_retry composer update --prefer-dist --no-progress
 
 script:
-  - mkdir -p build/logs
   - vendor/bin/phpunit -c tests/phpunit.xml.dist

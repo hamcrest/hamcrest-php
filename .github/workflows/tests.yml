@@ -35,6 +35,4 @@ jobs:
         if: "matrix.php == '8.0'"
 
       - name: Execute tests
-        run: |
-          mkdir -p build/logs
-          vendor/bin/phpunit -c tests/phpunit.xml.dist
+        run: vendor/bin/phpunit -c tests/phpunit.xml.dist
