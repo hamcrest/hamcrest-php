@@ -73,7 +73,7 @@ class FactoryGenerator
 
     public function getSortedFiles()
     {
-        $iter = \File_Iterator_Factory::getFileIterator($this->path, '.php');
+        $iter = $this->getFileIterator();
         $files = array();
         foreach ($iter as $file) {
             $files[] = $file;
@@ -81,6 +81,23 @@ class FactoryGenerator
         sort($files, SORT_STRING);
 
         return $files;
+    }
+
+    private function getFileIterator()
+    {
+        if (class_exists('File_Iterator_Factory')) {
+            $refl = new ReflectionClass('File_Iterator_Factory');
+
+            if ($refl->getMethod('getFileIterator')->isStatic()) {
+                return File_Iterator_Factory::getFileIterator($this->path, '.php');
+            }
+
+            $factory = new File_Iterator_Factory();
+
+            return $factory->getFileIterator($this->path, '.php');
+        }
+
+        new SebastianBergmann\FileIterator\Factory($this->path, '.php');
     }
 
     public function getFactoryClass($file)
