@@ -1,0 +1,42 @@
+name: tests
+
+jobs:
+  tests:
+
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        php: ['7.0', '7.1', '7.2', '7.3', '7.4', '8.0']
+
+    name: PHP ${{ matrix.php }}
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v2
+
+      - name: Setup PHP
+        uses: shivammathur/setup-php@v2
+        with:
+          php-version: ${{ matrix.php }}
+          extensions: curl
+          tools: composer:v2
+          coverage: none
+
+      - name: Install PHP 7 dependencies
+        run: composer update --prefer-dist --no-interaction --no-progress
+        if: "matrix.php != '8.0'"
+
+      - name: Install PHP 8 dependencies
+        run: composer update --prefer-dist --no-interaction --no-progress --ignore-platform-reqs
+        if: "matrix.php == '8.0'"
+
+      - name: Execute tests
+        run: |
+          mkdir -p build/logs
+          vendor/bin/phpunit --coverage-clover=build/logs/clover.xml -c tests/phpunit.xml.dist
+
+      - name: Upload coverage
+        run: |
+          vendor/bin/coveralls -v
+          wget https://scrutinizer-ci.com/ocular.phar
+          ocular.phar code-coverage:upload --format=php-clover build/logs/clover.xml
