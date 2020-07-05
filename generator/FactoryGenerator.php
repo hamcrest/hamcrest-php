@@ -85,19 +85,11 @@ class FactoryGenerator
 
     private function getFileIterator()
     {
-        if (class_exists('File_Iterator_Factory')) {
-            $refl = new ReflectionClass('File_Iterator_Factory');
+        $factoryClass = class_exists('File_Iterator_Factory') ? 'File_Iterator_Factory' : 'SebastianBergmann\FileIterator\Factory';
 
-            if ($refl->getMethod('getFileIterator')->isStatic()) {
-                return File_Iterator_Factory::getFileIterator($this->path, '.php');
-            }
+        $factory = new $factoryClass();
 
-            $factory = new File_Iterator_Factory();
-
-            return $factory->getFileIterator($this->path, '.php');
-        }
-
-        new SebastianBergmann\FileIterator\Factory($this->path, '.php');
+        return $factory->getFileIterator($this->path, '.php');
     }
 
     public function getFactoryClass($file)
