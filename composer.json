@@ -15,12 +15,11 @@
 	},
 
 	"require": {
-		"php": "^5.3|^7.0"
+		"php": "^5.3|^7.0|^8.0"
 	},
 
 	"require-dev": {
-		"satooshi/php-coveralls": "^1.0",
-		"phpunit/php-file-iterator": "^1.4",
+		"phpunit/php-file-iterator": "^1.4 || ^2.0",
 		"phpunit/phpunit": "^4.8.36 || ^5.7 || ^6.5 || ^7.0"
 	},
 
