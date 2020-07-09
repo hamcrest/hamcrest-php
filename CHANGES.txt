@@ -1,4 +1,4 @@
-== Version 2.0.1: Released Jul 08 2020 ==
+== Version 2.0.1: Released Jul 09 2020 ==
 
 * Added support for PHP 8
 
