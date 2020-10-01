@@ -6,7 +6,7 @@ use PHPUnit\Framework\TestCase;
 class MatcherAssertTest extends TestCase
 {
 
-    protected function setUp()
+    protected function setUp(): void
     {
         \Hamcrest\MatcherAssert::resetCount();
     }
