@@ -1,0 +1,9 @@
+* text=auto
+
+/.coveralls.yml export-ignore
+/.gitignore export-ignore
+/.gitattributes export-ignore
+/.github export-ignore
+/.gush.yml export-ignore
+/.travis.yml export-ignore
+/tests export-ignore
