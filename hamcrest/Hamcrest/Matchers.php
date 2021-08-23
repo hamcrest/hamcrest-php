@@ -423,6 +423,17 @@ class Matchers
     }
 
     /**
+     * Evaluates to true if the file exists and is a regular file.
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @return \Hamcrest\File\IsExistingFile
+     */
+    public static function anExistingFile()
+    {
+        return \Hamcrest\File\IsExistingFile::anExistingFile();
+    }
+
+    /**
      * Matches if value is a number equal to $value within some range of
      * acceptable error $delta.
      */

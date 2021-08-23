@@ -241,6 +241,14 @@ assertThat($directory, anExistingDirectory());
 assertThat('/var/log', anExistingDirectory());
 ```
 
+* `anExistingFile` - evaluates to true if the file exists and is a regular file
+```php
+$file = new \SplFileInfo('/var/log/php-fpm.log');
+assertThat($file, anExistingFile());
+
+assertThat('/var/log/php-fpm.log', anExistingFile());
+```
+
 ### Object
 
 * `hasToString` - check `__toString` or `toString` method

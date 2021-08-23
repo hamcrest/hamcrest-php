@@ -520,6 +520,19 @@ if (!function_exists('anExistingDirectory')) {
     }
 }
 
+if (!function_exists('anExistingFile')) {
+    /**
+     * Evaluates to true if the file exists and is a regular file.
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @return \Hamcrest\File\IsExistingFile
+     */
+    function anExistingFile()
+    {
+        return \Hamcrest\File\IsExistingFile::anExistingFile();
+    }
+}
+
 if (!function_exists('closeTo')) {
     /**
      * Matches if value is a number equal to $value within some range of
