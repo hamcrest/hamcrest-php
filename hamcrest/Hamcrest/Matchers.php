@@ -412,6 +412,17 @@ class Matchers
     }
 
     /**
+     * Evaluates to true if the file exists and is a directory.
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @return \Hamcrest\File\IsExistingDirectory
+     */
+    public static function anExistingDirectory()
+    {
+        return \Hamcrest\File\IsExistingDirectory::anExistingDirectory();
+    }
+
+    /**
      * Matches if value is a number equal to $value within some range of
      * acceptable error $delta.
      */

@@ -85,6 +85,8 @@ Available Matchers
 ------------------
 * [Array](../master/README.md#array)
 * [Collection](../master/README.md#collection)
+* [Core](../master/README.md#core)
+* [File](../master/README.md#file)
 * [Object](../master/README.md#object)
 * [Numbers](../master/README.md#numbers)
 * [Type checking](../master/README.md#type-checking)
@@ -225,6 +227,18 @@ assertThat([2, 4, 6], hasItem(equalTo(2)));
 * `hasItems` - check array has givem items, it can take multiple matcher as arguments
 ```php
 assertThat([1, 3, 5], hasItems(equalTo(1), equalTo(3)));
+```
+
+### File
+
+All file matchers accepts `\SplFileInfo` objects or `string` paths only.
+
+* `anExistingDirectory` - evaluates to true if the file exists and is a directory
+```php
+$directory = new \SplFileInfo('/var/log');
+assertThat($directory, anExistingDirectory());
+
+assertThat('/var/log', anExistingDirectory());
 ```
 
 ### Object
