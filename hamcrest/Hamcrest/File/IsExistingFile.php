@@ -11,55 +11,16 @@ namespace Hamcrest\File;
 use Hamcrest\BaseMatcher;
 use Hamcrest\Description;
 
-class IsExistingFile extends BaseMatcher
+class IsExistingFile extends FileMatcher
 {
-	public function describeTo(Description $description)
+	public function __construct()
 	{
-		$description->appendText('an existing file');
+		parent::__construct('an existing file', 'is not a file');
 	}
 
-	final public function matches($item)
-	{
-		return $this->isSafeType($item) && $this->matchesFile($this->createSplFileInfoObjectFromPath($item));
-	}
-
-	final public function describeMismatch($item, Description $mismatchDescription)
-	{
-		if ($this->isSafeType($item))
-		{
-			$this->describeFileMismatch($this->createSplFileInfoObjectFromPath($item), $mismatchDescription);
-		}
-		else
-		{
-			parent::describeMismatch($item, $mismatchDescription);
-		}
-	}
-
-	private function matchesFile(\SplFileInfo $file): bool
+	protected function matchesFile(\SplFileInfo $file): bool
 	{
 		return $file->isFile();
-	}
-
-	private function describeFileMismatch(\SplFileInfo $file, Description $mismatchDescription)
-	{
-		$mismatchDescription->appendValue($file)->appendText(' is not a file');
-	}
-
-	private function isSafeType($value): bool
-	{
-		return $value instanceof \SplFileInfo || is_string($value);
-	}
-
-	/**
-	 * @param string|\SplFileInfo $item
-	 * @return \SplFileInfo
-	 */
-	private function createSplFileInfoObjectFromPath($item): \SplFileInfo
-	{
-		if (is_string($item))
-			return new \SplFileInfo($item);
-
-		return $item;
 	}
 
 	/**
