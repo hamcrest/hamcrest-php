@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * @author Vasek Brychta <vaclav@brychtovi.cz>
  */
@@ -50,14 +48,25 @@ abstract class FileMatcher extends BaseMatcher
 		}
 	}
 
-	abstract protected function matchesFile(\SplFileInfo $file): bool;
+	/**
+	 * Implement this method to provide the actual functionality of the matcher.
+	 * It is guaranteed that the {@link $file} parameter is always {@code \SplFileInfo}.
+	 *
+	 * @param \SplFileInfo $file
+	 * @return bool
+	 */
+	abstract protected function matchesFile(\SplFileInfo $file);
 
 	protected function describeFileMismatch(\SplFileInfo $file, Description $mismatchDescription)
 	{
 		$mismatchDescription->appendValue($file)->appendText(' ')->appendText($this->failureDescription);
 	}
 
-	private function isSafeType($value): bool
+	/**
+	 * @param $value
+	 * @return bool
+	 */
+	private function isSafeType($value)
 	{
 		return $value instanceof \SplFileInfo || is_string($value);
 	}
@@ -66,7 +75,7 @@ abstract class FileMatcher extends BaseMatcher
 	 * @param string|\SplFileInfo $item
 	 * @return \SplFileInfo
 	 */
-	private function createSplFileInfoObjectFromPath($item): \SplFileInfo
+	private function createSplFileInfoObjectFromPath($item)
 	{
 		if (is_string($item))
 			return new \SplFileInfo($item);

@@ -1,15 +1,10 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * @author Vasek Brychta <vaclav@brychtovi.cz>
  */
 
 namespace Hamcrest\File;
-
-use Hamcrest\BaseMatcher;
-use Hamcrest\Description;
 
 class IsExistingFile extends FileMatcher
 {
@@ -18,7 +13,7 @@ class IsExistingFile extends FileMatcher
 		parent::__construct('an existing file', 'is not a file');
 	}
 
-	protected function matchesFile(\SplFileInfo $file): bool
+	protected function matchesFile(\SplFileInfo $file)
 	{
 		return $file->isFile();
 	}

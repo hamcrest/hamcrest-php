@@ -1,7 +1,5 @@
 <?php
 
-declare(strict_types=1);
-
 /**
  * @author Vasek Brychta <vaclav@brychtovi.cz>
  */
@@ -15,7 +13,7 @@ class IsExistingDirectory extends FileMatcher
 		parent::__construct('an existing directory', 'is not a directory');
 	}
 
-	protected function matchesFile(\SplFileInfo $file): bool
+	protected function matchesFile(\SplFileInfo $file)
 	{
 		return $file->isDir();
 	}
