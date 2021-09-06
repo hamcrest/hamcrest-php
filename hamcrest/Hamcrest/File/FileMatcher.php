@@ -11,9 +11,18 @@ use Hamcrest\Description;
 
 abstract class FileMatcher extends BaseMatcher
 {
-	/** @var string */
+	/**
+	 * Description of the matcher that will be returned from the {@link describeTo()} method.
+	 *
+	 * @var string
+	 */
 	private $ownDescription;
-	/** @var string */
+
+	/**
+	 * Description of a mismatch for the matcher, it will be prepended by the actual value that does not match.
+	 *
+	 * @var string
+	 */
 	private $failureDescription;
 
 	/**
@@ -38,12 +47,9 @@ abstract class FileMatcher extends BaseMatcher
 
 	final public function describeMismatch($item, Description $mismatchDescription)
 	{
-		if ($this->isSafeType($item))
-		{
+		if ($this->isSafeType($item)) {
 			$this->describeFileMismatch($this->createSplFileInfoObjectFromPath($item), $mismatchDescription);
-		}
-		else
-		{
+		} else {
 			parent::describeMismatch($item, $mismatchDescription);
 		}
 	}
