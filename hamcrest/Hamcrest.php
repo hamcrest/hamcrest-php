@@ -546,6 +546,19 @@ if (!function_exists('anExistingFileOrDirectory')) {
     }
 }
 
+if (!function_exists('aReadableFile')) {
+    /**
+     * Evaluates to true if the file is readable.
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @return \Hamcrest\File\IsReadableFile
+     */
+    function aReadableFile()
+    {
+        return \Hamcrest\File\IsReadableFile::aReadableFile();
+    }
+}
+
 if (!function_exists('closeTo')) {
     /**
      * Matches if value is a number equal to $value within some range of

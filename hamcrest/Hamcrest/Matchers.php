@@ -445,6 +445,17 @@ class Matchers
     }
 
     /**
+     * Evaluates to true if the file is readable.
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @return \Hamcrest\File\IsReadableFile
+     */
+    public static function aReadableFile()
+    {
+        return \Hamcrest\File\IsReadableFile::aReadableFile();
+    }
+
+    /**
      * Matches if value is a number equal to $value within some range of
      * acceptable error $delta.
      */

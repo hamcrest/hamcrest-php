@@ -260,6 +260,14 @@ assertThat('/var/log', anExistingFileOrDirectory());
 assertThat('/var/log/php-fpm.log', anExistingFileOrDirectory());
 ```
 
+* `aReadableFile` - evaluates to true if the file is readable
+```php
+$file = new \SplFileInfo('/var/log/php-fpm.log');
+assertThat($file, aReadableFile());
+
+assertThat('/var/log/php-fpm.log', aReadableFile());
+```
+
 ### Object
 
 * `hasToString` - check `__toString` or `toString` method
