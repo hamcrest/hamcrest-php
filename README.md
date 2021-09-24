@@ -276,6 +276,32 @@ assertThat($file, aWritableFile());
 assertThat('/var/log/php-fpm.log', aWritableFile());
 ```
 
+* `aFileWithSize` - evaluates to true if the file size is equal to given value or the provided matcher matches the file size
+```php
+$file = new \SplFileInfo('/var/log/php-fpm.log');
+assertThat($file, aFileWithSize(42));
+assertThat($file, aFileWithSize(greaterThan(42)));
+
+assertThat('/var/log/php-fpm.log', aFileWithSize(42));
+assertThat('/var/log/php-fpm.log', aFileWithSize(greaterThan(42)));
+```
+
+* `anEmptyFile` - evaluates to true if the file is empty
+```php
+$file = new \SplFileInfo('/var/log/php-fpm.log');
+assertThat($file, anEmptyFile());
+
+assertThat('/var/log/php-fpm.log', anEmptyFile());
+```
+
+* `aNonEmptyFile` - evaluates to true if the file is not empty
+```php
+$file = new \SplFileInfo('/var/log/php-fpm.log');
+assertThat($file, aNonEmptyFile());
+
+assertThat('/var/log/php-fpm.log', aNonEmptyFile());
+```
+
 ### Object
 
 * `hasToString` - check `__toString` or `toString` method

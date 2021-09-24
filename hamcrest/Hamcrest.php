@@ -546,6 +546,47 @@ if (!function_exists('anExistingFileOrDirectory')) {
     }
 }
 
+if (!function_exists('aFileWithSize')) {
+    /**
+     * Does file size satisfy a given matcher?
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @param \Hamcrest\Matcher|int $size as a {@link \Hamcrest\Matcher} or a value.
+     *
+     * @return \Hamcrest\File\IsFileWithSize
+     */
+    function aFileWithSize($size)
+    {
+        return \Hamcrest\File\IsFileWithSize::aFileWithSize($size);
+    }
+}
+
+if (!function_exists('anEmptyFile')) {
+    /**
+     * Matches an empty file.
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @return \Hamcrest\Core\DescribedAs
+     */
+    function anEmptyFile()
+    {
+        return \Hamcrest\File\IsFileWithSize::anEmptyFile();
+    }
+}
+
+if (!function_exists('aNonEmptyFile')) {
+    /**
+     * Matches a non-empty file.
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @return \Hamcrest\Core\DescribedAs
+     */
+    function aNonEmptyFile()
+    {
+        return \Hamcrest\File\IsFileWithSize::aNonEmptyFile();
+    }
+}
+
 if (!function_exists('aReadableFile')) {
     /**
      * Evaluates to true if the file is readable.

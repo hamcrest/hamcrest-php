@@ -445,6 +445,41 @@ class Matchers
     }
 
     /**
+     * Does file size satisfy a given matcher?
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @param \Hamcrest\Matcher|int $size as a {@link \Hamcrest\Matcher} or a value.
+     *
+     * @return \Hamcrest\File\IsFileWithSize
+     */
+    public static function aFileWithSize($size)
+    {
+        return \Hamcrest\File\IsFileWithSize::aFileWithSize($size);
+    }
+
+    /**
+     * Matches an empty file.
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @return \Hamcrest\Core\DescribedAs
+     */
+    public static function anEmptyFile()
+    {
+        return \Hamcrest\File\IsFileWithSize::anEmptyFile();
+    }
+
+    /**
+     * Matches a non-empty file.
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @return \Hamcrest\Core\DescribedAs
+     */
+    public static function aNonEmptyFile()
+    {
+        return \Hamcrest\File\IsFileWithSize::aNonEmptyFile();
+    }
+
+    /**
      * Evaluates to true if the file is readable.
      * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
      *

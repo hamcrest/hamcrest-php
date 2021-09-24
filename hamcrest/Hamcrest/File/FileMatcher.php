@@ -29,7 +29,7 @@ abstract class FileMatcher extends BaseMatcher
 	 * @param string $ownDescription
 	 * @param string $failureDescription
 	 */
-	public function __construct($ownDescription, $failureDescription)
+	public function __construct($ownDescription = '', $failureDescription = '')
 	{
 		$this->ownDescription = $ownDescription;
 		$this->failureDescription = $failureDescription;
