@@ -268,6 +268,14 @@ assertThat($file, aReadableFile());
 assertThat('/var/log/php-fpm.log', aReadableFile());
 ```
 
+* `aWritableFile` - evaluates to true if the file is writable
+```php
+$file = new \SplFileInfo('/var/log/php-fpm.log');
+assertThat($file, aWritableFile());
+
+assertThat('/var/log/php-fpm.log', aWritableFile());
+```
+
 ### Object
 
 * `hasToString` - check `__toString` or `toString` method

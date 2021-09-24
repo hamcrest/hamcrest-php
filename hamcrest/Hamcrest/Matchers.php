@@ -456,6 +456,17 @@ class Matchers
     }
 
     /**
+     * Evaluates to true if the file is writable.
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @return \Hamcrest\File\IsWritableFile
+     */
+    public static function aWritableFile()
+    {
+        return \Hamcrest\File\IsWritableFile::aWritableFile();
+    }
+
+    /**
      * Matches if value is a number equal to $value within some range of
      * acceptable error $delta.
      */

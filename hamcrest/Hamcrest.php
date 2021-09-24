@@ -559,6 +559,19 @@ if (!function_exists('aReadableFile')) {
     }
 }
 
+if (!function_exists('aWritableFile')) {
+    /**
+     * Evaluates to true if the file is writable.
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @return \Hamcrest\File\IsWritableFile
+     */
+    function aWritableFile()
+    {
+        return \Hamcrest\File\IsWritableFile::aWritableFile();
+    }
+}
+
 if (!function_exists('closeTo')) {
     /**
      * Matches if value is a number equal to $value within some range of
