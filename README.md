@@ -312,6 +312,16 @@ assertThat('/var/log/php-fpm.log', aFileNamed('php-fpm.log'));
 assertThat('/var/log/php-fpm.log', aFileNamed(startsWith('php')));
 ```
 
+* `aFileWithCanonicalPath` - evaluates to true if the file canonical path is equal to given value or the provided matcher matches the canonical path of the file
+```php
+$file = new \SplFileInfo('/var/log/./php-fpm.log');
+assertThat($file, aFileWithCanonicalPath('/var/log/php-fpm.log'));
+assertThat($file, aFileWithCanonicalPath(endsWith('log/php-fpm.log')));
+
+assertThat('/var/log/./php-fpm.log', aFileWithCanonicalPath('/var/log/php-fpm.log'));
+assertThat('/var/log/./php-fpm.log', aFileWithCanonicalPath(endsWith('log/php-fpm.log')));
+```
+
 ### Object
 
 * `hasToString` - check `__toString` or `toString` method

@@ -458,6 +458,19 @@ class Matchers
     }
 
     /**
+     * Does canonical path satisfy a given matcher?
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @param \Hamcrest\Matcher|string $path as a {@link \Hamcrest\Matcher} or a value.
+     *
+     * @return \Hamcrest\File\IsFileWithCanonicalPath
+     */
+    public static function aFileWithCanonicalPath($path)
+    {
+        return \Hamcrest\File\IsFileWithCanonicalPath::aFileWithCanonicalPath($path);
+    }
+
+    /**
      * Does file size satisfy a given matcher?
      * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
      *
