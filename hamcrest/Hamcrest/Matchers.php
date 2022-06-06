@@ -445,6 +445,19 @@ class Matchers
     }
 
     /**
+     * Does file name satisfy a given matcher?
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @param \Hamcrest\Matcher|string $name as a {@link \Hamcrest\Matcher} or a value.
+     *
+     * @return \Hamcrest\File\IsFileNamed
+     */
+    public static function aFileNamed($name)
+    {
+        return \Hamcrest\File\IsFileNamed::aFileNamed($name);
+    }
+
+    /**
      * Does file size satisfy a given matcher?
      * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
      *

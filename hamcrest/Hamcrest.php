@@ -546,6 +546,21 @@ if (!function_exists('anExistingFileOrDirectory')) {
     }
 }
 
+if (!function_exists('aFileNamed')) {
+    /**
+     * Does file name satisfy a given matcher?
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @param \Hamcrest\Matcher|string $name as a {@link \Hamcrest\Matcher} or a value.
+     *
+     * @return \Hamcrest\File\IsFileNamed
+     */
+    function aFileNamed($name)
+    {
+        return \Hamcrest\File\IsFileNamed::aFileNamed($name);
+    }
+}
+
 if (!function_exists('aFileWithSize')) {
     /**
      * Does file size satisfy a given matcher?

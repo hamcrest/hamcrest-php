@@ -302,6 +302,16 @@ assertThat($file, aNonEmptyFile());
 assertThat('/var/log/php-fpm.log', aNonEmptyFile());
 ```
 
+* `aFileNamed` - evaluates to true if the file name is equal to given value or the provided matcher matches the file name
+```php
+$file = new \SplFileInfo('/var/log/php-fpm.log');
+assertThat($file, aFileNamed('php-fpm.log'));
+assertThat($file, aFileNamed(startsWith('php')));
+
+assertThat('/var/log/php-fpm.log', aFileNamed('php-fpm.log'));
+assertThat('/var/log/php-fpm.log', aFileNamed(startsWith('php')));
+```
+
 ### Object
 
 * `hasToString` - check `__toString` or `toString` method
