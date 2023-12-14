@@ -8,7 +8,10 @@ class StringStartsWithTest extends \Hamcrest\AbstractMatcherTest
 
     private $_stringStartsWith;
 
-    protected function setUp()
+    /**
+     * @before
+     */
+    protected function setUpTest()
     {
         $this->_stringStartsWith = \Hamcrest\Text\StringStartsWith::startsWith(self::EXCERPT);
     }

@@ -8,7 +8,10 @@ class StringEndsWithTest extends \Hamcrest\AbstractMatcherTest
 
     private $_stringEndsWith;
 
-    protected function setUp()
+    /**
+     * @before
+     */
+    protected function setUpTest()
     {
         $this->_stringEndsWith = \Hamcrest\Text\StringEndsWith::endsWith(self::EXCERPT);
     }

@@ -6,7 +6,10 @@ class StringContainsInOrderTest extends \Hamcrest\AbstractMatcherTest
 
     private $_m;
 
-    protected function setUp()
+    /**
+     * @before
+     */
+    protected function setUpTest()
     {
         $this->_m = \Hamcrest\Text\StringContainsInOrder::stringContainsInOrder(array('a', 'b', 'c'));
     }
