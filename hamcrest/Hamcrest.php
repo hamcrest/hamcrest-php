@@ -507,6 +507,142 @@ if (!function_exists('notSet')) {
     }
 }
 
+if (!function_exists('anExistingDirectory')) {
+    /**
+     * Evaluates to true if the file exists and is a directory.
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @return \Hamcrest\File\IsExistingDirectory
+     */
+    function anExistingDirectory()
+    {
+        return \Hamcrest\File\IsExistingDirectory::anExistingDirectory();
+    }
+}
+
+if (!function_exists('anExistingFile')) {
+    /**
+     * Evaluates to true if the file exists and is a regular file.
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @return \Hamcrest\File\IsExistingFile
+     */
+    function anExistingFile()
+    {
+        return \Hamcrest\File\IsExistingFile::anExistingFile();
+    }
+}
+
+if (!function_exists('anExistingFileOrDirectory')) {
+    /**
+     * Evaluates to true if the file exists and is a regular file or a directory.
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @return \Hamcrest\File\IsExistingFileOrDirectory
+     */
+    function anExistingFileOrDirectory()
+    {
+        return \Hamcrest\File\IsExistingFileOrDirectory::anExistingFileOrDirectory();
+    }
+}
+
+if (!function_exists('aFileNamed')) {
+    /**
+     * Does file name satisfy a given matcher?
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @param \Hamcrest\Matcher|string $name as a {@link \Hamcrest\Matcher} or a value.
+     *
+     * @return \Hamcrest\File\IsFileNamed
+     */
+    function aFileNamed($name)
+    {
+        return \Hamcrest\File\IsFileNamed::aFileNamed($name);
+    }
+}
+
+if (!function_exists('aFileWithCanonicalPath')) {
+    /**
+     * Does canonical path satisfy a given matcher?
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @param \Hamcrest\Matcher|string $path as a {@link \Hamcrest\Matcher} or a value.
+     *
+     * @return \Hamcrest\File\IsFileWithCanonicalPath
+     */
+    function aFileWithCanonicalPath($path)
+    {
+        return \Hamcrest\File\IsFileWithCanonicalPath::aFileWithCanonicalPath($path);
+    }
+}
+
+if (!function_exists('aFileWithSize')) {
+    /**
+     * Does file size satisfy a given matcher?
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @param \Hamcrest\Matcher|int $size as a {@link \Hamcrest\Matcher} or a value.
+     *
+     * @return \Hamcrest\File\IsFileWithSize
+     */
+    function aFileWithSize($size)
+    {
+        return \Hamcrest\File\IsFileWithSize::aFileWithSize($size);
+    }
+}
+
+if (!function_exists('anEmptyFile')) {
+    /**
+     * Matches an empty file.
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @return \Hamcrest\Core\DescribedAs
+     */
+    function anEmptyFile()
+    {
+        return \Hamcrest\File\IsFileWithSize::anEmptyFile();
+    }
+}
+
+if (!function_exists('aNonEmptyFile')) {
+    /**
+     * Matches a non-empty file.
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @return \Hamcrest\Core\DescribedAs
+     */
+    function aNonEmptyFile()
+    {
+        return \Hamcrest\File\IsFileWithSize::aNonEmptyFile();
+    }
+}
+
+if (!function_exists('aReadableFile')) {
+    /**
+     * Evaluates to true if the file is readable.
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @return \Hamcrest\File\IsReadableFile
+     */
+    function aReadableFile()
+    {
+        return \Hamcrest\File\IsReadableFile::aReadableFile();
+    }
+}
+
+if (!function_exists('aWritableFile')) {
+    /**
+     * Evaluates to true if the file is writable.
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @return \Hamcrest\File\IsWritableFile
+     */
+    function aWritableFile()
+    {
+        return \Hamcrest\File\IsWritableFile::aWritableFile();
+    }
+}
+
 if (!function_exists('closeTo')) {
     /**
      * Matches if value is a number equal to $value within some range of

@@ -85,6 +85,8 @@ Available Matchers
 ------------------
 * [Array](../master/README.md#array)
 * [Collection](../master/README.md#collection)
+* [Core](../master/README.md#core)
+* [File](../master/README.md#file)
 * [Object](../master/README.md#object)
 * [Numbers](../master/README.md#numbers)
 * [Type checking](../master/README.md#type-checking)
@@ -225,6 +227,99 @@ assertThat([2, 4, 6], hasItem(equalTo(2)));
 * `hasItems` - check array has given items, it can take multiple matcher as arguments
 ```php
 assertThat([1, 3, 5], hasItems(equalTo(1), equalTo(3)));
+```
+
+### File
+
+All file matchers accepts `\SplFileInfo` objects or `string` paths only.
+
+* `anExistingDirectory` - evaluates to true if the file exists and is a directory
+```php
+$directory = new \SplFileInfo('/var/log');
+assertThat($directory, anExistingDirectory());
+
+assertThat('/var/log', anExistingDirectory());
+```
+
+* `anExistingFile` - evaluates to true if the file exists and is a regular file
+```php
+$file = new \SplFileInfo('/var/log/php-fpm.log');
+assertThat($file, anExistingFile());
+
+assertThat('/var/log/php-fpm.log', anExistingFile());
+```
+
+* `anExistingFileOrDirectory` - evaluates to true if the file exists and is a regular file or a directory
+```php
+$directory = new \SplFileInfo('/var/log');
+$file = new \SplFileInfo('/var/log/php-fpm.log');
+assertThat($directory, anExistingFileOrDirectory());
+assertThat($file, anExistingFileOrDirectory());
+
+assertThat('/var/log', anExistingFileOrDirectory());
+assertThat('/var/log/php-fpm.log', anExistingFileOrDirectory());
+```
+
+* `aReadableFile` - evaluates to true if the file is readable
+```php
+$file = new \SplFileInfo('/var/log/php-fpm.log');
+assertThat($file, aReadableFile());
+
+assertThat('/var/log/php-fpm.log', aReadableFile());
+```
+
+* `aWritableFile` - evaluates to true if the file is writable
+```php
+$file = new \SplFileInfo('/var/log/php-fpm.log');
+assertThat($file, aWritableFile());
+
+assertThat('/var/log/php-fpm.log', aWritableFile());
+```
+
+* `aFileWithSize` - evaluates to true if the file size is equal to given value or the provided matcher matches the file size
+```php
+$file = new \SplFileInfo('/var/log/php-fpm.log');
+assertThat($file, aFileWithSize(42));
+assertThat($file, aFileWithSize(greaterThan(42)));
+
+assertThat('/var/log/php-fpm.log', aFileWithSize(42));
+assertThat('/var/log/php-fpm.log', aFileWithSize(greaterThan(42)));
+```
+
+* `anEmptyFile` - evaluates to true if the file is empty
+```php
+$file = new \SplFileInfo('/var/log/php-fpm.log');
+assertThat($file, anEmptyFile());
+
+assertThat('/var/log/php-fpm.log', anEmptyFile());
+```
+
+* `aNonEmptyFile` - evaluates to true if the file is not empty
+```php
+$file = new \SplFileInfo('/var/log/php-fpm.log');
+assertThat($file, aNonEmptyFile());
+
+assertThat('/var/log/php-fpm.log', aNonEmptyFile());
+```
+
+* `aFileNamed` - evaluates to true if the file name is equal to given value or the provided matcher matches the file name
+```php
+$file = new \SplFileInfo('/var/log/php-fpm.log');
+assertThat($file, aFileNamed('php-fpm.log'));
+assertThat($file, aFileNamed(startsWith('php')));
+
+assertThat('/var/log/php-fpm.log', aFileNamed('php-fpm.log'));
+assertThat('/var/log/php-fpm.log', aFileNamed(startsWith('php')));
+```
+
+* `aFileWithCanonicalPath` - evaluates to true if the file canonical path is equal to given value or the provided matcher matches the canonical path of the file
+```php
+$file = new \SplFileInfo('/var/log/./php-fpm.log');
+assertThat($file, aFileWithCanonicalPath('/var/log/php-fpm.log'));
+assertThat($file, aFileWithCanonicalPath(endsWith('log/php-fpm.log')));
+
+assertThat('/var/log/./php-fpm.log', aFileWithCanonicalPath('/var/log/php-fpm.log'));
+assertThat('/var/log/./php-fpm.log', aFileWithCanonicalPath(endsWith('log/php-fpm.log')));
 ```
 
 ### Object
