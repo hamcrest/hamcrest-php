@@ -412,6 +412,122 @@ class Matchers
     }
 
     /**
+     * Evaluates to true if the file exists and is a directory.
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @return \Hamcrest\File\IsExistingDirectory
+     */
+    public static function anExistingDirectory()
+    {
+        return \Hamcrest\File\IsExistingDirectory::anExistingDirectory();
+    }
+
+    /**
+     * Evaluates to true if the file exists and is a regular file.
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @return \Hamcrest\File\IsExistingFile
+     */
+    public static function anExistingFile()
+    {
+        return \Hamcrest\File\IsExistingFile::anExistingFile();
+    }
+
+    /**
+     * Evaluates to true if the file exists and is a regular file or a directory.
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @return \Hamcrest\File\IsExistingFileOrDirectory
+     */
+    public static function anExistingFileOrDirectory()
+    {
+        return \Hamcrest\File\IsExistingFileOrDirectory::anExistingFileOrDirectory();
+    }
+
+    /**
+     * Does file name satisfy a given matcher?
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @param \Hamcrest\Matcher|string $name as a {@link \Hamcrest\Matcher} or a value.
+     *
+     * @return \Hamcrest\File\IsFileNamed
+     */
+    public static function aFileNamed($name)
+    {
+        return \Hamcrest\File\IsFileNamed::aFileNamed($name);
+    }
+
+    /**
+     * Does canonical path satisfy a given matcher?
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @param \Hamcrest\Matcher|string $path as a {@link \Hamcrest\Matcher} or a value.
+     *
+     * @return \Hamcrest\File\IsFileWithCanonicalPath
+     */
+    public static function aFileWithCanonicalPath($path)
+    {
+        return \Hamcrest\File\IsFileWithCanonicalPath::aFileWithCanonicalPath($path);
+    }
+
+    /**
+     * Does file size satisfy a given matcher?
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @param \Hamcrest\Matcher|int $size as a {@link \Hamcrest\Matcher} or a value.
+     *
+     * @return \Hamcrest\File\IsFileWithSize
+     */
+    public static function aFileWithSize($size)
+    {
+        return \Hamcrest\File\IsFileWithSize::aFileWithSize($size);
+    }
+
+    /**
+     * Matches an empty file.
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @return \Hamcrest\Core\DescribedAs
+     */
+    public static function anEmptyFile()
+    {
+        return \Hamcrest\File\IsFileWithSize::anEmptyFile();
+    }
+
+    /**
+     * Matches a non-empty file.
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @return \Hamcrest\Core\DescribedAs
+     */
+    public static function aNonEmptyFile()
+    {
+        return \Hamcrest\File\IsFileWithSize::aNonEmptyFile();
+    }
+
+    /**
+     * Evaluates to true if the file is readable.
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @return \Hamcrest\File\IsReadableFile
+     */
+    public static function aReadableFile()
+    {
+        return \Hamcrest\File\IsReadableFile::aReadableFile();
+    }
+
+    /**
+     * Evaluates to true if the file is writable.
+     * Accepts only <code>\SplFileInfo</code> objects or <code>string</code> paths.
+     *
+     * @return \Hamcrest\File\IsWritableFile
+     */
+    public static function aWritableFile()
+    {
+        return \Hamcrest\File\IsWritableFile::aWritableFile();
+    }
+
+    /**
      * Matches if value is a number equal to $value within some range of
      * acceptable error $delta.
      */

@@ -51,6 +51,11 @@ class DescribedAs extends BaseMatcher
         }
     }
 
+	public function describeMismatch($item, Description $description)
+	{
+		$this->_matcher->describeMismatch($item, $description);
+	}
+
     /**
      * Wraps an existing matcher and overrides the description when it fails.
      *
