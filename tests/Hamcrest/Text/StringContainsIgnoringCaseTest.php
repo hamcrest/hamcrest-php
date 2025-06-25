@@ -13,6 +13,8 @@ class StringContainsIgnoringCaseTest extends \Hamcrest\AbstractMatcherTest
      */
     protected function setUpTest()
     {
+        parent::setUpTest();
+
         $this->_stringContains = \Hamcrest\Text\StringContainsIgnoringCase::containsStringIgnoringCase(
             strtolower(self::EXCERPT)
         );

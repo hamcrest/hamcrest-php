@@ -12,6 +12,8 @@ class SetTest extends \Hamcrest\AbstractMatcherTest
      */
     protected function setUpTest()
     {
+        parent::setUpTest();
+
         self::$_classProperty = null;
         unset($this->_instanceProperty);
     }

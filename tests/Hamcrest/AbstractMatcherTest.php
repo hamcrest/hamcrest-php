@@ -12,6 +12,14 @@ abstract class AbstractMatcherTest extends TestCase
     const ARGUMENT_IGNORED = "ignored";
     const ANY_NON_NULL_ARGUMENT = "notnull";
 
+    /**
+     * @before
+     */
+    protected function setUpTest()
+    {
+        MatcherAssert::resetCount();
+    }
+
     abstract protected function createMatcher();
 
     public function assertMatches(\Hamcrest\Matcher $matcher, $arg, $message)
@@ -46,6 +54,9 @@ abstract class AbstractMatcherTest extends TestCase
         );
     }
 
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testIsNullSafe()
     {
         //Should not generate any notices
@@ -56,6 +67,9 @@ abstract class AbstractMatcherTest extends TestCase
         );
     }
 
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testCopesWithUnknownTypes()
     {
         //Should not generate any notices
@@ -64,5 +78,13 @@ abstract class AbstractMatcherTest extends TestCase
             new UnknownType(),
             new NullDescription()
         );
+    }
+
+    /**
+     * @after
+     */
+    protected function tearDownTest()
+    {
+        $this->addToAssertionCount(MatcherAssert::getCount());
     }
 }
