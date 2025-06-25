@@ -18,19 +18,18 @@ phpstan *args='':
 watch-phpstan *args='':
     find hamcrest/ tests/ -name '*.php' | entr {{ php }} vendor/bin/phpstan "${@}"
 
-setup-phpunit:
-    cp tests/phpunit.xml.dist phpunit.xml
-    sed -i 's|bootstrap="bootstrap\.php"|bootstrap="tests/bootstrap.php"|g; s|<directory suffix="\.php">../hamcrest</directory>|<directory suffix=".php">hamcrest</directory>|g; s|<directory suffix="Test\.php">\.</directory>|<directory suffix="Test.php">tests/</directory>|g' phpunit.xml
-
 phpunit *args='':
-    {{ php }} vendor/bin/phpunit "${@}"
+    {{ php }} vendor/bin/phpunit --config=tests/phpunit.xml.dist "${@}"
 
 composer *args='':
     {{ composer }} "${@}"
 
 units:
-    j phpunit --exclude-group=integration
+    just phpunit --exclude-group=integration
+
+phpstan-generate-baseline:
+    just phpstan analyse --generate-baseline=tests/phpstan-baseline.neon
 
 prep:
-    j phpstan
-    j phpunit
+    just phpstan
+    just phpunit
