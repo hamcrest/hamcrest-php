@@ -19,13 +19,10 @@ watch-phpstan *args='':
     find hamcrest/ tests/ -name '*.php' | entr {{ php }} vendor/bin/phpstan "${@}"
 
 phpunit *args='':
-    {{ php }} vendor/bin/phpunit --config=tests/phpunit.xml.dist "${@}"
+    {{ php }} vendor/bin/phpunit --config=tests/phpunit.xml "${@}"
 
 composer *args='':
     {{ composer }} "${@}"
-
-units:
-    just phpunit --exclude-group=integration
 
 phpstan-generate-baseline:
     just phpstan analyse --generate-baseline=tests/phpstan-baseline.neon

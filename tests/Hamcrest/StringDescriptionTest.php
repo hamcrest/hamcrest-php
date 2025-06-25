@@ -12,7 +12,7 @@ class SampleSelfDescriber implements \Hamcrest\SelfDescribing
         $this->_text = $text;
     }
 
-    public function describeTo(\Hamcrest\Description $description)
+    public function describeTo(\Hamcrest\Description $description): void
     {
         $description->appendText($this->_text);
     }

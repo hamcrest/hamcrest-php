@@ -5,6 +5,7 @@ namespace Hamcrest\Core;
  Copyright (c) 2009 hamcrest.org
  */
 use Hamcrest\Description;
+use Hamcrest\Matcher;
 use Hamcrest\Util;
 
 /**
@@ -15,17 +16,20 @@ use Hamcrest\Util;
 class AnyOf extends ShortcutCombination
 {
 
+    /**
+     * @param array<Matcher> $matchers
+     */
     public function __construct(array $matchers)
     {
         parent::__construct($matchers);
     }
 
-    public function matches($item)
+    public function matches($item): bool
     {
         return $this->matchesWithShortcut($item, true);
     }
 
-    public function describeTo(Description $description)
+    public function describeTo(Description $description): void
     {
         $this->describeToWithOperator($description, 'or');
     }
@@ -35,7 +39,7 @@ class AnyOf extends ShortcutCombination
      *
      * @factory ...
      */
-    public static function anyOf(/* args... */)
+    public static function anyOf(/* args... */): self
     {
         $args = func_get_args();
 
@@ -47,7 +51,7 @@ class AnyOf extends ShortcutCombination
      *
      * @factory ...
      */
-    public static function noneOf(/* args... */)
+    public static function noneOf(/* args... */): IsNot
     {
         $args = func_get_args();
 

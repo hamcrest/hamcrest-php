@@ -12,31 +12,31 @@ use Hamcrest\Matcher;
 class CombinableMatcher extends BaseMatcher
 {
 
-    private $_matcher;
+    private Matcher $_matcher;
 
     public function __construct(Matcher $matcher)
     {
         $this->_matcher = $matcher;
     }
 
-    public function matches($item)
+    public function matches($item): bool
     {
         return $this->_matcher->matches($item);
     }
 
-    public function describeTo(Description $description)
+    public function describeTo(Description $description): void
     {
         $description->appendDescriptionOf($this->_matcher);
     }
 
     /** Diversion from Hamcrest-Java... Logical "and" not permitted */
-    public function andAlso(Matcher $other)
+    public function andAlso(Matcher $other): self
     {
         return new self(new AllOf($this->_templatedListWith($other)));
     }
 
     /** Diversion from Hamcrest-Java... Logical "or" not permitted */
-    public function orElse(Matcher $other)
+    public function orElse(Matcher $other): self
     {
         return new self(new AnyOf($this->_templatedListWith($other)));
     }
@@ -50,7 +50,7 @@ class CombinableMatcher extends BaseMatcher
      *
      * @factory
      */
-    public static function both(Matcher $matcher)
+    public static function both(Matcher $matcher): self
     {
         return new self($matcher);
     }
@@ -64,14 +64,17 @@ class CombinableMatcher extends BaseMatcher
      *
      * @factory
      */
-    public static function either(Matcher $matcher)
+    public static function either(Matcher $matcher): self
     {
         return new self($matcher);
     }
 
     // -- Private Methods
 
-    private function _templatedListWith(Matcher $other)
+    /**
+     * @return list<Matcher>
+     */
+    private function _templatedListWith(Matcher $other): array
     {
         return array($this->_matcher, $other);
     }

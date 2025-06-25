@@ -12,18 +12,20 @@ namespace Hamcrest;
  */
 abstract class BaseMatcher implements Matcher
 {
-
-    public function describeMismatch($item, Description $description)
+    /**
+     * @param mixed $item
+     */
+    public function describeMismatch($item, Description $description): void
     {
         $description->appendText('was ')->appendValue($item);
     }
 
-    public function __toString()
+    public function __toString(): string
     {
         return StringDescription::toString($this);
     }
 
-    public function __invoke()
+    public function __invoke(): bool
     {
         return call_user_func_array(array($this, 'matches'), func_get_args());
     }

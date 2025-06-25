@@ -12,7 +12,7 @@ class SampleInvokeMatcher extends BaseMatcherTest
         $this->matchAgainst = $matchAgainst;
     }
 
-    public function matches($item)
+    public function matches($item): bool
     {
         return $item == $this->matchAgainst;
     }

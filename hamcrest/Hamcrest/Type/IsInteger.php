@@ -25,7 +25,7 @@ class IsInteger extends IsTypeOf
      *
      * @factory intValue
      */
-    public static function integerValue()
+    public static function integerValue(): self
     {
         return new self;
     }

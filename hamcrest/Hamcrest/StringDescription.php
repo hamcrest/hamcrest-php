@@ -11,8 +11,11 @@ namespace Hamcrest;
 class StringDescription extends BaseDescription
 {
 
-    private $_out;
+    private string $_out;
 
+    /**
+     * @param mixed $out
+     */
     public function __construct($out = '')
     {
         $this->_out = (string) $out;
@@ -33,7 +36,7 @@ class StringDescription extends BaseDescription
      * @return string
      *   The description of the object.
      */
-    public static function toString(SelfDescribing $selfDescribing)
+    public static function toString(SelfDescribing $selfDescribing): string
     {
         $self = new self();
 
@@ -43,14 +46,14 @@ class StringDescription extends BaseDescription
     /**
      * Alias for {@link toString()}.
      */
-    public static function asString(SelfDescribing $selfDescribing)
+    public static function asString(SelfDescribing $selfDescribing): string
     {
         return self::toString($selfDescribing);
     }
 
     // -- Protected Methods
 
-    protected function append($str)
+    protected function append($str): void
     {
         $this->_out .= $str;
     }

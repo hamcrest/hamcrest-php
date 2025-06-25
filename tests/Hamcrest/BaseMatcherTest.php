@@ -5,12 +5,12 @@ namespace Hamcrest;
 class BaseMatcherTest extends \Hamcrest\BaseMatcher
 {
 
-    public function matches($item)
+    public function matches($item): bool
     {
         throw new \RuntimeException();
     }
 
-    public function describeTo(\Hamcrest\Description $description)
+    public function describeTo(\Hamcrest\Description $description): void
     {
         $description->appendText('SOME DESCRIPTION');
     }

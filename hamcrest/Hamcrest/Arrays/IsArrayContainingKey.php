@@ -15,7 +15,7 @@ use Hamcrest\Util;
 class IsArrayContainingKey extends TypeSafeMatcher
 {
 
-    private $_keyMatcher;
+    private Matcher $_keyMatcher;
 
     public function __construct(Matcher $keyMatcher)
     {
@@ -24,7 +24,7 @@ class IsArrayContainingKey extends TypeSafeMatcher
         $this->_keyMatcher = $keyMatcher;
     }
 
-    protected function matchesSafely($array)
+    protected function matchesSafely($array): bool
     {
         foreach ($array as $key => $element) {
             if ($this->_keyMatcher->matches($key)) {
@@ -35,7 +35,7 @@ class IsArrayContainingKey extends TypeSafeMatcher
         return false;
     }
 
-    protected function describeMismatchSafely($array, Description $mismatchDescription)
+    protected function describeMismatchSafely($array, Description $mismatchDescription): void
     {
         //Not using appendValueList() so that keys can be shown
         $mismatchDescription->appendText('array was ')
@@ -52,7 +52,7 @@ class IsArrayContainingKey extends TypeSafeMatcher
         $mismatchDescription->appendText(']');
     }
 
-    public function describeTo(Description $description)
+    public function describeTo(Description $description): void
     {
         $description
                  ->appendText('array with key ')
@@ -68,7 +68,7 @@ class IsArrayContainingKey extends TypeSafeMatcher
      * @return \Hamcrest\Arrays\IsArrayContainingKey
      * @factory hasKey
      */
-    public static function hasKeyInArray($key)
+    public static function hasKeyInArray($key): self
     {
         return new self(Util::wrapValueWithIsEqual($key));
     }

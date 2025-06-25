@@ -7,6 +7,7 @@ namespace Hamcrest\Core;
 
 use Hamcrest\BaseMatcher;
 use Hamcrest\Description;
+use Hamcrest\Matcher;
 use Hamcrest\Util;
 
 abstract class ShortcutCombination extends BaseMatcher
@@ -17,6 +18,9 @@ abstract class ShortcutCombination extends BaseMatcher
      */
     private $_matchers;
 
+    /**
+     * @param array<\Hamcrest\Matcher> $matchers
+     */
     public function __construct(array $matchers)
     {
         Util::checkAllAreMatchers($matchers);
@@ -24,9 +28,11 @@ abstract class ShortcutCombination extends BaseMatcher
         $this->_matchers = $matchers;
     }
 
-    protected function matchesWithShortcut($item, $shortcut)
+    /**
+     * @param mixed $item
+     */
+    protected function matchesWithShortcut($item, bool $shortcut): bool
     {
-        /** @var $matcher \Hamcrest\Matcher */
         foreach ($this->_matchers as $matcher) {
             if ($matcher->matches($item) == $shortcut) {
                 return $shortcut;
@@ -36,7 +42,7 @@ abstract class ShortcutCombination extends BaseMatcher
         return !$shortcut;
     }
 
-    public function describeToWithOperator(Description $description, $operator)
+    public function describeToWithOperator(Description $description, string $operator): void
     {
         $description->appendList('(', ' ' . $operator . ' ', ')', $this->_matchers);
     }

@@ -14,9 +14,19 @@ use Hamcrest\TypeSafeMatcher;
 class IsCloseTo extends TypeSafeMatcher
 {
 
+    /**
+     * @var mixed
+     */
     private $_value;
+    /**
+     * @var mixed
+     */
     private $_delta;
 
+    /**
+     * @param mixed $value
+     * @param mixed $delta
+     */
     public function __construct($value, $delta)
     {
         parent::__construct(self::TYPE_NUMERIC);
@@ -25,12 +35,12 @@ class IsCloseTo extends TypeSafeMatcher
         $this->_delta = $delta;
     }
 
-    protected function matchesSafely($item)
+    protected function matchesSafely($item): bool
     {
         return $this->_actualDelta($item) <= 0.0;
     }
 
-    protected function describeMismatchSafely($item, Description $mismatchDescription)
+    protected function describeMismatchSafely($item, Description $mismatchDescription): void
     {
         $mismatchDescription->appendValue($item)
                                                 ->appendText(' differed by ')
@@ -38,7 +48,7 @@ class IsCloseTo extends TypeSafeMatcher
                                                 ;
     }
 
-    public function describeTo(Description $description)
+    public function describeTo(Description $description): void
     {
         $description->appendText('a numeric value within ')
                                 ->appendValue($this->_delta)
@@ -52,14 +62,20 @@ class IsCloseTo extends TypeSafeMatcher
      * acceptable error $delta.
      *
      * @factory
+     * @param mixed $value
+     * @param mixed $delta
      */
-    public static function closeTo($value, $delta)
+    public static function closeTo($value, $delta): self
     {
         return new self($value, $delta);
     }
 
     // -- Private Methods
 
+    /**
+     * @param mixed $item
+     * @return int|float
+     */
     private function _actualDelta($item)
     {
         return (abs(($item - $this->_value)) - $this->_delta);

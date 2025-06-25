@@ -33,7 +33,7 @@ interface Matcher extends SelfDescribing
      *
      * @see Hamcrest\BaseMatcher
      */
-    public function matches($item);
+    public function matches($item): bool;
 
         /**
          * Generate a description of why the matcher has not accepted the item.
@@ -44,7 +44,7 @@ interface Matcher extends SelfDescribing
          *
          * @param mixed $item The item that the Matcher has rejected.
          * @param Description $description
-         * @return
+         * @return void
          */
-    public function describeMismatch($item, Description $description);
+    public function describeMismatch($item, Description $description): void;
 }

@@ -13,7 +13,7 @@ use Hamcrest\DiagnosingMatcher;
 class IsInstanceOf extends DiagnosingMatcher
 {
 
-    private $_theClass;
+    private string $_theClass;
 
     /**
      * Creates a new instance of IsInstanceOf
@@ -22,12 +22,12 @@ class IsInstanceOf extends DiagnosingMatcher
      *   The predicate evaluates to true for instances of this class
      *   or one of its subclasses.
      */
-    public function __construct($theClass)
+    public function __construct(string $theClass)
     {
         $this->_theClass = $theClass;
     }
 
-    protected function matchesWithDiagnosticDescription($item, Description $mismatchDescription)
+    protected function matchesWithDiagnosticDescription($item, Description $mismatchDescription): bool
     {
         if (!is_object($item)) {
             $mismatchDescription->appendText('was ')->appendValue($item);
@@ -45,7 +45,7 @@ class IsInstanceOf extends DiagnosingMatcher
         return true;
     }
 
-    public function describeTo(Description $description)
+    public function describeTo(Description $description): void
     {
         $description->appendText('an instance of ')
                                 ->appendText($this->_theClass)
@@ -60,7 +60,7 @@ class IsInstanceOf extends DiagnosingMatcher
      *
      * @factory any
      */
-    public static function anInstanceOf($theClass)
+    public static function anInstanceOf(string $theClass): self
     {
         return new self($theClass);
     }
