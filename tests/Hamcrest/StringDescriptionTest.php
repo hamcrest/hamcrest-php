@@ -162,4 +162,10 @@ class StringDescriptionTest extends TestCase
         $this->_description->appendList('@start@', '@sep@ ', '@end@', $items->getIterator());
         $this->assertEquals('@start@foo@sep@ bar@end@', (string) $this->_description);
     }
+
+    public function testToStringAppendsSelfDescribing()
+    {
+        $description = $this->_description->toString(new \Hamcrest\SampleSelfDescriber('foo'));
+        $this->assertEquals('foo', $description);
+    }
 }
