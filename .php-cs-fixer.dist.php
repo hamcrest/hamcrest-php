@@ -4,6 +4,8 @@ $finder = PhpCsFixer\Finder::create()
     ->in(__DIR__.'/hamcrest')
     ->in(__DIR__.'/generator')
     ->in(__DIR__.'/tests')
+    ->notPath('Matchers.php')
+    ->notPath('Hamcrest.php')
     ->name('*.php')
 ;
 
