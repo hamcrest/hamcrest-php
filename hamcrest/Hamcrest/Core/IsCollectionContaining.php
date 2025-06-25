@@ -43,9 +43,9 @@ class IsCollectionContaining extends TypeSafeMatcher
     public function describeTo(Description $description)
     {
         $description
-                ->appendText('a collection containing ')
-                ->appendDescriptionOf($this->_elementMatcher)
-                ;
+            ->appendText('a collection containing ')
+            ->appendDescriptionOf($this->_elementMatcher)
+        ;
     }
 
     /**

@@ -43,8 +43,8 @@ class IsArrayContaining extends TypeSafeMatcher
     public function describeTo(Description $description)
     {
         $description
-                 ->appendText('an array containing ')
-                 ->appendDescriptionOf($this->_elementMatcher)
+            ->appendText('an array containing ')
+            ->appendDescriptionOf($this->_elementMatcher)
         ;
     }
 

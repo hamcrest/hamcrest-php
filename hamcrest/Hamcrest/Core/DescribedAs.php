@@ -18,7 +18,7 @@ class DescribedAs extends BaseMatcher
     private $_matcher;
     private $_values;
 
-    const ARG_PATTERN = '/%([0-9]+)/';
+    public const ARG_PATTERN = '/%([0-9]+)/';
 
     public function __construct($descriptionTemplate, Matcher $matcher, array $values)
     {

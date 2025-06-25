@@ -34,8 +34,8 @@ class GlobalFunctionFile extends FactoryFile
     public function generateFactoryCall(FactoryCall $call)
     {
         $code = "if (!function_exists('{$call->getName()}')) {\n";
-        $code.= parent::generateFactoryCall($call);
-        $code.= "}\n";
+        $code .= parent::generateFactoryCall($call);
+        $code .= "}\n";
 
         return $code;
     }

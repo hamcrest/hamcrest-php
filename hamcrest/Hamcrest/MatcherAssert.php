@@ -107,8 +107,9 @@ class MatcherAssert
                 $description->appendText($identifier . PHP_EOL);
             }
             $description->appendText('Expected: ')
-                                    ->appendDescriptionOf($matcher)
-                                    ->appendText(PHP_EOL . '     but: ');
+                ->appendDescriptionOf($matcher)
+                ->appendText(PHP_EOL . '     but: ')
+            ;
 
             $matcher->describeMismatch($actual, $description);
 

@@ -5,7 +5,6 @@
  */
 
 // This file is generated from the static method @factory doctags.
-
 namespace Hamcrest;
 
 /**

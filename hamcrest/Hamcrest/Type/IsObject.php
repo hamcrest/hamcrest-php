@@ -27,6 +27,6 @@ class IsObject extends IsTypeOf
      */
     public static function objectValue()
     {
-        return new self;
+        return new self();
     }
 }

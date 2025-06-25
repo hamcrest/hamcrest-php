@@ -27,6 +27,6 @@ class IsInteger extends IsTypeOf
      */
     public static function integerValue()
     {
-        return new self;
+        return new self();
     }
 }

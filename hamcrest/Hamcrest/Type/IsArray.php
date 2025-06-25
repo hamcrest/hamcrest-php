@@ -27,6 +27,6 @@ class IsArray extends IsTypeOf
      */
     public static function arrayValue()
     {
-        return new self;
+        return new self();
     }
 }

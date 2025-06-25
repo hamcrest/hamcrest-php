@@ -130,7 +130,7 @@ class StringDescriptionTest extends TestCase
         $this->_description
             ->appendDescriptionOf(new \Hamcrest\SampleSelfDescriber('foo'))
             ->appendDescriptionOf(new \Hamcrest\SampleSelfDescriber('bar'))
-            ;
+        ;
         $this->assertEquals('foobar', (string) $this->_description);
     }
 

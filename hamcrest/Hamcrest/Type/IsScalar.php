@@ -29,6 +29,6 @@ class IsScalar extends IsTypeOf
      */
     public static function scalarValue()
     {
-        return new self;
+        return new self();
     }
 }

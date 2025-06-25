@@ -11,7 +11,7 @@ class IsObjectTest extends \Hamcrest\AbstractMatcherTest
 
     public function testEvaluatesToTrueIfArgumentMatchesType()
     {
-        assertThat(new \stdClass, objectValue());
+        assertThat(new \stdClass(), objectValue());
     }
 
     public function testEvaluatesToFalseIfArgumentDoesntMatchType()

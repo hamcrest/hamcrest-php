@@ -11,7 +11,7 @@ abstract class FactoryFile
      *
      * @var string
      */
-    const INDENT = '    ';
+    public const INDENT = '    ';
 
     private $indent;
 

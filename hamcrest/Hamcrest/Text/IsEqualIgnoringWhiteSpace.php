@@ -37,9 +37,9 @@ class IsEqualIgnoringWhiteSpace extends TypeSafeMatcher
     public function describeTo(Description $description)
     {
         $description->appendText('equalToIgnoringWhiteSpace(')
-                                ->appendValue($this->_string)
-                                ->appendText(')')
-                                ;
+            ->appendValue($this->_string)
+            ->appendText(')')
+        ;
     }
 
     /**

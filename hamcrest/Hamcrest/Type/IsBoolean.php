@@ -27,6 +27,6 @@ class IsBoolean extends IsTypeOf
      */
     public static function booleanValue()
     {
-        return new self;
+        return new self();
     }
 }
