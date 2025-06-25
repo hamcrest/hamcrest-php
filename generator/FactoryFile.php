@@ -65,7 +65,7 @@ abstract class FactoryFile
         $code = $this->indent . $this->getDeclarationModifiers()
             . 'function ' . $name . '('
             . $this->generateDeclarationArguments($method)
-            . ')' . "\n" . $this->indent . '{' . "\n";
+            . '): ' . $this->generateReturnType($method) . "\n" . $this->indent . '{' . "\n";
         return $code;
     }
 
@@ -81,6 +81,11 @@ abstract class FactoryFile
         } else {
             return $method->getParameterDeclarations();
         }
+    }
+
+    public function generateReturnType(FactoryMethod $method): string
+    {
+        return '\Hamcrest\Matcher';
     }
 
     public function generateImport(FactoryMethod $method)

@@ -61,10 +61,14 @@ class DescribedAs extends BaseMatcher
      * Wraps an existing matcher and overrides the description when it fails.
      *
      * @factory ...
-     * @param mixed ...$values
      */
-    public static function describedAs(string $descriptionTemplate, \Hamcrest\Matcher $matcher, ...$values): self
+    public static function describedAs(/* $description, Hamcrest\Matcher $matcher, $values... */): self
     {
-        return new self($descriptionTemplate, $matcher, $values);
+        $args = func_get_args();
+        $description = array_shift($args);
+        $matcher = array_shift($args);
+        $values = $args;
+
+        return new self($description, $matcher, $values);
     }
 }
