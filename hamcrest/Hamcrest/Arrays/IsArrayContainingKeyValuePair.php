@@ -15,14 +15,8 @@ use Hamcrest\Util;
 
 class IsArrayContainingKeyValuePair extends TypeSafeMatcher
 {
-    /**
-     * @var mixed $_keyMatcher
-     */
-    private $_keyMatcher;
-    /**
-     * @var mixed $_valueMatcher
-     */
-    private $_valueMatcher;
+    private Matcher $_keyMatcher;
+    private Matcher $_valueMatcher;
 
     public function __construct(Matcher $keyMatcher, Matcher $valueMatcher)
     {
