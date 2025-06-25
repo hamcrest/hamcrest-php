@@ -31,7 +31,7 @@ interface Description
      *
      * @return static
      */
-    public function appendDescriptionOf(SelfDescribing $value): self;
+    public function appendDescriptionOf(SelfDescribing $value);
 
     /**
      * Appends an arbitrary value to the description.
