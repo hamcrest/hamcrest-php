@@ -4,7 +4,6 @@ namespace Hamcrest\Core;
 /*
  Copyright (c) 2009 hamcrest.org
  */
-
 use Hamcrest\BaseMatcher;
 use Hamcrest\Description;
 use Hamcrest\Matcher;
@@ -14,12 +13,12 @@ abstract class ShortcutCombination extends BaseMatcher
 {
 
     /**
-     * @var array<\Hamcrest\Matcher>
+     * @var array<Matcher>
      */
     private $_matchers;
 
     /**
-     * @param array<\Hamcrest\Matcher> $matchers
+     * @param array<Matcher> $matchers
      */
     public function __construct(array $matchers)
     {

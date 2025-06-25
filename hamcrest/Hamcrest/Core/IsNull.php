@@ -4,10 +4,8 @@ namespace Hamcrest\Core;
 /*
  Copyright (c) 2009 hamcrest.org
  */
-
 use Hamcrest\BaseMatcher;
 use Hamcrest\Description;
-use Hamcrest\Matcher;
 
 /**
  * Is the value null?
