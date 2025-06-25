@@ -24,7 +24,6 @@ class StringEndsWith extends SubstringMatcher
      *
      * @factory
      * @param mixed $substring
-     * @return StringEndsWith
      */
     public static function endsWith($substring): self
     {

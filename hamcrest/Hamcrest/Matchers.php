@@ -8,15 +8,6 @@
 
 namespace Hamcrest;
 
-use Hamcrest\Arrays\IsArray;
-use Hamcrest\Arrays\IsArrayContainingInAnyOrder;
-use Hamcrest\Arrays\IsArrayContainingInOrder;
-use Hamcrest\Core\AllOf;
-use Hamcrest\Core\AnyOf;
-use Hamcrest\Core\DescribedAs;
-use Hamcrest\Core\IsCollectionContaining;
-use Hamcrest\Text\StringContainsInOrder;
-
 /**
  * A series of static factories for all hamcrest matchers.
  */
@@ -26,7 +17,7 @@ class Matchers
     /**
      * Evaluates to true only if each $matcher[$i] is satisfied by $array[$i].
      */
-    public static function anArray(/* args... */): IsArray
+    public static function anArray(/* args... */): \Hamcrest\Matcher
     {
         $args = func_get_args();
         return call_user_func_array(array('\Hamcrest\Arrays\IsArray', 'anArray'), $args);
@@ -39,7 +30,7 @@ class Matchers
      *
      * @return \Hamcrest\Arrays\IsArrayContaining
      */
-    public static function hasItemInArray($item): \Hamcrest\Arrays\IsArrayContaining
+    public static function hasItemInArray($item): \Hamcrest\Matcher
     {
         return \Hamcrest\Arrays\IsArrayContaining::hasItemInArray($item);
     }
@@ -51,7 +42,7 @@ class Matchers
      *
      * @return \Hamcrest\Arrays\IsArrayContaining
      */
-    public static function hasValue($item): \Hamcrest\Arrays\IsArrayContaining
+    public static function hasValue($item): \Hamcrest\Matcher
     {
         return \Hamcrest\Arrays\IsArrayContaining::hasItemInArray($item);
     }
@@ -59,7 +50,7 @@ class Matchers
     /**
      * An array with elements that match the given matchers.
      */
-    public static function arrayContainingInAnyOrder(/* args... */): IsArrayContainingInAnyOrder
+    public static function arrayContainingInAnyOrder(/* args... */): \Hamcrest\Matcher
     {
         $args = func_get_args();
         return call_user_func_array(array('\Hamcrest\Arrays\IsArrayContainingInAnyOrder', 'arrayContainingInAnyOrder'), $args);
@@ -68,7 +59,7 @@ class Matchers
     /**
      * An array with elements that match the given matchers.
      */
-    public static function containsInAnyOrder(/* args... */): IsArrayContainingInAnyOrder
+    public static function containsInAnyOrder(/* args... */): \Hamcrest\Matcher
     {
         $args = func_get_args();
         return call_user_func_array(array('\Hamcrest\Arrays\IsArrayContainingInAnyOrder', 'arrayContainingInAnyOrder'), $args);
@@ -77,7 +68,7 @@ class Matchers
     /**
      * An array with elements that match the given matchers in the same order.
      */
-    public static function arrayContaining(/* args... */): IsArrayContainingInOrder
+    public static function arrayContaining(/* args... */): \Hamcrest\Matcher
     {
         $args = func_get_args();
         return call_user_func_array(array('\Hamcrest\Arrays\IsArrayContainingInOrder', 'arrayContaining'), $args);
@@ -86,7 +77,7 @@ class Matchers
     /**
      * An array with elements that match the given matchers in the same order.
      */
-    public static function contains(/* args... */): IsArrayContainingInOrder
+    public static function contains(/* args... */): \Hamcrest\Matcher
     {
         $args = func_get_args();
         return call_user_func_array(array('\Hamcrest\Arrays\IsArrayContainingInOrder', 'arrayContaining'), $args);
@@ -99,7 +90,7 @@ class Matchers
      *
      * @return \Hamcrest\Arrays\IsArrayContainingKey
      */
-    public static function hasKeyInArray($key): \Hamcrest\Arrays\IsArrayContainingKey
+    public static function hasKeyInArray($key): \Hamcrest\Matcher
     {
         return \Hamcrest\Arrays\IsArrayContainingKey::hasKeyInArray($key);
     }
@@ -111,27 +102,29 @@ class Matchers
      *
      * @return \Hamcrest\Arrays\IsArrayContainingKey
      */
-    public static function hasKey($key): \Hamcrest\Arrays\IsArrayContainingKey
+    public static function hasKey($key): \Hamcrest\Matcher
     {
         return \Hamcrest\Arrays\IsArrayContainingKey::hasKeyInArray($key);
     }
 
     /**
      * Test if an array has both an key and value in parity with each other.
+     *
      * @param mixed $key
      * @param mixed $value
      */
-    public static function hasKeyValuePair($key, $value): \Hamcrest\Arrays\IsArrayContainingKeyValuePair
+    public static function hasKeyValuePair($key, $value): \Hamcrest\Matcher
     {
         return \Hamcrest\Arrays\IsArrayContainingKeyValuePair::hasKeyValuePair($key, $value);
     }
 
     /**
      * Test if an array has both an key and value in parity with each other.
+     *
      * @param mixed $key
      * @param mixed $value
      */
-    public static function hasEntry($key, $value): \Hamcrest\Arrays\IsArrayContainingKeyValuePair
+    public static function hasEntry($key, $value): \Hamcrest\Matcher
     {
         return \Hamcrest\Arrays\IsArrayContainingKeyValuePair::hasKeyValuePair($key, $value);
     }
@@ -143,7 +136,7 @@ class Matchers
      *
      * @return \Hamcrest\Arrays\IsArrayWithSize
      */
-    public static function arrayWithSize($size): \Hamcrest\Arrays\IsArrayWithSize
+    public static function arrayWithSize($size): \Hamcrest\Matcher
     {
         return \Hamcrest\Arrays\IsArrayWithSize::arrayWithSize($size);
     }
@@ -151,7 +144,7 @@ class Matchers
     /**
      * Matches an empty array.
      */
-    public static function emptyArray(): \Hamcrest\Core\DescribedAs
+    public static function emptyArray(): \Hamcrest\Matcher
     {
         return \Hamcrest\Arrays\IsArrayWithSize::emptyArray();
     }
@@ -159,7 +152,7 @@ class Matchers
     /**
      * Matches an empty array.
      */
-    public static function nonEmptyArray(): \Hamcrest\Core\DescribedAs
+    public static function nonEmptyArray(): \Hamcrest\Matcher
     {
         return \Hamcrest\Arrays\IsArrayWithSize::nonEmptyArray();
     }
@@ -167,7 +160,7 @@ class Matchers
     /**
      * Returns true if traversable is empty.
      */
-    public static function emptyTraversable(): \Hamcrest\Collection\IsEmptyTraversable
+    public static function emptyTraversable(): \Hamcrest\Matcher
     {
         return \Hamcrest\Collection\IsEmptyTraversable::emptyTraversable();
     }
@@ -175,16 +168,17 @@ class Matchers
     /**
      * Returns true if traversable is not empty.
      */
-    public static function nonEmptyTraversable(): \Hamcrest\Collection\IsEmptyTraversable
+    public static function nonEmptyTraversable(): \Hamcrest\Matcher
     {
         return \Hamcrest\Collection\IsEmptyTraversable::nonEmptyTraversable();
     }
 
     /**
      * Does traversable size satisfy a given matcher?
+     *
      * @param mixed $size
      */
-    public static function traversableWithSize($size): \Hamcrest\Collection\IsTraversableWithSize
+    public static function traversableWithSize($size): \Hamcrest\Matcher
     {
         return \Hamcrest\Collection\IsTraversableWithSize::traversableWithSize($size);
     }
@@ -192,7 +186,7 @@ class Matchers
     /**
      * Evaluates to true only if ALL of the passed in matchers evaluate to true.
      */
-    public static function allOf(/* args... */): AllOf
+    public static function allOf(/* args... */): \Hamcrest\Matcher
     {
         $args = func_get_args();
         return call_user_func_array(array('\Hamcrest\Core\AllOf', 'allOf'), $args);
@@ -201,7 +195,7 @@ class Matchers
     /**
      * Evaluates to true if ANY of the passed in matchers evaluate to true.
      */
-    public static function anyOf(/* args... */): AnyOf
+    public static function anyOf(/* args... */): \Hamcrest\Matcher
     {
         $args = func_get_args();
         return call_user_func_array(array('\Hamcrest\Core\AnyOf', 'anyOf'), $args);
@@ -210,7 +204,7 @@ class Matchers
     /**
      * Evaluates to false if ANY of the passed in matchers evaluate to true.
      */
-    public static function noneOf(/* args... */): AnyOf
+    public static function noneOf(/* args... */): \Hamcrest\Matcher
     {
         $args = func_get_args();
         return call_user_func_array(array('\Hamcrest\Core\AnyOf', 'noneOf'), $args);
@@ -223,7 +217,7 @@ class Matchers
      *   assertThat($string, both(containsString("a"))->andAlso(containsString("b")));
      * </pre>
      */
-    public static function both(\Hamcrest\Matcher $matcher): \Hamcrest\Core\CombinableMatcher
+    public static function both(\Hamcrest\Matcher $matcher): \Hamcrest\Matcher
     {
         return \Hamcrest\Core\CombinableMatcher::both($matcher);
     }
@@ -235,7 +229,7 @@ class Matchers
      *   assertThat($string, either(containsString("a"))->orElse(containsString("b")));
      * </pre>
      */
-    public static function either(\Hamcrest\Matcher $matcher): \Hamcrest\Core\CombinableMatcher
+    public static function either(\Hamcrest\Matcher $matcher): \Hamcrest\Matcher
     {
         return \Hamcrest\Core\CombinableMatcher::either($matcher);
     }
@@ -243,29 +237,30 @@ class Matchers
     /**
      * Wraps an existing matcher and overrides the description when it fails.
      */
-    public static function describedAs(/* args... */): DescribedAs
+    public static function describedAs(/* args... */): \Hamcrest\Matcher
     {
         $args = func_get_args();
         return call_user_func_array(array('\Hamcrest\Core\DescribedAs', 'describedAs'), $args);
     }
 
     /**
-     * @param Matcher $itemMatcher
+     * @param \Hamcrest\Matcher $itemMatcher
      *   A matcher to apply to every element in an array.
      *
      * @return \Hamcrest\Core\Every
      *   Evaluates to TRUE for a collection in which every item matches $itemMatcher
      */
-    public static function everyItem(\Hamcrest\Matcher $itemMatcher): \Hamcrest\Core\Every
+    public static function everyItem(\Hamcrest\Matcher $itemMatcher): \Hamcrest\Matcher
     {
         return \Hamcrest\Core\Every::everyItem($itemMatcher);
     }
 
     /**
      * Does array size satisfy a given matcher?
+     *
      * @param mixed $matcher
      */
-    public static function hasToString($matcher): \Hamcrest\Core\HasToString
+    public static function hasToString($matcher): \Hamcrest\Matcher
     {
         return \Hamcrest\Core\HasToString::hasToString($matcher);
     }
@@ -276,9 +271,10 @@ class Matchers
      *
      * For example:  assertThat($cheese, equalTo($smelly))
      *          vs.  assertThat($cheese, is(equalTo($smelly)))
+     *
      * @param mixed $value
      */
-    public static function is($value): \Hamcrest\Core\Is
+    public static function is($value): \Hamcrest\Matcher
     {
         return \Hamcrest\Core\Is::is($value);
     }
@@ -290,7 +286,7 @@ class Matchers
      *
      * @return \Hamcrest\Core\IsAnything
      */
-    public static function anything(string $description = 'ANYTHING'): \Hamcrest\Core\IsAnything
+    public static function anything(string $description = 'ANYTHING'): \Hamcrest\Matcher
     {
         return \Hamcrest\Core\IsAnything::anything($description);
     }
@@ -305,7 +301,7 @@ class Matchers
      * assertThat(array('a', 'b'), hasItem('b'));
      * </pre>
      */
-    public static function hasItem(/* args... */): IsCollectionContaining
+    public static function hasItem(/* args... */): \Hamcrest\Matcher
     {
         $args = func_get_args();
         return call_user_func_array(array('\Hamcrest\Core\IsCollectionContaining', 'hasItem'), $args);
@@ -320,7 +316,7 @@ class Matchers
      * assertThat(array('a', 'b', 'c'), hasItems(equalTo('a'), equalTo('b')));
      * </pre>
      */
-    public static function hasItems(/* args... */): IsCollectionContaining
+    public static function hasItems(/* args... */): \Hamcrest\Matcher
     {
         $args = func_get_args();
         return call_user_func_array(array('\Hamcrest\Core\IsCollectionContaining', 'hasItems'), $args);
@@ -329,18 +325,20 @@ class Matchers
     /**
      * Is the value equal to another value, as tested by the use of the "=="
      * comparison operator?
+     *
      * @param mixed $item
      */
-    public static function equalTo($item): \Hamcrest\Core\IsEqual
+    public static function equalTo($item): \Hamcrest\Matcher
     {
         return \Hamcrest\Core\IsEqual::equalTo($item);
     }
 
     /**
      * Tests of the value is identical to $value as tested by the "===" operator.
+     *
      * @param mixed $value
      */
-    public static function identicalTo($value): \Hamcrest\Core\IsIdentical
+    public static function identicalTo($value): \Hamcrest\Matcher
     {
         return \Hamcrest\Core\IsIdentical::identicalTo($value);
     }
@@ -351,7 +349,7 @@ class Matchers
      * the signature of the method that sets it up, for example in
      * <code>assertThat($anObject, anInstanceOf('Thing'));</code>
      */
-    public static function anInstanceOf(string $theClass): \Hamcrest\Core\IsInstanceOf
+    public static function anInstanceOf(string $theClass): \Hamcrest\Matcher
     {
         return \Hamcrest\Core\IsInstanceOf::anInstanceOf($theClass);
     }
@@ -362,16 +360,17 @@ class Matchers
      * the signature of the method that sets it up, for example in
      * <code>assertThat($anObject, anInstanceOf('Thing'));</code>
      */
-    public static function any(string $theClass): \Hamcrest\Core\IsInstanceOf
+    public static function any(string $theClass): \Hamcrest\Matcher
     {
         return \Hamcrest\Core\IsInstanceOf::anInstanceOf($theClass);
     }
 
     /**
      * Matches if value does not match $value.
+     *
      * @param mixed $value
      */
-    public static function not($value): \Hamcrest\Core\IsNot
+    public static function not($value): \Hamcrest\Matcher
     {
         return \Hamcrest\Core\IsNot::not($value);
     }
@@ -379,7 +378,7 @@ class Matchers
     /**
      * Matches if value is null.
      */
-    public static function nullValue(): \Hamcrest\Core\IsNull
+    public static function nullValue(): \Hamcrest\Matcher
     {
         return \Hamcrest\Core\IsNull::nullValue();
     }
@@ -387,7 +386,7 @@ class Matchers
     /**
      * Matches if value is not null.
      */
-    public static function notNullValue(): Matcher
+    public static function notNullValue(): \Hamcrest\Matcher
     {
         return \Hamcrest\Core\IsNull::notNullValue();
     }
@@ -401,33 +400,37 @@ class Matchers
      *
      * @return \Hamcrest\Core\IsSame
      */
-    public static function sameInstance($object): \Hamcrest\Core\IsSame
+    public static function sameInstance($object): \Hamcrest\Matcher
     {
         return \Hamcrest\Core\IsSame::sameInstance($object);
     }
 
     /**
      * Is the value a particular built-in type?
+     *
+     * @param string $theType
      */
-    public static function typeOf(string $theType): \Hamcrest\Core\IsTypeOf
+    public static function typeOf(string $theType): \Hamcrest\Matcher
     {
         return \Hamcrest\Core\IsTypeOf::typeOf($theType);
     }
 
     /**
      * Matches if value (class, object, or array) has named $property.
+     *
      * @param mixed $property
      */
-    public static function set($property): \Hamcrest\Core\Set
+    public static function set($property): \Hamcrest\Matcher
     {
         return \Hamcrest\Core\Set::set($property);
     }
 
     /**
      * Matches if value (class, object, or array) does not have named $property.
+     *
      * @param mixed $property
      */
-    public static function notSet($property): \Hamcrest\Core\Set
+    public static function notSet($property): \Hamcrest\Matcher
     {
         return \Hamcrest\Core\Set::notSet($property);
     }
@@ -435,73 +438,81 @@ class Matchers
     /**
      * Matches if value is a number equal to $value within some range of
      * acceptable error $delta.
+     *
      * @param mixed $value
      * @param mixed $delta
      */
-    public static function closeTo($value, $delta): \Hamcrest\Number\IsCloseTo
+    public static function closeTo($value, $delta): \Hamcrest\Matcher
     {
         return \Hamcrest\Number\IsCloseTo::closeTo($value, $delta);
     }
 
     /**
      * The value is not > $value, nor < $value.
+     *
      * @param mixed $value
      */
-    public static function comparesEqualTo($value): \Hamcrest\Number\OrderingComparison
+    public static function comparesEqualTo($value): \Hamcrest\Matcher
     {
         return \Hamcrest\Number\OrderingComparison::comparesEqualTo($value);
     }
 
     /**
      * The value is > $value.
+     *
      * @param mixed $value
      */
-    public static function greaterThan($value): \Hamcrest\Number\OrderingComparison
+    public static function greaterThan($value): \Hamcrest\Matcher
     {
         return \Hamcrest\Number\OrderingComparison::greaterThan($value);
     }
 
     /**
      * The value is >= $value.
+     *
      * @param mixed $value
      */
-    public static function greaterThanOrEqualTo($value): \Hamcrest\Number\OrderingComparison
+    public static function greaterThanOrEqualTo($value): \Hamcrest\Matcher
     {
         return \Hamcrest\Number\OrderingComparison::greaterThanOrEqualTo($value);
     }
 
     /**
      * The value is >= $value.
+     *
      * @param mixed $value
      */
-    public static function atLeast($value): \Hamcrest\Number\OrderingComparison
+    public static function atLeast($value): \Hamcrest\Matcher
     {
         return \Hamcrest\Number\OrderingComparison::greaterThanOrEqualTo($value);
     }
 
     /**
      * The value is < $value.
+     *
      * @param mixed $value
      */
-    public static function lessThan($value): \Hamcrest\Number\OrderingComparison
+    public static function lessThan($value): \Hamcrest\Matcher
     {
         return \Hamcrest\Number\OrderingComparison::lessThan($value);
     }
 
     /**
      * The value is <= $value.
+     *
      * @param mixed $value
      */
-    public static function lessThanOrEqualTo($value): \Hamcrest\Number\OrderingComparison
+    public static function lessThanOrEqualTo($value): \Hamcrest\Matcher
     {
         return \Hamcrest\Number\OrderingComparison::lessThanOrEqualTo($value);
     }
 
     /**
      * The value is <= $value.
+     *
      * @param mixed $value
      */
-    public static function atMost($value): \Hamcrest\Number\OrderingComparison
+    public static function atMost($value): \Hamcrest\Matcher
     {
         return \Hamcrest\Number\OrderingComparison::lessThanOrEqualTo($value);
     }
@@ -509,7 +520,7 @@ class Matchers
     /**
      * Matches if value is a zero-length string.
      */
-    public static function isEmptyString(): \Hamcrest\Text\IsEmptyString
+    public static function isEmptyString(): \Hamcrest\Matcher
     {
         return \Hamcrest\Text\IsEmptyString::isEmptyString();
     }
@@ -517,7 +528,7 @@ class Matchers
     /**
      * Matches if value is a zero-length string.
      */
-    public static function emptyString(): \Hamcrest\Text\IsEmptyString
+    public static function emptyString(): \Hamcrest\Matcher
     {
         return \Hamcrest\Text\IsEmptyString::isEmptyString();
     }
@@ -525,7 +536,7 @@ class Matchers
     /**
      * Matches if value is null or a zero-length string.
      */
-    public static function isEmptyOrNullString(): Matcher
+    public static function isEmptyOrNullString(): \Hamcrest\Matcher
     {
         return \Hamcrest\Text\IsEmptyString::isEmptyOrNullString();
     }
@@ -533,7 +544,7 @@ class Matchers
     /**
      * Matches if value is null or a zero-length string.
      */
-    public static function nullOrEmptyString(): Matcher
+    public static function nullOrEmptyString(): \Hamcrest\Matcher
     {
         return \Hamcrest\Text\IsEmptyString::isEmptyOrNullString();
     }
@@ -541,7 +552,7 @@ class Matchers
     /**
      * Matches if value is a non-zero-length string.
      */
-    public static function isNonEmptyString(): \Hamcrest\Text\IsEmptyString
+    public static function isNonEmptyString(): \Hamcrest\Matcher
     {
         return \Hamcrest\Text\IsEmptyString::isNonEmptyString();
     }
@@ -549,52 +560,57 @@ class Matchers
     /**
      * Matches if value is a non-zero-length string.
      */
-    public static function nonEmptyString(): \Hamcrest\Text\IsEmptyString
+    public static function nonEmptyString(): \Hamcrest\Matcher
     {
         return \Hamcrest\Text\IsEmptyString::isNonEmptyString();
     }
 
     /**
      * Matches if value is a string equal to $string, regardless of the case.
+     *
      * @param mixed $string
      */
-    public static function equalToIgnoringCase($string): \Hamcrest\Text\IsEqualIgnoringCase
+    public static function equalToIgnoringCase($string): \Hamcrest\Matcher
     {
         return \Hamcrest\Text\IsEqualIgnoringCase::equalToIgnoringCase($string);
     }
 
     /**
      * Matches if value is a string equal to $string, regardless of whitespace.
+     *
      * @param mixed $string
      */
-    public static function equalToIgnoringWhiteSpace($string): \Hamcrest\Text\IsEqualIgnoringWhiteSpace
+    public static function equalToIgnoringWhiteSpace($string): \Hamcrest\Matcher
     {
         return \Hamcrest\Text\IsEqualIgnoringWhiteSpace::equalToIgnoringWhiteSpace($string);
     }
 
     /**
      * Matches if value is a string that matches regular expression $pattern.
+     *
      * @param mixed $pattern
      */
-    public static function matchesPattern($pattern): \Hamcrest\Text\MatchesPattern
+    public static function matchesPattern($pattern): \Hamcrest\Matcher
     {
         return \Hamcrest\Text\MatchesPattern::matchesPattern($pattern);
     }
 
     /**
      * Matches if value is a string that contains $substring.
+     *
      * @param mixed $substring
      */
-    public static function containsString($substring): \Hamcrest\Text\StringContains
+    public static function containsString($substring): \Hamcrest\Matcher
     {
         return \Hamcrest\Text\StringContains::containsString($substring);
     }
 
     /**
      * Matches if value is a string that contains $substring regardless of the case.
+     *
      * @param mixed $substring
      */
-    public static function containsStringIgnoringCase($substring): \Hamcrest\Text\StringContainsIgnoringCase
+    public static function containsStringIgnoringCase($substring): \Hamcrest\Matcher
     {
         return \Hamcrest\Text\StringContainsIgnoringCase::containsStringIgnoringCase($substring);
     }
@@ -602,7 +618,7 @@ class Matchers
     /**
      * Matches if value contains $substrings in a constrained order.
      */
-    public static function stringContainsInOrder(/* args... */): StringContainsInOrder
+    public static function stringContainsInOrder(/* args... */): \Hamcrest\Matcher
     {
         $args = func_get_args();
         return call_user_func_array(array('\Hamcrest\Text\StringContainsInOrder', 'stringContainsInOrder'), $args);
@@ -610,18 +626,20 @@ class Matchers
 
     /**
      * Matches if value is a string that ends with $substring.
+     *
      * @param mixed $substring
      */
-    public static function endsWith($substring): \Hamcrest\Text\StringEndsWith
+    public static function endsWith($substring): \Hamcrest\Matcher
     {
         return \Hamcrest\Text\StringEndsWith::endsWith($substring);
     }
 
     /**
      * Matches if value is a string that starts with $substring.
+     *
      * @param mixed $substring
      */
-    public static function startsWith($substring): \Hamcrest\Text\StringStartsWith
+    public static function startsWith($substring): \Hamcrest\Matcher
     {
         return \Hamcrest\Text\StringStartsWith::startsWith($substring);
     }
@@ -629,7 +647,7 @@ class Matchers
     /**
      * Is the value an array?
      */
-    public static function arrayValue(): \Hamcrest\Type\IsArray
+    public static function arrayValue(): \Hamcrest\Matcher
     {
         return \Hamcrest\Type\IsArray::arrayValue();
     }
@@ -637,7 +655,7 @@ class Matchers
     /**
      * Is the value a boolean?
      */
-    public static function booleanValue(): \Hamcrest\Type\IsBoolean
+    public static function booleanValue(): \Hamcrest\Matcher
     {
         return \Hamcrest\Type\IsBoolean::booleanValue();
     }
@@ -645,7 +663,7 @@ class Matchers
     /**
      * Is the value a boolean?
      */
-    public static function boolValue(): \Hamcrest\Type\IsBoolean
+    public static function boolValue(): \Hamcrest\Matcher
     {
         return \Hamcrest\Type\IsBoolean::booleanValue();
     }
@@ -653,7 +671,7 @@ class Matchers
     /**
      * Is the value callable?
      */
-    public static function callableValue(): \Hamcrest\Type\IsCallable
+    public static function callableValue(): \Hamcrest\Matcher
     {
         return \Hamcrest\Type\IsCallable::callableValue();
     }
@@ -661,7 +679,7 @@ class Matchers
     /**
      * Is the value a float/double?
      */
-    public static function doubleValue(): \Hamcrest\Type\IsDouble
+    public static function doubleValue(): \Hamcrest\Matcher
     {
         return \Hamcrest\Type\IsDouble::doubleValue();
     }
@@ -669,7 +687,7 @@ class Matchers
     /**
      * Is the value a float/double?
      */
-    public static function floatValue(): \Hamcrest\Type\IsDouble
+    public static function floatValue(): \Hamcrest\Matcher
     {
         return \Hamcrest\Type\IsDouble::doubleValue();
     }
@@ -677,7 +695,7 @@ class Matchers
     /**
      * Is the value an integer?
      */
-    public static function integerValue(): \Hamcrest\Type\IsInteger
+    public static function integerValue(): \Hamcrest\Matcher
     {
         return \Hamcrest\Type\IsInteger::integerValue();
     }
@@ -685,7 +703,7 @@ class Matchers
     /**
      * Is the value an integer?
      */
-    public static function intValue(): \Hamcrest\Type\IsInteger
+    public static function intValue(): \Hamcrest\Matcher
     {
         return \Hamcrest\Type\IsInteger::integerValue();
     }
@@ -693,7 +711,7 @@ class Matchers
     /**
      * Is the value a numeric?
      */
-    public static function numericValue(): \Hamcrest\Type\IsNumeric
+    public static function numericValue(): \Hamcrest\Matcher
     {
         return \Hamcrest\Type\IsNumeric::numericValue();
     }
@@ -701,7 +719,7 @@ class Matchers
     /**
      * Is the value an object?
      */
-    public static function objectValue(): \Hamcrest\Type\IsObject
+    public static function objectValue(): \Hamcrest\Matcher
     {
         return \Hamcrest\Type\IsObject::objectValue();
     }
@@ -709,7 +727,7 @@ class Matchers
     /**
      * Is the value an object?
      */
-    public static function anObject(): \Hamcrest\Type\IsObject
+    public static function anObject(): \Hamcrest\Matcher
     {
         return \Hamcrest\Type\IsObject::objectValue();
     }
@@ -717,7 +735,7 @@ class Matchers
     /**
      * Is the value a resource?
      */
-    public static function resourceValue(): \Hamcrest\Type\IsResource
+    public static function resourceValue(): \Hamcrest\Matcher
     {
         return \Hamcrest\Type\IsResource::resourceValue();
     }
@@ -725,7 +743,7 @@ class Matchers
     /**
      * Is the value a scalar (boolean, integer, double, or string)?
      */
-    public static function scalarValue(): \Hamcrest\Type\IsScalar
+    public static function scalarValue(): \Hamcrest\Matcher
     {
         return \Hamcrest\Type\IsScalar::scalarValue();
     }
@@ -733,7 +751,7 @@ class Matchers
     /**
      * Is the value a string?
      */
-    public static function stringValue(): \Hamcrest\Type\IsString
+    public static function stringValue(): \Hamcrest\Matcher
     {
         return \Hamcrest\Type\IsString::stringValue();
     }
@@ -742,9 +760,11 @@ class Matchers
      * Wraps <code>$matcher</code> with {@link Hamcrest\Core\IsEqual)
      * if it's not a matcher and the XPath in <code>count()</code>
      * if it's an integer.
+     *
+     * @param string $xpath
      * @param null|Matcher|int|mixed $matcher
      */
-    public static function hasXPath(string $xpath, $matcher = null): \Hamcrest\Xml\HasXPath
+    public static function hasXPath(string $xpath, $matcher = null): \Hamcrest\Matcher
     {
         return \Hamcrest\Xml\HasXPath::hasXPath($xpath, $matcher);
     }
