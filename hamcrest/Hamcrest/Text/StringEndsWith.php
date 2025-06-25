@@ -11,6 +11,9 @@ namespace Hamcrest\Text;
 class StringEndsWith extends SubstringMatcher
 {
 
+    /**
+     * @param mixed $substring
+     */
     public function __construct($substring)
     {
         parent::__construct($substring);
@@ -20,20 +23,22 @@ class StringEndsWith extends SubstringMatcher
      * Matches if value is a string that ends with $substring.
      *
      * @factory
+     * @param mixed $substring
+     * @return StringEndsWith
      */
-    public static function endsWith($substring)
+    public static function endsWith($substring): self
     {
         return new self($substring);
     }
 
     // -- Protected Methods
 
-    protected function evalSubstringOf($string)
+    protected function evalSubstringOf(string $string): bool
     {
         return (substr($string, (-1 * strlen($this->_substring))) === $this->_substring);
     }
 
-    protected function relationship()
+    protected function relationship(): string
     {
         return 'ending with';
     }

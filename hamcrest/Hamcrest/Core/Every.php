@@ -12,7 +12,7 @@ use Hamcrest\TypeSafeDiagnosingMatcher;
 class Every extends TypeSafeDiagnosingMatcher
 {
 
-    private $_matcher;
+    private Matcher $_matcher;
 
     public function __construct(Matcher $matcher)
     {
@@ -21,7 +21,7 @@ class Every extends TypeSafeDiagnosingMatcher
         $this->_matcher = $matcher;
     }
 
-    protected function matchesSafelyWithDiagnosticDescription($items, Description $mismatchDescription)
+    protected function matchesSafelyWithDiagnosticDescription($items, Description $mismatchDescription): bool
     {
         foreach ($items as $item) {
             if (!$this->_matcher->matches($item)) {
@@ -35,7 +35,7 @@ class Every extends TypeSafeDiagnosingMatcher
         return true;
     }
 
-    public function describeTo(Description $description)
+    public function describeTo(Description $description): void
     {
         $description->appendText('every item is ')->appendDescriptionOf($this->_matcher);
     }
@@ -49,7 +49,7 @@ class Every extends TypeSafeDiagnosingMatcher
      *
      * @factory
      */
-    public static function everyItem(Matcher $itemMatcher)
+    public static function everyItem(Matcher $itemMatcher): self
     {
         return new self($itemMatcher);
     }

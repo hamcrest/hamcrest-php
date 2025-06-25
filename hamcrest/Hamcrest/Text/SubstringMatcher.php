@@ -11,8 +11,14 @@ use Hamcrest\TypeSafeMatcher;
 abstract class SubstringMatcher extends TypeSafeMatcher
 {
 
+    /**
+     * @var mixed
+     */
     protected $_substring;
 
+    /**
+     * @param mixed $substring
+     */
     public function __construct($substring)
     {
         parent::__construct(self::TYPE_STRING);
@@ -20,17 +26,17 @@ abstract class SubstringMatcher extends TypeSafeMatcher
         $this->_substring = $substring;
     }
 
-    protected function matchesSafely($item)
+    protected function matchesSafely($item): bool
     {
         return $this->evalSubstringOf($item);
     }
 
-    protected function describeMismatchSafely($item, Description $mismatchDescription)
+    protected function describeMismatchSafely($item, Description $mismatchDescription): void
     {
         $mismatchDescription->appendText('was "')->appendText($item)->appendText('"');
     }
 
-    public function describeTo(Description $description)
+    public function describeTo(Description $description): void
     {
         $description->appendText('a string ')
                                 ->appendText($this->relationship())
@@ -39,7 +45,7 @@ abstract class SubstringMatcher extends TypeSafeMatcher
                                 ;
     }
 
-    abstract protected function evalSubstringOf($string);
+    abstract protected function evalSubstringOf(string $string): bool;
 
-    abstract protected function relationship();
+    abstract protected function relationship(): string;
 }

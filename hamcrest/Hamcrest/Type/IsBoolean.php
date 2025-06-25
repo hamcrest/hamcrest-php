@@ -25,7 +25,7 @@ class IsBoolean extends IsTypeOf
      *
      * @factory boolValue
      */
-    public static function booleanValue()
+    public static function booleanValue(): self
     {
         return new self;
     }
