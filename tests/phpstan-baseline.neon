@@ -19,12 +19,6 @@ parameters:
 			path: ../hamcrest/Hamcrest/Core/HasToString.php
 
 		-
-			message: '#^Cannot cast Hamcrest\\BaseDescription to string\.$#'
-			identifier: cast.string
-			count: 1
-			path: ../hamcrest/Hamcrest/StringDescription.php
-
-		-
 			message: '#^Argument of an invalid type list\<string\>\|false supplied for foreach, only iterables are supported\.$#'
 			identifier: foreach.nonIterable
 			count: 1

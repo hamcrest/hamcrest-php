@@ -19,7 +19,7 @@ abstract class BaseDescription implements Description
         return $this;
     }
 
-    public function appendDescriptionOf(SelfDescribing $value): self
+    public function appendDescriptionOf(SelfDescribing $value)
     {
         $value->describeTo($this);
 
