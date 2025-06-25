@@ -10,7 +10,7 @@ use Hamcrest\Matcher;
 use Hamcrest\Util;
 
 /**
- * Matches if array size satisfies a nested matcher.
+ * A Matcher that checks the output of the <code>toString()</code> or <code>__toString()</code> method.
  */
 class HasToString extends FeatureMatcher
 {
@@ -45,7 +45,8 @@ class HasToString extends FeatureMatcher
     }
 
     /**
-     * Does array size satisfy a given matcher?
+     * Creates a matcher that matches any examined object whose <code>toString</code> or
+     * <code>__toString()</code> method returns a value equalTo the specified string.
      *
      * @factory
      */
