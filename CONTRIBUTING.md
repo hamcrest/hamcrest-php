@@ -12,10 +12,17 @@ Feel free to ask any questions and share your experiences in the [Issue tracking
 1. Create your feature addition or a bug fix branch based on __`master`__ branch in your repository's fork.
 2. Make necessary changes, but __don't mix__ code reformatting with code changes on topic.
 3. Add tests for those changes (please look into `tests/` folder for some examples). This is important so we don't break it in a future version unintentionally.
-4. Check your code using "Coding Standard" (see below).
+4. Fix your code style by using the "Coding Standard" (see below).
 5. Commit your code.
 6. Squash your commits by topic to preserve a clean and readable log.
 7. Create Pull Request.
+
+## Coding Standard
+
+To keep a consice coding standard in the repository, run: 
+```bash
+vendor/bin/php-cs-fixer fix
+```
 
 ## Running the Tests
 
