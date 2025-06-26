@@ -20,6 +20,9 @@ class UtilTest extends TestCase
         $this->assertTrue($matcher->matches('foo'));
     }
 
+    /**
+     * @doesNotPerformAssertions
+     */
     public function testCheckAllAreMatchersAcceptsMatchers()
     {
         \Hamcrest\Util::checkAllAreMatchers(array(
