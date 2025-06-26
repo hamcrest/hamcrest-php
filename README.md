@@ -67,19 +67,21 @@ assertThat($result === true);
 assertThat(true, is(true));
 ```
 
-:warning: To prevent tests from being marked as Risky (the `This test did not perform any assertions` message)
-add this code to your test case `tearDown` method:
+> [!NOTE]
+> To prevent tests from being marked as Risky (the `This test did not perform any assertions` message)
+> add this code to your test case `tearDown` method:
+>
+> ```php
+> $this->addToAssertionCount(\Hamcrest\MatcherAssert::getCount());
+> \Hamcrest\MatcherAssert::resetCount();
+> ```
 
-```php
-$this->addToAssertionCount(\Hamcrest\MatcherAssert::getCount());
-\Hamcrest\MatcherAssert::resetCount();
-```
-
-:warning: **NOTE:** the global proxy-functions aren't autoloaded by default, so you will need to load them first:
-
-```php
-\Hamcrest\Util::registerGlobalFunctions();
-```
+> [!WARNING]
+> the global proxy-functions aren't autoloaded by default, so you will need to load them first:
+>
+> ```php
+> \Hamcrest\Util::registerGlobalFunctions();
+> ```
 
 For brevity, all of the examples below use the proxy-functions.
 
