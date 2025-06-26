@@ -19,7 +19,7 @@ interface Description
      *
      * @param string $text
      *
-     * @return \Hamcrest\Description
+     * @return static
      */
     public function appendText($text);
 
@@ -29,7 +29,7 @@ interface Description
      *
      * @param \Hamcrest\SelfDescribing $value
      *
-     * @return \Hamcrest\Description
+     * @return static
      */
     public function appendDescriptionOf(SelfDescribing $value);
 
@@ -38,7 +38,7 @@ interface Description
      *
      * @param mixed $value
      *
-     * @return \Hamcrest\Description
+     * @return static
      */
     public function appendValue($value);
 
@@ -50,7 +50,7 @@ interface Description
      * @param string $end
      * @param array|\IteratorAggregate|\Iterator $values
      *
-     * @return \Hamcrest\Description
+     * @return static
      */
     public function appendValueList($start, $separator, $end, $values);
 
@@ -64,7 +64,7 @@ interface Description
      * @param array|\\IteratorAggregate|\\Iterator $values
      *   must be instances of {@link Hamcrest\SelfDescribing}
      *
-     * @return \Hamcrest\Description
+     * @return static
      */
     public function appendList($start, $separator, $end, $values);
 }
