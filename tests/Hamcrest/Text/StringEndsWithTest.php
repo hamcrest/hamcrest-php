@@ -4,7 +4,7 @@ namespace Hamcrest\Text;
 class StringEndsWithTest extends \Hamcrest\AbstractMatcherTest
 {
 
-    const EXCERPT = 'EXCERPT';
+    public const EXCERPT = 'EXCERPT';
 
     private $_stringEndsWith;
 

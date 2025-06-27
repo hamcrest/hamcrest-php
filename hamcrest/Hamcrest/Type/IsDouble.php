@@ -29,6 +29,6 @@ class IsDouble extends IsTypeOf
      */
     public static function doubleValue()
     {
-        return new self;
+        return new self();
     }
 }

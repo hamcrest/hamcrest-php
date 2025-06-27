@@ -32,6 +32,6 @@ class IsCallable extends IsTypeOf
      */
     public static function callableValue()
     {
-        return new self;
+        return new self();
     }
 }

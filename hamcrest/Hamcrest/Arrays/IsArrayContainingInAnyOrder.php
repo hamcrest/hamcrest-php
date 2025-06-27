@@ -41,8 +41,8 @@ class IsArrayContainingInAnyOrder extends TypeSafeDiagnosingMatcher
     public function describeTo(Description $description)
     {
         $description->appendList('[', ', ', ']', $this->_elementMatchers)
-                                ->appendText(' in any order')
-                                ;
+            ->appendText(' in any order')
+        ;
     }
 
     /**

@@ -37,7 +37,8 @@ class IsInstanceOf extends DiagnosingMatcher
 
         if (!($item instanceof $this->_theClass)) {
             $mismatchDescription->appendText('[' . get_class($item) . '] ')
-                                                    ->appendValue($item);
+                ->appendValue($item)
+            ;
 
             return false;
         }
@@ -48,8 +49,8 @@ class IsInstanceOf extends DiagnosingMatcher
     public function describeTo(Description $description)
     {
         $description->appendText('an instance of ')
-                                ->appendText($this->_theClass)
-                                ;
+            ->appendText($this->_theClass)
+        ;
     }
 
     /**

@@ -37,18 +37,18 @@ class OrderingComparison extends TypeSafeMatcher
             ->appendValue($item)->appendText(' was ')
             ->appendText($this->_comparison($this->_compare($this->_value, $item)))
             ->appendText(' ')->appendValue($this->_value)
-            ;
+        ;
     }
 
     public function describeTo(Description $description)
     {
         $description->appendText('a value ')
             ->appendText($this->_comparison($this->_minCompare))
-            ;
+        ;
         if ($this->_minCompare != $this->_maxCompare) {
             $description->appendText(' or ')
                 ->appendText($this->_comparison($this->_maxCompare))
-                ;
+            ;
         }
         $description->appendText(' ')->appendValue($this->_value);
     }

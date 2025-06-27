@@ -11,7 +11,7 @@ class FactoryCall
      *
      * @var string
      */
-    const INDENT = '    ';
+    public const INDENT = '    ';
 
     /**
      * @var FactoryMethod

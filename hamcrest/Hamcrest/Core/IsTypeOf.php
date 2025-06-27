@@ -42,10 +42,10 @@ class IsTypeOf extends BaseMatcher
             $description->appendText('was null');
         } else {
             $description->appendText('was ')
-                                    ->appendText(self::getTypeDescription(strtolower(gettype($item))))
-                                    ->appendText(' ')
-                                    ->appendValue($item)
-                                    ;
+                ->appendText(self::getTypeDescription(strtolower(gettype($item))))
+                ->appendText(' ')
+                ->appendValue($item)
+            ;
         }
     }
 

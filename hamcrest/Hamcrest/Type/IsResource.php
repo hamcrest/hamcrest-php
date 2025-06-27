@@ -27,6 +27,6 @@ class IsResource extends IsTypeOf
      */
     public static function resourceValue()
     {
-        return new self;
+        return new self();
     }
 }

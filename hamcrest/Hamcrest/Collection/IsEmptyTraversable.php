@@ -49,7 +49,7 @@ class IsEmptyTraversable extends BaseMatcher
     public static function emptyTraversable()
     {
         if (!self::$_INSTANCE) {
-            self::$_INSTANCE = new self;
+            self::$_INSTANCE = new self();
         }
 
         return self::$_INSTANCE;

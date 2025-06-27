@@ -35,9 +35,9 @@ class IsEqualIgnoringCase extends TypeSafeMatcher
     public function describeTo(Description $description)
     {
         $description->appendText('equalToIgnoringCase(')
-                                ->appendValue($this->_string)
-                                ->appendText(')')
-                                ;
+            ->appendValue($this->_string)
+            ->appendText(')')
+        ;
     }
 
     /**

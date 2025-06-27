@@ -14,13 +14,13 @@ abstract class TypeSafeMatcher extends BaseMatcher
 {
 
     /* Types that PHP can compare against */
-    const TYPE_ANY = 0;
-    const TYPE_STRING = 1;
-    const TYPE_NUMERIC = 2;
-    const TYPE_ARRAY = 3;
-    const TYPE_OBJECT = 4;
-    const TYPE_RESOURCE = 5;
-    const TYPE_BOOLEAN = 6;
+    public const TYPE_ANY = 0;
+    public const TYPE_STRING = 1;
+    public const TYPE_NUMERIC = 2;
+    public const TYPE_ARRAY = 3;
+    public const TYPE_OBJECT = 4;
+    public const TYPE_RESOURCE = 5;
+    public const TYPE_BOOLEAN = 6;
 
     /**
      * The type that is required for a safe comparison

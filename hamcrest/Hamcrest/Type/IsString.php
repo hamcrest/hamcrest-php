@@ -27,6 +27,6 @@ class IsString extends IsTypeOf
      */
     public static function stringValue()
     {
-        return new self;
+        return new self();
     }
 }

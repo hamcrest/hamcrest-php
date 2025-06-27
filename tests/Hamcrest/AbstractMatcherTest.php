@@ -3,14 +3,15 @@ namespace Hamcrest;
 
 use PHPUnit\Framework\TestCase;
 
-class UnknownType {
+class UnknownType
+{
 }
 
 abstract class AbstractMatcherTest extends TestCase
 {
 
-    const ARGUMENT_IGNORED = "ignored";
-    const ANY_NON_NULL_ARGUMENT = "notnull";
+    public const ARGUMENT_IGNORED = "ignored";
+    public const ANY_NON_NULL_ARGUMENT = "notnull";
 
     /**
      * @before

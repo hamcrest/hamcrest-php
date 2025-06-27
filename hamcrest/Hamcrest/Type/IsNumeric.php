@@ -31,7 +31,7 @@ class IsNumeric extends IsTypeOf
      * This check is necessary because PHP 7 doesn't recognize hexadecimal string as numeric anymore.
      *
      * @param mixed $item
-     * @return boolean
+     * @return bool
      */
     private function isHexadecimal($item)
     {
@@ -49,6 +49,6 @@ class IsNumeric extends IsTypeOf
      */
     public static function numericValue()
     {
-        return new self;
+        return new self();
     }
 }

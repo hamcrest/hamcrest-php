@@ -13,7 +13,7 @@ class IsArrayContainingKeyValuePairTest extends AbstractMatcherTest
 
     public function testMatchesArrayContainingMatchingKeyAndValue()
     {
-        $array = array('a'=>1, 'b'=>2);
+        $array = array('a' => 1, 'b' => 2);
 
         $this->assertMatches(hasKeyValuePair(equalTo('a'), equalTo(1)), $array, 'matcherA');
         $this->assertMatches(hasKeyValuePair(equalTo('b'), equalTo(2)), $array, 'matcherB');

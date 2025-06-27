@@ -27,8 +27,7 @@ class Util
     {
         return ($item instanceof Matcher)
             ? $item
-            : Core\IsEqual::equalTo($item)
-            ;
+            : Core\IsEqual::equalTo($item);
     }
 
     /**
