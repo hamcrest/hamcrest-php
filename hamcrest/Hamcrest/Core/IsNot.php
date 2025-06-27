@@ -15,19 +15,19 @@ use Hamcrest\Util;
 class IsNot extends BaseMatcher
 {
 
-    private $_matcher;
+    private Matcher $_matcher;
 
     public function __construct(Matcher $matcher)
     {
         $this->_matcher = $matcher;
     }
 
-    public function matches($arg)
+    public function matches($arg): bool
     {
         return !$this->_matcher->matches($arg);
     }
 
-    public function describeTo(Description $description)
+    public function describeTo(Description $description): void
     {
         $description->appendText('not ')->appendDescriptionOf($this->_matcher);
     }
@@ -36,8 +36,9 @@ class IsNot extends BaseMatcher
      * Matches if value does not match $value.
      *
      * @factory
+     * @param mixed $value
      */
-    public static function not($value)
+    public static function not($value): self
     {
         return new self(Util::wrapValueWithIsEqual($value));
     }

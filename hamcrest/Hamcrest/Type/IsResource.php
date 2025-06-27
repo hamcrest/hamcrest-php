@@ -25,7 +25,7 @@ class IsResource extends IsTypeOf
      *
      * @factory
      */
-    public static function resourceValue()
+    public static function resourceValue(): self
     {
         return new self;
     }

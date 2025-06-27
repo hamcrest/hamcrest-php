@@ -10,6 +10,7 @@ namespace Hamcrest\Arrays;
 
 // TODO: Allow this to take matchers or values within the array
 use Hamcrest\Description;
+use Hamcrest\Matcher;
 use Hamcrest\TypeSafeMatcher;
 use Hamcrest\Util;
 
@@ -20,8 +21,14 @@ use Hamcrest\Util;
 class IsArray extends TypeSafeMatcher
 {
 
-    private $_elementMatchers;
+    /**
+     * @var array<Matcher>
+     */
+    private array $_elementMatchers;
 
+    /**
+     * @param array<Matcher> $elementMatchers
+     */
     public function __construct(array $elementMatchers)
     {
         parent::__construct(self::TYPE_ARRAY);
@@ -31,13 +38,12 @@ class IsArray extends TypeSafeMatcher
         $this->_elementMatchers = $elementMatchers;
     }
 
-    protected function matchesSafely($array)
+    protected function matchesSafely($array): bool
     {
         if (array_keys($array) != array_keys($this->_elementMatchers)) {
             return false;
         }
 
-        /** @var $matcher \Hamcrest\Matcher */
         foreach ($this->_elementMatchers as $k => $matcher) {
             if (!$matcher->matches($array[$k])) {
                 return false;
@@ -47,7 +53,7 @@ class IsArray extends TypeSafeMatcher
         return true;
     }
 
-    protected function describeMismatchSafely($actual, Description $mismatchDescription)
+    protected function describeMismatchSafely($actual, Description $mismatchDescription): void
     {
         if (count($actual) != count($this->_elementMatchers)) {
             $mismatchDescription->appendText('array length was ' . count($actual));
@@ -66,7 +72,6 @@ class IsArray extends TypeSafeMatcher
             return;
         }
 
-        /** @var $matcher \Hamcrest\Matcher */
         foreach ($this->_elementMatchers as $k => $matcher) {
             if (!$matcher->matches($actual[$k])) {
                 $mismatchDescription->appendText('element ')->appendValue($k)
@@ -77,7 +82,7 @@ class IsArray extends TypeSafeMatcher
         }
     }
 
-    public function describeTo(Description $description)
+    public function describeTo(Description $description): void
     {
         $description->appendList(
             $this->descriptionStart(),
@@ -92,7 +97,7 @@ class IsArray extends TypeSafeMatcher
      *
      * @factory ...
      */
-    public static function anArray(/* args... */)
+    public static function anArray(/* args... */): self
     {
         $args = func_get_args();
 
@@ -101,17 +106,17 @@ class IsArray extends TypeSafeMatcher
 
     // -- Protected Methods
 
-    protected function descriptionStart()
+    protected function descriptionStart(): string
     {
         return '[';
     }
 
-    protected function descriptionSeparator()
+    protected function descriptionSeparator(): string
     {
         return ', ';
     }
 
-    protected function descriptionEnd()
+    protected function descriptionEnd(): string
     {
         return ']';
     }

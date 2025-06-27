@@ -19,5 +19,5 @@ interface SelfDescribing
      * @param \Hamcrest\Description $description
      *   The description to be built or appended to.
      */
-    public function describeTo(Description $description);
+    public function describeTo(Description $description): void;
 }

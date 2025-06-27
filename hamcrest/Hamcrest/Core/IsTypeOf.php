@@ -13,7 +13,7 @@ use Hamcrest\Description;
 class IsTypeOf extends BaseMatcher
 {
 
-    private $_theType;
+    private string $_theType;
 
     /**
      * Creates a new instance of IsTypeOf
@@ -21,22 +21,22 @@ class IsTypeOf extends BaseMatcher
      * @param string $theType
      *   The predicate evaluates to true for values with this built-in type.
      */
-    public function __construct($theType)
+    public function __construct(string $theType)
     {
         $this->_theType = strtolower($theType);
     }
 
-    public function matches($item)
+    public function matches($item): bool
     {
         return strtolower(gettype($item)) == $this->_theType;
     }
 
-    public function describeTo(Description $description)
+    public function describeTo(Description $description): void
     {
         $description->appendText(self::getTypeDescription($this->_theType));
     }
 
-    public function describeMismatch($item, Description $description)
+    public function describeMismatch($item, Description $description): void
     {
         if ($item === null) {
             $description->appendText('was null');
@@ -49,7 +49,7 @@ class IsTypeOf extends BaseMatcher
         }
     }
 
-    public static function getTypeDescription($type)
+    public static function getTypeDescription(string $type): string
     {
         if ($type == 'null') {
             return 'null';
@@ -63,8 +63,9 @@ class IsTypeOf extends BaseMatcher
      * Is the value a particular built-in type?
      *
      * @factory
+     * @param string $theType
      */
-    public static function typeOf($theType)
+    public static function typeOf(string $theType): self
     {
         return new self($theType);
     }
