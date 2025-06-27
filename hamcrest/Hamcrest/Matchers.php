@@ -248,7 +248,8 @@ class Matchers
     }
 
     /**
-     * Does array size satisfy a given matcher?
+     * Creates a matcher that matches any examined object whose <code>toString</code> or
+     * <code>__toString()</code> method returns a value equalTo the specified string.
      */
     public static function hasToString($matcher)
     {
