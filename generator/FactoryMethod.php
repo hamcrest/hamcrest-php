@@ -214,6 +214,21 @@ class FactoryMethod
         return $this->getClassName() . '::' . $this->getName();
     }
 
+    public function getReturnType(): ?string
+    {
+        if (!$this->reflector->hasReturnType()) {
+            return null;
+        }
+
+        $returnType = $this->reflector->getReturnType()->getName();
+
+        if ($returnType === 'self') {
+            return $this->reflector->getDeclaringClass()->getName();
+        }
+
+        return $returnType;
+    }
+
     public function getCommentText()
     {
         return implode("\n", $this->comment);

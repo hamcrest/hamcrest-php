@@ -85,7 +85,19 @@ abstract class FactoryFile
 
     public function generateReturnType(FactoryMethod $method): string
     {
-        return '\Hamcrest\Matcher';
+        $call = $method->getCalls()[0];
+        if (!$call instanceof FactoryCall) {
+            throw new Exception('The first call in the FactoryMethod cannot be used to determine the return type. Method: '.$method->getName());
+        }
+
+        $returnType = $call->getMethod()->getReturnType();
+
+        if (!$returnType) {
+            dump($method);
+            throw new \Exception('The first calls FactoryMethod cannot be used to determine the return type. Method: '.$method->getName());
+        }
+
+        return sprintf('\\%s', $returnType);
     }
 
     public function generateImport(FactoryMethod $method)

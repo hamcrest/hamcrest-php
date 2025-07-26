@@ -35,10 +35,9 @@ class IsAnything extends BaseMatcher
      *
      * @param string $description A meaningful string used when describing itself.
      *
-     * @return \Hamcrest\Core\IsAnything
      * @factory
      */
-    public static function anything(string $description = 'ANYTHING')
+    public static function anything(string $description = 'ANYTHING'): self
     {
         return new self($description);
     }
