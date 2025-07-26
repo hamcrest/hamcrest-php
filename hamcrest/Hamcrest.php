@@ -6,8 +6,6 @@
 
 // This file is generated from the static method @factory doctags.
 
-use Hamcrest\Matcher;
-
 if (!function_exists('assertThat')) {
     /**
      * Make an assertion and throw {@link Hamcrest_AssertionError} if it fails.
@@ -146,6 +144,7 @@ if (!function_exists('hasKey')) {
 if (!function_exists('hasKeyValuePair')) {
     /**
      * Test if an array has both an key and value in parity with each other.
+     *
      * @param mixed $key
      * @param mixed $value
      */
@@ -158,6 +157,7 @@ if (!function_exists('hasKeyValuePair')) {
 if (!function_exists('hasEntry')) {
     /**
      * Test if an array has both an key and value in parity with each other.
+     *
      * @param mixed $key
      * @param mixed $value
      */
@@ -224,6 +224,7 @@ if (!function_exists('nonEmptyTraversable')) {
 if (!function_exists('traversableWithSize')) {
     /**
      * Does traversable size satisfy a given matcher?
+     *
      * @param mixed $size
      */
     function traversableWithSize($size): \Hamcrest\Collection\IsTraversableWithSize
@@ -306,7 +307,7 @@ if (!function_exists('describedAs')) {
 
 if (!function_exists('everyItem')) {
     /**
-     * @param Matcher $itemMatcher
+     * @param \Hamcrest\Matcher $itemMatcher
      *   A matcher to apply to every element in an array.
      *
      * @return \Hamcrest\Core\Every
@@ -322,6 +323,8 @@ if (!function_exists('hasToString')) {
     /**
      * Creates a matcher that matches any examined object whose <code>toString</code> or
      * <code>__toString()</code> method returns a value equalTo the specified string.
+     *
+     * @param mixed $matcher
      */
     function hasToString($matcher): \Hamcrest\Core\HasToString
     {
@@ -336,6 +339,7 @@ if (!function_exists('is')) {
      *
      * For example:  assertThat($cheese, equalTo($smelly))
      *          vs.  assertThat($cheese, is(equalTo($smelly)))
+     *
      * @param mixed $value
      */
     function is($value): \Hamcrest\Core\Is
@@ -349,8 +353,6 @@ if (!function_exists('anything')) {
      * This matcher always evaluates to true.
      *
      * @param string $description A meaningful string used when describing itself.
-     *
-     * @return \Hamcrest\Core\IsAnything
      */
     function anything(string $description = 'ANYTHING'): \Hamcrest\Core\IsAnything
     {
@@ -397,6 +399,7 @@ if (!function_exists('equalTo')) {
     /**
      * Is the value equal to another value, as tested by the use of the "=="
      * comparison operator?
+     *
      * @param mixed $item
      */
     function equalTo($item): \Hamcrest\Core\IsEqual
@@ -408,6 +411,7 @@ if (!function_exists('equalTo')) {
 if (!function_exists('identicalTo')) {
     /**
      * Tests of the value is identical to $value as tested by the "===" operator.
+     *
      * @param mixed $value
      */
     function identicalTo($value): \Hamcrest\Core\IsIdentical
@@ -445,6 +449,7 @@ if (!function_exists('any')) {
 if (!function_exists('not')) {
     /**
      * Matches if value does not match $value.
+     *
      * @param mixed $value
      */
     function not($value): \Hamcrest\Core\IsNot
@@ -492,6 +497,8 @@ if (!function_exists('sameInstance')) {
 if (!function_exists('typeOf')) {
     /**
      * Is the value a particular built-in type?
+     *
+     * @param string $theType
      */
     function typeOf(string $theType): \Hamcrest\Core\IsTypeOf
     {
@@ -502,6 +509,7 @@ if (!function_exists('typeOf')) {
 if (!function_exists('set')) {
     /**
      * Matches if value (class, object, or array) has named $property.
+     *
      * @param mixed $property
      */
     function set($property): \Hamcrest\Core\Set
@@ -513,6 +521,7 @@ if (!function_exists('set')) {
 if (!function_exists('notSet')) {
     /**
      * Matches if value (class, object, or array) does not have named $property.
+     *
      * @param mixed $property
      */
     function notSet($property): \Hamcrest\Core\Set
@@ -525,6 +534,7 @@ if (!function_exists('closeTo')) {
     /**
      * Matches if value is a number equal to $value within some range of
      * acceptable error $delta.
+     *
      * @param mixed $value
      * @param mixed $delta
      */
@@ -537,6 +547,7 @@ if (!function_exists('closeTo')) {
 if (!function_exists('comparesEqualTo')) {
     /**
      * The value is not > $value, nor < $value.
+     *
      * @param mixed $value
      */
     function comparesEqualTo($value): \Hamcrest\Number\OrderingComparison
@@ -548,6 +559,7 @@ if (!function_exists('comparesEqualTo')) {
 if (!function_exists('greaterThan')) {
     /**
      * The value is > $value.
+     *
      * @param mixed $value
      */
     function greaterThan($value): \Hamcrest\Number\OrderingComparison
@@ -559,6 +571,7 @@ if (!function_exists('greaterThan')) {
 if (!function_exists('greaterThanOrEqualTo')) {
     /**
      * The value is >= $value.
+     *
      * @param mixed $value
      */
     function greaterThanOrEqualTo($value): \Hamcrest\Number\OrderingComparison
@@ -570,6 +583,7 @@ if (!function_exists('greaterThanOrEqualTo')) {
 if (!function_exists('atLeast')) {
     /**
      * The value is >= $value.
+     *
      * @param mixed $value
      */
     function atLeast($value): \Hamcrest\Number\OrderingComparison
@@ -581,6 +595,7 @@ if (!function_exists('atLeast')) {
 if (!function_exists('lessThan')) {
     /**
      * The value is < $value.
+     *
      * @param mixed $value
      */
     function lessThan($value): \Hamcrest\Number\OrderingComparison
@@ -592,6 +607,7 @@ if (!function_exists('lessThan')) {
 if (!function_exists('lessThanOrEqualTo')) {
     /**
      * The value is <= $value.
+     *
      * @param mixed $value
      */
     function lessThanOrEqualTo($value): \Hamcrest\Number\OrderingComparison
@@ -603,6 +619,7 @@ if (!function_exists('lessThanOrEqualTo')) {
 if (!function_exists('atMost')) {
     /**
      * The value is <= $value.
+     *
      * @param mixed $value
      */
     function atMost($value): \Hamcrest\Number\OrderingComparison
@@ -674,6 +691,7 @@ if (!function_exists('nonEmptyString')) {
 if (!function_exists('equalToIgnoringCase')) {
     /**
      * Matches if value is a string equal to $string, regardless of the case.
+     *
      * @param mixed $string
      */
     function equalToIgnoringCase($string): \Hamcrest\Text\IsEqualIgnoringCase
@@ -685,6 +703,7 @@ if (!function_exists('equalToIgnoringCase')) {
 if (!function_exists('equalToIgnoringWhiteSpace')) {
     /**
      * Matches if value is a string equal to $string, regardless of whitespace.
+     *
      * @param mixed $string
      */
     function equalToIgnoringWhiteSpace($string): \Hamcrest\Text\IsEqualIgnoringWhiteSpace
@@ -696,6 +715,7 @@ if (!function_exists('equalToIgnoringWhiteSpace')) {
 if (!function_exists('matchesPattern')) {
     /**
      * Matches if value is a string that matches regular expression $pattern.
+     *
      * @param mixed $pattern
      */
     function matchesPattern($pattern): \Hamcrest\Text\MatchesPattern
@@ -707,6 +727,7 @@ if (!function_exists('matchesPattern')) {
 if (!function_exists('containsString')) {
     /**
      * Matches if value is a string that contains $substring.
+     *
      * @param mixed $substring
      */
     function containsString($substring): \Hamcrest\Text\StringContains
@@ -718,6 +739,7 @@ if (!function_exists('containsString')) {
 if (!function_exists('containsStringIgnoringCase')) {
     /**
      * Matches if value is a string that contains $substring regardless of the case.
+     *
      * @param mixed $substring
      */
     function containsStringIgnoringCase($substring): \Hamcrest\Text\StringContainsIgnoringCase
@@ -740,6 +762,7 @@ if (!function_exists('stringContainsInOrder')) {
 if (!function_exists('endsWith')) {
     /**
      * Matches if value is a string that ends with $substring.
+     *
      * @param mixed $substring
      */
     function endsWith($substring): \Hamcrest\Text\StringEndsWith
@@ -751,6 +774,7 @@ if (!function_exists('endsWith')) {
 if (!function_exists('startsWith')) {
     /**
      * Matches if value is a string that starts with $substring.
+     *
      * @param mixed $substring
      */
     function startsWith($substring): \Hamcrest\Text\StringStartsWith
@@ -904,10 +928,11 @@ if (!function_exists('hasXPath')) {
      * Wraps <code>$matcher</code> with {@link Hamcrest\Core\IsEqual)
      * if it's not a matcher and the XPath in <code>count()</code>
      * if it's an integer.
+     *
      * @param string $xpath
      * @param null|Matcher|int|mixed $matcher
      */
-    function hasXPath($xpath, $matcher = null): \Hamcrest\Xml\HasXPath
+    function hasXPath(string $xpath, $matcher = null): \Hamcrest\Xml\HasXPath
     {
         return \Hamcrest\Xml\HasXPath::hasXPath($xpath, $matcher);
     }
