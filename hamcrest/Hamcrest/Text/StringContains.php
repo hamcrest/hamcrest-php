@@ -10,13 +10,15 @@ namespace Hamcrest\Text;
  */
 class StringContains extends SubstringMatcher
 {
-
+    /**
+     * @param mixed $substring
+     */
     public function __construct($substring)
     {
         parent::__construct($substring);
     }
 
-    public function ignoringCase()
+    public function ignoringCase(): StringContainsIgnoringCase
     {
         return new StringContainsIgnoringCase($this->_substring);
     }
@@ -25,20 +27,21 @@ class StringContains extends SubstringMatcher
      * Matches if value is a string that contains $substring.
      *
      * @factory
+     * @param mixed $substring
      */
-    public static function containsString($substring)
+    public static function containsString($substring): self
     {
         return new self($substring);
     }
 
     // -- Protected Methods
 
-    protected function evalSubstringOf($item)
+    protected function evalSubstringOf(string $item): bool
     {
         return (false !== strpos((string) $item, $this->_substring));
     }
 
-    protected function relationship()
+    protected function relationship(): string
     {
         return 'containing';
     }

@@ -14,40 +14,44 @@ abstract class TypeSafeMatcher extends BaseMatcher
 {
 
     /* Types that PHP can compare against */
-    const TYPE_ANY = 0;
-    const TYPE_STRING = 1;
-    const TYPE_NUMERIC = 2;
-    const TYPE_ARRAY = 3;
-    const TYPE_OBJECT = 4;
-    const TYPE_RESOURCE = 5;
-    const TYPE_BOOLEAN = 6;
+    protected const TYPE_ANY = 0;
+    protected const TYPE_STRING = 1;
+    protected const TYPE_NUMERIC = 2;
+    protected const TYPE_ARRAY = 3;
+    protected const TYPE_OBJECT = 4;
+    protected const TYPE_RESOURCE = 5;
+    protected const TYPE_BOOLEAN = 6;
 
     /**
      * The type that is required for a safe comparison
      *
      * @var int
      */
-    private $_expectedType;
+    private int $_expectedType;
 
     /**
      * The subtype (e.g. class for objects) that is required
      *
      * @var string
      */
-    private $_expectedSubtype;
+    private ?string $_expectedSubtype;
 
-    public function __construct($expectedType, $expectedSubtype = null)
+    /**
+     * @param self::TYPE_* $expectedType
+     * @param string|null $expectedSubtype
+     */
+    public function __construct(int $expectedType, ?string $expectedSubtype = null)
     {
         $this->_expectedType = $expectedType;
         $this->_expectedSubtype = $expectedSubtype;
     }
 
-    final public function matches($item)
+    final public function matches($item): bool
     {
         return $this->_isSafeType($item) && $this->matchesSafely($item);
     }
 
-    final public function describeMismatch($item, Description $mismatchDescription)
+    final public function describeMismatch($item, Description $mismatchDescription): void
     {
         if (!$this->_isSafeType($item)) {
             parent::describeMismatch($item, $mismatchDescription);
@@ -60,17 +64,22 @@ abstract class TypeSafeMatcher extends BaseMatcher
 
     /**
      * The item will already have been checked for the specific type and subtype.
+     * @param mixed $item
      */
-    abstract protected function matchesSafely($item);
+    abstract protected function matchesSafely($item): bool;
 
     /**
      * The item will already have been checked for the specific type and subtype.
+     * @param mixed $item
      */
-    abstract protected function describeMismatchSafely($item, Description $mismatchDescription);
+    abstract protected function describeMismatchSafely($item, Description $mismatchDescription): void;
 
     // -- Private Methods
 
-    private function _isSafeType($value)
+    /**
+     * @param mixed $value
+     */
+    private function _isSafeType($value): bool
     {
         switch ($this->_expectedType) {
 

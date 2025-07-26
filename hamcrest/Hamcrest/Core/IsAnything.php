@@ -13,19 +13,19 @@ use Hamcrest\Description;
 class IsAnything extends BaseMatcher
 {
 
-    private $_message;
+    private string $_message;
 
-    public function __construct($message = 'ANYTHING')
+    public function __construct(string $message = 'ANYTHING')
     {
         $this->_message = $message;
     }
 
-    public function matches($item)
+    public function matches($item): bool
     {
         return true;
     }
 
-    public function describeTo(Description $description)
+    public function describeTo(Description $description): void
     {
         $description->appendText($this->_message);
     }
@@ -35,10 +35,9 @@ class IsAnything extends BaseMatcher
      *
      * @param string $description A meaningful string used when describing itself.
      *
-     * @return \Hamcrest\Core\IsAnything
      * @factory
      */
-    public static function anything($description = 'ANYTHING')
+    public static function anything(string $description = 'ANYTHING'): self
     {
         return new self($description);
     }

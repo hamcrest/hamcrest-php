@@ -11,10 +11,24 @@ use Hamcrest\TypeSafeMatcher;
 class OrderingComparison extends TypeSafeMatcher
 {
 
+    /**
+     * @var mixed
+     */
     private $_value;
+    /**
+     * @var mixed
+     */
     private $_minCompare;
+    /**
+     * @var mixed
+     */
     private $_maxCompare;
 
+    /**
+     * @param mixed $value
+     * @param mixed $maxCompare
+     * @param mixed $minCompare
+     */
     public function __construct($value, $minCompare, $maxCompare)
     {
         parent::__construct(self::TYPE_NUMERIC);
@@ -24,14 +38,14 @@ class OrderingComparison extends TypeSafeMatcher
         $this->_maxCompare = $maxCompare;
     }
 
-    protected function matchesSafely($other)
+    protected function matchesSafely($other): bool
     {
         $compare = $this->_compare($this->_value, $other);
 
         return ($this->_minCompare <= $compare) && ($compare <= $this->_maxCompare);
     }
 
-    protected function describeMismatchSafely($item, Description $mismatchDescription)
+    protected function describeMismatchSafely($item, Description $mismatchDescription): void
     {
         $mismatchDescription
             ->appendValue($item)->appendText(' was ')
@@ -40,7 +54,7 @@ class OrderingComparison extends TypeSafeMatcher
             ;
     }
 
-    public function describeTo(Description $description)
+    public function describeTo(Description $description): void
     {
         $description->appendText('a value ')
             ->appendText($this->_comparison($this->_minCompare))
@@ -57,8 +71,9 @@ class OrderingComparison extends TypeSafeMatcher
      * The value is not > $value, nor < $value.
      *
      * @factory
+     * @param mixed $value
      */
-    public static function comparesEqualTo($value)
+    public static function comparesEqualTo($value): self
     {
         return new self($value, 0, 0);
     }
@@ -67,8 +82,9 @@ class OrderingComparison extends TypeSafeMatcher
      * The value is > $value.
      *
      * @factory
+     * @param mixed $value
      */
-    public static function greaterThan($value)
+    public static function greaterThan($value): self
     {
         return new self($value, -1, -1);
     }
@@ -77,8 +93,9 @@ class OrderingComparison extends TypeSafeMatcher
      * The value is >= $value.
      *
      * @factory atLeast
+     * @param mixed $value
      */
-    public static function greaterThanOrEqualTo($value)
+    public static function greaterThanOrEqualTo($value): self
     {
         return new self($value, -1, 0);
     }
@@ -87,8 +104,9 @@ class OrderingComparison extends TypeSafeMatcher
      * The value is < $value.
      *
      * @factory
+     * @param mixed $value
      */
-    public static function lessThan($value)
+    public static function lessThan($value): self
     {
         return new self($value, 1, 1);
     }
@@ -97,15 +115,20 @@ class OrderingComparison extends TypeSafeMatcher
      * The value is <= $value.
      *
      * @factory atMost
+     * @param mixed $value
      */
-    public static function lessThanOrEqualTo($value)
+    public static function lessThanOrEqualTo($value): self
     {
         return new self($value, 0, 1);
     }
 
     // -- Private Methods
 
-    private function _compare($left, $right)
+    /**
+     * @param mixed $left
+     * @param mixed $right
+     */
+    private function _compare($left, $right): int
     {
         $a = $left;
         $b = $right;
@@ -119,7 +142,10 @@ class OrderingComparison extends TypeSafeMatcher
         }
     }
 
-    private function _comparison($compare)
+    /**
+     * @param mixed $compare
+     */
+    private function _comparison($compare): string
     {
         if ($compare > 0) {
             return 'less than';

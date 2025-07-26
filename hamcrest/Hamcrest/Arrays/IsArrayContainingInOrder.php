@@ -5,6 +5,7 @@ namespace Hamcrest\Arrays;
  Copyright (c) 2009 hamcrest.org
  */
 use Hamcrest\Description;
+use Hamcrest\Matcher;
 use Hamcrest\TypeSafeDiagnosingMatcher;
 use Hamcrest\Util;
 
@@ -14,8 +15,14 @@ use Hamcrest\Util;
 class IsArrayContainingInOrder extends TypeSafeDiagnosingMatcher
 {
 
-    private $_elementMatchers;
+    /**
+     * @var array<Matcher>
+     */
+    private array $_elementMatchers;
 
+    /**
+     * @param array<Matcher> $elementMatchers
+     */
     public function __construct(array $elementMatchers)
     {
         parent::__construct(self::TYPE_ARRAY);
@@ -25,7 +32,7 @@ class IsArrayContainingInOrder extends TypeSafeDiagnosingMatcher
         $this->_elementMatchers = $elementMatchers;
     }
 
-    protected function matchesSafelyWithDiagnosticDescription($array, Description $mismatchDescription)
+    protected function matchesSafelyWithDiagnosticDescription($array, Description $mismatchDescription): bool
     {
         $series = new SeriesMatchingOnce($this->_elementMatchers, $mismatchDescription);
 
@@ -38,7 +45,7 @@ class IsArrayContainingInOrder extends TypeSafeDiagnosingMatcher
         return $series->isFinished();
     }
 
-    public function describeTo(Description $description)
+    public function describeTo(Description $description): void
     {
         $description->appendList('[', ', ', ']', $this->_elementMatchers);
     }
@@ -48,7 +55,7 @@ class IsArrayContainingInOrder extends TypeSafeDiagnosingMatcher
      *
      * @factory contains ...
      */
-    public static function arrayContaining(/* args... */)
+    public static function arrayContaining(/* args... */): self
     {
         $args = func_get_args();
 

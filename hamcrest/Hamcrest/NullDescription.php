@@ -11,27 +11,27 @@ namespace Hamcrest;
 class NullDescription implements Description
 {
 
-    public function appendText($text)
+    public function appendText(string $text): self
     {
         return $this;
     }
 
-    public function appendDescriptionOf(SelfDescribing $value)
+    public function appendDescriptionOf(SelfDescribing $value): self
     {
         return $this;
     }
 
-    public function appendValue($value)
+    public function appendValue($value): self
     {
         return $this;
     }
 
-    public function appendValueList($start, $separator, $end, $values)
+    public function appendValueList(string $start, string $separator, string $end, $values): self
     {
         return $this;
     }
 
-    public function appendList($start, $separator, $end, $values)
+    public function appendList(string $start, string $separator, string $end, $values): self
     {
         return $this;
     }
