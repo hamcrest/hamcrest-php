@@ -93,7 +93,6 @@ abstract class FactoryFile
         $returnType = $call->getMethod()->getReturnType();
 
         if (!$returnType) {
-            dump($method);
             throw new \Exception('The first calls FactoryMethod cannot be used to determine the return type. Method: '.$method->getName());
         }
 
