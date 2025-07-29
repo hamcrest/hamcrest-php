@@ -24,8 +24,7 @@
 		"phpunit/php-file-iterator": "^1.4 || ^2.0 || ^3.0",
 		"phpunit/phpunit": "^4.8.36 || ^5.7 || ^6.5 || ^7.0 || ^8.0 || ^9.0",
 		"phpstan/phpstan": "^2.1",
-		"phpstan/phpstan-phpunit": "^2.0",
-		"symfony/var-dumper": "^5.4"
+		"phpstan/phpstan-phpunit": "^2.0"
 	},
 
 	"replace": {
