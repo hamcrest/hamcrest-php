@@ -1,0 +1,19 @@
+includes:
+	- vendor/phpstan/phpstan-phpunit/extension.neon
+	- tests/phpstan-baseline.neon
+
+parameters:
+    level: 8
+    paths:
+        - hamcrest
+        - tests
+
+    excludePaths:
+        analyse:
+            - tests/
+
+
+    editorUrl: 'phpstorm://open?file=%%file%%&line=%%line%%&project=hamcrest-php'
+
+    reportUnmatchedIgnoredErrors: false
+

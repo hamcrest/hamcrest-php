@@ -11,6 +11,9 @@ namespace Hamcrest\Text;
 class StringContainsIgnoringCase extends SubstringMatcher
 {
 
+    /**
+     * @param mixed $substring
+     */
     public function __construct($substring)
     {
         parent::__construct($substring);
@@ -20,20 +23,21 @@ class StringContainsIgnoringCase extends SubstringMatcher
      * Matches if value is a string that contains $substring regardless of the case.
      *
      * @factory
+     * @param mixed $substring
      */
-    public static function containsStringIgnoringCase($substring)
+    public static function containsStringIgnoringCase($substring): self
     {
         return new self($substring);
     }
 
     // -- Protected Methods
 
-    protected function evalSubstringOf($item)
+    protected function evalSubstringOf(string $item): bool
     {
         return (false !== stripos((string) $item, $this->_substring));
     }
 
-    protected function relationship()
+    protected function relationship(): string
     {
         return 'containing in any case';
     }

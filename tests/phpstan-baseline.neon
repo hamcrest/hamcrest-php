@@ -1,0 +1,43 @@
+parameters:
+	ignoreErrors:
+		-
+			message: '#^Cannot call method matches\(\) on Hamcrest\\Matcher\|null\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: ../hamcrest/Hamcrest/Arrays/SeriesMatchingOnce.php
+
+		-
+			message: '#^Parameter \#1 \$matcher of method Hamcrest\\Arrays\\SeriesMatchingOnce\:\:_describeMismatch\(\) expects Hamcrest\\Matcher, Hamcrest\\Matcher\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: ../hamcrest/Hamcrest/Arrays/SeriesMatchingOnce.php
+
+		-
+			message: '#^Cannot call method toString\(\) on class\-string\|object\.$#'
+			identifier: method.nonObject
+			count: 1
+			path: ../hamcrest/Hamcrest/Core/HasToString.php
+
+		-
+			message: '#^Argument of an invalid type list\<string\>\|false supplied for foreach, only iterables are supported\.$#'
+			identifier: foreach.nonIterable
+			count: 1
+			path: ../hamcrest/Hamcrest/Text/IsEqualIgnoringWhiteSpace.php
+
+		-
+			message: '#^Cannot access offset int\<0, max\> on non\-empty\-array\<int\<0, max\>, string\>\|false\.$#'
+			identifier: offsetAccess.nonOffsetAccessible
+			count: 1
+			path: ../hamcrest/Hamcrest/Text/IsEqualIgnoringWhiteSpace.php
+
+		-
+			message: '#^Method Hamcrest\\Xml\\HasXPath\:\:matchesContent\(\) has parameter \$nodes with generic class DOMNodeList but does not specify its types\: TNode$#'
+			identifier: missingType.generics
+			count: 1
+			path: ../hamcrest/Hamcrest/Xml/HasXPath.php
+
+		-
+			message: '#^Parameter \#1 \$document of class DOMXPath constructor expects DOMDocument, DOMDocument\|null given\.$#'
+			identifier: argument.type
+			count: 1
+			path: ../hamcrest/Hamcrest/Xml/HasXPath.php

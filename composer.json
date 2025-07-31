@@ -22,7 +22,9 @@
 
 	"require-dev": {
 		"phpunit/php-file-iterator": "^1.4 || ^2.0 || ^3.0",
-		"phpunit/phpunit": "^4.8.36 || ^5.7 || ^6.5 || ^7.0 || ^8.0 || ^9.0"
+		"phpunit/phpunit": "^4.8.36 || ^5.7 || ^6.5 || ^7.0 || ^8.0 || ^9.0",
+		"phpstan/phpstan": "^2.1",
+		"phpstan/phpstan-phpunit": "^2.0"
 	},
 
 	"replace": {
@@ -33,7 +35,7 @@
 
     "extra": {
         "branch-alias": {
-            "dev-master": "2.1-dev"
+            "dev-master": "3.0-dev"
         }
     }
 }

@@ -26,7 +26,7 @@ class HasToString extends FeatureMatcher
         );
     }
 
-    public function matchesSafelyWithDiagnosticDescription($actual, Description $mismatchDescription)
+    public function matchesSafelyWithDiagnosticDescription($actual, Description $mismatchDescription): bool
     {
         if (method_exists($actual, 'toString') || method_exists($actual, '__toString')) {
             return parent::matchesSafelyWithDiagnosticDescription($actual, $mismatchDescription);
@@ -49,8 +49,9 @@ class HasToString extends FeatureMatcher
      * <code>__toString()</code> method returns a value equalTo the specified string.
      *
      * @factory
+     * @param mixed $matcher
      */
-    public static function hasToString($matcher)
+    public static function hasToString($matcher): self
     {
         return new self(Util::wrapValueWithIsEqual($matcher));
     }

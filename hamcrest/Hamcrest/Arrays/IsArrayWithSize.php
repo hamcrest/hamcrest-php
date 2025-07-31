@@ -40,7 +40,7 @@ class IsArrayWithSize extends FeatureMatcher
      * @return \Hamcrest\Arrays\IsArrayWithSize
      * @factory
      */
-    public static function arrayWithSize($size)
+    public static function arrayWithSize($size): self
     {
         return new self(Util::wrapValueWithIsEqual($size));
     }
@@ -50,7 +50,7 @@ class IsArrayWithSize extends FeatureMatcher
      *
      * @factory
      */
-    public static function emptyArray()
+    public static function emptyArray(): DescribedAs
     {
         return DescribedAs::describedAs(
             'an empty array',
@@ -63,7 +63,7 @@ class IsArrayWithSize extends FeatureMatcher
      *
      * @factory
      */
-    public static function nonEmptyArray()
+    public static function nonEmptyArray(): DescribedAs
     {
         return DescribedAs::describedAs(
             'a non-empty array',

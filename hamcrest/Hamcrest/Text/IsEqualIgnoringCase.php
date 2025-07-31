@@ -12,9 +12,14 @@ use Hamcrest\TypeSafeMatcher;
  */
 class IsEqualIgnoringCase extends TypeSafeMatcher
 {
-
+    /**
+     * @var mixed
+     */
     private $_string;
 
+    /**
+     * @param mixed $string
+     */
     public function __construct($string)
     {
         parent::__construct(self::TYPE_STRING);
@@ -22,17 +27,17 @@ class IsEqualIgnoringCase extends TypeSafeMatcher
         $this->_string = $string;
     }
 
-    protected function matchesSafely($item)
+    protected function matchesSafely($item): bool
     {
         return strtolower($this->_string) === strtolower($item);
     }
 
-    protected function describeMismatchSafely($item, Description $mismatchDescription)
+    protected function describeMismatchSafely($item, Description $mismatchDescription): void
     {
         $mismatchDescription->appendText('was ')->appendText($item);
     }
 
-    public function describeTo(Description $description)
+    public function describeTo(Description $description): void
     {
         $description->appendText('equalToIgnoringCase(')
                                 ->appendValue($this->_string)
@@ -44,8 +49,9 @@ class IsEqualIgnoringCase extends TypeSafeMatcher
      * Matches if value is a string equal to $string, regardless of the case.
      *
      * @factory
+     * @param mixed $string
      */
-    public static function equalToIgnoringCase($string)
+    public static function equalToIgnoringCase($string): self
     {
         return new self($string);
     }

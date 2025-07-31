@@ -17,7 +17,7 @@ class IsNumeric extends IsTypeOf
         parent::__construct('number');
     }
 
-    public function matches($item)
+    public function matches($item): bool
     {
         if ($this->isHexadecimal($item)) {
             return true;
@@ -47,7 +47,7 @@ class IsNumeric extends IsTypeOf
      *
      * @factory
      */
-    public static function numericValue()
+    public static function numericValue(): self
     {
         return new self;
     }

@@ -12,15 +12,20 @@ use Hamcrest\SelfDescribing;
  */
 class SelfDescribingValue implements SelfDescribing
 {
-
+    /**
+     * @var mixed
+     */
     private $_value;
 
+    /**
+     * @param mixed $value
+     */
     public function __construct($value)
     {
         $this->_value = $value;
     }
 
-    public function describeTo(Description $description)
+    public function describeTo(Description $description): void
     {
         $description->appendValue($this->_value);
     }

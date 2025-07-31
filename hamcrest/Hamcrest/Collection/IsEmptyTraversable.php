@@ -13,17 +13,17 @@ use Hamcrest\Description;
 class IsEmptyTraversable extends BaseMatcher
 {
 
-    private static $_INSTANCE;
-    private static $_NOT_INSTANCE;
+    private static ?self $_INSTANCE = null;
+    private static ?self $_NOT_INSTANCE = null;
 
-    private $_empty;
+    private bool $_empty;
 
-    public function __construct($empty = true)
+    public function __construct(bool $empty = true)
     {
         $this->_empty = $empty;
     }
 
-    public function matches($item)
+    public function matches($item): bool
     {
         if (!$item instanceof \Traversable) {
             return false;
@@ -36,7 +36,7 @@ class IsEmptyTraversable extends BaseMatcher
         return $this->_empty;
     }
 
-    public function describeTo(Description $description)
+    public function describeTo(Description $description): void
     {
         $description->appendText($this->_empty ? 'an empty traversable' : 'a non-empty traversable');
     }
@@ -46,7 +46,7 @@ class IsEmptyTraversable extends BaseMatcher
      *
      * @factory
      */
-    public static function emptyTraversable()
+    public static function emptyTraversable(): self
     {
         if (!self::$_INSTANCE) {
             self::$_INSTANCE = new self;
@@ -60,7 +60,7 @@ class IsEmptyTraversable extends BaseMatcher
      *
      * @factory
      */
-    public static function nonEmptyTraversable()
+    public static function nonEmptyTraversable(): self
     {
         if (!self::$_NOT_INSTANCE) {
             self::$_NOT_INSTANCE = new self(false);

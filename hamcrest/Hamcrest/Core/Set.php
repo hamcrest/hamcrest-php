@@ -22,16 +22,22 @@ use Hamcrest\Description;
 class Set extends BaseMatcher
 {
 
+    /**
+     * @var mixed $_property
+     */
     private $_property;
-    private $_not;
+    private bool $_not;
 
-    public function __construct($property, $not = false)
+    /**
+     * @param mixed $property
+     */
+    public function __construct($property, bool $not = false)
     {
         $this->_property = $property;
         $this->_not = $not;
     }
 
-    public function matches($item)
+    public function matches($item): bool
     {
         if ($item === null) {
             return false;
@@ -50,12 +56,12 @@ class Set extends BaseMatcher
         return $this->_not ? !$result : $result;
     }
 
-    public function describeTo(Description $description)
+    public function describeTo(Description $description): void
     {
         $description->appendText($this->_not ? 'unset property ' : 'set property ')->appendText($this->_property);
     }
 
-    public function describeMismatch($item, Description $description)
+    public function describeMismatch($item, Description $description): void
     {
         $value = '';
         if (!$this->_not) {
@@ -77,8 +83,9 @@ class Set extends BaseMatcher
      * Matches if value (class, object, or array) has named $property.
      *
      * @factory
+     * @param mixed $property
      */
-    public static function set($property)
+    public static function set($property): self
     {
         return new self($property);
     }
@@ -87,8 +94,9 @@ class Set extends BaseMatcher
      * Matches if value (class, object, or array) does not have named $property.
      *
      * @factory
+     * @param mixed $property
      */
-    public static function notSet($property)
+    public static function notSet($property): self
     {
         return new self($property, true);
     }

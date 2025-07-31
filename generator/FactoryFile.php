@@ -65,7 +65,7 @@ abstract class FactoryFile
         $code = $this->indent . $this->getDeclarationModifiers()
             . 'function ' . $name . '('
             . $this->generateDeclarationArguments($method)
-            . ')' . "\n" . $this->indent . '{' . "\n";
+            . '): ' . $this->generateReturnType($method) . "\n" . $this->indent . '{' . "\n";
         return $code;
     }
 
@@ -81,6 +81,22 @@ abstract class FactoryFile
         } else {
             return $method->getParameterDeclarations();
         }
+    }
+
+    public function generateReturnType(FactoryMethod $method): string
+    {
+        $call = $method->getCalls()[0];
+        if (!$call instanceof FactoryCall) {
+            throw new Exception('The first call in the FactoryMethod cannot be used to determine the return type. Method: '.$method->getName());
+        }
+
+        $returnType = $call->getMethod()->getReturnType();
+
+        if (!$returnType) {
+            throw new \Exception('The first calls FactoryMethod cannot be used to determine the return type. Method: '.$method->getName());
+        }
+
+        return sprintf('\\%s', $returnType);
     }
 
     public function generateImport(FactoryMethod $method)
