@@ -1,7 +1,7 @@
 This is the PHP port of Hamcrest Matchers
 =========================================
 
-[![tests](https://github.com/hamcrest/hamcrest-php/actions/workflows/tests.yml/badge.svg)](https://github.com/hamcrest/hamcrest-php/actions/workflows/tests.yml)
+[![tests](https://github.com/hamcrest/hamcrest-php/actions/workflows/ci.yml/badge.svg)](https://github.com/hamcrest/hamcrest-php/actions/workflows/ci.yml)
 
 Hamcrest is a matching library originally written for Java, but
 subsequently ported to many other languages.  hamcrest-php is the
