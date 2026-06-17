@@ -125,13 +125,15 @@ class HasXPath extends DiagnosingMatcher
             return true;
         } else {
             foreach ($nodes as $node) {
-                if ($this->_matcher->matches($node->textContent)) {
+                if ($node instanceof \DOMNode && $this->_matcher->matches($node->textContent)) {
                     return true;
                 }
             }
             $content = array();
             foreach ($nodes as $node) {
-                $content[] = $node->textContent;
+                if ($node instanceof \DOMNode) {
+                    $content[] = $node->textContent;
+                }
             }
             $mismatchDescription->appendText('XPath returned ')
                                                     ->appendValue($content);
