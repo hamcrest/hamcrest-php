@@ -12,9 +12,21 @@ namespace Hamcrest;
  */
 class Util
 {
-    public static function registerGlobalFunctions(): void
+    /**
+     * Registers the global factory functions.
+     *
+     * Naming a function "is" is deprecated since PHP 8.6, so registering is()
+     * emits a deprecation notice there. Pass false to skip it and use
+     * {@see Matchers::is()} instead.
+     *
+     * @param bool $includeIs whether to register the is() function
+     */
+    public static function registerGlobalFunctions(bool $includeIs = true): void
     {
-        require_once __DIR__.'/../Hamcrest.php';
+        require_once __DIR__.'/../HamcrestFunctions.php';
+        if ($includeIs) {
+            require_once __DIR__.'/../HamcrestIs.php';
+        }
     }
 
     /**

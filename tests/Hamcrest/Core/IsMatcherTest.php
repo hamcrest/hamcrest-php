@@ -47,4 +47,11 @@ class IsMatcherTest extends \Hamcrest\AbstractMatcherTest
         $this->assertMatches($matcher, 'A', 'should match');
         $this->assertDescription('is "A"', $matcher);
     }
+
+    public function testGlobalFunctionsWithoutIsAreInSeparateFile()
+    {
+        $functions = file_get_contents(__DIR__ . '/../../../hamcrest/HamcrestFunctions.php');
+        $this->assertStringNotContainsString('function is(', $functions);
+        $this->assertStringContainsString('function equalTo(', $functions);
+    }
 }
