@@ -332,22 +332,6 @@ if (!function_exists('hasToString')) {
     }
 }
 
-if (!function_exists('is')) {
-    /**
-     * Decorates another Matcher, retaining the behavior but allowing tests
-     * to be slightly more expressive.
-     *
-     * For example:  assertThat($cheese, equalTo($smelly))
-     *          vs.  assertThat($cheese, is(equalTo($smelly)))
-     *
-     * @param mixed $value
-     */
-    function is($value): \Hamcrest\Core\Is
-    {
-        return \Hamcrest\Core\Is::is($value);
-    }
-}
-
 if (!function_exists('anything')) {
     /**
      * This matcher always evaluates to true.
@@ -443,6 +427,22 @@ if (!function_exists('any')) {
     function any(string $theClass): \Hamcrest\Core\IsInstanceOf
     {
         return \Hamcrest\Core\IsInstanceOf::anInstanceOf($theClass);
+    }
+}
+
+if (!function_exists('is')) {
+    /**
+     * Decorates another Matcher, retaining the behavior but allowing tests
+     * to be slightly more expressive.
+     *
+     * For example:  assertThat($cheese, equalTo($smelly))
+     *          vs.  assertThat($cheese, is(equalTo($smelly)))
+     *
+     * @param mixed $value
+     */
+    function is($value): \Hamcrest\Core\IsMatcher
+    {
+        return \Hamcrest\Core\IsMatcher::is($value);
     }
 }
 

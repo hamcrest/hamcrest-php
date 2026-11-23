@@ -267,20 +267,6 @@ class Matchers
     }
 
     /**
-     * Decorates another Matcher, retaining the behavior but allowing tests
-     * to be slightly more expressive.
-     *
-     * For example:  assertThat($cheese, equalTo($smelly))
-     *          vs.  assertThat($cheese, is(equalTo($smelly)))
-     *
-     * @param mixed $value
-     */
-    public static function is($value): \Hamcrest\Core\Is
-    {
-        return \Hamcrest\Core\Is::is($value);
-    }
-
-    /**
      * This matcher always evaluates to true.
      *
      * @param string $description A meaningful string used when describing itself.
@@ -362,6 +348,20 @@ class Matchers
     public static function any(string $theClass): \Hamcrest\Core\IsInstanceOf
     {
         return \Hamcrest\Core\IsInstanceOf::anInstanceOf($theClass);
+    }
+
+    /**
+     * Decorates another Matcher, retaining the behavior but allowing tests
+     * to be slightly more expressive.
+     *
+     * For example:  assertThat($cheese, equalTo($smelly))
+     *          vs.  assertThat($cheese, is(equalTo($smelly)))
+     *
+     * @param mixed $value
+     */
+    public static function is($value): \Hamcrest\Core\IsMatcher
+    {
+        return \Hamcrest\Core\IsMatcher::is($value);
     }
 
     /**
