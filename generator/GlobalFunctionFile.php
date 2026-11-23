@@ -11,14 +11,35 @@ class GlobalFunctionFile extends FactoryFile
      */
     private $functions;
 
-    public function __construct($file)
+    /**
+     * @var string[]|null names of the only functions to generate, null for all
+     */
+    private $only;
+
+    /**
+     * @var string[] names of the functions to skip
+     */
+    private $except;
+
+    /**
+     * @param string[]|null $only names of the only functions to generate, null for all
+     * @param string[] $except names of the functions to skip
+     */
+    public function __construct($file, ?array $only = null, array $except = array())
     {
         parent::__construct($file, '    ');
         $this->functions = '';
+        $this->only = $only;
+        $this->except = $except;
     }
 
     public function addCall(FactoryCall $call)
     {
+        $name = $call->getName();
+        if (($this->only !== null && !in_array($name, $this->only, true)) || in_array($name, $this->except, true)) {
+            return;
+        }
+
         $this->functions .= "\n" . $this->generateFactoryCall($call);
     }
 
@@ -26,7 +47,9 @@ class GlobalFunctionFile extends FactoryFile
     {
         $this->addFileHeader();
         $this->addPart('functions_imports');
-        $this->addPart('functions_header');
+        if ($this->only === null) {
+            $this->addPart('functions_header');
+        }
         $this->addCode($this->functions);
         $this->addPart('functions_footer');
     }

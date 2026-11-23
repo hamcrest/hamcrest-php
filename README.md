@@ -83,6 +83,16 @@ assertThat(true, is(true));
 > \Hamcrest\Util::registerGlobalFunctions();
 > ```
 
+> [!NOTE]
+> Naming a function `is` is deprecated since PHP 8.6, so registering the global `is()` function emits a deprecation notice there.
+> To register the global functions without it, pass `false` and use `\Hamcrest\Matchers::is()` instead:
+>
+> ```php
+> \Hamcrest\Util::registerGlobalFunctions(false);
+> ```
+>
+> For the same reason, the `Hamcrest\Core\Is` class is deprecated in favour of `Hamcrest\Core\IsMatcher`.
+
 For brevity, all of the examples below use the proxy-functions.
 
 
